@@ -139,7 +139,7 @@ h6 {
 --------------------------------------------------------------*/
 .header {
   color: var(--default-color);
-  background-color: var(--background-header-color);
+  background-color: whitesmoke;
   padding: 20px 0;
   transition: all 0.5s;
   z-index: 997;
