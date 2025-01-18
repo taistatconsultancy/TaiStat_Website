@@ -93,6 +93,63 @@
     max-width: 100%;
     height: auto;
   }
+
+
+  /* General Styles for Pricing Items */
+.pricing-tem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.pricing-tem:hover {
+  transform: scale(1.05);
+}
+
+/* Course Image Styles */
+.pricing-tem .icon {
+  width: 100%;
+  max-width: 300px; /* Ensure images do not stretch beyond a set width */
+  height: auto; /* Automatically adjust height based on the image's aspect ratio */
+  margin-bottom: 15px;
+}
+
+.pricing-tem .icon img {
+  width: 100%; /* Image width is 100% of its container */
+  height: auto; /* Maintain original aspect ratio */
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.pricing-tem .icon img:hover {
+  transform: scale(1.05); /* Add a subtle zoom effect on hover */
+}
+
+/* Responsive Adjustments for Different Screen Sizes */
+@media (max-width: 1024px) {
+  .pricing-tem .icon {
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .pricing-tem .icon {
+    max-width: 200px; /* Adjust image size for tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .pricing-tem .icon {
+    max-width: 150px; /* Adjust image size for small devices */
+  }
+}
+
 </style>
  
 </head>
@@ -128,7 +185,7 @@
     </div>
   </header>
  <!-- Courses Section -->
-<section id="courses" class="pricing section">
+ <section id="courses" class="pricing section">
 
   <!-- Section Title -->
   <div class="container section-title" data-aos="zoom-out">
@@ -144,9 +201,9 @@
       <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
         <div class="pricing-tem" id="course-1">
           <h3 style="color: #20c997;">Excel</h3>
-          <div class="price"><sup>$</sup>17.24<span></span></div>
+          <div class="price"><sup>Ksh</sup>2,414<span></span></div>
           <div class="icon">
-            <i class="bi bi-table" style="color: #20c997;"></i>
+            <img src="assets/img/excel.jpg" alt="">
           </div>
           <ul>
             <li>Comprehensive Training</li>
@@ -154,7 +211,7 @@
             <li>Practical Exercises</li>
             <li>Certification Available</li>
           </ul>
-          <button class="btn-buy" onclick="enrollNow('Excel', '17.24', 'Comprehensive Training, Data Analysis Techniques, Practical Exercises, Certification Available')">Enroll Now</button>
+          <button class="btn-buy" onclick="enrollNow('Excel', '2414', 'Comprehensive Training, Data Analysis Techniques, Practical Exercises, Certification Available')">Enroll Now</button>
         </div>
       </div><!-- End Course Item -->
 
@@ -162,9 +219,9 @@
       <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
         <div class="pricing-tem" id="course-2">
           <h3 style="color: #0dcaf0;">STATA</h3>
-          <div class="price"><sup>$</sup>24.14<span></span></div>
+          <div class="price"><sup>Ksh</sup>3,380<span></span></div>
           <div class="icon">
-            <i class="bi bi-bar-chart-line" style="color: #0dcaf0;"></i>
+            <img src="assets/img/stata.png" alt="">
           </div>
           <ul>
             <li>Statistical Analysis</li>
@@ -172,7 +229,7 @@
             <li>Interactive Lessons</li>
             <li>Certification Available</li>
           </ul>
-          <button class="btn-buy" onclick="enrollNow('STATA', '24.14', 'Statistical Analysis, Data Visualization, Interactive Lessons, Certification Available')">Enroll Now</button>
+          <button class="btn-buy" onclick="enrollNow('STATA', '3380', 'Statistical Analysis, Data Visualization, Interactive Lessons, Certification Available')">Enroll Now</button>
         </div>
       </div><!-- End Course Item -->
 
@@ -180,9 +237,9 @@
       <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
         <div class="pricing-tem" id="course-3">
           <h3 style="color: #fd7e14;">SPSS</h3>
-          <div class="price"><sup>$</sup>31.03<span></span></div>
+          <div class="price"><sup>Ksh</sup>4,344<span></span></div>
           <div class="icon">
-            <i class="bi bi-graph-up" style="color: #fd7e14;"></i>
+            <img src="assets/img/spss.png" alt="">
           </div>
           <ul>
             <li>Statistical Modelling</li>
@@ -190,7 +247,7 @@
             <li>Hands-on Projects</li>
             <li>Certification Available</li>
           </ul>
-          <button class="btn-buy" onclick="enrollNow('SPSS', '31.03', 'Statistical Modelling, Data Management, Hands-on Projects, Certification Available')">Enroll Now</button>
+          <button class="btn-buy" onclick="enrollNow('SPSS', '4344', 'Statistical Modelling, Data Management, Hands-on Projects, Certification Available')">Enroll Now</button>
         </div>
       </div><!-- End Course Item -->
 
@@ -198,9 +255,9 @@
       <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
         <div class="pricing-tem" id="course-4">
           <h3 style="color: #0d6efd;">SAS</h3>
-          <div class="price"><sup>$</sup>44.83<span></span></div>
+          <div class="price"><sup>Ksh</sup>6,276<span></span></div>
           <div class="icon">
-            <i class="bi bi-diagram-3" style="color: #0d6efd;"></i>
+            <img src="assets/img/saas.png" alt="">
           </div>
           <ul>
             <li>Advanced Analytics</li>
@@ -208,7 +265,7 @@
             <li>Real-World Applications</li>
             <li>Certification Available</li>
           </ul>
-          <button class="btn-buy" onclick="enrollNow('SAS', '44.83', 'Advanced Analytics, Data Management, Real-World Applications, Certification Available')">Enroll Now</button>
+          <button class="btn-buy" onclick="enrollNow('SAS', '6276', 'Advanced Analytics, Data Management, Real-World Applications, Certification Available')">Enroll Now</button>
         </div>
       </div><!-- End Course Item -->
 
@@ -216,9 +273,9 @@
       <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="500">
         <div class="pricing-tem" id="course-5">
           <h3 style="color: #198754;">NVivo</h3>
-          <div class="price"><sup>$</sup>31.03<span></span></div>
+          <div class="price"><sup>Ksh</sup>4,344<span></span></div>
           <div class="icon">
-            <i class="bi bi-file-earmark-code" style="color: #198754;"></i>
+            <img src="assets/img/nvivo.jpg" alt="">
           </div>
           <ul>
             <li>Qualitative Analysis</li>
@@ -226,7 +283,7 @@
             <li>Hands-on Exercises</li>
             <li>Certification Available</li>
           </ul>
-          <button class="btn-buy" onclick="enrollNow('NVivo', '31.03', 'Qualitative Analysis, Text Analysis, Hands-on Exercises, Certification Available')">Enroll Now</button>
+          <button class="btn-buy" onclick="enrollNow('NVivo', '4344', 'Qualitative Analysis, Text Analysis, Hands-on Exercises, Certification Available')">Enroll Now</button>
         </div>
       </div><!-- End Course Item -->
 
@@ -234,9 +291,9 @@
       <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="600">
         <div class="pricing-tem" id="course-6">
           <h3 style="color: #ffc107;">SQL</h3>
-          <div class="price"><sup>$</sup>44.83<span></span></div>
+          <div class="price"><sup>Ksh</sup>6,276<span></span></div>
           <div class="icon">
-            <i class="bi bi-database" style="color: #ffc107;"></i>
+            <img src="assets/img/sql.png" alt="">
           </div>
           <ul>
             <li>Database Management</li>
@@ -244,7 +301,7 @@
             <li>Interactive Projects</li>
             <li>Certification Available</li>
           </ul>
-          <button class="btn-buy" onclick="enrollNow('SQL', '44.83', 'Database Management, Query Optimization, Interactive Projects, Certification Available')">Enroll Now</button>
+          <button class="btn-buy" onclick="enrollNow('SQL', '6276', 'Database Management, Query Optimization, Interactive Projects, Certification Available')">Enroll Now</button>
         </div>
       </div><!-- End Course Item -->
 
@@ -252,9 +309,9 @@
       <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="700">
         <div class="pricing-tem" id="course-7">
           <h3 style="color: #dc3545;">Data Science in Python</h3>
-          <div class="price"><sup>$</sup>62.07<span></span></div>
+          <div class="price"><sup>Ksh</sup>8,690<span></span></div>
           <div class="icon">
-            <i class="bi bi-code-slash" style="color: #dc3545;"></i>
+            <img src="assets/img/python.jpg" alt="">
           </div>
           <ul>
             <li>Programming Basics</li>
@@ -262,7 +319,7 @@
             <li>Hands-on Projects</li>
             <li>Certification Available</li>
           </ul>
-          <button class="btn-buy" onclick="enrollNow('Data Science in Python', '62.07', 'Programming Basics, Data Science Techniques, Hands-on Projects, Certification Available')">Enroll Now</button>
+          <button class="btn-buy" onclick="enrollNow('Data Science in Python', '8690', 'Programming Basics, Data Science Techniques, Hands-on Projects, Certification Available')">Enroll Now</button>
         </div>
       </div><!-- End Course Item -->
 
@@ -270,9 +327,9 @@
       <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="800">
         <div class="pricing-tem" id="course-8">
           <h3 style="color: #6610f2;">Data Analysis in R</h3>
-          <div class="price"><sup>$</sup>55.17<span></span></div>
+          <div class="price"><sup>Ksh</sup>7,724<span></span></div>
           <div class="icon">
-            <i class="bi bi-pie-chart" style="color: #6610f2;"></i>
+            <img src="assets/img/rlogo.png" alt="">
           </div>
           <ul>
             <li>Data Analysis</li>
@@ -280,7 +337,7 @@
             <li>Interactive Lessons</li>
             <li>Certification Available</li>
           </ul>
-          <button class="btn-buy" onclick="enrollNow('Data Analysis in R', '55.17', 'Data Analysis, Data Visualization, Interactive Lessons, Certification Available')">Enroll Now</button>
+          <button class="btn-buy" onclick="enrollNow('Data Analysis in R', '7724', 'Data Analysis, Data Visualization, Interactive Lessons, Certification Available')">Enroll Now</button>
         </div>
       </div><!-- End Course Item -->
 
@@ -288,9 +345,9 @@
       <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="900">
         <div class="pricing-tem" id="course-9">
           <h3 style="color: #fd7e14;">Data Visualization using Tableau</h3>
-          <div class="price"><sup>$</sup>17.24<span></span></div>
+          <div class="price"><sup>Ksh</sup>2,414<span></span></div>
           <div class="icon">
-            <i class="bi bi-bar-chart" style="color: #fd7e14;"></i>
+            <img src="assets/img/tebleu.png" alt="">
           </div>
           <ul>
             <li>Visual Analytics</li>
@@ -298,7 +355,7 @@
             <li>Hands-on Projects</li>
             <li>Certification Available</li>
           </ul>
-          <button class="btn-buy" onclick="enrollNow('Data Visualization using Tableau', '17.24', 'Visual Analytics, Interactive Dashboards, Hands-on Projects, Certification Available')">Enroll Now</button>
+          <button class="btn-buy" onclick="enrollNow('Data Visualization using Tableau', '2414', 'Visual Analytics, Interactive Dashboards, Hands-on Projects, Certification Available')">Enroll Now</button>
         </div>
       </div><!-- End Course Item -->
 
@@ -306,9 +363,9 @@
       <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="1000">
         <div class="pricing-tem" id="course-10">
           <h3 style="color: #20c997;">Data Visualization using PowerBI</h3>
-          <div class="price"><sup>$</sup>17.24<span></span></div>
+          <div class="price"><sup>Ksh</sup>2,414<span></span></div>
           <div class="icon">
-            <i class="bi bi-bar-chart-line" style="color: #20c997;"></i>
+            <img src="assets/img/powerbi.jpeg" alt="">
           </div>
           <ul>
             <li>Powerful Data Analytics</li>
@@ -316,7 +373,7 @@
             <li>Interactive Projects</li>
             <li>Certification Available</li>
           </ul>
-          <button class="btn-buy" onclick="enrollNow('Data Visualization using PowerBI', '17.24', 'Powerful Data Analytics, Real-Time Insights, Interactive Projects, Certification Available')">Enroll Now</button>
+          <button class="btn-buy" onclick="enrollNow('Data Visualization using PowerBI', '2414', 'Powerful Data Analytics, Real-Time Insights, Interactive Projects, Certification Available')">Enroll Now</button>
         </div>
       </div><!-- End Course Item -->
 
@@ -325,6 +382,7 @@
   </div>
 
 </section><!-- /Courses Section -->
+
 <div class="course-list">
   <div class="course-item">
     <h3>Course 1</h3>
