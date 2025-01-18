@@ -437,7 +437,7 @@ var options = {
   disable: false,
   once: false,
   mirror: false,
-  anchorPlacement: 'top-bottom',
+  anchorPlacement: 'zoom-in',
   startEvent: 'DOMContentLoaded',
   animatedClassName: 'aos-animate',
   initClassName: 'aos-init',
