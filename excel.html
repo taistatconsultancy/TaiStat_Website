@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Excel Mastery Course</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+ 
+</head>
+<style>
+    /* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: #444;
+  background-color: #f9f9f9;
+}
+
+a {
+  text-decoration: none;
+  color: #0932a1;
+  transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+  color: #012970;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(to right, #0932a1, #012970);
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+}
+
+.header nav {
+  margin-top: 10px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.nav-links li {
+  margin: 0 10px;
+}
+
+.nav-links a {
+  color: white;
+  font-weight: 600;
+}
+
+/* Sections */
+.section {
+  padding: 40px 20px;
+  background: white;
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+  font-size: 2rem;
+  color: #0932a1;
+  margin-bottom: 15px;
+}
+
+.steps-list {
+  list-style: decimal;
+  padding-left: 20px;
+}
+
+.steps-list li {
+  margin-bottom: 10px;
+}
+
+.download-links {
+  list-style: none;
+}
+
+.download-links li {
+  margin-bottom: 10px;
+}
+
+.btn {
+  display: inline-block;
+  background: #0932a1;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background: #012970;
+}
+
+/* Interactive */
+.interactive {
+  text-align: center;
+}
+
+.iframe {
+  width: 100%;
+  height: 600px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+/* Footer */
+.footer {
+  background: #012970;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 15px;
+}
+
+</style>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>Excel Mastery Course</h1>
+      <p>Your Ultimate Guide to Learning Microsoft Excel</p>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#overview">Course Overview</a></li>
+          <li><a href="#basics">Excel Basics</a></li>
+          <li><a href="#intermediate">Intermediate Skills</a></li>
+          <li><a href="#advanced">Advanced Skills</a></li>
+          <li><a href="#downloads">Downloads</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Course Overview Section -->
+    <section id="overview" class="section">
+      <div class="container">
+        <h2>Course Overview</h2>
+        <p>
+          Welcome to the Excel Mastery Course! Whether you're a beginner, intermediate, or advanced user, this course will equip you with the skills to navigate and use Microsoft Excel like a pro. Follow along step by step, download the practice files, and complete the exercises to maximize your learning.
+        </p>
+        <ul class="highlights">
+          <li>Comprehensive lessons from beginner to advanced levels</li>
+          <li>Step-by-step guides with screenshots and video links</li>
+          <li>Interactive exercises and downloadable practice files</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Excel Basics Section -->
+    <section id="basics" class="section">
+      <div class="container">
+        <h2>Excel Basics</h2>
+        <p>Get started by learning the fundamentals of Excel:</p>
+        <ul class="steps-list">
+          <li><strong>Step 1:</strong> Familiarize yourself with Excel's interface: the Ribbon, Toolbar, Workbook, and Worksheets.</li>
+          <li><strong>Step 2:</strong> Learn how to enter, edit, and format data in cells.</li>
+          <li><strong>Step 3:</strong> Practice simple calculations using basic formulas like <code>=SUM()</code> and <code>=AVERAGE()</code>.</li>
+          <li><strong>Step 4:</strong> Save, open, and manage workbooks effectively.</li>
+        </ul>
+        <a href="files/basics.xlsx" download class="btn">Download Basics Practice File</a>
+      </div>
+    </section>
+
+    <!-- Intermediate Skills Section -->
+    <section id="intermediate" class="section">
+      <div class="container">
+        <h2>Intermediate Skills</h2>
+        <p>Enhance your Excel knowledge with intermediate-level skills:</p>
+        <ul class="steps-list">
+          <li><strong>Step 1:</strong> Explore commonly used formulas like <code>=VLOOKUP()</code>, <code>=IF()</code>, and <code>=COUNTIF()</code>.</li>
+          <li><strong>Step 2:</strong> Use Conditional Formatting to visualize data trends.</li>
+          <li><strong>Step 3:</strong> Learn how to create and customize charts to represent data visually.</li>
+          <li><strong>Step 4:</strong> Organize data with Sorting, Filtering, and Data Validation.</li>
+        </ul>
+        <a href="files/intermediate.xlsx" download class="btn">Download Intermediate Practice File</a>
+      </div>
+    </section>
+
+    <!-- Advanced Skills Section -->
+    <section id="advanced" class="section">
+      <div class="container">
+        <h2>Advanced Skills</h2>
+        <p>Take your Excel expertise to the next level:</p>
+        <ul class="steps-list">
+          <li><strong>Step 1:</strong> Master advanced functions like <code>=INDEX()</code>, <code>=MATCH()</code>, and <code>=ARRAYFORMULA()</code>.</li>
+          <li><strong>Step 2:</strong> Build PivotTables and PivotCharts for advanced data analysis.</li>
+          <li><strong>Step 3:</strong> Learn automation using Macros and VBA scripting.</li>
+          <li><strong>Step 4:</strong> Manage and clean data using Power Query.</li>
+        </ul>
+        <a href="files/advanced.xlsx" download class="btn">Download Advanced Practice File</a>
+      </div>
+    </section>
+
+    <!-- Downloads Section -->
+    <section id="downloads" class="section">
+      <div class="container">
+        <h2>All Downloads</h2>
+        <p>Access all practice files for this course:</p>
+        <ul class="download-links">
+          <li><a href="files/basics.xlsx" download>Excel Basics File</a></li>
+          <li><a href="files/intermediate.xlsx" download>Intermediate File</a></li>
+          <li><a href="files/advanced.xlsx" download>Advanced File</a></li>
+          <li><a href="files/macros.xlsm" download>Macros Practice File</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Interactive Excel Embed -->
+    <section class="interactive">
+      <div class="container">
+        <h2>Interactive Excel Practice</h2>
+        <p>Practice directly within this embedded Excel-like interface:</p>
+        <iframe src="https://sheet.new" title="Interactive Excel Practice" class="iframe"></iframe>
+      </div>
+    </section>
+  </main>
+
+ 
+</body>
+
+</html>

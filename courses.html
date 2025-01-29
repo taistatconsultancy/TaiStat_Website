@@ -184,6 +184,24 @@
 
     </div>
   </header>
+  <script>
+    // Function to handle enrollment data
+    function enrollNow(courseName, coursePrice, courseImage, courseDescription) {
+      // Store course details in sessionStorage
+      const courseDetails = {
+        name: courseName,
+        price: coursePrice,
+        image: courseImage,
+        description: courseDescription
+      };
+  
+      // Save the course details in sessionStorage
+      sessionStorage.setItem('selectedCourse', JSON.stringify(courseDetails));
+  
+      // Redirect to the login page
+      window.location.href = 'login.html';
+    }
+  </script>
  <!-- Courses Section -->
  <section id="courses" class="pricing section">
 
@@ -402,39 +420,10 @@
   <p id="courseDetails"></p>
   <div class="auth-buttons">
     <button class="google" onclick="authenticate('Google')">Continue with Google</button>
-    <button class="github" onclick="authenticate('GitHub')">Continue with GitHub</button>
+   
   </div>
 </div>
 
-<script>
-  let selectedCourse = {};
-
-  function enrollNow(courseName, price, details) {
-    selectedCourse = { courseName, price, details };
-    document.getElementById('courseTitle').innerText = `Enroll in ${courseName}`;
-    document.getElementById('courseDetails').innerText = `Price: $${price}\nDetails: ${details}`;
-    showForm();
-  }
-
-  function showForm() {
-    document.getElementById('enrollForm').style.display = 'block';
-    document.getElementById('overlay').style.display = 'block';
-  }
-
-  function hideForm() {
-    document.getElementById('enrollForm').style.display = 'none';
-    document.getElementById('overlay').style.display = 'none';
-  }
-
-  document.getElementById('overlay').addEventListener('click', hideForm);
-
-  function authenticate(provider) {
-    alert(`Logging in with ${provider}...`);
-    // Example: Redirect to authentication endpoint with course data.
-    const queryString = new URLSearchParams(selectedCourse).toString();
-    window.location.href = `/authenticate/${provider.toLowerCase()}?${queryString}`;
-  }
-</script>
 <footer style="background-color: rgb(10, 9, 9);color: beige;" id="footer" class="footer">
 
   <div class="footer-newsletter">
