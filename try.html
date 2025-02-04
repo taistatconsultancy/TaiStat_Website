@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IntaSend Payment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 18px;
+            cursor: pointer;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        #statusMessage {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>IntaSend Payment Integration</h2>
+    <button onclick="openPayment()">Pay Now</button>
+    <p id="statusMessage"></p>
+
+    <script>
+        let paymentWindow;
+        let checkPopup;
+
+        function openPayment() {
+            let paymentUrl = "https://payment.intasend.com/pay/c1582709-fc7a-4b88-95b2-6d63a34bd836/";
+
+            // Open the payment link in a popup window
+            paymentWindow = window.open(paymentUrl, "IntaSend Payment", "width=600,height=700");
+
+            if (!paymentWindow) {
+                alert("Popup blocked! Please allow popups for this site.");
+                return;
+            }
+
+            document.getElementById("statusMessage").innerText = "Waiting for payment...";
+
+            // Check if the popup window is closed (polling method)
+            checkPopup = setInterval(() => {
+                if (paymentWindow.closed) {
+                    clearInterval(checkPopup);
+                    document.getElementById("statusMessage").innerText = "Payment window closed. Checking status...";
+                    checkPaymentStatus();
+                }
+            }, 1000);
+        }
+
+        function checkPaymentStatus() {
+            // Simulate checking payment status (replace with real API call)
+            setTimeout(() => {
+                let isSuccess = confirm("Did the payment succeed? Click OK for Yes, Cancel for No."); 
+
+                if (isSuccess) {
+                    document.getElementById("statusMessage").innerText = "Payment successful! Redirecting...";
+                    setTimeout(() => {
+                        window.location.href = "/success-page"; // Replace with actual success page
+                    }, 2000);
+                } else {
+                    document.getElementById("statusMessage").innerText = "Payment failed. Please try again.";
+                }
+            }, 2000);
+        }
+    </script>
+
+</body>
+</html>

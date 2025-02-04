@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
-import { getFirestore, getDoc, doc } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
+import { getFirestore, getDoc, doc, updateDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyD6xgrttBIm9vw07xRltKsqHZNpS1jJ8xw",
@@ -13,9 +13,11 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
 const auth = getAuth();
 const db = getFirestore();
+
+// Payment URL
+const paymentUrl = "https://payment.intasend.com/pay/c1582709-fc7a-4b88-95b2-6d63a34bd836/";
 
 // Handle authenticated user
 onAuthStateChanged(auth, (user) => {
@@ -36,11 +38,16 @@ onAuthStateChanged(auth, (user) => {
                         document.getElementById('courseName').innerText = selectedCourse.name;
                         document.getElementById('coursePrice').innerText = `Ksh ${selectedCourse.price}`;
                         
-
                         // Update checkout button
                         const checkoutButton = document.getElementById('checkoutButton');
-                        checkoutButton.innerText = `Continue to Checkout to ${selectedCourse.name} course`;
-                        checkoutButton.href = "excel.html";
+                        
+                        if (userData.paymentStatus === "paid") {
+                            checkoutButton.innerText = "Go to Course";
+                            checkoutButton.href = "excel.html";
+                        } else {
+                            checkoutButton.innerText = `Continue to Checkout for ${selectedCourse.name} course`;
+                            checkoutButton.addEventListener("click", initiatePayment);
+                        }
 
                         // Show the course details section
                         document.getElementById('selectedCourseContainer').style.display = 'block';
@@ -56,6 +63,66 @@ onAuthStateChanged(auth, (user) => {
         console.log("User ID not found in Local Storage");
     }
 });
+
+// Function to initiate payment
+function initiatePayment() {
+    let paymentWindow = window.open(paymentUrl, "IntaSend Payment", "width=600,height=700");
+
+    if (!paymentWindow) {
+        alert("Popup blocked! Please allow popups for this site.");
+        return;
+    }
+
+    document.getElementById("statusMessage").innerText = "Waiting for payment...";
+
+    let checkPopup = setInterval(async () => {
+        if (paymentWindow.closed) {
+            clearInterval(checkPopup);
+            document.getElementById("statusMessage").innerText = "Payment window closed.";
+            return;
+        }
+
+        try {
+            if (paymentWindow.location.href.includes("https://taistat-firm.com/excel.html")) {
+                clearInterval(checkPopup);
+                paymentWindow.close();
+                await updatePaymentStatus(localStorage.getItem('loggedInUserId'));
+                document.getElementById("statusMessage").innerText = "Payment successful! Redirecting...";
+                setTimeout(() => {
+                    window.location.href = "excel.html";
+                }, 2000);
+            }
+        } catch (error) {
+            // Ignore cross-origin errors
+        }
+    }, 1000);
+}
+
+// Function to update payment status in Firestore
+async function updatePaymentStatus(userId) {
+    const docRef = doc(db, "users", userId);
+    await setDoc(docRef, { paymentStatus: "paid", paymentMethod: "IntaSend" }, { merge: true });
+}
+
+// Restrict direct access to excel.html
+if (window.location.pathname.includes("excel.html")) {
+    restrictAccess();
+}
+
+async function restrictAccess() {
+    let userId = localStorage.getItem('loggedInUserId');
+    if (!userId) {
+        window.location.href = "index.html";
+        return;
+    }
+
+    const docRef = doc(db, "users", userId);
+    const docSnap = await getDoc(docRef);
+
+    if (!docSnap.exists() || docSnap.data().paymentStatus !== "paid") {
+        window.location.href = paymentUrl;
+    }
+}
 
 // Toggle User Menu
 const profileIcon = document.getElementById('profileIcon');
