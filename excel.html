@@ -13,16 +13,20 @@
           box-sizing: border-box;
       }
       body {
-          font-family: 'Poppins', sans-serif;
-          display: flex;
-          flex-direction: column;
-          height: 100vh;
-          overflow: hidden;
-      }
-      .container {
-          display: flex;
-          flex-grow: 1;
-      }
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+   
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.container {
+    display: flex;
+    flex-grow: 1;
+    overflow-y: auto; /* Ensure scrolling within the container */
+    flex-direction: column;
+}
       .sidebar {
           width: 250px;
           background: #333;
