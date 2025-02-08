@@ -1,246 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Excel Mastery Course</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
- 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Course</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+      body {
+          font-family: 'Poppins', sans-serif;
+          display: flex;
+          flex-direction: column;
+          height: 100vh;
+          overflow: hidden;
+      }
+      .container {
+          display: flex;
+          flex-grow: 1;
+      }
+      .sidebar {
+          width: 250px;
+          background: #333;
+          color: white;
+          transition: width 0.3s;
+          overflow: hidden;
+          padding: 10px;
+      }
+      .sidebar.shrink {
+          width: 80px;
+      }
+      .sidebar button {
+          display: block;
+          background: #444;
+          color: white;
+          border: none;
+          padding: 10px;
+          margin: 5px 0;
+          width: 100%;
+          text-align: left;
+          border-radius: 10px;
+          cursor: pointer;
+          transition: background 0.3s;
+      }
+      .sidebar button.active {
+          background: #28a745;
+      }
+      .content {
+          flex-grow: 1;
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+      }
+      .lesson-content {
+          display: none;
+          text-align: center;
+          width: 100%;
+          max-width: 900px;
+      }
+      iframe {
+          width: 100%;
+          max-width: 900px;
+          height: 500px;
+          border: none;
+          display: block;
+          margin: 0 auto;
+      }
+      .download-btn, .next-btn, .back-btn {
+          display: block;
+          padding: 10px 15px;
+          margin-top: 10px;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          text-align: center;
+          transition: background 0.3s;
+      }
+      .download-btn {
+          background: #007bff;
+      }
+      .back-btn {
+          background: #dc3545;
+      }
+      .next-btn {
+          background: #28a745;
+      }
+      .toggle-btn {
+          background: none;
+          border: none;
+          color: white;
+          font-size: 24px;
+          cursor: pointer;
+          padding: 10px;
+      }
+      @media (max-width: 768px) {
+          .container {
+              flex-direction: column;
+          }
+          .sidebar {
+              width: 100%;
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: center;
+          }
+          .sidebar button {
+              width: 90%;
+          }
+          iframe {
+              width: 100%;
+              height: 300px;
+          }
+      }
+  </style>
 </head>
-<style>
-    /* General Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Poppins', sans-serif;
-  line-height: 1.6;
-  color: #444;
-  background-color: #f9f9f9;
-}
-
-a {
-  text-decoration: none;
-  color: #0932a1;
-  transition: color 0.3s ease-in-out;
-}
-
-a:hover {
-  color: #012970;
-}
-
-/* Header */
-.header {
-  background: linear-gradient(to right, #0932a1, #012970);
-  color: white;
-  padding: 20px 0;
-  text-align: center;
-}
-
-.header h1 {
-  font-size: 2.5rem;
-}
-
-.header nav {
-  margin-top: 10px;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-
-.nav-links li {
-  margin: 0 10px;
-}
-
-.nav-links a {
-  color: white;
-  font-weight: 600;
-}
-
-/* Sections */
-.section {
-  padding: 40px 20px;
-  background: white;
-  margin: 20px 0;
-  border-radius: 10px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.section h2 {
-  font-size: 2rem;
-  color: #0932a1;
-  margin-bottom: 15px;
-}
-
-.steps-list {
-  list-style: decimal;
-  padding-left: 20px;
-}
-
-.steps-list li {
-  margin-bottom: 10px;
-}
-
-.download-links {
-  list-style: none;
-}
-
-.download-links li {
-  margin-bottom: 10px;
-}
-
-.btn {
-  display: inline-block;
-  background: #0932a1;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-weight: bold;
-}
-
-.btn:hover {
-  background: #012970;
-}
-
-/* Interactive */
-.interactive {
-  text-align: center;
-}
-
-.iframe {
-  width: 100%;
-  height: 600px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-}
-
-/* Footer */
-.footer {
-  background: #012970;
-  color: white;
-  text-align: center;
-  padding: 10px;
-}
-
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 15px;
-}
-
-</style>
 <body>
-  <header class="header">
-    <div class="container">
-      <h1>Excel Mastery Course</h1>
-      <p>Your Ultimate Guide to Learning Microsoft Excel</p>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="#overview">Course Overview</a></li>
-          <li><a href="#basics">Excel Basics</a></li>
-          <li><a href="#intermediate">Intermediate Skills</a></li>
-          <li><a href="#advanced">Advanced Skills</a></li>
-          <li><a href="#downloads">Downloads</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <!-- Course Overview Section -->
-    <section id="overview" class="section">
-      <div class="container">
-        <h2>Course Overview</h2>
-        <p>
-          Welcome to the Excel Mastery Course! Whether you're a beginner, intermediate, or advanced user, this course will equip you with the skills to navigate and use Microsoft Excel like a pro. Follow along step by step, download the practice files, and complete the exercises to maximize your learning.
-        </p>
-        <ul class="highlights">
-          <li>Comprehensive lessons from beginner to advanced levels</li>
-          <li>Step-by-step guides with screenshots and video links</li>
-          <li>Interactive exercises and downloadable practice files</li>
-        </ul>
+  <h1>Excel Course</h1>
+  <p>Master Excel with this step-by-step guide to essential skills and advanced techniques.</p>
+  <button class="toggle-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
+  
+  <div class="container">
+    <div class="sidebar" id="sidebar">
+      <button onclick="loadLesson(1, '1CGKdHoWZKeiclPJKy1XDBRlh41y_RWCX', 'Introduction to Excel', 'excel/1. Excel Basics.xlsx')">Lesson 1</button>
+      <button onclick="loadLesson(2, '1Mju0PZpoG9SnvvUUcBh_LbXFFGPzFYfl', 'Data Entry and Formatting', 'excel/2. Excel Basics.xlsx')">Lesson 2</button>
+      <button onclick="loadLesson(3, '1mSSBGWz5W5seq21qCePYgnIAx7coKfkx', 'Formulas and Functions', 'excel/3. Excel Basics Functions.xlsx')">Lesson 3</button>
+      <button onclick="loadLesson(4, '12u9PMD8M-I7poer9aJaLnL3Hv-OU2HyA', 'Charts and Graphs', 'excel/4. Excel Basics Tools.xlsx')">Lesson 4</button>
+      <button onclick="loadLesson(5, '1oPHOnbxKRzas2NWrAoHjuA2iU5z8He-d', 'Pivot Tables', 'excel/5. Excel Intermediate Conditional-Formatting.xlsx')">Lesson 5</button>
+      <button onclick="loadLesson(6, '1DzfsenJQ9HU-Hil3zBx41663OARI2epn', 'Data Validation', 'excel/6. Excel Intermediate Conditional Functions.xlsx')">Lesson 6</button>
+      <button onclick="loadLesson(7, '1zZ0eFzP7_KF3sGFUKcYiHwxSiNDtj0mj', 'Macros and Automation', 'excel/7. Excel Intermediate LOOKUP Functions.xlsx')">Lesson 7</button>
+      <button onclick="loadLesson(8, '1x9NIb-jmtMT9g96InHitkAVCtKBPajaV', 'Advanced Excel Techniques', 'excel/8. Excel Intermediate Dates.xlsx')">Lesson 8</button>
+  </div>
+  
+      
+      <div class="content">
+          <div class="lesson-content" id="lesson-content">
+              <h2 id="lesson-title">Select a lesson</h2>
+              <iframe id="lesson-video"></iframe>
+              <button id="download-btn" class="download-btn" style="display: none;">Download Material</button>
+              <button id="next-btn" class="next-btn" style="display: none;" onclick="nextLesson()">Next Lesson</button>
+              <button id="back-btn" class="back-btn" style="display: none;" onclick="prevLesson()">Previous Lesson</button>
+          </div>
       </div>
-    </section>
+  </div>
 
-    <!-- Excel Basics Section -->
-    <section id="basics" class="section">
-      <div class="container">
-        <h2>Excel Basics</h2>
-        <p>Get started by learning the fundamentals of Excel:</p>
-        <ul class="steps-list">
-          <li><strong>Step 1:</strong> Familiarize yourself with Excel's interface: the Ribbon, Toolbar, Workbook, and Worksheets.</li>
-          <li><strong>Step 2:</strong> Learn how to enter, edit, and format data in cells.</li>
-          <li><strong>Step 3:</strong> Practice simple calculations using basic formulas like <code>=SUM()</code> and <code>=AVERAGE()</code>.</li>
-          <li><strong>Step 4:</strong> Save, open, and manage workbooks effectively.</li>
-        </ul>
-        <a href="files/basics.xlsx" download class="btn">Download Basics Practice File</a>
-      </div>
-    </section>
+  <script>
+      let currentLesson = 0;
 
-    <!-- Intermediate Skills Section -->
-    <section id="intermediate" class="section">
-      <div class="container">
-        <h2>Intermediate Skills</h2>
-        <p>Enhance your Excel knowledge with intermediate-level skills:</p>
-        <ul class="steps-list">
-          <li><strong>Step 1:</strong> Explore commonly used formulas like <code>=VLOOKUP()</code>, <code>=IF()</code>, and <code>=COUNTIF()</code>.</li>
-          <li><strong>Step 2:</strong> Use Conditional Formatting to visualize data trends.</li>
-          <li><strong>Step 3:</strong> Learn how to create and customize charts to represent data visually.</li>
-          <li><strong>Step 4:</strong> Organize data with Sorting, Filtering, and Data Validation.</li>
-        </ul>
-        <a href="files/intermediate.xlsx" download class="btn">Download Intermediate Practice File</a>
-      </div>
-    </section>
+      function toggleSidebar() {
+          document.getElementById('sidebar').classList.toggle('shrink');
+      }
 
-    <!-- Advanced Skills Section -->
-    <section id="advanced" class="section">
-      <div class="container">
-        <h2>Advanced Skills</h2>
-        <p>Take your Excel expertise to the next level:</p>
-        <ul class="steps-list">
-          <li><strong>Step 1:</strong> Master advanced functions like <code>=INDEX()</code>, <code>=MATCH()</code>, and <code>=ARRAYFORMULA()</code>.</li>
-          <li><strong>Step 2:</strong> Build PivotTables and PivotCharts for advanced data analysis.</li>
-          <li><strong>Step 3:</strong> Learn automation using Macros and VBA scripting.</li>
-          <li><strong>Step 4:</strong> Manage and clean data using Power Query.</li>
-        </ul>
-        <a href="files/advanced.xlsx" download class="btn">Download Advanced Practice File</a>
-      </div>
-    </section>
+      function loadLesson(lesson, fileId, title, fileSrc) {
+          currentLesson = lesson;
+          document.getElementById('lesson-title').textContent = title;
+          document.getElementById('lesson-video').src = `https://drive.google.com/file/d/${fileId}/preview`;
 
-    <!-- Downloads Section -->
-    <section id="downloads" class="section">
-      <div class="container">
-        <h2>All Downloads</h2>
-        <p>Access all practice files for this course:</p>
-        <ul class="download-links">
-          <li><a href="files/basics.xlsx" download>Excel Basics File</a></li>
-          <li><a href="files/intermediate.xlsx" download>Intermediate File</a></li>
-          <li><a href="files/advanced.xlsx" download>Advanced File</a></li>
-          <li><a href="files/macros.xlsm" download>Macros Practice File</a></li>
-        </ul>
-      </div>
-    </section>
-<script src="homepage.js"></script>
-    <!-- Interactive Excel Embed -->
-    <section class="interactive">
-      <div class="container">
-        <h2>Interactive Excel Practice</h2>
-        <p>Practice directly within this embedded Excel-like interface:</p>
-        <iframe src="https://sheet.new" title="Interactive Excel Practice" class="iframe"></iframe>
-      </div>
-    </section>
-  </main>
+          document.getElementById('download-btn').style.display = 'block';
+          document.getElementById('download-btn').onclick = () => window.open(fileSrc, '_blank');
 
- 
+          document.getElementById('next-btn').style.display = lesson < 8 ? 'block' : 'none';
+          document.getElementById('back-btn').style.display = lesson > 1 ? 'block' : 'none';
+          document.getElementById('lesson-content').style.display = 'block';
+
+          updateActiveButton(lesson);
+      }
+
+      function nextLesson() {
+          if (currentLesson < 8) {
+              document.querySelectorAll('.sidebar button')[currentLesson].click();
+          }
+      }
+
+      function prevLesson() {
+          if (currentLesson > 1) {
+              document.querySelectorAll('.sidebar button')[currentLesson - 2].click();
+          }
+      }
+
+      function updateActiveButton(lesson) {
+          document.querySelectorAll('.sidebar button').forEach((btn, index) => {
+              btn.classList.toggle('active', index === lesson - 1);
+          });
+      }
+  </script>
 </body>
 
+</body>
 </html>
