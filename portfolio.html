@@ -82,51 +82,78 @@ body, html {
 
 </style>
 <body class="index-page">
-    <header id="header" class="header d-flex align-items-center fixed-top">
-        <div class="container-fluid container-xl position-relative d-flex align-items-center">
-    
-          <a href="index.html" class="logo d-flex align-items-center me-auto">
-            <!-- Uncomment the line below if you also wish to use an image logo -->
-            <img src="assets/img/tailogo.png" alt="" style="border-radius: 50%; ">
-            <h1 class="sitename">TaiStat</h1>
-          </a>
-    
-          <nav  id="navmenu" class="navmenu">
-            <ul>
-                <li><a href="index.html#unique-hero-section" class="active">Home<br></a></li>
-              <li><a href="services.html">Services</a></li>
-              <li><a href="portfolio.html">Portfolio</a></li>
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <img src="assets/img/tailogo.png" alt="" style="border-radius: 50%; ">
+        <h1 class="sitename">TaiStat</h1>
+      </a>
+
+      <nav  id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html#unique-hero-section" class="active">Home<br></a></li>
+          <li><a href="aboutus.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+       
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="courses.html">courses</a></li>
            
-              <li><a href="blog.html">Blog</a></li>
-              <li><a href="courses.html">courses</a></li>
-               
-             
-              <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-          </nav>
-    
-          <a class="btn-getstarted flex-md-shrink-0" href="index.html#about">Get Started</a>
-    
-        </div>
-      </header>
+         
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+       <a class="btn-getstarted flex-md-shrink-0" href="courses.html">Get Started</a>
+
+    </div>
+  </header>
 
   <main class="main">
 
 <!-- Hero Section -->
 <section id="unique-hero-section" class="hero-section">
-  <div class="unique-hero-content">
+  <div style="background-color: white; border-radius: 20px;" class="unique-hero-content">
+    <br>
     <h2 class="unique-tagline">Our Achievements Speak for Themselves</h2>
     
     <br>
     <br>
-    <h1 class="unique-main-title" style="color: rgb(255, 233, 105);">
+    <h1 class="unique-main-title" style="color: rgb(105, 108, 255);">
       At TaiStat Consultancy Firm, we take pride in our diverse portfolio of successful projects. From implementing advanced data solutions to transforming businesses through analytics and machine learning, our work reflects our commitment to excellence. Explore our projects to see how we’ve helped clients achieve their goals with innovative, data-driven strategies.
     </h1>
   </div>
 </section>
 <!-- /Hero Section -->
 
+<!-- Achievements Section -->
+<section id="achievements" class="achievements section" style="background-color: rgb(27, 26, 26);">
+  <div class="container" data-aos="zoom-out">
+    <div class="row gx-0">
+      <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="zoom-in-up" data-aos-delay="200">
+        <div class="content">
+          <h3 style="color: aquamarine;">Our Achievements</h3>
+          <h2 style="color: rgb(61, 61, 252);">We Let Results Speak for Themselves</h2>
+          <p style="color: azure;">
+            At TaiStat Consultancy Firm, we take pride in our diverse portfolio of successful projects. From implementing advanced data solutions to transforming businesses through analytics and machine learning, our work reflects our commitment to excellence.
+          </p>
+          <p style="color: azure;">
+            Our innovative, data-driven strategies have helped organizations optimize operations, drive growth, and stay ahead in competitive industries. Whether it’s predictive analytics, AI-driven decision-making, or business intelligence solutions, we ensure impactful results.
+          </p>
+          <p style="color: aquamarine; font-weight: bold;">Explore our projects to see how we’ve helped clients achieve their goals!</p>
+        </div>
+      </div>
+
+      <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+        <img src="port.webp" class="img-fluid" alt="TaiStat Achievements">
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /Achievements Section -->
 
 <!-- Portfolio Section -->
 <section id="portfolio" class="portfolio section">
@@ -167,7 +194,7 @@ body, html {
         <!-- Product -->
         <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
           <div class="portfolio-content h-100">
-            <img src="assets/img/OIP.jpg" class="img-fluid" alt="Predicting H1N1 Vaccine">
+            <img  style="height: auto; width: 100%;" src="assets/img/OIP.jpg" class="img-fluid" alt="Predicting H1N1 Vaccine">
             <div class="portfolio-info">
               <h4>Predicting H1N1 Vaccine</h4>
               <p>Predicting H1N1 Vaccine Uptake Using Machine Learning Models</p>
@@ -180,7 +207,7 @@ body, html {
         <!-- Branding -->
         <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
           <div class="portfolio-content h-100">
-            <img src="assets/img/no.jpg" class="img-fluid" alt="DSC SQL Lab">
+            <img  style="height: auto; width: 100%;" src="assets/img/no.jpg" class="img-fluid" alt="DSC SQL Lab">
             <div class="portfolio-info">
               <h4>DSC SQL Lab</h4>
               <p>Cumulative Lab</p>
@@ -271,7 +298,7 @@ body, html {
         <!-- Product -->
         <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
           <div class="portfolio-content h-100">
-            <img src="assets/img/jkl.jpg" class="img-fluid" alt="Predictive Models for Diabetes">
+            <img  style="height: 200%; width: 100%;" src="assets/img/jkl.jpg" class="img-fluid" alt="Predictive Models for Diabetes">
             <div class="portfolio-info">
               <h4>Predictive Models for Diabetes</h4>
               <p>Exploring Predictive Models for Diabetes Diagnosis</p>
