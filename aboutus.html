@@ -1,6 +1,4 @@
-
-
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -44,7 +42,7 @@ body, html {
   position: relative;
   width: 100%;
   height: 100vh;
-  background-image: url('assets/img/huoo.jpg'); /* Replace with the actual image path */
+  background-image: url('Taistat Consultancy Firm.png'); /* Replace with the actual image path */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -82,135 +80,104 @@ body, html {
   }
 }
 
+
+/* General Reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Services Section */
+#services {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Makes the section full-screen */
+  background-color: #f9f9f9; /* Optional background color */
+}
+
+.services-button-wrapper {
+  text-align: center;
+}
+
+.btn-read-more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background-color: #007bff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-read-more:hover {
+  background-color: #0056b3;
+  color: #fff;
+}
+
+.btn-read-more i {
+  margin-left: 8px; /* Adds space between the text and the icon */
+}
+
+@media (max-width: 768px) {
+  .btn-read-more {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
+
+
 </style>
 <body class="index-page">
 
-    <header id="header" class="header d-flex align-items-center fixed-top">
-        <div class="container-fluid container-xl position-relative d-flex align-items-center">
-    
-          <a href="index.html" class="logo d-flex align-items-center me-auto">
-            <!-- Uncomment the line below if you also wish to use an image logo -->
-            <img src="assets/img/tailogo.png" alt="" style="border-radius: 50%; ">
-            <h1 class="sitename">TaiStat</h1>
-          </a>
-    
-          <nav  id="navmenu" class="navmenu">
-            <ul>
-                <li><a href="index.html#unique-hero-section" class="active">Home<br></a></li>
-              <li><a href="services.html">Services</a></li>
-              <li><a href="portfolio.html">Portfolio</a></li>
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <img src="assets/img/tailogo.png" alt="" style="border-radius: 50%; ">
+        <h1 class="sitename">TaiStat</h1>
+      </a>
+
+      <nav  id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html#unique-hero-section" class="active">Home<br></a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+       
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="courses.html">courses</a></li>
            
-              <li><a href="blog.html">Blog</a></li>
-              <li><a href="courses.html">courses</a></li>
-               
-             
-              <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-          </nav>
-    
-           <a class="btn-getstarted flex-md-shrink-0" href="courses.html">Get Started</a>
-    
-        </div>
-      </header>
+         
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+       <a class="btn-getstarted flex-md-shrink-0" href="courses.html">Get Started</a>
+
+    </div>
+  </header>
 
   <main class="main">
 
 <!-- Hero Section -->
-<!-- Hero Section -->
 <section id="unique-hero-section" class="hero-section">
   <div class="unique-hero-content">
-    <h2 class="unique-tagline">Empowering Your Business with Data</h2>
-    
-    <br>
-    <br>
-    <h1 class="unique-main-title" style="color: rgb(184, 11, 169);">
-      At TaiStat Consultancy Firm, we specialize in delivering cutting-edge services in Data Science, Statistics, Machine Learning, and Business Intelligence. From data analysis and predictive modeling to strategic insights and custom solutions, we help businesses and individuals unlock their full potential through data-driven decisions.
-    </h1>
-  </div>
+    </div>
 </section>
+
 <!-- /Hero Section -->
 
-<!-- Services Section -->
-<section id="services" class="services section">
 
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="zoom-in">
-    <h2>Our Services</h2>
-    <p>Discover what we offer to help you achieve your goals.<br></p>
-  </div><!-- End Section Title -->
 
-  <div class="container">
 
-    <div class="row gy-4">
-
-      <!-- Service Item 1 -->
-      <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-        <div class="service-item item-cyan position-relative">
-          <i class="bi bi-activity icon"></i>
-          <h3>Data Analytics</h3>
-          <p>Leverage data-driven insights to streamline operations, optimize performance, and boost decision-making.</p>
-          
-        </div>
-      </div><!-- End Service Item -->
-
-      <!-- Service Item 2 -->
-      <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
-        <div class="service-item item-orange position-relative">
-          <i class="bi bi-broadcast icon"></i>
-          <h3>Machine Learning Models</h3>
-          <p>Implement predictive analytics and automation solutions to stay ahead in an evolving landscape.</p>
-        
-        </div>
-      </div><!-- End Service Item -->
-
-      <!-- Service Item 3 -->
-      <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
-        <div class="service-item item-teal position-relative">
-          <i class="bi bi-easel icon"></i>
-          <h3>Business Intelligence</h3>
-          <p>Transform raw data into actionable insights with stunning visualizations and strategic dashboards.</p>
-        
-        </div>
-      </div><!-- End Service Item -->
-
-      <!-- Service Item 4 -->
-      <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
-        <div class="service-item item-red position-relative">
-          <i class="bi bi-bounding-box-circles icon"></i>
-          <h3>Custom Software Solutions</h3>
-          <p>Develop tailored software applications designed to meet your specific business needs and goals.</p>
-        
-        </div>
-      </div><!-- End Service Item -->
-
-      <!-- Service Item 5 -->
-      <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="500">
-        <div class="service-item item-indigo position-relative">
-          <i class="bi bi-calendar4-week icon"></i>
-          <h3>Training & Workshops</h3>
-          <p>Upskill your team with hands-on training in data science, machine learning, and analytics tools like Python and Tableau.</p>
-          <a href="#" class="read-more stretched-link"><span>Learn More</span> <i class="bi bi-arrow-right"></i></a>
-        </div>
-      </div><!-- End Service Item -->
-
-      <!-- Service Item 6 -->
-      <div class="col-lg-4 col-md-6" data-aos="
-      " data-aos-delay="600">
-        <div class="service-item item-pink position-relative">
-          <i class="bi bi-chat-square-text icon"></i>
-          <h3>Consulting Services</h3>
-          <p>Partner with our experts for strategic guidance, actionable plans, and support for achieving measurable success.</p>
-         
-        </div>
-      </div><!-- End Service Item -->
-
-    </div>
-
-  </div>
-
-</section><!-- /Services Section -->
-
+</main>
 
 <footer style="background-color: rgb(10, 9, 9); color: beige;" id="footer" class="footer">
 
@@ -303,6 +270,7 @@ body, html {
 
 </footer>
 
+<!-- Scroll Top -->
 <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
 <!-- Vendor JS Files -->
@@ -317,7 +285,5 @@ body, html {
 
 <!-- Main JS File -->
 <script src="assets/js/main.js"></script>
-
 </body>
-
 </html>
