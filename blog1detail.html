@@ -31,7 +31,65 @@
  
 </head>
 <style>
-
+.whatsapp-container {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .whatsapp-float {
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+        
+        .whatsapp-float img {
+            width: 35px;
+            height: 35px;
+        }
+        
+        .close-btn {
+            background: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 50%;
+        }
+        @media screen and (max-width: 600px) {
+            .whatsapp-container {
+                bottom: 5px;
+                left: 5px;
+                gap: 3px;
+            }
+            .whatsapp-float {
+                width: 40px;
+                height: 40px;
+            }
+            .whatsapp-float img {
+                width: 20px;
+                height: 20px;
+            }
+            .close-btn {
+                font-size: 10px;
+                padding: 4px 8px;
+            }
+        }
     </style>
 <body>
 
@@ -42,21 +100,18 @@
 
       <a href="index.html" class="logo d-flex align-items-center me-auto">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="assets/img/tailogo.png" alt="" style="border-radius: 50%; ">
-        <h1 class="sitename">TaiStat</h1>
+        <img src="tailogo.png" alt="" style="border-radius: 50%; ">
+       
       </a>
 
       <nav  id="navmenu" class="navmenu">
         <ul>
           <li><a href="index.html#unique-hero-section" class="active">Home<br></a></li>
-          <li><a href="aboutus.html">About Us</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="portfolio.html">Portfolio</a></li>
-       
           <li><a href="blog.html">Blog</a></li>
           <li><a href="courses.html">courses</a></li>
-           
-         
+          <li><a href="aboutus.html">About Us</a></li> 
           <li><a href="contact.html">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -67,12 +122,13 @@
     </div>
   </header>
   <main class="main">
-
+<br><br>
     <!-- Page Title -->
     <div class="page-title">
       <div class="heading">
         <div class="container">
           <div class="row d-flex justify-content-center text-center">
+            <br><br>
             <div class="col-lg-8">
               <h1>Blog</h1>
               <p class="mb-0"></p>

@@ -131,8 +131,65 @@ body, html {
     padding: 8px 16px;
   }
 }
-
-
+.whatsapp-container {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .whatsapp-float {
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+        
+        .whatsapp-float img {
+            width: 35px;
+            height: 35px;
+        }
+        
+        .close-btn {
+            background: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 50%;
+        }
+        @media screen and (max-width: 600px) {
+            .whatsapp-container {
+                bottom: 5px;
+                left: 5px;
+                gap: 3px;
+            }
+            .whatsapp-float {
+                width: 40px;
+                height: 40px;
+            }
+            .whatsapp-float img {
+                width: 20px;
+                height: 20px;
+            }
+            .close-btn {
+                font-size: 10px;
+                padding: 4px 8px;
+            }
+        }
 </style>
 <body class="index-page">
 
@@ -141,8 +198,8 @@ body, html {
 
       <a href="index.html" class="logo d-flex align-items-center me-auto">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="assets/img/tailogo.png" alt="" style="border-radius: 50%; ">
-        <h1 class="sitename">TaiStat</h1>
+        <img src="tailogo.png" alt="" style="border-radius: 50%; ">
+       
       </a>
 
       <nav  id="navmenu" class="navmenu">
@@ -506,76 +563,51 @@ body, html {
 </section>
 <!-- /About Section -->
 
-
 <!-- Team Section -->
 <section id="team" class="team section">
-
   <!-- Section Title -->
   <div class="container section-title" data-aos="zoom-out-up">
     <h2>Team</h2>
     <p>Meet our dedicated team</p>
-  </div><!-- End Section Title -->
+  </div>
 
   <div class="container">
-    <div class="row gy-4">
-
+    <div class="row gy-4 justify-content-center">
+      
       <!-- Stephen Mulingwa (CEO) -->
-      <div class="col-lg-6 col-md-6 d-flex align-items-stretch" data-aos="zoom-out-up" data-aos-delay="100">
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-out-up" data-aos-delay="100">
         <div class="team-member">
           <div class="member-img">
             <img src="assets/img/mulingwa.jpg" class="img-fluid" alt="Stephen Mulingwa">
-            <div class="social">
-              <a href="#"><i class="bi bi-twitter-x"></i></a>
-              <a href="#"><i class="bi bi-facebook"></i></a>
-              <a href="#"><i class="bi bi-instagram"></i></a>
-              <a href="#"><i class="bi bi-linkedin"></i></a>
-            </div>
           </div>
           <div class="member-info">
             <h4>Stephen Mulingwa</h4>
             <span>Founder & Chief Executive Officer</span>
             <p>
-              Stephen Mulingwa is the Founder of TaiStat Consultancy Firm, a leading provider of AI, data science, and analytics 
-              solutions across Kenya and beyond. With deep expertise in data analytics, machine learning, training, and tutoring, 
-              he empowers businesses and individuals with actionable insights to drive informed, data-driven decision-making. 
-              Passionate about innovation and problem-solving, Stephen specializes in building advanced predictive models that 
-              transform raw data into valuable business intelligence. Through mentorship and knowledge sharing, he fosters a 
-              culture of continuous learning, helping organizations and professionals harness the full potential of data to 
-              achieve their goals.
+              Founder of TaiStat Consultancy Firm, specializing in AI, data science, and analytics. Passionate about innovation and problem-solving.
             </p>
           </div>
         </div>
-      </div><!-- End Team Member -->
-      <div class="col-lg-6 col-md-6 d-flex align-items-stretch" data-aos="zoom-out-up" data-aos-delay="100">
+      </div>
+      
+      <!-- Nanyaemuny Savins -->
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-out-up" data-aos-delay="100">
         <div class="team-member">
           <div class="member-img">
-            <img src="savoo1.jpg" class="img-fluid" alt="Stephen Mulingwa">
-            <div class="social">
-              <a href="#"><i class="bi bi-twitter-x"></i></a>
-              <a href="#"><i class="bi bi-facebook"></i></a>
-              <a href="#"><i class="bi bi-instagram"></i></a>
-              <a href="#"><i class="bi bi-linkedin"></i></a>
-            </div>
+            <img src="savoo1.jpg" class="img-fluid" alt="Nanyaemuny Savins">
           </div>
           <div class="member-info">
-            <h4>Nanyaemuny Savins
-            </h4>
+            <h4>Nanyaemuny Savins</h4>
             <span>Data Analyst & Software Developer</span>
             <p>
-              Savins is a skilled data Analyst and software developer specializing in predictive modeling, time 
-              series forecasting, and AI-driven analytics. He has worked in the government as a Data Analyst in the 
-              Department of Tourism and Trade at Laikipia County Government, where he leveraged data to optimize 
-              decision-making and drive efficiency in economic planning, trade activities, and policy development. 
-              As a software developer, Savins has built and deployed mobile applications streamlining business 
-              processes for different organizations.
+              Expert in predictive modeling, AI-driven analytics, and mobile application development for business process optimization.
             </p>
           </div>
         </div>
-      </div><!-- End Team Member -->
+      </div>
       
     </div>
   </div>
-
 </section><!-- /Team Section -->
 
 
@@ -792,10 +824,19 @@ body, html {
   </div>
 
 </footer>
-
+<div id="whatsapp-container" class="whatsapp-container">
+  <a href="https://wa.me/254111224952" target="_blank" class="whatsapp-float">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='64' height='64'%3E%3Cpath fill='%23fff' d='M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.5 2.1 8L0 32l8.2-2.1c2.5 1.3 5.2 2 7.8 2 8.6 0 15.5-6.9 15.5-15.5S24.6.5 16 .5zm0 27.9c-2.4 0-4.7-.6-6.8-1.7l-.5-.3-4.9 1.2 1.3-4.7-.3-.5c-1.3-2.1-1.9-4.3-1.9-6.6C2.9 8.1 8.1 2.9 16 2.9s13.1 5.2 13.1 13.1-5.2 13.1-13.1 13.1zm7.1-9.9c-.4-.2-2.4-1.2-2.8-1.3-.4-.1-.7-.2-1 .2s-.9 1.3-1.1 1.6c-.2.3-.4.3-.8.1s-1.6-.6-3.1-1.9c-1.1-1-1.9-2.2-2.2-2.6s0-.6.2-.8c.2-.2.4-.4.6-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6s.3-.4.4-.6c.1-.2.1-.4 0-.6-.1-.2-.9-2.1-1.2-2.8-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6 0-.9.4-.3.4-1.2 1.1-1.2 2.7s1.3 3.2 1.5 3.5c.2.3 2.6 4.3 6.3 6 .9.4 1.6.6 2.1.8.9.3 1.7.3 2.3.2.7-.1 2.4-1 2.8-2 .4-1.1.4-2 .3-2.2-.1-.2-.4-.2-.8-.4z'/%3E%3C/svg%3E" alt="WhatsApp">
+  </a>
+  <button class="close-btn" onclick="closeWhatsApp()">X</button>
+</div>
 <!-- Scroll Top -->
 <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
+ <script>
+        function closeWhatsApp() {
+            document.getElementById('whatsapp-container').style.display = 'none';
+        }
+    </script>
 <!-- Vendor JS Files -->
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="assets/vendor/php-email-form/validate.js"></script>

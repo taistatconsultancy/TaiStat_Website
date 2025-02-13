@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -42,13 +41,30 @@ body, html {
   position: relative;
   width: 100%;
   height: 100vh;
-  background-image: url('Taistat Consultancy Firm.png'); /* Replace with the actual image path */
+  background-image: url('assets/img/cover about.png'); /* Replace with the actual image path */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: background-size 0.3s ease-in-out;
+}
+
+/* Responsive adjustments for small devices */
+@media (max-width: 768px) {
+  #unique-hero-section {
+    height: 60vh; /* Reduce height for small screens */
+    background-size: contain; /* Show full image without cropping */
+  }
+}
+
+@media (max-width: 480px) {
+  #unique-hero-section {
+    height: 50vh; /* Further reduce height for very small screens */
+    background-size: contain; /* Fit image fully */
+    background-position: top center; /* Adjust position if needed */
+  }
 }
 
 .unique-hero-content {
@@ -80,23 +96,38 @@ body, html {
   }
 }
 
+/* Stephen Mulingwa Image Styling */
+.stephen-mulingwa-img {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+  transition: width 0.3s ease-in-out;
+}
 
-/* General Reset */
-body, html {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Resize image on small devices */
+@media (max-width: 768px) {
+  .stephen-mulingwa-img {
+    width: 200px; /* Adjust for tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .stephen-mulingwa-img {
+    width: 150px; /* Adjust for phones */
+  }
 }
 
 /* Services Section */
 #services {
   display: flex;
+  flex-direction: column; /* Stack content vertically */
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Makes the section full-screen */
-  background-color: #f9f9f9; /* Optional background color */
+  padding: 2rem;
+  background-color: #f9f9f9;
 }
 
+/* Services Button */
 .services-button-wrapper {
   text-align: center;
 }
@@ -124,6 +155,7 @@ body, html {
   margin-left: 8px; /* Adds space between the text and the icon */
 }
 
+/* Responsive adjustments for button */
 @media (max-width: 768px) {
   .btn-read-more {
     font-size: 0.9rem;
@@ -131,7 +163,77 @@ body, html {
   }
 }
 
+/* Full Section Responsive */
+@media (max-width: 768px) {
+  #services {
+    padding: 1rem;
+  }
+}
 
+@media (max-width: 480px) {
+  #services {
+    padding: 0.5rem;
+  }
+}
+.whatsapp-container {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .whatsapp-float {
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+        
+        .whatsapp-float img {
+            width: 35px;
+            height: 35px;
+        }
+        
+        .close-btn {
+            background: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 50%;
+        }
+        @media screen and (max-width: 600px) {
+            .whatsapp-container {
+                bottom: 5px;
+                left: 5px;
+                gap: 3px;
+            }
+            .whatsapp-float {
+                width: 40px;
+                height: 40px;
+            }
+            .whatsapp-float img {
+                width: 20px;
+                height: 20px;
+            }
+            .close-btn {
+                font-size: 10px;
+                padding: 4px 8px;
+            }
+        }
 </style>
 <body class="index-page">
 
@@ -141,8 +243,8 @@ body, html {
 
       <a href="index.html" class="logo d-flex align-items-center me-auto">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="assets/img/tailogo.png" alt="" style="border-radius: 50%; ">
-        <h1 class="sitename">TaiStat</h1>
+        <img src="tailogo.png" alt="" style="border-radius: 50%; ">
+       
       </a>
 
       <nav  id="navmenu" class="navmenu">
@@ -180,6 +282,8 @@ body, html {
         <div class="content">
           <h3 style="color: aquamarine;">Meet the Founder</h3>
           <h2 style="color: rgb(61, 61, 252);">Stephen Mulingwa</h2>
+          <img style="border-radius: 50%; height: 150px;" src="assets/img/mulingwa.jpg" class="img-fluid" alt="Big Data Insights">
+          
           <p style="color: azure;">
             Stephen Mulingwa is a visionary Data Scientist, Machine Learning expert, and AI strategist, dedicated to unlocking the transformative power of data. As the Founder of TaiStat Consultancy, he leads a firm committed to delivering AI, data science, data consultancy, training and tutoring, and analytics solutions that drive innovation, efficiency, and growth across industries worldwide.
           </p>
@@ -192,12 +296,28 @@ body, html {
         </div>
       </div>
 
-      <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
-        <img style="border-radius: 50%;" src="assets/img/mulingwa.jpg" class="img-fluid" alt="Big Data Insights">
+      <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="zoom-in-up" data-aos-delay="400">
+        <div class="content">
+          <h3 style="color: aquamarine;">Meet the Expert</h3>
+          <h2 style="color: rgb(61, 61, 252);">Nanyaemuny Savins</h2>
+          <img style="border-radius: 50%; height: 150px;" src="savoo1.jpg" class="img-fluid" alt="Data Analytics Expert">
+          
+          <p style="color: azure;">
+            Nanyaemuny Savins is a skilled Data Analyst specializing in data visualization, predictive modeling, and hypothesis testing. Previously, he worked at Laikipia Government’s Department of Tourism and Trade, where he analyzed economic trends, monitored trade activities, and provided strategic insights to enhance decision-making.
+          </p>
+          <p style="color: azure;">
+            With expertise in R and statistical modeling, Savins has applied GARCH models for time series forecasting and built AI-powered solutions for business intelligence. He develops end-to-end analytics systems using tools like Shiny, Streamlit, and TensorFlow, creating interactive dashboards and deploying machine learning models.
+          </p>
+          <p style="color: azure;">
+            Passionate about education and mentorship, Savins has trained businesses and aspiring data practitioners in data analytics, machine learning, and AI applications. His commitment to innovation and strategic data adoption empowers organizations to leverage analytics for competitive advantage.
+          </p>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+
 <!-- /About Section -->
 
 
@@ -229,7 +349,7 @@ body, html {
           <span style="color: aquamarine;" class="sitename">TaiStat Consultancy</span>
         </a>
         <div class="footer-contact pt-3">
-          <p>Operating Remotely</p>
+          <p>Remote Firm</p>
           <p>Serving Clients Worldwide</p>
           <p class="mt-3"><strong>Phone:</strong> <span>+254 111-224-952</span></p>
           <p><strong>Email:</strong> <span>taistatconsultancy@gmail.com</span></p>
@@ -286,13 +406,27 @@ body, html {
   </div>
 
   <div class="container copyright text-center mt-4">
-    <p>&copy; <span>Copyright</span> <strong class="px-1 sitename" style="color: aquamarine;">TaiStat Consultancy</strong> <span>All Rights Reserved</span></p>
+    <p>&copy; <span>Copyright</span> <strong class="px-1 sitename" style="color: aquamarine;">TaiStat Firm</strong> <span>All Rights Reserved</span></p>
     <div class="credits">
       Designed by <a style="color: aquamarine;" href="https://otis-ke.github.io/portfolio/">Vincent Otis</a>
     </div>
   </div>
 
 </footer>
+<div id="whatsapp-container" class="whatsapp-container">
+  <a href="https://wa.me/254111224952" target="_blank" class="whatsapp-float">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='64' height='64'%3E%3Cpath fill='%23fff' d='M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.5 2.1 8L0 32l8.2-2.1c2.5 1.3 5.2 2 7.8 2 8.6 0 15.5-6.9 15.5-15.5S24.6.5 16 .5zm0 27.9c-2.4 0-4.7-.6-6.8-1.7l-.5-.3-4.9 1.2 1.3-4.7-.3-.5c-1.3-2.1-1.9-4.3-1.9-6.6C2.9 8.1 8.1 2.9 16 2.9s13.1 5.2 13.1 13.1-5.2 13.1-13.1 13.1zm7.1-9.9c-.4-.2-2.4-1.2-2.8-1.3-.4-.1-.7-.2-1 .2s-.9 1.3-1.1 1.6c-.2.3-.4.3-.8.1s-1.6-.6-3.1-1.9c-1.1-1-1.9-2.2-2.2-2.6s0-.6.2-.8c.2-.2.4-.4.6-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6s.3-.4.4-.6c.1-.2.1-.4 0-.6-.1-.2-.9-2.1-1.2-2.8-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6 0-.9.4-.3.4-1.2 1.1-1.2 2.7s1.3 3.2 1.5 3.5c.2.3 2.6 4.3 6.3 6 .9.4 1.6.6 2.1.8.9.3 1.7.3 2.3.2.7-.1 2.4-1 2.8-2 .4-1.1.4-2 .3-2.2-.1-.2-.4-.2-.8-.4z'/%3E%3C/svg%3E" alt="WhatsApp">
+  </a>
+  <button class="close-btn" onclick="closeWhatsApp()">X</button>
+</div>
+<!-- Scroll Top -->
+<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+ <script>
+        function closeWhatsApp() {
+            document.getElementById('whatsapp-container').style.display = 'none';
+        }
+    </script>
+<!-- Vendor JS Files -->
 
 <!-- Scroll Top -->
 <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
