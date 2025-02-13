@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Excel Course</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-     <link rel="icon" type="image/svg+xml" href="tailogo.png" />
-     <link href="assets/css/main.css" rel="stylesheet">
-     
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>TaiStat Consultancy Firm</title>
+  <meta name="description" content="taistat consultancy firm">
+  <meta name="keywords" content="taistat consultancy firm">
+
+  <!-- Favicons -->
+   <link rel="icon" type="image/svg+xml" href="tailogo.png" />
+  
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -25,285 +27,787 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-    <style>
-      * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-      }
-      body {
-    font-family: 'Poppins', sans-serif;
-    display: flex;
-    flex-direction: column;
-   
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-    overflow-y: auto; /* Enable vertical scrolling */
-}
 
-.container {
-    display: flex;
-    flex-grow: 1;
-    overflow-y: auto; /* Ensure scrolling within the container */
-    flex-direction: column;
-}
-      .sidebar {
-          width: 250px;
-          background: #333;
-          color: white;
-          transition: width 0.3s;
-          overflow: hidden;
-          padding: 10px;
-      }
-      .sidebar.shrink {
-          width: 80px;
-      }
-      .sidebar button {
-          display: block;
-          background: #444;
-          color: white;
-          border: none;
-          padding: 10px;
-          margin: 5px 0;
-          width: 100%;
-          text-align: left;
-          border-radius: 10px;
-          cursor: pointer;
-          transition: background 0.3s;
-      }
-      .sidebar button.active {
-          background: #28a745;
-      }
-      .content {
-          flex-grow: 1;
-          padding: 20px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-      }
-      .lesson-content {
-          display: none;
-          text-align: center;
-          width: 100%;
-          max-width: 900px;
-      }
-      iframe {
-          width: 100%;
-          max-width: 900px;
-          height: 500px;
-          border: none;
-          display: block;
-          margin: 0 auto;
-      }
-      .download-btn, .next-btn, .back-btn {
-          display: block;
-          padding: 10px 15px;
-          margin-top: 10px;
-          color: white;
-          border: none;
-          border-radius: 5px;
-          cursor: pointer;
-          text-align: center;
-          transition: background 0.3s;
-      }
-      .download-btn {
-          background: #007bff;
-      }
-      .back-btn {
-          background: #dc3545;
-      }
-      .next-btn {
-          background: #28a745;
-      }
-      .toggle-btn {
-          background: none;
-          border: none;
-          color: white;
-          font-size: 24px;
-          cursor: pointer;
-          padding: 10px;
-      }
-      @media (max-width: 768px) {
-          .container {
-              flex-direction: column;
-          }
-          .sidebar {
-              width: 100%;
-              display: flex;
-              flex-wrap: wrap;
-              justify-content: center;
-          }
-          .sidebar button {
-              width: 90%;
-          }
-          iframe {
-              width: 100%;
-              height: 300px;
-          }
-      }
-  </style>
 </head>
-<body>
-  <h1>Excel Course</h1>
-  <p>Master Excel with this step-by-step guide to essential skills and advanced techniques.</p>
-  <button class="toggle-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
-  
+<style>
+/* General Reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Unique Hero Section */
+#unique-hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url('assets/img/Service.jpg'); /* Replace with the actual image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.unique-hero-content {
+  text-align: center;
+  color: white;
+  padding: 0 2rem;
+  max-width: 800px;
+}
+
+.unique-tagline {
+  font-size: 1.5rem;
+  color: #43ff3d; /* Green color for tagline */
+  margin-bottom: 1rem;
+}
+
+.unique-main-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .unique-tagline {
+    font-size: 1.2rem;
+  }
+  .unique-main-title {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
+
+
+/* General Reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Services Section */
+#services {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Makes the section full-screen */
+  background-color: #f9f9f9; /* Optional background color */
+}
+
+.services-button-wrapper {
+  text-align: center;
+}
+
+.btn-read-more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background-color: #007bff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-read-more:hover {
+  background-color: #0056b3;
+  color: #fff;
+}
+
+.btn-read-more i {
+  margin-left: 8px; /* Adds space between the text and the icon */
+}
+
+@media (max-width: 768px) {
+  .btn-read-more {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
+
+
+</style>
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <img src="assets/img/tailogo.png" alt="" style="border-radius: 50%; ">
+        <h1 class="sitename">TaiStat</h1>
+      </a>
+
+      <nav  id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html#unique-hero-section" class="active">Home<br></a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="courses.html">courses</a></li>
+          <li><a href="aboutus.html">About Us</a></li> 
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+       <a class="btn-getstarted flex-md-shrink-0" href="courses.html">Get Started</a>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+<!-- Hero Section -->
+<section id="unique-hero-section" class="hero-section">
+  <div class="unique-hero-content">
+    <h2 class="unique-tagline">Grow with Confidence</h2>
+    
+
+    <br>
+    <br>
+    <h1 class="unique-main-title" style="color: azure;">TaiStat Consultancy Firm is a leading Data Science Company harnessing the latest advancements in Machine Learning, Artificial Intelligence, and Business Intelligence. Whether you want to learn or looking for data services, TaiStat is your trusted partner for data-driven success.</h1>
+  </div>
+</section>
+
+<!-- /Hero Section -->
+
+
+
+<!-- Values Section -->
+<section id="values" class="values section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="zoom-out">
+    <h2>TaiStat Services</h2>
+    <p>Achieve Success with Our Best-Selling Consulting Packages, perfect for every business challenge.<br></p>
+  </div><!-- End Section Title -->
+
   <div class="container">
-    <div class="sidebar" id="sidebar">
-      <button onclick="loadLesson(1, '1CGKdHoWZKeiclPJKy1XDBRlh41y_RWCX', 'Introduction to Excel', 'excel/1. Excel Basics.xlsx')">Lesson 1</button>
-      <button onclick="loadLesson(2, '1Mju0PZpoG9SnvvUUcBh_LbXFFGPzFYfl', 'Data Entry and Formatting', 'excel/2. Excel Basics.xlsx')">Lesson 2</button>
-      <button onclick="loadLesson(3, '1mSSBGWz5W5seq21qCePYgnIAx7coKfkx', 'Formulas and Functions', 'excel/3. Excel Basics Functions.xlsx')">Lesson 3</button>
-      <button onclick="loadLesson(4, '12u9PMD8M-I7poer9aJaLnL3Hv-OU2HyA', 'Charts and Graphs', 'excel/4. Excel Basics Tools.xlsx')">Lesson 4</button>
-      <button onclick="loadLesson(5, '1oPHOnbxKRzas2NWrAoHjuA2iU5z8He-d', 'Pivot Tables', 'excel/5. Excel Intermediate Conditional-Formatting.xlsx')">Lesson 5</button>
-      <button onclick="loadLesson(6, '1DzfsenJQ9HU-Hil3zBx41663OARI2epn', 'Data Validation', 'excel/6. Excel Intermediate Conditional Functions.xlsx')">Lesson 6</button>
-      <button onclick="loadLesson(7, '1zZ0eFzP7_KF3sGFUKcYiHwxSiNDtj0mj', 'Macros and Automation', 'excel/7. Excel Intermediate LOOKUP Functions.xlsx')">Lesson 7</button>
-      <button onclick="loadLesson(8, '1x9NIb-jmtMT9g96InHitkAVCtKBPajaV', 'Advanced Excel Techniques', 'excel/8. Excel Intermediate Dates.xlsx')">Lesson 8</button>
-  </div>
-  
+
+    <div class="row gy-4">
+
+      <div class="col-lg-4" data-aos="zoom-out" data-aos-delay="100">
+        <div class="card">
+          <img  style=" width: 200%;" src="assets/img/data1.webp" class="img-fluid" alt="Data Integrity">
+          <h3>Data Analytics</h3>
+          <p>Leverage data-driven insights to uncover trends, optimize operations, and enhance strategic decision-making to enhance business efficiency.</p>
+        </div>
+      </div><!-- End Card Item -->
+
+      <div class="col-lg-4" data-aos="zoom-out" data-aos-delay="200">
+        <div class="card">
+          <img src="assets/img/data2.webp" class="img-fluid" alt="Innovation">
+          <h3>Data Consultancy</h3>
+          <p>Receive expert guidance in data management, and analysis to streamline business operations, improve data quality, and develop actionable strategies that drive sustainable growth.</p>
+        </div>
+      </div><!-- End Card Item -->
+
+      <div class="col-lg-4" data-aos="zoom-out" data-aos-delay="300">
+        <div class="card">
+          <img src="assets/img/data3.jpg" class="img-fluid" alt="Client-Centric Approach">
+          <h3>Machine Learning Solutions</h3>
+          <p>Deploy cutting-edge machine learning models to automate tasks, predict trends, improve decision-making, and create intelligent systems that continuously learn and adapt to evolving business needs.</p>
+        </div>
+      </div><!-- End Card Item -->
+
+      <div class="col-lg-4" data-aos="zoom-out-up" data-aos-delay="300">
+        <div class="card">
+          <img src="assets/img/data4.jpg" class="img-fluid" alt="Client-Centric Approach">
+          <h3>Business Intelligence</h3>
+          <p>Transform raw data into interactive dashboards that empower businesses to track performance, gain deeper insights, and make data-driven decisions that optimize business growth.</p>
+        </div>
+      </div><!-- End Card Item -->
+
+      <div class="col-lg-4" data-aos="zoom-out-up" data-aos-delay="300">
+        <div class="card">
+          <img src="assets/img/data4.jpg" class="img-fluid" alt="Client-Centric Approach">
+          <h3>Artificial Intelligence</h3>
+          <p>Get our guidance and implement AI-powered solutions to streamline processes, improve customer engagement, enhance predictive capabilities, and create innovative applications that drive efficiency in your operations.</p>
+        </div>
+      </div><!-- End Card Item -->
       
-      <div class="content">
-          <div class="lesson-content" id="lesson-content">
-              <h2 id="lesson-title">Select a lesson</h2>
-              <iframe id="lesson-video"></iframe>
-              <button id="download-btn" class="download-btn" style="display: none;">Download Material</button>
-              <button id="next-btn" class="next-btn" style="display: none;" onclick="nextLesson()">Next Lesson</button>
-              <button id="back-btn" class="back-btn" style="display: none;" onclick="prevLesson()">Previous Lesson</button>
-          </div>
-      </div>
+      <div class="col-lg-4" data-aos="zoom-out-up" data-aos-delay="300">
+        <div class="card">
+          <img src="assets/img/data4.jpg" class="img-fluid" alt="Client-Centric Approach">
+          <h3>Personalized Tutoring & Training</h3>
+          <p>Advance your skills or your team with our customized training in Data Science, Analytics, Artificial Intelligence and Machine Learning techniques.</p>
+        </div>
+      </div><!-- End Card Item -->  
+
+    </div>
+
   </div>
 
-  <script>
-      let currentLesson = 0;
+<!-- Services Section -->
 
-      function toggleSidebar() {
-          document.getElementById('sidebar').classList.toggle('shrink');
-      }
+<div style="padding-bottom: 20px;" class="services-button-wrapper">
+  <a href="services.html" class="btn-read-more d-inline-flex align-items-center justify-content-center">
+    <span>Our Services</span>
+    <i class="bi bi-arrow-right"></i>
+  </a>
+</div>
+</section><!-- /Values Section -->
 
-      function loadLesson(lesson, fileId, title, fileSrc) {
-          currentLesson = lesson;
-          document.getElementById('lesson-title').textContent = title;
-          document.getElementById('lesson-video').src = `https://drive.google.com/file/d/${fileId}/preview`;
 
-          document.getElementById('download-btn').style.display = 'block';
-          document.getElementById('download-btn').onclick = () => window.open(fileSrc, '_blank');
+    <!-- Stats Section -->
+    <section id="stats" class="stats section">
 
-          document.getElementById('next-btn').style.display = lesson < 8 ? 'block' : 'none';
-          document.getElementById('back-btn').style.display = lesson > 1 ? 'block' : 'none';
-          document.getElementById('lesson-content').style.display = 'block';
+      <div class="container" data-aos="zoom-out-up" data-aos-delay="100">
 
-          updateActiveButton(lesson);
-      }
+        <div class="row gy-4">
 
-      function nextLesson() {
-          if (currentLesson < 8) {
-              document.querySelectorAll('.sidebar button')[currentLesson].click();
-          }
-      }
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item d-flex align-items-center w-100 h-100">
+              <i class="bi bi-emoji-smile color-blue flex-shrink-0"></i>
+              <div>
+                <span data-purecounter-start="0" data-purecounter-end="40" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Happy Clients</p>
+              </div>
+            </div>
+          </div><!-- End Stats Item -->
 
-      function prevLesson() {
-          if (currentLesson > 1) {
-              document.querySelectorAll('.sidebar button')[currentLesson - 2].click();
-          }
-      }
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item d-flex align-items-center w-100 h-100">
+              <i class="bi bi-journal-richtext color-orange flex-shrink-0" style="color: #ee6c20;"></i>
+              <div>
+                <span data-purecounter-start="0" data-purecounter-end="51" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Projects</p>
+              </div>
+            </div>
+          </div><!-- End Stats Item -->
 
-      function updateActiveButton(lesson) {
-          document.querySelectorAll('.sidebar button').forEach((btn, index) => {
-              btn.classList.toggle('active', index === lesson - 1);
-          });
-      }
-  </script>
-  <footer style="background-color: rgb(10, 9, 9); color: beige;" id="footer" class="footer">
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item d-flex align-items-center w-100 h-100">
+              <i class="bi bi-headset color-green flex-shrink-0" style="color: #15be56;"></i>
+              <div>
+                <span data-purecounter-start="0" data-purecounter-end="1000" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Hours Of Support</p>
+              </div>
+            </div>
+          </div><!-- End Stats Item -->
 
-    <div class="footer-newsletter">
-      <div class="container">
-        <div class="row justify-content-center text-center">
-          <div class="col-lg-6">
-            <h4 style="color: aquamarine;">Join Our Newsletter</h4>
-            <p>Subscribe to our newsletter and stay updated on the latest in Data Science, Machine Learning, and Business Intelligence solutions!</p>
-            <form action="forms/newsletter.php" method="post" class="php-email-form">
-              <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your subscription request has been sent. Thank you!</div>
-            </form>
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item d-flex align-items-center w-100 h-100">
+              <i class="bi bi-people color-pink flex-shrink-0" style="color: #bb0852;"></i>
+              <div>
+                <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Hard Workers</p>
+              </div>
+            </div>
+          </div><!-- End Stats Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Stats Section -->
+<!-- Features Section -->
+<section style="background-color: rgb(32, 26, 26); color: bisque;" id="features" class="features section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="zoom-out-up">
+    <h2 style="color: rgb(13, 4, 53); background-color: azure;"  >Features</h2>
+    <p  style="color: beige;" >What Makes TaiStat Consultancy Stand Out<br></p>
+  </div><!-- End Section Title -->
+
+  <divclass="container">
+
+    <div class="row gy-5">
+
+      <div class="col-xl-6" data-aos="zoom-out" data-aos-delay="100">
+        <img src="assets/img/four.jpg" class="img-fluid" alt="Features of TaiStat Consultancy">
+      </div>
+
+      <div class="col-xl-6 d-flex">
+        <div  class="row align-self-center gy-4">
+
+          <div  style="background-color: beige;" class="col-md-6" data-aos="zoom-out-up" data-aos-delay="200">
+            <div class="feature-box d-flex align-items-center">
+              <i class="bi bi-check"></i>
+              <h3>Data-Driven Strategies</h3>
+            </div>
+            
+          </div><!-- End Feature Item -->
+
+          <div   style="background-color: beige;" class="col-md-6" data-aos="zoom-out-up" data-aos-delay="300">
+            <div class="feature-box d-flex align-items-center">
+              <i class="bi bi-check"></i>
+              <h3>Advanced Machine Learning</h3>
+            </div>
+      
+          </div><!-- End Feature Item -->
+
+          <div  style="background-color: beige;" class="col-md-6" data-aos="zoom-out-up" data-aos-delay="400">
+            <div class="feature-box d-flex align-items-center">
+              <i class="bi bi-check"></i>
+              <h3>Interactive Data Visualization</h3>
+            </div>
+ 
+          </div><!-- End Feature Item -->
+
+          <div  style="background-color: beige;"  class="col-md-6" data-aos="zoom-out-up" data-aos-delay="500">
+            <div class="feature-box d-flex align-items-center">
+              <i class="bi bi-check"></i>
+              <h3>Expert Training Programs</h3>
+            </div>
+            
+          </div><!-- End Feature Item -->
+
+          <div  style="background-color: beige;" class="col-md-6" data-aos="zoom-out-up" data-aos-delay="600">
+            <div class="feature-box d-flex align-items-center">
+              <i class="bi bi-check"></i>
+              <h3>Global Accessibility</h3>
+            </div>
+           
+          </div><!-- End Feature Item -->
+
+          <div  style="background-color: rgb(250, 250, 224);" class="col-md-6" data-aos="zoom-out-up" data-aos-delay="700">
+            <div class="feature-box d-flex align-items-center">
+              <i class="bi bi-check"></i>
+              <h3>Consultancy Services</h3>
+            </div>
+     
+          </div><!-- End Feature Item -->
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section><!-- /Features Section -->
+
+<!-- Alt Features Section -->
+<section id="alt-features" class="alt-features section">
+
+  <div class="container">
+
+    <div class="row gy-5">
+
+      <div class="col-xl-7 d-flex order-2 order-xl-1" data-aos="zoom-out-up" data-aos-delay="200">
+
+        <div class="row align-self-center gy-5">
+
+          <div class="col-md-6 icon-box">
+            <i class="bi bi-award"></i>
+            <div>
+              <h4>Expertise You Can Trust</h4>
+              <p>Benefit from years of proven experience and industry recognition, ensuring top-notch solutions for your business.</p>
+            </div>
+          </div><!-- End Feature Item -->
+
+          <div class="col-md-6 icon-box">
+            <i class="bi bi-card-checklist"></i>
+            <div>
+              <h4>Comprehensive Analysis</h4>
+              <p>We conduct detailed assessments tailored to your specific challenges, delivering actionable insights for growth.</p>
+            </div>
+          </div><!-- End Feature Item -->
+
+          <div class="col-md-6 icon-box">
+            <i class="bi bi-dribbble"></i>
+            <div>
+              <h4>Innovative Solutions</h4>
+              <p>Leverage cutting-edge tools and technologies to implement solutions that keep you ahead of the competition.</p>
+            </div>
+          </div><!-- End Feature Item -->
+
+          <div class="col-md-6 icon-box">
+            <i class="bi bi-filter-circle"></i>
+            <div>
+              <h4>Scalable Strategies</h4>
+              <p>Our solutions are designed to grow with your business, adapting to evolving needs without compromising quality.</p>
+            </div>
+          </div><!-- End Feature Item -->
+
+          <div class="col-md-6 icon-box">
+            <i class="bi bi-lightning-charge"></i>
+            <div>
+              <h4>Efficiency Redefined</h4>
+              <p>Streamline processes and improve productivity with our fast, reliable, and cost-effective services.</p>
+            </div>
+          </div><!-- End Feature Item -->
+
+          <div class="col-md-6 icon-box">
+            <i class="bi bi-patch-check"></i>
+            <div>
+              <h4>Commitment to Excellence</h4>
+              <p>We prioritize quality and precision in every project, ensuring exceptional outcomes that drive success.</p>
+            </div>
+          </div><!-- End Feature Item -->
+
+        </div>
+
+      </div>
+
+      <div class="col-xl-5 d-flex align-items-center order-1 order-xl-2" data-aos="zoom-out-up" data-aos-delay="100">
+        <img src="assets/img/two.jpg" class="img-fluid" alt="Innovative Features of TaiStat Consultancy">
+      </div>
+
+    </div>
+
+  </div>
+
+</section><!-- /Alt Features Section -->
+
+
+
+
+
+<!-- Portfolio Section -->
+<div style="padding-bottom: 20px;" class="services-button-wrapper">
+  <a href="portfolio.html" class="btn-read-more d-inline-flex align-items-center justify-content-center">
+    <span>Our Portfolio</span>
+    <i class="bi bi-arrow-right"></i>
+
+    <br>
+    <hr>
+  </a>
+</div>
+
+  <!-- Section Title -->
+<!-- About Section -->
+<section id="about" class="about section" style="background-color: rgb(27, 26, 26);">
+  <div class="container" data-aos="zoom-out">
+    <div class="row gx-0">
+      <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="zoom-in-up" data-aos-delay="200">
+        <div class="content">
+          <h3 style="color: aquamarine;">Who We Are</h3>
+          <h2 style="color: rgb(61, 61, 252);" >Mission and Vision</h2>
+          <p style="color: azure;">
+            At TaiStat, our mission is to empower businesses, institutions, and individuals by delivering innovative, data-driven solutions while fostering data literacy. Our vision is to become the leading Data Consultancy Firm in Kenya and the East Africa region, championing innovation and excellence in Data Science, Machine Learning, and Artificial Intelligence.
+          </p>
+          <p style="color: azure;" >
+            We are committed to helping you unlock the power of data and insights tailored to your unique challenges. By transforming knowledge into practical solutions, we aim to drive real-world impact and sustainable success. At TaiStat, excellence is not just a goal—it is at the core of everything we do as we bridge the gap between data and decision-making.
+          </p>
+          <div class="text-center text-lg-start">
+            <a href="services.html" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+              <span>Learn More</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
           </div>
         </div>
       </div>
+
+      <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+        <img src="assets/img/bigdata" class="img-fluid" alt="Big Data Insights">
+      </div>
     </div>
-  
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="d-flex align-items-center">
-            <span style="color: aquamarine;" class="sitename">TaiStat Consultancy</span>
+  </div>
+</section>
+<!-- /About Section -->
+
+
+<!-- Team Section -->
+<section id="team" class="team section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="zoom-out-up">
+    <h2>Team</h2>
+    <p>Meet our dedicated team</p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+    <div class="row gy-4">
+
+      <!-- Stephen Mulingwa (CEO) -->
+      <div class="col-lg-6 col-md-6 d-flex align-items-stretch" data-aos="zoom-out-up" data-aos-delay="100">
+        <div class="team-member">
+          <div class="member-img">
+            <img src="assets/img/mulingwa.jpg" class="img-fluid" alt="Stephen Mulingwa">
+            <div class="social">
+              <a href="#"><i class="bi bi-twitter-x"></i></a>
+              <a href="#"><i class="bi bi-facebook"></i></a>
+              <a href="#"><i class="bi bi-instagram"></i></a>
+              <a href="#"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="member-info">
+            <h4>Stephen Mulingwa</h4>
+            <span>Founder & Chief Executive Officer</span>
+            <p>
+              Stephen Mulingwa is the Founder of TaiStat Consultancy Firm, a leading provider of AI, data science, and analytics 
+              solutions across Kenya and beyond. With deep expertise in data analytics, machine learning, training, and tutoring, 
+              he empowers businesses and individuals with actionable insights to drive informed, data-driven decision-making. 
+              Passionate about innovation and problem-solving, Stephen specializes in building advanced predictive models that 
+              transform raw data into valuable business intelligence. Through mentorship and knowledge sharing, he fosters a 
+              culture of continuous learning, helping organizations and professionals harness the full potential of data to 
+              achieve their goals.
+            </p>
+          </div>
+        </div>
+      </div><!-- End Team Member -->
+      <div class="col-lg-6 col-md-6 d-flex align-items-stretch" data-aos="zoom-out-up" data-aos-delay="100">
+        <div class="team-member">
+          <div class="member-img">
+            <img src="savoo1.jpg" class="img-fluid" alt="Stephen Mulingwa">
+            <div class="social">
+              <a href="#"><i class="bi bi-twitter-x"></i></a>
+              <a href="#"><i class="bi bi-facebook"></i></a>
+              <a href="#"><i class="bi bi-instagram"></i></a>
+              <a href="#"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="member-info">
+            <h4>Nanyaemuny Savins
+            </h4>
+            <span>Data Analyst & Software Developer</span>
+            <p>
+              Savins is a skilled data Analyst and software developer specializing in predictive modeling, time 
+              series forecasting, and AI-driven analytics. He has worked in the government as a Data Analyst in the 
+              Department of Tourism and Trade at Laikipia County Government, where he leveraged data to optimize 
+              decision-making and drive efficiency in economic planning, trade activities, and policy development. 
+              As a software developer, Savins has built and deployed mobile applications streamlining business 
+              processes for different organizations.
+            </p>
+          </div>
+        </div>
+      </div><!-- End Team Member -->
+      
+    </div>
+  </div>
+
+</section><!-- /Team Section -->
+
+
+   
+<!-- Recent Posts Section -->
+<section  id="recent-posts" class="recent-posts section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="zoom-out-up">
+    <h2>Recent Posts</h2>
+    <p>Recent posts from our Blog</p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+
+    <div class="row gy-5">
+
+      <div class="col-xl-4 col-md-6">
+        <div class="post-item position-relative h-100" data-aos="zoom-out-up" data-aos-delay="100">
+
+          <div class="post-img position-relative overflow-hidden">
+            <img  style="width: 100%;" src="blogdetails/blog1.jpg" class="img-fluid" alt="Machine Learning Image">
+            <span class="post-date">December 12</span>
+          </div>
+
+          <div class="post-content d-flex flex-column">
+
+            <h3 class="post-title"> Machine Learning</h3>
+
+            <div class="meta d-flex align-items-center">
+              <div class="d-flex align-items-center">
+                <i class="bi bi-person"></i> <span class="ps-2">Stephen Mulingwa</span>
+              </div>
+              <span class="px-3 text-black-50">/</span>
+              <div class="d-flex align-items-center">
+                <i class="bi bi-folder2"></i> <span class="ps-2">Machine Learning</span>
+              </div>
+            </div>
+
+            <hr>
+
+            <a href="blog.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+
+          </div>
+
+        </div>
+      </div><!-- End post item -->
+
+      <div class="col-xl-4 col-md-6">
+        <div class="post-item position-relative h-100" data-aos="zoom-out-up" data-aos-delay="200">
+
+          <div class="post-img position-relative overflow-hidden">
+            <img width="100%" src="blogdetails/data.jpg" class="img-fluid" alt="Data Science Image">
+            <span class="post-date">DEC 1</span>
+          </div>
+
+          <div class="post-content d-flex flex-column">
+
+            <h3 class="post-title">Why Every Business Needs a Data-Driven Strategy Today</h3>
+
+            <div class="meta d-flex align-items-center">
+              <div class="d-flex align-items-center">
+                <i class="bi bi-person"></i> <span class="ps-2">Stephen Mulingwa</span>
+              </div>
+              <span class="px-3 text-black-50">/</span>
+              <div class="d-flex align-items-center">
+                <i class="bi bi-folder2"></i> <span class="ps-2">Data Science</span>
+              </div>
+            </div>
+
+            <hr>
+
+            <a href="blog.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+
+          </div>
+
+        </div>
+      </div><!-- End post item -->
+
+      <div class="col-xl-4 col-md-6" data-aos="zoom-out-up" data-aos-delay="300">
+        <div class="post-item position-relative h-100">
+
+          <div class="post-img position-relative overflow-hidden">
+            <img  style="width: 200%; height: 100%;" src="blogdetails/blog4.jpg" alt="" class="img-fluid">
+            <span class="post-date">Dec 1</span>
+          </div>
+
+          <div class="post-content d-flex flex-column">
+
+                    <h2 class="title">
+                    <h2 class="title">
+            <h3 class="post-title">The Innovation Framework: Driving Success Through Tailored Strategies</h3>
+
+            <div class="meta d-flex align-items-center">
+              <div class="d-flex align-items-center">
+                <i class="bi bi-person"></i> <span class="ps-2">Stephen Mulingwa</span>
+              </div>
+              <span class="px-3 text-black-50">/</span>
+              <div class="d-flex align-items-center">
+                <i class="bi bi-folder2"></i> <span class="ps-2">Technology</span>
+              </div>
+            </div>
+
+            <hr>
+
+            <a href="blog.html#blog4" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+
+          </div>
+
+        </div>
+      </div><!-- End post item -->
+
+    </div>
+
+  </div>
+
+</section><!-- /Recent Posts Section -->
+
+    </div>
+
+  </div>
+
+</section><!-- /Contact Section -->
+
+</main>
+
+<footer style="background-color: rgb(10, 9, 9); color: beige;" id="footer" class="footer">
+
+  <div class="footer-newsletter">
+    <div class="container">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-6">
+          <h4 style="color: aquamarine;">Join Our Newsletter</h4>
+          <p>Subscribe to our newsletter and stay updated on the latest in Data Science, Machine Learning, and Business Intelligence solutions!</p>
+          <form action="forms/newsletter.php" method="post" class="php-email-form">
+            <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your subscription request has been sent. Thank you!</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container footer-top">
+    <div class="row gy-4">
+      <div class="col-lg-4 col-md-6 footer-about">
+        <a href="index.html" class="d-flex align-items-center">
+          <span style="color: aquamarine;" class="sitename">TaiStat Consultancy</span>
+        </a>
+        <div class="footer-contact pt-3">
+          <p>Remote Firm</p>
+          <p>Serving Clients Worldwide</p>
+          <p class="mt-3"><strong>Phone:</strong> <span>+254 111-224-952</span></p>
+          <p><strong>Email:</strong> <span>taistatconsultancy@gmail.com</span></p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <h4 style="color: aquamarine;">Services</h4>
+        <ul>
+          <li>Data Services</li>
+          <li>Data Consultancy</li>
+          <li>Machine Learning</li>
+          <li>AI</li>
+          <li>APIs</li>
+          <li>Data Analysis</li>
+          <li>Business Intelligence</li>
+        </ul>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <h4 style="color: aquamarine;">Industries</h4>
+        <ul>
+          <li>SMEs</li>
+          <li>Healthcare</li>
+          <li>Finance</li>
+          <li>Corporates</li>
+          <li>Educational Institutions</li>
+          <li>Manufacturing</li>
+        </ul>
+      </div>
+
+      <div class="col-lg-4 col-md-12">
+        <h4 style="color: aquamarine;">Follow Us</h4>
+        <p>Join our community and explore the transformative power of data-driven insights.</p>
+        <div class="social-links d-flex">
+          <a href="https://www.taistat-consultancy-firm.com/website/social/twitter" class="twitter">
+            <img src="twitter-logo-2.svg" alt="Twitter" width="30">
           </a>
-          <div class="footer-contact pt-3">
-            <p>Operating Remotely</p>
-            <p>Serving Clients Worldwide</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+254 111-224-952</span></p>
-            <p><strong>Email:</strong> <span>taistatconsultancy@gmail.com</span></p>
-          </div>
-        </div>
-  
-        <div class="col-lg-4 col-md-6">
-          <h4 style="color: aquamarine;">Services</h4>
-          <ul>
-            <li>Data Services</li>
-            <li>Data Consultancy</li>
-            <li>Machine Learning</li>
-            <li>AI</li>
-            <li>APIs</li>
-            <li>Data Analysis</li>
-            <li>Business Intelligence</li>
-          </ul>
-        </div>
-  
-        <div class="col-lg-4 col-md-6">
-          <h4 style="color: aquamarine;">Industries</h4>
-          <ul>
-            <li>SMEs</li>
-            <li>Healthcare</li>
-            <li>Finance</li>
-            <li>Corporates</li>
-            <li>Educational Institutions</li>
-            <li>Manufacturing</li>
-          </ul>
-        </div>
-  
-        <div class="col-lg-4 col-md-12">
-          <h4 style="color: aquamarine;">Follow Us</h4>
-          <p>Join our community and explore the transformative power of data-driven insights.</p>
-          <div class="social-links d-flex">
-            <a href="https://www.taistat-consultancy-firm.com/website/social/twitter" class="twitter">
-              <img src="twitter-logo-2.svg" alt="Twitter" width="30">
-            </a>
-            <a href="https://www.taistat-consultancy-firm.com/website/social/linkedin" class="linkedin">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" width="30">
-            </a>
-            <a href="https://www.taistat-consultancy-firm.com/website/social/youtube" class="youtube">
-              <img src="youtube-icon-5.svg" alt="YouTube" width="30">
-            </a>
-            <a href="https://www.taistat-consultancy-firm.com/website/social/github" class="github">
-              <img src="github-icon-2.svg" alt="GitHub" width="30">
-            </a>
-            <a href="https://www.taistat-consultancy-firm.com/website/social/tiktok" class="tiktok">
-              <img src="tiktok-icon-black-1-1--1.svg" alt="TikTok" width="30">
-            </a>
-          </div>
+          <a href="https://www.taistat-consultancy-firm.com/website/social/linkedin" class="linkedin">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" width="30">
+          </a>
+          <a href="https://www.taistat-consultancy-firm.com/website/social/youtube" class="youtube">
+            <img src="youtube-icon-5.svg" alt="YouTube" width="30">
+          </a>
+          <a href="https://www.taistat-consultancy-firm.com/website/social/github" class="github">
+            <img src="github-icon-2.svg" alt="GitHub" width="30">
+          </a>
+          <a href="https://www.taistat-consultancy-firm.com/website/social/tiktok" class="tiktok">
+            <img src="tiktok-icon-black-1-1--1.svg" alt="TikTok" width="30">
+          </a>
         </div>
       </div>
     </div>
-  
-    <div class="container copyright text-center mt-4">
-      <p>&copy; <span>Copyright</span> <strong class="px-1 sitename" style="color: aquamarine;">TaiStat Consultancy</strong> <span>All Rights Reserved</span></p>
-      <div class="credits">
-        Designed by <a style="color: aquamarine;" href="https://otis-ke.github.io/portfolio/">Vincent Otis</a>
-      </div>
+  </div>
+
+  <div class="container copyright text-center mt-4">
+    <p>&copy; <span>Copyright</span> <strong class="px-1 sitename" style="color: aquamarine;">TaiStat Firm</strong> <span>All Rights Reserved</span></p>
+    <div class="credits">
+      Designed by <a style="color: aquamarine;" href="https://otis-ke.github.io/portfolio/">Vincent Otis</a>
     </div>
-  
-  </footer>
-  
-</body>
+  </div>
+
+</footer>
+
+<!-- Scroll Top -->
+<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+<!-- Main JS File -->
+<script src="assets/js/main.js"></script>
 
 </body>
+
 </html>
