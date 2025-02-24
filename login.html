@@ -1,105 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register & Login</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <script type="module" src="firebaseauth.js"></script>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>TaiStat Login & Registration</title>
-      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-      
-       <link rel="icon" type="image/svg+xml" href="tailogo.png" />
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaiStat Login & Registration</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="assets//css//main.css">
+  </head>
+  <body>
+    <!-- Global Message Display -->
+    <div id="message" style="color: green; margin-bottom: 1em;"></div>
 
-<body>
-    <div class="container" id="signup" style="display:none;">
-      <h1 class="form-title">Register</h1>
-      <br>
-      <form method="post" action="">
-        <div id="signUpMessage" class="messageDiv" style="display:none;"></div>
-        <div class="input-group">
-           <i class="fas fa-user"></i>
-           <input type="text"  id="fName" placeholder="First Name" required>
-           <label for="fname">First Name</label>
-        </div>
-        <div class="input-group">
-            <i class="fas fa-user"></i>
-            <input type="text"  id="lName" placeholder="Last Name" required>
-            <label for="lName">Last Name</label>
-        </div>
-        <div class="input-group">
-            <i class="fas fa-envelope"></i>
-            <input type="email"  id="rEmail" placeholder="Email" required>
-            <label for="rEmail">Email</label>
-        </div>
-        <div class="input-group">
-            <i class="fas fa-lock"></i>
-            <input type="password" id="rPassword"  placeholder="Password" required>
-            <label for="rPassword">Password</label>
-        </div>
-       <button  style="background-color: black;" class="btn" id="submitSignUp" >Sign Up</button>
+    <!-- Sign In Form -->
+    <div id="signInContainer" style="max-width: 400px; width: 90%; margin: 0 auto; padding: 1em;">
+      <form id="signInForm" style="display: flex; flex-direction: column; gap: 1em;">
+        <h2 style="text-align: center;">Login</h2>
+        <input type="email" name="email" placeholder="Email" required style="padding: 0.75em; font-size: 1em;" />
+        <input type="password" name="password" placeholder="Password" required style="padding: 0.75em; font-size: 1em;" />
+        <button type="submit" style="padding: 0.75em; font-size: 1em;">Sign In</button>
+        <p style="text-align: center;">
+          <a href="#" id="linkToReset">Recover Password</a>
+        </p>
+        <p style="text-align: center;">
+          <a href="#" id="linkToSignUp">Don't have an account? <span style="color: brown;"> Sign Up</span></p></a>
+        </p>
       </form>
-    
-     
-      <div class="links">
-        <p>Already Have Account ? <button  style="color: blue;" id="signInButton">Sign In</button></p>
-       
-      </div>
     </div>
-
-  <div class="container" id="signIn">
-        <h1 class="form-title">Sign In</h1>
-        <br>
-        <form method="post" action="">
-          <div id="signInMessage" class="messageDiv" style="display:none;"></div>
-
-          <div class="input-group">
-             <label for="email">Email</label>
-              <input type="email"  id="email" placeholder="Email" required>
-              
-          </div>
-          <div class="input-group">
-            <label for="password">Password</label>
-            <input type="password" id="password"  placeholder="Password" required>
-              
-          </div>
-          <p class="recover">
-            <a href="#">Recover Password</a>
-          </p>
-         <button style="background-color: black;" class="btn"  id="submitSignIn">Sign In</button>
-        </form>
+    
+    <!-- Sign Up Form -->
+    <div id="signUpContainer" style="display: none; max-width: 400px; width: 90%; margin: 0 auto; padding: 1em;">
+      <form id="signUpForm" style="display: flex; flex-direction: column; gap: 1em;">
+        <h2 style="text-align: center;">Sign Up</h2>
+        <input type="text" name="firstName" placeholder="First Name" required style="padding: 0.75em; font-size: 1em;" />
+        <input type="text" name="lastName" placeholder="Last Name" required style="padding: 0.75em; font-size: 1em;" />
+        <input type="text" name="phone" placeholder="Phone" required style="padding: 0.75em; font-size: 1em;" />
+        <input type="text" name="gender" placeholder="Gender" required style="padding: 0.75em; font-size: 1em;" />
+        <input type="email" name="email" placeholder="Email" required style="padding: 0.75em; font-size: 1em;" />
+        <input type="password" name="password" placeholder="Password" required style="padding: 0.75em; font-size: 1em;" />
+        <button type="submit" style="padding: 0.75em; font-size: 1em;">Sign Up</button>
+        <p style="text-align: center;">
+          <a href="#" id="linkToSignInFromSignUp">Already have an account? <span style="color: brown;"> Login</span></a>
+        </p>
+      </form>
+    </div>
+    
+    <!-- Reset Password Form -->
+    <div id="resetContainer" style="display: none; max-width: 400px; width: 90%; margin: 0 auto; padding: 1em;">
+      <form id="resetForm" style="display: flex; flex-direction: column; gap: 1em;">
+        <h2 style="text-align: center;">Reset Password</h2>
+        <input type="email" name="resetEmail" placeholder="Enter your email" required style="padding: 0.75em; font-size: 1em;" />
+        <button type="submit" style="padding: 0.75em; font-size: 1em;">Send Reset Link</button>
+        <p style="text-align: center;">
+          <a href="#" id="linkToSignInFromReset">Back to Sign In</a>
+        </p>
+      </form>
+    </div>
+    
+    <!-- Firebase & App Script -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+      import {
+        getAuth,
+        signInWithEmailAndPassword,
+        createUserWithEmailAndPassword,
+        sendPasswordResetEmail
+      } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+      import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
       
-        <div class="links">
-          <p>Don't have account yet?<button style="color: blue;" id="signUpButton">Sign Up</button></p>
-          
-        </div>
-      </div>
-      <!-- Reset Password Form -->
-<div class="container" id="resetPassword" style="display:none;">
-  <h1 class="form-title">Reset Password</h1>
-  <br>
-  <form method="post" action="#">
-      <div id="resetMessage" class="messageDiv" style="display:none;"></div>
-
-      <div class="input-group">
-          <i class="fas fa-envelope"></i>
-          <input type="email" id="resetEmail" placeholder="Enter your email" required>
-          <label for="resetEmail">Email</label>
-      </div>
-
-      <button style="background-color: black;" class="btn" id="resetPasswordButton">Send Reset Link</button>
-  </form>
-
-  <div class="links">
-      <p>Remembered your password? <button style="color: blue;" id="backToSignIn">Sign In</button></p>
-  </div>
-</div>
+      // Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyD6xgrttBIm9vw07xRltKsqHZNpS1jJ8xw",
+        authDomain: "taistat-f0e1d.firebaseapp.com",
+        projectId: "taistat-f0e1d",
+        storageBucket: "taistat-f0e1d.firebasestorage.app",
+        messagingSenderId: "196742294604",
+        appId: "1:196742294604:web:715fe57bf6471221b898e9"
+      };
       
-      <script src="script.js"></script>
-</body>
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      const db = getFirestore(app);
+      
+      // Get DOM elements
+      const signInContainer = document.getElementById("signInContainer");
+      const signUpContainer = document.getElementById("signUpContainer");
+      const resetContainer = document.getElementById("resetContainer");
+      
+      const signInForm = document.getElementById("signInForm");
+      const signUpForm = document.getElementById("signUpForm");
+      const resetForm = document.getElementById("resetForm");
+      
+      const messageEl = document.getElementById("message");
+      
+      // Links for switching forms
+      const linkToReset = document.getElementById("linkToReset");
+      const linkToSignUp = document.getElementById("linkToSignUp");
+      const linkToSignInFromSignUp = document.getElementById("linkToSignInFromSignUp");
+      const linkToSignInFromReset = document.getElementById("linkToSignInFromReset");
+      
+      // Functions to show/hide forms
+      function showSignIn() {
+        signInContainer.style.display = "block";
+        signUpContainer.style.display = "none";
+        resetContainer.style.display = "none";
+        messageEl.textContent = "";
+      }
+      function showSignUp() {
+        signInContainer.style.display = "none";
+        signUpContainer.style.display = "block";
+        resetContainer.style.display = "none";
+        messageEl.textContent = "";
+      }
+      function showReset() {
+        signInContainer.style.display = "none";
+        signUpContainer.style.display = "none";
+        resetContainer.style.display = "block";
+        messageEl.textContent = "";
+      }
+      
+      // Event listeners for switching forms
+      linkToReset.addEventListener("click", (e) => {
+        e.preventDefault();
+        showReset();
+      });
+      linkToSignUp.addEventListener("click", (e) => {
+        e.preventDefault();
+        showSignUp();
+      });
+      linkToSignInFromSignUp.addEventListener("click", (e) => {
+        e.preventDefault();
+        showSignIn();
+      });
+      linkToSignInFromReset.addEventListener("click", (e) => {
+        e.preventDefault();
+        showSignIn();
+      });
+      
+      // Handle Sign In form submission
+      signInForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        messageEl.textContent = "";
+        const email = signInForm.querySelector('input[name="email"]').value;
+        const password = signInForm.querySelector('input[name="password"]').value;
+        try {
+          const userCredential = await signInWithEmailAndPassword(auth, email, password);
+          const user = userCredential.user;
+          const userDoc = await getDoc(doc(db, "users", user.uid));
+          if (userDoc.exists()) {
+            localStorage.setItem("loggedInUserId", user.uid);
+            localStorage.setItem("userData", JSON.stringify(userDoc.data()));
+            // Redirect to homepage.html after successful login
+            window.location.href = "homepage.html";
+          } else {
+            messageEl.textContent = "User not found in database.";
+          }
+        } catch (error) {
+          messageEl.textContent = "Error: " + error.message;
+        }
+      });
+      
+      // Handle Sign Up form submission
+      signUpForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        messageEl.textContent = "";
+        const firstName = signUpForm.querySelector('input[name="firstName"]').value;
+        const lastName = signUpForm.querySelector('input[name="lastName"]').value;
+        const phone = signUpForm.querySelector('input[name="phone"]').value;
+        const gender = signUpForm.querySelector('input[name="gender"]').value;
+        const email = signUpForm.querySelector('input[name="email"]').value;
+        const password = signUpForm.querySelector('input[name="password"]').value;
+      
+        try {
+          const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+          const user = userCredential.user;
+          const userData = { firstName, lastName, phone, gender, email };
+          await setDoc(doc(db, "users", user.uid), userData);
+          // Display success message and redirect to the sign in form
+          messageEl.textContent = "Account created successfully. Please sign in.";
+          showSignIn();
+        } catch (error) {
+          if (error.code === "auth/email-already-in-use") {
+            messageEl.textContent = "User already exists. Please sign in.";
+          } else {
+            messageEl.textContent = "Error: " + error.message;
+          }
+        }
+      });
+      
+      // Handle Reset Password form submission
+      resetForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        messageEl.textContent = "";
+        const resetEmail = resetForm.querySelector('input[name="resetEmail"]').value;
+        if (!resetEmail) {
+          messageEl.textContent = "Please enter your email.";
+          return;
+        }
+        try {
+          await sendPasswordResetEmail(auth, resetEmail);
+          messageEl.textContent =
+            "Success: Reset link sent to " + resetEmail + ".";
+          showSignIn();
+        } catch (error) {
+          messageEl.textContent = "Error: " + error.message;
+        }
+      });
+      
+      // On load, display the Sign In form
+      showSignIn();
+    </script>
+  </body>
 </html>
