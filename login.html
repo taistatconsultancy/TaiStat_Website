@@ -79,6 +79,26 @@
           
         </div>
       </div>
+      <!-- Reset Password Form -->
+<div class="container" id="resetPassword" style="display:none;">
+  <h1 class="form-title">Reset Password</h1>
+  <br>
+  <form method="post" action="#">
+      <div id="resetMessage" class="messageDiv" style="display:none;"></div>
+
+      <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="resetEmail" placeholder="Enter your email" required>
+          <label for="resetEmail">Email</label>
+      </div>
+
+      <button style="background-color: black;" class="btn" id="resetPasswordButton">Send Reset Link</button>
+  </form>
+
+  <div class="links">
+      <p>Remembered your password? <button style="color: blue;" id="backToSignIn">Sign In</button></p>
+  </div>
+</div>
       
       <script src="script.js"></script>
 </body>
