@@ -1,125 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>TaiStat consultancy blog</title>
-    <meta name="description" content="taistat consultancy firm">
-    <meta name="keywords" content="taistat consultancy firm">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>TaiStat Consultancy Blog</title>
+  <meta name="description" content="taistat consultancy firm">
+  <meta name="keywords" content="taistat consultancy firm">
   
-    <!-- Favicons -->
-    <link href="assets/img/tailogo.png" rel="icon">
-    
-    <link rel="icon" type="image/svg+xml" href="tailogo.png" />
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com" rel="preconnect">
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-  
-    <!-- Vendor CSS Files -->
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  
-    <!-- Main CSS File -->
-    <link href="assets/css/main.css" rel="stylesheet">
-  
- 
+  <!-- Favicons -->
+  <link href="assets/img/tailogo.png" rel="icon">
+  <link rel="icon" type="image/svg+xml" href="tailogo.png" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- Custom Styles for Blog Cards -->
+  <style>
+    .post-item {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      background: #fff;
+      border: 1px solid #eaeaea;
+      border-radius: 4px;
+      overflow: hidden;
+      transition: box-shadow 0.3s;
+    }
+    .post-item:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .post-img {
+      height: 200px;
+      overflow: hidden;
+    }
+    .post-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .post-content {
+      padding: 15px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .post-title {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .meta {
+      font-size: 0.875rem;
+      color: #6c757d;
+      margin-bottom: 0.75rem;
+    }
+    .post-excerpt {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+    .readmore {
+      margin-top: auto;
+      font-weight: 600;
+      text-decoration: none;
+      color: #007bff;
+      transition: color 0.3s;
+    }
+    .readmore:hover {
+      color: #0056b3;
+    }
+  </style>
 </head>
-<style>
-   .whatsapp-container {
-            position: fixed;
-            bottom: 10px;
-            left: 10px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        .whatsapp-float {
-            width: 60px;
-            height: 60px;
-            background-color: #25D366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            transition: transform 0.3s ease-in-out;
-        }
-        
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
-        
-        .whatsapp-float img {
-            width: 35px;
-            height: 35px;
-        }
-        
-        .close-btn {
-            background: red;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-            font-size: 14px;
-            border-radius: 50%;
-        }
-        @media screen and (max-width: 600px) {
-            .whatsapp-container {
-                bottom: 5px;
-                left: 5px;
-                gap: 3px;
-            }
-            .whatsapp-float {
-                width: 40px;
-                height: 40px;
-            }
-            .whatsapp-float img {
-                width: 20px;
-                height: 20px;
-            }
-            .close-btn {
-                font-size: 10px;
-                padding: 4px 8px;
-            }
-        }
-    </style>
 <body>
 
+  <!-- ======= Header ======= -->
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
-
       <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="tailogo.png" alt="" style="border-radius: 50%; ">
-       
+        <img src="tailogo.png" alt="" style="border-radius: 50%;">
       </a>
-
-      <nav  id="navmenu" class="navmenu">
+      <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="index.html#unique-hero-section" class="active">Home<br></a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="portfolio.html">Portfolio</a></li>
           <li><a href="blog.html">Blog</a></li>
-          <li><a href="courses.html">courses</a></li>
+          <li><a href="courses.html">Courses</a></li>
           <li><a href="aboutus.html">About Us</a></li> 
           <li><a href="contact.html">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-
-       <a class="btn-getstarted flex-md-shrink-0" href="courses.html">Get Started</a>
-
+      <a class="btn-getstarted flex-md-shrink-0" href="courses.html">Get Started</a>
     </div>
   </header>
+  <!-- End Header -->
 
   <main class="main">
-<br><br>
+    <br><br>
     <!-- Page Title -->
     <div class="page-title">
       <div class="heading">
@@ -140,410 +130,233 @@
           </ol>
         </div>
       </nav>
-    </div><!-- End Page Title -->
-
-    <div class="container">
-      <div class="row">
-
-        <div class="col-lg-8">
-
-          <!-- Blog Posts Section -->
-          <section id="blog-posts" class="blog-posts section">
-
-            <div class="container">
-
-              <div class="row gy-4">
-
-                <div class="col-12">
-                  <article>
-
-                    <div class="post-img">
-                      <img  style="width: 200%; height: 100%;" src="blogdetails/blog1.jpg" alt="" class="img-fluid">
-                    </div>
-
-                    <h2 class="title">
-                      <a href="blog1detail.html">Machine Learning</a>
-                    </h2>
-
-                    <div class="meta-top">
-                      <ul>
-                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="">Stephen Mulingwa</a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href=""><time datetime="2022-01-01">DEC 1, 2024</time></a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="">12 Comments</a></li>
-                      </ul>
-                    </div>
-
-                    <div class="content">
-                      <p>
-                        In his bestselling book Atomic Habits, James Clear offers a compelling insight into the human brain’s predictive nature, 
-                        a concept that aligns closely with machine learning principles. </p>
-
-                      <div class="read-more">
-                        <a href="blog1detail.html">Read More</a>
-                      </div>
-                    </div>
-
-                  </article>
-                </div><!-- End post list item -->
-
-               
-
-                
-                <div class="col-12">
-                  <article>
-
-                    <div class="post-img">
-                      <img  style="width: 200%; height: 100%;" src="tailogo.png" alt="" class="img-fluid">
-                    </div>
-
-                    <h2 class="title">
-                      <a href="blog2detail.html">Taistat Consultancy Firm</a>
-                    </h2>
-
-                    <div class="meta-top">
-                      <ul>
-                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="">Stephen Mulingwa</a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href=""><time datetime="2022-01-01">DEC 1, 2024</time></a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="">8 Comments</a></li>
-                      </ul>
-                    </div>
-
-                    <div class="content">
-                      <p>TaiStat Consultancy Firm is at the forefront of data science, artificial intelligence (AI), and machine learning, positioned to revolutionize how businesses and industries analyze data and make decisions. 
-                        With a mission to bring quality analytical insights to industries and businesses, TaiStat seeks to enable companies to unlock the full potential of their data. Our team of experts works across various industries, 
-                        providing cutting-edge solutions tailored to meet each client’s unique needs.
-                         </p>
-
-                      <div class="read-more">
-                        <a href="blog2detail.html">Read More</a>
-                      </div>
-                    </div>
-
-                  </article>
-                </div><!-- End post list item -->
-
-              
-
-                <div class="col-12">
-                  <article>
-
-                    <div class="post-img">
-                      <img  style="width: 200%; height: 100%;" src="blogdetails/blog2.jpg" alt="" class="img-fluid">
-                    </div>
-
-                    <h2 class="title">
-                      <a href="blog3details.html">Artificial Intelligence</a>
-                    </h2>
-
-                    <div class="meta-top">
-                      <ul>
-                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="">Stephen Mulingwa</a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href=""><time datetime="2022-01-01">DEC 1, 2024</time></a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="">15 Comments</a></li>
-                      </ul>
-                    </div>
-
-                    <div class="content">
-                      <p>
-                        In today’s digital age, Artificial Intelligence (AI) is transforming how businesses operate, innovate, and compete.
-                         From automating routine tasks to unlocking valuable insights from data, AI offers vast potential for growth and efficiency. 
-                         For those new to AI, let’s explore its basics,
-                         core principles, and business applications to understand this exciting field.
-                      </p>
-
-                      <div class="read-more">
-                        <a href="blog3details.html">Read More</a>
-                      </div>
-                    </div>
-
-                  </article>
-                </div><!-- End post list item -->
-
-
-
-
-
-
-
-
-                <div class="col-12">
-                  <article>
-
-                    <div class="post-img">
-                      <img  id="#blog4" style="width: 200%; height: 100%;" src="blogdetails/blog4.jpg" alt="" class="img-fluid">
-                    </div>
-
-                    <h2 id="#blog4" class="title">
-                      <a href="blog4details.html">The Innovation Framework: Driving Success Through Tailored Strategies</a>
-                    </h2>
-
-                    <div class="meta-top">
-                      <ul>
-                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="">Stephen Mulingwa</a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href=""><time datetime="2022-01-01">DEC 1, 2024</time></a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="">1 Comments</a></li>
-                      </ul>
-                    </div>
-
-                    <div class="content">
-                      <p>
-                        In today’s fast-paced and competitive landscape, businesses need more than conventional methods to thrive; they need innovative strategies tailored 
-                        to their unique challenges and opportunities. At TaiStat Consultancy Firm, our Innovation Framework is designed to deliver precisely that: 
-                        customized solutions that drive measurable success for businesses of all sizes and industries.
-                      </p>
-                      <div class="read-more">
-                        <a href="blog4details.html">Read More</a>
-                      </div>
-                    </div>
-
-                  </article>
-                </div><!-- End post list item -->
-
-
-
-
-                
-                <div class="col-12">
-                  <article>
-
-                    <div class="post-img">
-                      <img  style="width: 200%; height: 100%;" src="blogdetails/blog5.png" alt="" class="img-fluid">
-                    </div>
-
-                    <h2 class="title">
-                      <a href="blog5details.html">Transforming Sales with the Footwear Sales App</a>
-                    </h2>
-
-                    <div class="meta-top">
-                      <ul>
-                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="">Stephen Mulingwa</a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href=""><time datetime="2022-01-01">DEC 1, 2024</time></a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="">5 Comments</a></li>
-                      </ul>
-                    </div>
-
-                    <div class="content">
-                      <p>
-                        TaiStat Consultancy has achieved remarkable success with its innovative Footwear Sales App, a comprehensive sales management solution for small and medium businesses.
-                        This app empowers both business owners and sales teams by offering two tailored interfaces: the Update App and the Summary App. The Update App streamlines daily sales entry, 
-                        stock updates, and expense tracking, making it easy for sales staff to track performance and generate receipts for transactions. Meanwhile, the Summary App provides business 
-                        owners with real-time insights, enabling them to monitor total investment, stock levels, profit margins, and trends in sales data.
-                      
-                      </p>
-                      <div class="read-more">
-                        <a href="blog5details.html">Read More</a>
-                      </div>
-                    </div>
-
-                  </article>
-                </div><!-- End post list item -->
-
- 
-                <div class="col-12">
-                  <article>
-
-                    <div class="post-img">
-                      <img  style="width: 200%; height: 100%;" src="blogdetails/blog6.jpg" alt="" class="img-fluid">
-                    </div>
-
-                    <h2 class="title">
-                      <a href="blog6detail.html">Survey Application: Simplifying Data Collection and Enhancing Insights for Businesses</a>
-                    </h2>
-
-                    <div class="meta-top">
-                      <ul>
-                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="">Stephen Mulingwa</a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href=""><time datetime="2022-01-01">DEC 1, 2024</time></a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="">7 Comments</a></li>
-                      </ul>
-                    </div>
-
-                    <div class="content">
-                      <p>
-                        TaiStat Consultancy Firm’s Survey Application is a transformative tool designed to simplify data collection and streamline company survey management. This app, structured with three interfaces: Admin, Company, and Data Collector, offers tailored functionality at each user level to ensure an organized and seamless experience from question creation to survey completion.
-                        
-                      </p>
-                      <div class="read-more">
-                        <a href="blog6detail.html">Read More</a>
-                      </div>
-                    </div>
-
-                  </article>
-                </div><!-- End post list item -->
-
-
-
-
-
-                <div class="col-12">
-                  <article>
-
-                    <div class="post-img">
-                      <img  style="width: 200%; height: 100%;" src="blogdetails/blog7.jpg" alt="" class="img-fluid">
-                    </div>
-
-                    <h2 class="title">
-                      <a href="blog7details.html">Unlocking the Power of APIs with TaiStat Consultancy Firm</a>
-                    </h2>
-
-                    <div class="meta-top">
-                      <ul>
-                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="">Stephen Mulingwa</a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href=""><time datetime="2022-01-01">DEC 1, 2024</time></a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="">7 Comments</a></li>
-                      </ul>
-                    </div>
-
-                    <div class="content">
-                      <p>
-                        In the evolving digital landscape, APIs (Application Programming Interfaces) are central to seamless and efficient data sharing across applications. TaiStat Consultancy Firm has harnessed the power of APIs to revolutionize data accessibility and client interaction. We have implemented APIs in various applications, such as the Survey and Sales apps, allowing us to write data directly to secure databases and retrieve it on-demand. This streamlined process enables real-time data analysis, empowering businesses to make agile, data-backed decisions.
-                        
-                      </p>
-                      <div class="read-more">
-                        <a href="blog7details.html">Read More</a>
-                      </div>
-                    </div>
-
-                  </article>
-                </div><!-- End post list item -->
-
-
-
-
-
-
-
-                <div class="col-12">
-                  <article>
-
-                    <div class="post-img">
-                      <img  style="width: 200%; height: 100%;" src="blogdetails/data.jpg" alt="" class="img-fluid">
-                    </div>
-
-                    <h2 class="title">
-                      <a href="blog8details.html">Why Every Business Needs a Data-Driven Strategy Today</a>
-                    </h2>
-
-                    <div class="meta-top">
-                      <ul>
-                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="">Stephen Mulingwa</a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href=""><time datetime="2022-01-01">DEC 1, 2024</time></a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="">7 Comments</a></li>
-                      </ul>
-                    </div>
-
-                    <div class="content">
-                      <p>
-                        Today, the demand for data-driven business strategies is stronger than ever. With global markets evolving rapidly, businesses and companies that leverage data analytics and machine learning can make faster, more informed decisions, ensuring they remain agile and competitive. A data-driven approach allows businesses to identify trends, anticipate market demands, understand business performance, personalize customer experiences, and optimize operations, all essential for staying relevant and resilient in today’s economy.
-                        
-                      </p>
-                      <div class="read-more">
-                        <a href="blog8details.html">Read More</a>
-                      </div>
-                    </div>
-
-                  </article>
-                </div><!-- End post list item -->
-
-
-
-
-
-                </div><!-- End post list item -->
-
-              </div><!-- End blog posts list -->
-
-            </div>
-
-          </section><!-- /Blog Posts Section -->
-
-          <!-- Blog Pagination Section -->
-          <section id="blog-pagination" class="blog-pagination section">
-
-            <div class="container">
-              <div class="d-flex justify-content-center">
-                <ul>
-                  <li><a href="#"><i class="bi bi-chevron-left"></i></a></li>
-                  <li><a href="#">1</a></li>
-                  <li><a href="#" class="active">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li>...</li>
-                  <li><a href="#">10</a></li>
-                  <li><a href="#"><i class="bi bi-chevron-right"></i></a></li>
-                </ul>
+    </div>
+    <!-- End Page Title -->
+
+    <!-- Blog Posts Section -->
+    <section id="blog-posts" class="blog-posts section">
+      <div class="container">
+        <div class="row gy-5">
+          <!-- Blog Post 1 -->
+          <div class="col-xl-4 col-md-6" data-aos="zoom-out-up" data-aos-delay="100">
+            <div class="post-item">
+              <div class="post-img">
+                <img src="blogdetails/blog1.jpg" alt="Machine Learning Image">
+              </div>
+              <div class="post-content">
+                <h3 class="post-title"><a href="blog1detail.html">Machine Learning</a></h3>
+                <div class="meta d-flex align-items-center">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-person"></i> <span class="ps-2">Stephen Mulingwa</span>
+                  </div>
+                  <span class="px-3 text-black-50">/</span>
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-folder2"></i> <span class="ps-2">Machine Learning</span>
+                  </div>
+                </div>
+                <p class="post-excerpt">Dive into the world of Machine Learning and discover how algorithms can transform data into actionable insights.</p>
+                <a href="blog1detail.html" class="readmore stretched-link">
+                  <span>Read More</span> <i class="bi bi-arrow-right"></i>
+                </a>
               </div>
             </div>
-
-          </section><!-- /Blog Pagination Section -->
-
-        </div>
-
-        <div class="col-lg-4 sidebar">
-
-          <div class="widgets-container">
-
-            <!-- Search Widget -->
-            <div class="search-widget widget-item">
-
-              <h3 class="widget-title">Search</h3>
-              <form action="">
-                <input type="text">
-                <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-              </form>
-
-            </div><!--/Search Widget -->
-
-            <!-- Categories Widget -->
-            <div class="categories-widget widget-item">
-
-              <h3 class="widget-title">Categories</h3>
-              <ul class="mt-3">
-                <li><a href="#">General <span>(0)</span></a></li>
-                <li><a href="#">Lifestyle <span>(1)</span></a></li>
-                <li><a href="#">Travel <span>(0)</span></a></li>
-                <li><a href="#">Design <span>(0)</span></a></li>
-                <li><a href="#">Creative <span>(0)</span></a></li>
-                <li><a href="#">Educaion <span>(0)</span></a></li>
-              </ul>
-
-            </div><!--/Categories Widget -->
-
-            <!-- Recent Posts Widget -->
-            <div class="recent-posts-widget widget-item">
-
-             
-            <!-- Tags Widget -->
-            <div class="tags-widget widget-item">
-
-              <h3 class="widget-title">Tags</h3>
-              <ul>
-                <li><a href="#">App</a></li>
-                <li><a href="#">IT</a></li>
-                <li><a href="#">Business</a></li>
-                <li><a href="#">Mac</a></li>
-                <li><a href="#">Design</a></li>
-                <li><a href="#">Office</a></li>
-                <li><a href="#">Creative</a></li>
-                <li><a href="#">Studio</a></li>
-                <li><a href="#">Smart</a></li>
-                <li><a href="#">Tips</a></li>
-                <li><a href="#">Marketing</a></li>
-              </ul>
-
-            </div><!--/Tags Widget -->
-
           </div>
+          <!-- Blog Post 2 -->
+          <div class="col-xl-4 col-md-6" data-aos="zoom-out-up" data-aos-delay="200">
+            <div class="post-item">
+              <div class="post-img">
+                <img src="tailogo.png" alt="Taistat Consultancy Firm">
+              </div>
+              <div class="post-content">
+                <h3 class="post-title"><a href="blog2detail.html">Taistat Consultancy Firm</a></h3>
+                <div class="meta d-flex align-items-center">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-person"></i> <span class="ps-2">Stephen Mulingwa</span>
+                  </div>
+                  <span class="px-3 text-black-50">/</span>
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-folder2"></i> <span class="ps-2">Data Science</span>
+                  </div>
+                </div>
+                <p class="post-excerpt">Learn how TaiStat Consultancy leverages data science to empower businesses and drive success.</p>
+                <a href="blog2detail.html" class="readmore stretched-link">
+                  <span>Read More</span> <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Blog Post 3 -->
+          <div class="col-xl-4 col-md-6" data-aos="zoom-out-up" data-aos-delay="300">
+            <div class="post-item">
+              <div class="post-img">
+                <img src="blogdetails/blog2.jpg" alt="Artificial Intelligence">
+              </div>
+              <div class="post-content">
+                <h3 class="post-title"><a href="blog3details.html">Artificial Intelligence</a></h3>
+                <div class="meta d-flex align-items-center">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-person"></i> <span class="ps-2">Stephen Mulingwa</span>
+                  </div>
+                  <span class="px-3 text-black-50">/</span>
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-folder2"></i> <span class="ps-2">Artificial Intelligence</span>
+                  </div>
+                </div>
+                <p class="post-excerpt">Uncover the transformative potential of AI and its applications in modern industries.</p>
+                <a href="blog3details.html" class="readmore stretched-link">
+                  <span>Read More</span> <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Blog Post 4 -->
+          <div class="col-xl-4 col-md-6" data-aos="zoom-out-up" data-aos-delay="400" id="blog4">
+            <div class="post-item">
+              <div class="post-img">
+                <img src="blogdetails/blog4.jpg" alt="Innovation Framework">
+              </div>
+              <div class="post-content">
+                <h3 class="post-title"><a href="blog4details.html">The Innovation Framework: Driving Success Through Tailored Strategies</a></h3>
+                <div class="meta d-flex align-items-center">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-person"></i> <span class="ps-2">Stephen Mulingwa</span>
+                  </div>
+                  <span class="px-3 text-black-50">/</span>
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-folder2"></i> <span class="ps-2">Technology</span>
+                  </div>
+                </div>
+                <p class="post-excerpt">Explore strategies tailored for success in today’s competitive market landscape.</p>
+                <a href="blog4details.html" class="readmore stretched-link">
+                  <span>Read More</span> <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Blog Post 5 -->
+          <div class="col-xl-4 col-md-6" data-aos="zoom-out-up" data-aos-delay="500">
+            <div class="post-item">
+              <div class="post-img">
+                <img src="blogdetails/blog5.png" alt="Footwear Sales App">
+              </div>
+              <div class="post-content">
+                <h3 class="post-title"><a href="blog5details.html">Transforming Sales with the Footwear Sales App</a></h3>
+                <div class="meta d-flex align-items-center">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-person"></i> <span class="ps-2">Stephen Mulingwa</span>
+                  </div>
+                  <span class="px-3 text-black-50">/</span>
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-folder2"></i> <span class="ps-2">Sales</span>
+                  </div>
+                </div>
+                <p class="post-excerpt">Discover how innovative apps are revolutionizing sales processes for businesses.</p>
+                <a href="blog5details.html" class="readmore stretched-link">
+                  <span>Read More</span> <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Blog Post 6 -->
+          <div class="col-xl-4 col-md-6" data-aos="zoom-out-up" data-aos-delay="600">
+            <div class="post-item">
+              <div class="post-img">
+                <img src="blogdetails/blog6.jpg" alt="Survey Application">
+              </div>
+              <div class="post-content">
+                <h3 class="post-title"><a href="blog6detail.html">Survey Application: Simplifying Data Collection and Enhancing Insights for Businesses</a></h3>
+                <div class="meta d-flex align-items-center">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-person"></i> <span class="ps-2">Stephen Mulingwa</span>
+                  </div>
+                  <span class="px-3 text-black-50">/</span>
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-folder2"></i> <span class="ps-2">Data Collection</span>
+                  </div>
+                </div>
+                <p class="post-excerpt">Streamline your data gathering with our comprehensive survey application solution.</p>
+                <a href="blog6detail.html" class="readmore stretched-link">
+                  <span>Read More</span> <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Blog Post 7 -->
+          <div class="col-xl-4 col-md-6" data-aos="zoom-out-up" data-aos-delay="700">
+            <div class="post-item">
+              <div class="post-img">
+                <img src="blogdetails/blog7.jpg" alt="APIs">
+              </div>
+              <div class="post-content">
+                <h3 class="post-title"><a href="blog7details.html">Unlocking the Power of APIs with TaiStat Consultancy Firm</a></h3>
+                <div class="meta d-flex align-items-center">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-person"></i> <span class="ps-2">Stephen Mulingwa</span>
+                  </div>
+                  <span class="px-3 text-black-50">/</span>
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-folder2"></i> <span class="ps-2">APIs</span>
+                  </div>
+                </div>
+                <p class="post-excerpt">Harness the power of APIs to enable seamless data integration and drive innovation.</p>
+                <a href="blog7details.html" class="readmore stretched-link">
+                  <span>Read More</span> <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Blog Post 8 -->
+          <div class="col-xl-4 col-md-6" data-aos="zoom-out-up" data-aos-delay="800">
+            <div class="post-item">
+              <div class="post-img">
+                <img src="blogdetails/data.jpg" alt="Data-Driven Strategy">
+              </div>
+              <div class="post-content">
+                <h3 class="post-title"><a href="blog8details.html">Why Every Business Needs a Data-Driven Strategy Today</a></h3>
+                <div class="meta d-flex align-items-center">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-person"></i> <span class="ps-2">Stephen Mulingwa</span>
+                  </div>
+                  <span class="px-3 text-black-50">/</span>
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-folder2"></i> <span class="ps-2">Data Science</span>
+                  </div>
+                </div>
+                <p class="post-excerpt">Understand the critical role of data-driven strategies in today’s evolving business landscape.</p>
+                <a href="blog8details.html" class="readmore stretched-link">
+                  <span>Read More</span> <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div><!-- End row -->
+      </div><!-- End container -->
+    </section>
+    <!-- End Blog Posts Section -->
 
+    <!-- Blog Pagination Section -->
+    <section id="blog-pagination" class="blog-pagination section">
+      <div class="container">
+        <div class="d-flex justify-content-center">
+          <ul>
+            <li><a href="#"><i class="bi bi-chevron-left"></i></a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#" class="active">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li>...</li>
+            <li><a href="#">10</a></li>
+            <li><a href="#"><i class="bi bi-chevron-right"></i></a></li>
+          </ul>
         </div>
-
       </div>
-    </div>
+    </section>
+    <!-- End Blog Pagination Section -->
 
   </main>
 
+  <!-- ======= Footer ======= -->
   <footer style="background-color: rgb(10, 9, 9); color: beige;" id="footer" class="footer">
-
     <div class="footer-newsletter">
       <div class="container">
         <div class="row justify-content-center text-center">
@@ -551,7 +364,10 @@
             <h4 style="color: aquamarine;">Join Our Newsletter</h4>
             <p>Subscribe to our newsletter and stay updated on the latest in Data Science, Machine Learning, and Business Intelligence solutions!</p>
             <form action="forms/newsletter.php" method="post" class="php-email-form">
-              <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
+              <div class="newsletter-form">
+                <input type="email" name="email">
+                <input type="submit" value="Subscribe">
+              </div>
               <div class="loading">Loading</div>
               <div class="error-message"></div>
               <div class="sent-message">Your subscription request has been sent. Thank you!</div>
@@ -630,27 +446,28 @@
         Designed by <a style="color: aquamarine;" href="https://otis-ke.github.io/portfolio/">Vincent Otis</a>
       </div>
     </div>
-  
   </footer>
+  <!-- End Footer -->
+
+  <!-- WhatsApp Floating Button -->
   <div id="whatsapp-container" class="whatsapp-container">
     <a href="https://wa.me/254111224952" target="_blank" class="whatsapp-float">
-        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='64' height='64'%3E%3Cpath fill='%23fff' d='M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.5 2.1 8L0 32l8.2-2.1c2.5 1.3 5.2 2 7.8 2 8.6 0 15.5-6.9 15.5-15.5S24.6.5 16 .5zm0 27.9c-2.4 0-4.7-.6-6.8-1.7l-.5-.3-4.9 1.2 1.3-4.7-.3-.5c-1.3-2.1-1.9-4.3-1.9-6.6C2.9 8.1 8.1 2.9 16 2.9s13.1 5.2 13.1 13.1-5.2 13.1-13.1 13.1zm7.1-9.9c-.4-.2-2.4-1.2-2.8-1.3-.4-.1-.7-.2-1 .2s-.9 1.3-1.1 1.6c-.2.3-.4.3-.8.1s-1.6-.6-3.1-1.9c-1.1-1-1.9-2.2-2.2-2.6s0-.6.2-.8c.2-.2.4-.4.6-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6s.3-.4.4-.6c.1-.2.1-.4 0-.6-.1-.2-.9-2.1-1.2-2.8-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6 0-.9.4-.3.4-1.2 1.1-1.2 2.7s1.3 3.2 1.5 3.5c.2.3 2.6 4.3 6.3 6 .9.4 1.6.6 2.1.8.9.3 1.7.3 2.3.2.7-.1 2.4-1 2.8-2 .4-1.1.4-2 .3-2.2-.1-.2-.4-.2-.8-.4z'/%3E%3C/svg%3E" alt="WhatsApp">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='64' height='64'%3E%3Cpath fill='%23fff' d='M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.5 2.1 8L0 32l8.2-2.1c2.5 1.3 5.2 2 7.8 2 8.6 0 15.5-6.9 15.5-15.5S24.6.5 16 .5zm0 27.9c-2.4 0-4.7-.6-6.8-1.7l-.5-.3-4.9 1.2 1.3-4.7-.3-.5c-1.3-2.1-1.9-4.3-1.9-6.6C2.9 8.1 8.1 2.9 16 2.9s13.1 5.2 13.1 13.1-5.2 13.1-13.1 13.1zm7.1-9.9c-.4-.2-2.4-1.2-2.8-1.3-.4-.1-.7-.2-1 .2s-.9 1.3-1.1 1.6c-.2.3-.4.3-.8.1s-1.6-.6-3.1-1.9c-1.1-1-1.9-2.2-2.2-2.6s0-.6.2-.8c.2-.2.4-.4.6-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6s.3-.4.4-.6c.1-.2.1-.4 0-.6-.1-.2-.9-2.1-1.2-2.8-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6 0-.9.4-.3.4-1.2 1.1-1.2 2.7s1.3 3.2 1.5 3.5c.2.3 2.6 4.3 6.3 6 .9.4 1.6.6 2.1.8.9.3 1.7.3 2.3.2.7-.1 2.4-1 2.8-2 .4-1.1.4-2 .3-2.2-.1-.2-.4-.2-.8-.4z'/%3E%3C/svg%3E" alt="WhatsApp">
     </a>
     <button class="close-btn" onclick="closeWhatsApp()">X</button>
   </div>
+
   <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-   <script>
-          function closeWhatsApp() {
-              document.getElementById('whatsapp-container').style.display = 'none';
-          }
-      </script>
-  <!-- Vendor JS Files -->
-  
-  
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-  
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <script>
+    function closeWhatsApp() {
+      document.getElementById('whatsapp-container').style.display = 'none';
+    }
+  </script>
+
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
@@ -660,7 +477,7 @@
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  
+
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 </body>
