@@ -234,6 +234,55 @@ body, html {
                 padding: 4px 8px;
             }
         }
+
+
+/* ----- Hero Section Styles ----- */
+#unique-hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  min-height: 250px;
+  padding: 0 1rem;
+  /* Angled blue gradient */
+  background: linear-gradient(
+    60deg,
+    #004e92 0%,
+    #000428 100%
+  );
+  text-align: center;
+  overflow: hidden;
+}
+
+#unique-hero-section .unique-hero-content h1 {
+  color: #fff;
+  margin: 0;
+  /* Bigger, responsive text */
+  font-size: clamp(3rem, 10vw, 6rem);
+  line-height: 1.1;
+  font-weight: 700;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease-out 0.3s forwards;
+}
+
+/* Fade-in-up animation */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Optional: adjust on very small screens */
+@media (max-width: 480px) {
+  #unique-hero-section {
+    height: 40vh;
+  }
+  #unique-hero-section .unique-hero-content h1 {
+    font-size: clamp(2.5rem, 12vw, 5rem);
+  }
+}
 </style>
 <body class="index-page">
 
@@ -247,18 +296,20 @@ body, html {
        
       </a>
 
-      <nav  id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="index.html#unique-hero-section" class="active">Home<br></a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="courses.html">courses</a></li>
-          <li><a href="aboutus.html">About Us</a></li> 
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
+    <nav id="navmenu" class="navmenu">
+  <ul>
+    <li><a href="index.html#unique-hero-section" class="active">Home<br></a></li>
+    <li><a href="data.html">Data</a></li> <!-- Added "Data" menu item -->
+    <li><a href="services.html">Services</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <!-- <li><a href="courses.html">Courses</a></li> --> <!-- Commented out "Courses" -->
+    <li><a href="aboutus.html">About Us</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+</nav>
+
 
        <a class="btn-getstarted flex-md-shrink-0" href="courses.html">Get Started</a>
 
@@ -268,10 +319,13 @@ body, html {
   <main class="main">
 
 <!-- Hero Section -->
+<!-- Hero Section -->
 <section id="unique-hero-section" class="hero-section">
   <div class="unique-hero-content">
-    </div>
+    <h1>Taistat</h1>
+  </div>
 </section>
+
 
 <!-- /Hero Section -->
 <!-- About Section -->

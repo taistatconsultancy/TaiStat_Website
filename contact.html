@@ -81,6 +81,83 @@ body, html {
   }
 }
 
+
+
+
+/* Base styles (desktop + tablet) */
+#unique-hero-section.unique-hero {
+  display: flex;
+  align-items: center;              
+  justify-content: space-between;   
+  height: 60vh;                     
+  min-height: 300px;                
+  background: none !important;      
+  padding: 2rem;                    
+  box-sizing: border-box;
+}
+
+.unique-hero__content {
+  flex: 1;
+  max-width: 50%;
+}
+
+.unique-hero__tagline {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.unique-hero__title {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  color: rgb(12, 7, 56);
+}
+
+.unique-hero__image {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  max-width: 45%;
+}
+
+.unique-hero__image img {
+  max-width: 100%;
+  height: auto;
+  max-height: 300px; 
+  border-radius: 10px;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+  #unique-hero-section.unique-hero {
+    flex-direction: column;        /* stack vertically */
+    justify-content: center;       /* center along main axis */
+    align-items: center;           /* center along cross axis */
+    height: auto;                  /* let content dictate height */
+    padding: 1.5rem;               /* slightly less padding */
+  }
+
+  .unique-hero__content,
+  .unique-hero__image {
+    max-width: 100%;               /* full width */
+    text-align: center;            /* center text */
+  }
+
+  .unique-hero__title {
+    font-size: 1.1rem;             /* slightly smaller on phones */
+  }
+
+  .unique-hero__image {
+    margin-top: 1.5rem;            /* space between text and image */
+    justify-content: center;       /* center the image */
+  }
+
+  .unique-hero__image img {
+    max-height: 200px;             /* constrain image height */
+  }
+}
+
+
+
 </style>
 <body class="index-page">
 
@@ -93,18 +170,19 @@ body, html {
        
       </a>
 
-      <nav  id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="index.html#unique-hero-section" class="active">Home<br></a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="courses.html">courses</a></li>
-          <li><a href="aboutus.html">About Us</a></li> 
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
+       <nav id="navmenu" class="navmenu">
+  <ul>
+    <li><a href="index.html#unique-hero-section" class="active">Home<br></a></li>
+    <li><a href="data.html">Data</a></li> <!-- Added "Data" menu item -->
+    <li><a href="services.html">Services</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <!-- <li><a href="courses.html">Courses</a></li> --> <!-- Commented out "Courses" -->
+    <li><a href="aboutus.html">About Us</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+</nav>
 
        <a class="btn-getstarted flex-md-shrink-0" href="courses.html">Get Started</a>
 
@@ -112,20 +190,22 @@ body, html {
   </header>
 
   <main class="main">
-<!-- Hero Section -->
-<section id="unique-hero-section" class="hero-section">
-  <div style="background-color: white; border-radius: 20px;"class="unique-hero-content">
-    <br>
-    <h2 class="unique-tagline">Let's Connect and Collaborate</h2>
-    
-    <br>
-    <br>
-    <h1 class="unique-main-title" style="color: rgb(12, 7, 56);">
-      Have questions or looking to partner with TaiStat Consultancy Firm? We're here to help. Reach out to us today to discuss your data needs, explore our services, or start your journey toward data-driven success. Let’s make great things happen together!
-    </h1>
-  </div>
-</section>
-<!-- /Hero Section -->
+
+  <!-- Hero Section -->
+  <section id="unique-hero-section" class="unique-hero">
+    <div class="unique-hero__content">
+      <h2 class="unique-hero__tagline">Let's Connect and Collaborate</h2>
+      <h1 class="unique-hero__title">
+        Have questions or looking to partner with TaiStat Consultancy Firm? We're here to help. Reach out to us today to discuss your data needs, explore our services, or start your journey toward data-driven success. Let’s make great things happen together!
+      </h1>
+    </div>
+    <div class="unique-hero__image">
+      <img src="assets/global.jpg" alt="TaiStat Consultancy" />
+    </div>
+  </section>
+  <!-- /Hero Section -->
+</main>
+
 
 
 
