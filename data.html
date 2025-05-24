@@ -1,160 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Coming Soon</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Taisatat</title>
+
+  <!-- Inter font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
-    * {
+    /* Reset & base */
+    *, *::before, *::after {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
-    html, body {
-      height: 100%;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to top right, #1a1a1a, #2c3e50);
-      overflow: hidden;
-      color: white;
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.5;
+      background: linear-gradient(90deg, #E8D5FB 0%, #A1D0FF 100%);
+      min-height: 100vh;
+      color: #222;
     }
+    a { text-decoration: none; }
 
-    .loader {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      background: #000;
+    /* NAVBAR */
+    .navbar {
       display: flex;
       align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      transition: opacity 0.6s ease;
+      justify-content: space-between;
+      background: #FFFFFF;
+      border-radius: 30px;
+      padding: 1rem 2rem;
+      margin: 1rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      position: relative;
+      z-index: 10;
     }
-
-    .loader::after {
-      content: "";
-      width: 60px;
-      height: 60px;
-      border: 6px solid #fff;
-      border-top: 6px solid #f39c12;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    .container {
+    .logo-container {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      height: 100%;
-      text-align: center;
-      opacity: 0;
-      animation: fadeIn 1s ease 1s forwards;
+      gap: 0.5rem;
+      background: #F5F5F5;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
     }
+    .logo { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+    .brand-name { font-size: 1rem; font-weight: 700; color: #3000D2; }
 
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-      animation: glow 2s ease-in-out infinite alternate;
-    }
-
-    @keyframes glow {
-      from { text-shadow: 0 0 10px #f39c12; }
-      to { text-shadow: 0 0 20px #f1c40f, 0 0 30px #f1c40f; }
-    }
-
-    .typewriter {
-      overflow: hidden;
-      border-right: .15em solid orange;
-      white-space: nowrap;
-      margin: 0 auto;
-      animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
-      font-size: 1.3rem;
-      width: 0;
-    }
-
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
-
-    @keyframes blink-caret {
-      from, to { border-color: transparent }
-      50% { border-color: orange; }
-    }
-
-    .buildings {
+    .nav-buttons {
       display: flex;
-      justify-content: center;
-      align-items: flex-end;
-      height: 150px;
-      margin-top: 40px;
+      gap: 0.75rem;
     }
-
-    .building {
-      width: 20px;
-      height: 20px;
-      margin: 0 5px;
-      background: #f39c12;
-      animation: rise 1s ease-in-out infinite alternate;
-    }
-
-    .building:nth-child(2) { animation-delay: 0.2s; height: 40px; }
-    .building:nth-child(3) { animation-delay: 0.4s; height: 60px; }
-    .building:nth-child(4) { animation-delay: 0.6s; height: 80px; }
-    .building:nth-child(5) { animation-delay: 0.8s; height: 60px; }
-
-    @keyframes rise {
-      from { transform: scaleY(0.6); }
-      to { transform: scaleY(1.2); }
-    }
-
-    footer {
-      position: absolute;
-      bottom: 20px;
-      width: 100%;
-      text-align: center;
+    .nav-buttons a {
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
       font-size: 0.9rem;
-      color: #ccc;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .btn-outline { border: 2px solid #EEB4F9; color: #EEB4F9; background: transparent; }
+    .btn-signin { background: #3000D2; color: #FFF; }
+
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 24px;
+      height: 18px;
+    }
+    .hamburger span {
+      display: block;
+      height: 3px;
+      background: #3000D2;
+      border-radius: 3px;
+    }
+
+    /* HERO */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      flex-wrap: wrap;
+    }
+    .hero-text {
+      flex: 1 1 400px;
+      max-width: 500px;
+    }
+    .hero-text h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .hero-text p {
+      font-size: 1rem;
+      color: #444;
+      margin-bottom: 2rem;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn-collect {
+      background: #3000D2;
+      color: #FFF;
+      padding: 0.75rem 1.5rem;
+      border-radius: 30px;
+      font-weight: 600;
+    }
+    .btn-participate {
+      border: 2px solid #EEB4F9;
+      color: #EEB4F9;
+      padding: 0.75rem 1.5rem;
+      border-radius: 30px;
+      font-weight: 600;
+    }
+
+    .hero-image {
+      flex: 1 1 600px;
+      max-width: 800px;
+      margin-top: 2rem;
+    }
+    .hero-image img {
+      width: 100%;
+      display: block;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      .nav-buttons {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #FFF;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 0;
+        border-radius: 0 0 20px 20px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        transform: translateY(-20px);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s ease;
+      }
+      .nav-buttons.open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 1rem;
+        gap: 0;               /* no flex-gap */
+      }
+      .hero-image {
+        order: -1;
+        margin-top: 0;        /* remove your 2rem */
+        width: 100%;
+        max-width: none;
+      }
+      .hero-text h1 {
+        font-size: 1.75rem;
+        margin-bottom: 0.5rem; /* tighten heading bottom */
+      }
+      .hero-text p {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem; /* tighten paragraph bottom */
+      }
+      .hero-buttons a {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="loader" id="loader"></div>
-
-  <div class="container">
-    <h1>🚧 Coming Soon 🚧</h1>
-    <div class="typewriter">This page is under construction. Please check back soon!</div>
-
-    <div class="buildings">
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo-container">
+      <img src="tailogo.png" class="logo" alt="Taisatat Logo"/>
+      <span class="brand-name">taistat</span>
     </div>
-  </div>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+    <nav class="nav-buttons" id="nav-menu">
+      <a href="#" class="btn-outline">Find participants and AI taskers</a>
+      <a href="#" class="btn-signin">Sign in</a>
+    </nav>
+  </header>
 
-  <footer>
-    &copy; 2025 TaiStat Consultancy. All rights reserved.
-  </footer>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Our proprietary pool is thoroughly verified – and 100% human.</h1>
+      <p>Get set up fast on our self-serve platform and collect complete datasets in less than 2 hours.</p>
+      <div class="hero-buttons">
+        <a href="#" class="btn-collect">Start collecting data</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="datahome11.png" alt="User working on laptop"/>
+    </div>
+  </section>
 
+  <!-- MOBILE MENU TOGGLE SCRIPT -->
   <script>
-    window.addEventListener("load", () => {
-      const loader = document.getElementById("loader");
-      setTimeout(() => {
-        loader.style.opacity = "0";
-        setTimeout(() => loader.style.display = "none", 600);
-      }, 1200);
-    });
+    document.getElementById('hamburger')
+      .addEventListener('click', () =>
+        document.getElementById('nav-menu').classList.toggle('open')
+      );
   </script>
 
 </body>

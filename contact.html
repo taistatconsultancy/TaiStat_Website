@@ -9,9 +9,7 @@
   <meta name="keywords" content="taistat consultancy firm">
 
   <!-- Favicons -->
-   <link rel="icon" type="image/svg+xml" href="tailogo.png" />
-
-  
+  <link rel="icon" type="image/svg+xml" href="tailogo.png" />
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -28,432 +26,345 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
+  <style>
+    /* General Reset */
+    body, html {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    /* Hero Section Overrides */
+    #unique-hero-section.unique-hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60vh;
+      min-height: 300px;
+      background: none !important;
+      padding: 2rem;
+      box-sizing: border-box;
+    }
+
+    .unique-hero__content {
+      flex: 1;
+      max-width: 40%;
+    }
+
+    .unique-hero__tagline {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #43ff3d;
+    }
+
+    .unique-hero__title {
+      font-size: 1.6rem;
+      line-height: 1.8;
+      color: rgb(12, 7, 56);
+    }
+
+    .unique-hero__image {
+      flex: 1;
+      max-width: 60%;  /* increased from 45% */
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .unique-hero__image img {
+      width: 100%;
+      height: auto;
+      /* removed max-height constraint so it can scale */
+      border-radius: 10px;
+    }
+
+    /* Mobile styles */
+    @media screen and (max-width: 768px) {
+      #unique-hero-section.unique-hero {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        padding: 1.5rem;
+      }
+
+      .unique-hero__content,
+      .unique-hero__image {
+        max-width: 100%;
+        text-align: center;
+      }
+
+      .unique-hero__title {
+        font-size: 1.1rem;
+        line-height: 1.5;
+      }
+
+      .unique-hero__tagline {
+        font-size: 1.2rem;
+      }
+
+      .unique-hero__image {
+        margin-top: 1.5rem;
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
-<style>
-/* General Reset */
-body, html {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-/* Unique Hero Section */
-#unique-hero-section {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  background-image: url('assets/img/tree.jpg'); /* Replace with the actual image path */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.unique-hero-content {
-  text-align: center;
-  color: white;
-  padding: 0 2rem;
-  max-width: 800px;
-}
-
-.unique-tagline {
-  font-size: 1.5rem;
-  color: #43ff3d; /* Green color for tagline */
-  margin-bottom: 1rem;
-}
-
-.unique-main-title {
-  font-size: 1.6rem;
-  font-weight: 600;
-  line-height: 1.8;
-}
-
-@media (max-width: 768px) {
-  .unique-tagline {
-    font-size: 1.2rem;
-  }
-  .unique-main-title {
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-}
-
-
-
-
-/* Base styles (desktop + tablet) */
-#unique-hero-section.unique-hero {
-  display: flex;
-  align-items: center;              
-  justify-content: space-between;   
-  height: 60vh;                     
-  min-height: 300px;                
-  background: none !important;      
-  padding: 2rem;                    
-  box-sizing: border-box;
-}
-
-.unique-hero__content {
-  flex: 1;
-  max-width: 50%;
-}
-
-.unique-hero__tagline {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.unique-hero__title {
-  font-size: 1.25rem;
-  line-height: 1.4;
-  color: rgb(12, 7, 56);
-}
-
-.unique-hero__image {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-  max-width: 45%;
-}
-
-.unique-hero__image img {
-  max-width: 100%;
-  height: auto;
-  max-height: 300px; 
-  border-radius: 10px;
-}
-
-/* Mobile styles */
-@media screen and (max-width: 768px) {
-  #unique-hero-section.unique-hero {
-    flex-direction: column;        /* stack vertically */
-    justify-content: center;       /* center along main axis */
-    align-items: center;           /* center along cross axis */
-    height: auto;                  /* let content dictate height */
-    padding: 1.5rem;               /* slightly less padding */
-  }
-
-  .unique-hero__content,
-  .unique-hero__image {
-    max-width: 100%;               /* full width */
-    text-align: center;            /* center text */
-  }
-
-  .unique-hero__title {
-    font-size: 1.1rem;             /* slightly smaller on phones */
-  }
-
-  .unique-hero__image {
-    margin-top: 1.5rem;            /* space between text and image */
-    justify-content: center;       /* center the image */
-  }
-
-  .unique-hero__image img {
-    max-height: 200px;             /* constrain image height */
-  }
-}
-
-
-
-</style>
 <body class="index-page">
 
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
       <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="tailogo.png" alt="" style="border-radius: 50%; ">
-       
+        <img src="tailogo.png" alt="" style="border-radius: 50%;">
       </a>
 
-       <nav id="navmenu" class="navmenu">
-  <ul>
-    <li><a href="index.html#unique-hero-section" class="active">Home<br></a></li>
-    <li><a href="data.html">Data</a></li> <!-- Added "Data" menu item -->
-    <li><a href="services.html">Services</a></li>
-    <li><a href="portfolio.html">Portfolio</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <!-- <li><a href="courses.html">Courses</a></li> --> <!-- Commented out "Courses" -->
-    <li><a href="aboutus.html">About Us</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-  <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-</nav>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html#unique-hero-section" class="active">Home</a></li>
+          <li><a href="data.html">Data</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="aboutus.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
 
-       <a class="btn-getstarted flex-md-shrink-0" href="courses.html">Get Started</a>
-
+      <a class="btn-getstarted flex-md-shrink-0" href="courses.html">Get Started</a>
     </div>
   </header>
 
   <main class="main">
+    <!-- Hero Section -->
+    <section id="unique-hero-section" class="unique-hero">
+      <div class="unique-hero__content">
+        <h2 class="unique-hero__tagline">Let's Connect and Collaborate</h2>
+        <h1 class="unique-hero__title">
+          Have questions or looking to partner with TaiStat Consultancy Firm? We're here to help. Reach out to us today to discuss your data needs, explore our services, or start your journey toward data-driven success. Let’s make great things happen together!
+        </h1>
+      </div>
+      <div class="unique-hero__image">
+        <img src="assets/global.jpg" alt="TaiStat Consultancy">
+      </div>
+    </section>
+    <!-- /Hero Section -->
 
-  <!-- Hero Section -->
-  <section id="unique-hero-section" class="unique-hero">
-    <div class="unique-hero__content">
-      <h2 class="unique-hero__tagline">Let's Connect and Collaborate</h2>
-      <h1 class="unique-hero__title">
-        Have questions or looking to partner with TaiStat Consultancy Firm? We're here to help. Reach out to us today to discuss your data needs, explore our services, or start your journey toward data-driven success. Let’s make great things happen together!
-      </h1>
-    </div>
-    <div class="unique-hero__image">
-      <img src="assets/global.jpg" alt="TaiStat Consultancy" />
-    </div>
-  </section>
-  <!-- /Hero Section -->
-</main>
-
-
-
-
-<!-- Contact Section -->
-<section id="contact" class="contact section">
-
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="zoom-in">
-    <h2>Contact</h2>
-    <p>Contact Us</p>
-  </div><!-- End Section Title -->
-
-  <div class="container" data-aos="zoom-out" data-aos-delay="100">
-
-    <div class="row gy-4">
-
-      <div class="col-lg-6">
-
-        <div class="row gy-4">
-          <div class="col-md-6">
-            <div class="info-item" data-aos="zoom-in" data-aos-delay="200">
-              <i class="bi bi-geo-alt"></i>
-              <h3>Address</h3>
-              <p>5th Floor, Elite Towers</p>
-              <p>Nairobi, Kenya</p>
-            </div>
-          </div><!-- End Info Item -->
-
-          <div class="col-md-6">
-            <div class="info-item" data-aos="zoom-in" data-aos-delay="300">
-              <i class="bi bi-telephone"></i>
-              <h3>Call Us</h3>
-              <p>+254 111-224-952</p>
-            </div>
-          </div><!-- End Info Item -->
-
-          <div class="col-md-6">
-            <div class="info-item" data-aos="zoom-in" data-aos-delay="400">
-              <i class="bi bi-envelope"></i>
-              <h3>Email Us</h3>
-              <p>taistatconsultancy@gmail.com</p>
-            </div>
-          </div><!-- End Info Item -->
-
-          <div class="col-md-6">
-            <div class="info-item" data-aos="zoom-in" data-aos-delay="500">
-              <i class="bi bi-clock"></i>
-              <h3>Open Hours</h3>
-              <p>Monday - Friday</p>
-              <p>9:00AM - 05:00PM</p>
-            </div>
-          </div><!-- End Info Item -->
-
-        </div>
-
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+      <div class="container section-title" data-aos="zoom-in">
+        <h2>Contact</h2>
+        <p>Contact Us</p>
       </div>
 
-      <div class="col-lg-6">
-        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="zoom-out" data-aos-delay="200">
-          <div class="row gy-4">
-            <div class="col-md-6">
-              <input type="text" name="name" class="form-control" placeholder="Your Name" required>
-            </div>
-            <div class="col-md-6">
-              <input type="email" class="form-control" name="email" placeholder="Your Email" required>
-            </div>
-            <div class="col-12">
-              <input type="text" class="form-control" name="subject" placeholder="Subject" required>
-            </div>
-            <div class="col-12">
-              <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
-            </div>
-            <div class="col-12 text-center">
-              <button type="submit">Send Message</button>
+      <div class="container" data-aos="zoom-out" data-aos-delay="100">
+        <div class="row gy-4">
+          <div class="col-lg-6">
+            <div class="row gy-4">
+              <div class="col-md-6">
+                <div class="info-item" data-aos="zoom-in" data-aos-delay="200">
+                  <i class="bi bi-geo-alt"></i>
+                  <h3>Address</h3>
+                  <p>5th Floor, Elite Towers</p>
+                  <p>Nairobi, Kenya</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="info-item" data-aos="zoom-in" data-aos-delay="300">
+                  <i class="bi bi-telephone"></i>
+                  <h3>Call Us</h3>
+                  <p>+254 111-224-952</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="info-item" data-aos="zoom-in" data-aos-delay="400">
+                  <i class="bi bi-envelope"></i>
+                  <h3>Email Us</h3>
+                  <p>taistatconsultancy@gmail.com</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="info-item" data-aos="zoom-in" data-aos-delay="500">
+                  <i class="bi bi-clock"></i>
+                  <h3>Open Hours</h3>
+                  <p>Monday - Friday</p>
+                  <p>9:00AM - 05:00PM</p>
+                </div>
+              </div>
             </div>
           </div>
-        </form>
-      </div><!-- End Contact Form -->
+          <div class="col-lg-6">
+            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="zoom-out" data-aos-delay="200">
+              <div class="row gy-4">
+                <div class="col-md-6">
+                  <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                </div>
+                <div class="col-md-6">
+                  <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="col-12">
+                  <input type="text" class="form-control" name="subject" placeholder="Subject" required>
+                </div>
+                <div class="col-12">
+                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
+                </div>
+                <div class="col-12 text-center">
+                  <button type="submit">Send Message</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /Contact Section -->
+  </main>
 
+  <footer style="background-color: rgb(10, 9, 9); color: beige;" id="footer" class="footer">
+    <div class="footer-newsletter">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-6">
+            <h4 style="color: aquamarine;">Join Our Newsletter</h4>
+            <p>Subscribe to our newsletter and stay updated on the latest in Data Science, Machine Learning, and Business Intelligence solutions!</p>
+            <form action="forms/newsletter.php" method="post" class="php-email-form">
+              <div class="newsletter-form">
+                <input type="email" name="email">
+                <input type="submit" value="Subscribe">
+              </div>
+              <div class="loading">Loading</div>
+              <div class="error-message"></div>
+              <div class="sent-message">Your subscription request has been sent. Thank you!</div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
 
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="d-flex align-items-center">
+            <span style="color: aquamarine;" class="sitename">TaiStat Consultancy</span>
+          </a>
+          <div class="footer-contact pt-3">
+            <p>Remote Firm</p>
+            <p>Serving Clients Worldwide</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>+254 111-224-952</span></p>
+            <p><strong>Email:</strong> <span>taistatconsultancy@gmail.com</span></p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <h4 style="color: aquamarine;">Services</h4>
+          <ul>
+            <li>Data Services</li>
+            <li>Data Consultancy</li>
+            <li>Machine Learning</li>
+            <li>AI</li>
+            <li>APIs</li>
+            <li>Data Analysis</li>
+            <li>Business Intelligence</li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <h4 style="color: aquamarine;">Industries</h4>
+          <ul>
+            <li>SMEs</li>
+            <li>Healthcare</li>
+            <li>Finance</li>
+            <li>Corporates</li>
+            <li>Educational Institutions</li>
+            <li>Manufacturing</li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-12">
+          <h4 style="color: aquamarine;">Follow Us</h4>
+          <p>Join our community and explore the transformative power of data-driven insights.</p>
+          <div class="social-links d-flex">
+            <a href="https://x.com/TaistatFirm" class="twitter" target="_blank" rel="noopener">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/X_logo_2023.svg" alt="Twitter (X)" width="30">
+            </a>
+            <a href="https://www.linkedin.com/company/taistat-consultancy-firm/" class="linkedin" target="_blank" rel="noopener">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" width="30">
+            </a>
+            <a href="https://www.youtube.com/@TaiStatConsultancy" class="youtube" target="_blank" rel="noopener">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/YouTube_Logo.svg" alt="YouTube" width="30">
+            </a>
+            <a href="https://github.com/TaiStatFirm" class="github" target="_blank" rel="noopener">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" width="30">
+            </a>
+            <a href="https://www.tiktok.com/@taistatconsultancy" class="tiktok" target="_blank" rel="noopener">
+              <img src="https://upload.wikimedia.org/wikipedia/en/0/0a/TikTok_logo.svg" alt="TikTok" width="30">
+            </a>
+            <a href="https://www.facebook.com/TaiStatFirm" class="facebook" target="_blank" rel="noopener">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" width="30">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>&copy; <span>Copyright</span> <strong class="px-1 sitename" style="color: aquamarine;">TaiStat Firm</strong> <span>All Rights Reserved</span></p>
+    </div>
+  </footer>
+
+  <div id="whatsapp-container" class="whatsapp-container">
+    <a href="https://wa.me/254111224952" target="_blank" class="whatsapp-float">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='64' height='64'%3E%3Cpath fill='%23fff' d='M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.5 2.1 8L0 32l8.2-2.1c2.5 1.3 5.2 2 7.8 2 8.6 0 15.5-6.9 15.5-15.5S24.6.5 16 .5zm0 27.9c-2.4 0-4.7-.6-6.8-1.7l-.5-.3-4.9 1.2 1.3-4.7-.3-.5c-1.3-2.1-1.9-4.3-1.9-6.6C2.9 8.1 8.1 2.9 16 2.9s13.1 5.2 13.1 13.1-5.2 13.1-13.1 13.1zm7.1-9.9c-.4-.2-2.4-1.2-2.8-1.3-.4-.1-.7-.2-1 .2s-.9 1.3-1.1 1.6c-.2.3-.4.3-.8.1s-1.6-.6-3.1-1.9c-1.1-1-1.9-2.2-2.2-2.6s0-.6.2-.8.4-.4.6-.6.3-.4.5-.6.2-.2.3-.4.4-.6.4-.6.1-.2.1-.4 0-.6-.1-.2-.9-2.1-1.2-2.8-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6 0-.9.4-.3.4-1.2 1.1-1.2 2.7s1.3 3.2 1.5 3.5c.2.3 2.6 4.3 6.3 6 .9.4 1.6.6 2.1.8.9.3 1.7.3 2.3.2.7-.1 2.4-1 2.8-2 .4-1.1.4-2 .3-2.2-.1-.2-.4-.2-.8-.4z'/%3E%3C/svg%3E" alt="WhatsApp">
+    </a>
+    <button class="close-btn" onclick="closeWhatsApp()">X</button>
   </div>
 
-</section><!-- /Contact Section -->
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
 
-<script>
-  document.querySelector('.php-email-form').addEventListener('submit', function(e) {
-    e.preventDefault(); // Prevent the default form submission
-  
-    var form = this;
-    var formData = new FormData(form);
-    
-    // Gather field values
-    var name    = formData.get("name");
-    var email   = formData.get("email");
-    var subject = formData.get("subject");
-    var message = formData.get("message");
-  
-    // Google Form endpoint (using formResponse)
-    var googleFormURL = "https://docs.google.com/forms/d/e/1FAIpQLScM3V1JfhP7NK2hvU5E8GssgeQWamCndDe7YNNj8ZUbeBhMqA/formResponse";
-    
-    // Build the query string using Google Form "entry" IDs
-    var queryString = "?entry.318758003=" + encodeURIComponent(name) +
-                      "&entry.897678316=" + encodeURIComponent(email) +
-                      "&entry.2110515807=" + encodeURIComponent(subject) +
-                      "&entry.1680519114=" + encodeURIComponent(message);
-  
-    // Submit via fetch (using no-cors mode since Google Forms doesn't send CORS headers)
-    fetch(googleFormURL + queryString, { 
-      method: 'POST', 
-      mode: 'no-cors'
-    })
-    .then(function() {
-      // Clear the form
-      form.reset();
-      // Show a success message (you can replace alert with a custom UI element)
-      alert("Success!");
-    })
-    .catch(function(error) {
-      console.error('Submission error:', error);
+  <script>
+    function closeWhatsApp() {
+      document.getElementById('whatsapp-container').style.display = 'none';
+    }
+    document.querySelector('.php-email-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var form = this;
+      var formData = new FormData(form);
+      var name = formData.get("name");
+      var email = formData.get("email");
+      var subject = formData.get("subject");
+      var message = formData.get("message");
+      var googleFormURL = "https://docs.google.com/forms/d/e/1FAIpQLScM3V1JfhP7NK2hvU5E8GssgeQWamCndDe7YNNj8ZUbeBhMqA/formResponse";
+      var queryString = "?entry.318758003=" + encodeURIComponent(name) +
+                        "&entry.897678316=" + encodeURIComponent(email) +
+                        "&entry.2110515807=" + encodeURIComponent(subject) +
+                        "&entry.1680519114=" + encodeURIComponent(message);
+      fetch(googleFormURL + queryString, {
+        method: 'POST',
+        mode: 'no-cors'
+      })
+      .then(function() {
+        form.reset();
+        alert("Success!");
+      })
+      .catch(function(error) {
+        console.error('Submission error:', error);
+      });
     });
-  });
   </script>
-</main>
 
-<footer style="background-color: rgb(10, 9, 9); color: beige;" id="footer" class="footer">
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
-  <div class="footer-newsletter">
-    <div class="container">
-      <div class="row justify-content-center text-center">
-        <div class="col-lg-6">
-          <h4 style="color: aquamarine;">Join Our Newsletter</h4>
-          <p>Subscribe to our newsletter and stay updated on the latest in Data Science, Machine Learning, and Business Intelligence solutions!</p>
-          <form action="forms/newsletter.php" method="post" class="php-email-form">
-            <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your subscription request has been sent. Thank you!</div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="container footer-top">
-    <div class="row gy-4">
-      <div class="col-lg-4 col-md-6 footer-about">
-        <a href="index.html" class="d-flex align-items-center">
-          <span style="color: aquamarine;" class="sitename">TaiStat Consultancy</span>
-        </a>
-        <div class="footer-contact pt-3">
-          <p>Remote Firm</p>
-          <p>Serving Clients Worldwide</p>
-          <p class="mt-3"><strong>Phone:</strong> <span>+254 111-224-952</span></p>
-          <p><strong>Email:</strong> <span>taistatconsultancy@gmail.com</span></p>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6">
-        <h4 style="color: aquamarine;">Services</h4>
-        <ul>
-          <li>Data Services</li>
-          <li>Data Consultancy</li>
-          <li>Machine Learning</li>
-          <li>AI</li>
-          <li>APIs</li>
-          <li>Data Analysis</li>
-          <li>Business Intelligence</li>
-        </ul>
-      </div>
-
-      <div class="col-lg-4 col-md-6">
-        <h4 style="color: aquamarine;">Industries</h4>
-        <ul>
-          <li>SMEs</li>
-          <li>Healthcare</li>
-          <li>Finance</li>
-          <li>Corporates</li>
-          <li>Educational Institutions</li>
-          <li>Manufacturing</li>
-        </ul>
-      </div>
-
-      <div class="col-lg-4 col-md-12">
-        <h4 style="color: aquamarine;">Follow Us</h4>
-        <p>Join our community and explore the transformative power of data-driven insights.</p>
-     <div class="social-links d-flex">
-  <a href="https://x.com/TaistatFirm" class="twitter" target="_blank" rel="noopener">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/X_logo_2023.svg" alt="Twitter (X)" width="30">
-  </a>
-  <a href="https://www.linkedin.com/company/taistat-consultancy-firm/" class="linkedin" target="_blank" rel="noopener">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" width="30">
-  </a>
-  <a href="https://www.youtube.com/@TaiStatConsultancy" class="youtube" target="_blank" rel="noopener">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/YouTube_Logo.svg" alt="YouTube" width="30">
-  </a>
-  <a href="https://github.com/TaiStatFirm" class="github" target="_blank" rel="noopener">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" width="30">
-  </a>
-  <a href="https://www.tiktok.com/@taistatconsultancy" class="tiktok" target="_blank" rel="noopener">
-    <img src="https://upload.wikimedia.org/wikipedia/en/0/0a/TikTok_logo.svg" alt="TikTok" width="30">
-  </a>
-  <a href="https://www.facebook.com/TaiStatFirm" class="facebook" target="_blank" rel="noopener">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" width="30">
-  </a>
-</div>
-
-      </div>
-    </div>
-  </div>
-
-  <div class="container copyright text-center mt-4">
-    <p>&copy; <span>Copyright</span> <strong class="px-1 sitename" style="color: aquamarine;">TaiStat Firm</strong> <span>All Rights Reserved</span></p>
-    
-  </div>
-
-</footer>
-<div id="whatsapp-container" class="whatsapp-container">
-  <a href="https://wa.me/254111224952" target="_blank" class="whatsapp-float">
-      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='64' height='64'%3E%3Cpath fill='%23fff' d='M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.5 2.1 8L0 32l8.2-2.1c2.5 1.3 5.2 2 7.8 2 8.6 0 15.5-6.9 15.5-15.5S24.6.5 16 .5zm0 27.9c-2.4 0-4.7-.6-6.8-1.7l-.5-.3-4.9 1.2 1.3-4.7-.3-.5c-1.3-2.1-1.9-4.3-1.9-6.6C2.9 8.1 8.1 2.9 16 2.9s13.1 5.2 13.1 13.1-5.2 13.1-13.1 13.1zm7.1-9.9c-.4-.2-2.4-1.2-2.8-1.3-.4-.1-.7-.2-1 .2s-.9 1.3-1.1 1.6c-.2.3-.4.3-.8.1s-1.6-.6-3.1-1.9c-1.1-1-1.9-2.2-2.2-2.6s0-.6.2-.8c.2-.2.4-.4.6-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6s.3-.4.4-.6c.1-.2.1-.4 0-.6-.1-.2-.9-2.1-1.2-2.8-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6 0-.9.4-.3.4-1.2 1.1-1.2 2.7s1.3 3.2 1.5 3.5c.2.3 2.6 4.3 6.3 6 .9.4 1.6.6 2.1.8.9.3 1.7.3 2.3.2.7-.1 2.4-1 2.8-2 .4-1.1.4-2 .3-2.2-.1-.2-.4-.2-.8-.4z'/%3E%3C/svg%3E" alt="WhatsApp">
-  </a>
-  <button class="close-btn" onclick="closeWhatsApp()">X</button>
-</div>
-<!-- Scroll Top -->
-<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
- <script>
-        function closeWhatsApp() {
-            document.getElementById('whatsapp-container').style.display = 'none';
-        }
-    </script>
-<!-- Vendor JS Files -->
-
-<!-- Scroll Top -->
-<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-<!-- Vendor JS Files -->
-<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/vendor/php-email-form/validate.js"></script>
-<script src="assets/vendor/aos/aos.js"></script>
-<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-<script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-<script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-
-<!-- Main JS File -->
-<script src="assets/js/main.js"></script>
-
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
 </body>
 
 </html>

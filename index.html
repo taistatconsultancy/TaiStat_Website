@@ -190,6 +190,84 @@ body, html {
                 padding: 4px 8px;
             }
         }
+
+
+
+        /* Testimonials Section */
+
+  /* Testimonials Section */
+  #testimonials {
+    background-color: #201a1a;
+    color: bisque;
+    padding: 4rem 0;
+  }
+  #testimonials .container { max-width: 1200px; margin: 0 auto; }
+  #testimonials h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: bisque;
+  }
+
+  .testimonial-carousel { position: relative; overflow: hidden; }
+  .carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  .testimonial-item {
+    flex: 0 0 33.333%;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  .testimonial-item img {
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+  }
+  .testimonial-item h4 { margin: 0.5rem 0; color: #fff; }
+  .testimonial-item blockquote {
+    font-style: italic;
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  /* nav */
+  .carousel-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+  }
+  .carousel-nav button {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: bisque;
+    cursor: pointer;
+    margin: 0 1rem;
+  }
+  .dots {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .dots button {
+    width: 10px; height: 10px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+  }
+  .dots button.active { background: #fff; }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .testimonial-item { flex: 0 0 50%; }
+  }
+  @media (max-width: 600px) {
+    .testimonial-item { flex: 0 0 100%; }
+  }
+
 </style>
 <body class="index-page">
 
@@ -232,7 +310,7 @@ body, html {
 
     <br>
     <br>
-    <h1 class="unique-main-title" style="color: azure;">TaiStat Consultancy Firm is a leading Data Science Company harnessing the latest advancements in Machine Learning, Artificial Intelligence, and Business Intelligence. Whether you want to learn or looking for data services, TaiStat is your trusted partner for data-driven success.</h1>
+    <h1 class="unique-main-title" style="color: azure;">TaiStat Consultancy Firm is a leading Data Science Company harnessing the latest advancements in Machine Learning, Artificial Intelligence, and Business Intelligence. Whether you want to learn or looking for data services, TaiStat Firm is a leading AI company leveraging the latest advancements in Artificial Intelligence, Machine Learning, and Business Intelligence. Whether you're looking to find participants and AI taskers, get expert data analysis services, or learn about AI, TaiStat is your trusted partner for data-driven success.</h1>
   </div>
 </section>
 
@@ -246,7 +324,7 @@ body, html {
   <!-- Section Title -->
   <div class="container section-title" data-aos="zoom-out">
     <h2>TaiStat Services</h2>
-    <p>Achieve Success with Our Best-Selling Consulting Packages, perfect for every business challenge.<br></p>
+    <p<br></p>
   </div><!-- End Section Title -->
 
   <div class="container">
@@ -256,18 +334,20 @@ body, html {
       <div class="col-lg-4" data-aos="zoom-out" data-aos-delay="100">
         <div class="card">
           <img  style=" width: 200%;" src="assets/img/data1.webp" class="img-fluid" alt="Data Integrity">
-          <h3>Data Analytics</h3>
-          <p>Leverage data-driven insights to uncover trends, optimize operations, and enhance strategic decision-making to enhance business efficiency.</p>
+          <h3>Data Analysis and Consultancy</h3>
+          <p>
+
+TaiStat offers expert data analysis and consultancy services across agriculture, health, hospitality, business, and other industries, turning complex data into actionable insights that drive efficiency and sustainable growth.</p>
         </div>
       </div><!-- End Card Item -->
 
-      <div class="col-lg-4" data-aos="zoom-out" data-aos-delay="200">
+   <!--- <div class="col-lg-4" data-aos="zoom-out" data-aos-delay="200">
         <div class="card">
           <img src="assets/img/data2.webp" class="img-fluid" alt="Innovation">
           <h3>Data Consultancy</h3>
           <p>Receive expert guidance in data management, and analysis to streamline business operations, improve data quality, and develop actionable strategies that drive sustainable growth.</p>
         </div>
-      </div><!-- End Card Item -->
+      </div>-- End Card Item ---> 
 
       <div class="col-lg-4" data-aos="zoom-out" data-aos-delay="300">
         <div class="card">
@@ -373,11 +453,11 @@ body, html {
 
   <!-- Section Title -->
   <div class="container section-title" data-aos="zoom-out-up">
-    <h2 style="color: rgb(13, 4, 53); background-color: azure;"  >Features</h2>
-    <p  style="color: beige;" >What Makes TaiStat Consultancy Stand Out<br></p>
+    <h2 style="color: rgb(13, 4, 53); background-color: azure;">Features</h2>
+    <p style="color: beige;">What Makes TaiStat Consultancy Stand Out</p>
   </div><!-- End Section Title -->
 
-  <divclass="container">
+  <div class="container">
 
     <div class="row gy-5">
 
@@ -386,54 +466,48 @@ body, html {
       </div>
 
       <div class="col-xl-6 d-flex">
-        <div  class="row align-self-center gy-4">
+        <div class="row align-self-center gy-4">
 
-          <div  style="background-color: beige;" class="col-md-6" data-aos="zoom-out-up" data-aos-delay="200">
+          <div style="background-color: beige;" class="col-md-6" data-aos="zoom-out-up" data-aos-delay="200">
             <div class="feature-box d-flex align-items-center">
               <i class="bi bi-check"></i>
-              <h3>Data-Driven Strategies</h3>
+              <h3>Industry-Wide Expertise</h3>
             </div>
-            
           </div><!-- End Feature Item -->
 
-          <div   style="background-color: beige;" class="col-md-6" data-aos="zoom-out-up" data-aos-delay="300">
-            <div class="feature-box d-flex align-items-center">
-              <i class="bi bi-check"></i>
-              <h3>Advanced Machine Learning</h3>
-            </div>
-      
-          </div><!-- End Feature Item -->
-
-          <div  style="background-color: beige;" class="col-md-6" data-aos="zoom-out-up" data-aos-delay="400">
-            <div class="feature-box d-flex align-items-center">
-              <i class="bi bi-check"></i>
-              <h3>Interactive Data Visualization</h3>
-            </div>
- 
-          </div><!-- End Feature Item -->
-
-          <div  style="background-color: beige;"  class="col-md-6" data-aos="zoom-out-up" data-aos-delay="500">
-            <div class="feature-box d-flex align-items-center">
-              <i class="bi bi-check"></i>
-              <h3>Expert Training Programs</h3>
-            </div>
-            
-          </div><!-- End Feature Item -->
-
-          <div  style="background-color: beige;" class="col-md-6" data-aos="zoom-out-up" data-aos-delay="600">
+          <div style="background-color: beige;" class="col-md-6" data-aos="zoom-out-up" data-aos-delay="300">
             <div class="feature-box d-flex align-items-center">
               <i class="bi bi-check"></i>
               <h3>Global Accessibility</h3>
             </div>
-           
           </div><!-- End Feature Item -->
 
-          <div  style="background-color: rgb(250, 250, 224);" class="col-md-6" data-aos="zoom-out-up" data-aos-delay="700">
+          <div style="background-color: beige;" class="col-md-6" data-aos="zoom-out-up" data-aos-delay="400">
             <div class="feature-box d-flex align-items-center">
               <i class="bi bi-check"></i>
-              <h3>Consultancy Services</h3>
+              <h3>Data-Driven Strategies</h3>
             </div>
-     
+          </div><!-- End Feature Item -->
+
+          <div style="background-color: beige;" class="col-md-6" data-aos="zoom-out-up" data-aos-delay="500">
+            <div class="feature-box d-flex align-items-center">
+              <i class="bi bi-check"></i>
+              <h3>Empowering Future Generations</h3>
+            </div>
+          </div><!-- End Feature Item -->
+
+          <div style="background-color: beige;" class="col-md-6" data-aos="zoom-out-up" data-aos-delay="600">
+            <div class="feature-box d-flex align-items-center">
+              <i class="bi bi-check"></i>
+              <h3>Access to Diverse Participants &amp; AI Taskers</h3>
+            </div>
+          </div><!-- End Feature Item -->
+
+          <div style="background-color: beige;" class="col-md-6" data-aos="zoom-out-up" data-aos-delay="700">
+            <div class="feature-box d-flex align-items-center">
+              <i class="bi bi-check"></i>
+              <h3>Consultancy Services &amp; Support</h3>
+            </div>
           </div><!-- End Feature Item -->
 
         </div>
@@ -444,6 +518,7 @@ body, html {
   </div>
 
 </section><!-- /Features Section -->
+
 
 <!-- Alt Features Section -->
 <section id="alt-features" class="alt-features section">
@@ -543,8 +618,8 @@ body, html {
           <h3 style="color: aquamarine;">Who We Are</h3>
           <h2 style="color: rgb(61, 61, 252);" >Mission and Vision</h2>
           <p style="color: azure;">
-            At TaiStat, our mission is to empower businesses, institutions, and individuals by delivering innovative, data-driven solutions while fostering data literacy. Our vision is to become the leading Data Consultancy Firm in Kenya and the East Africa region, championing innovation and excellence in Data Science, Machine Learning, and Artificial Intelligence.
-          </p>
+           
+At TaiStat, our mission is to empower businesses, institutions, and individuals by delivering innovative, data-driven solutions while fostering data literacy across all levels. By leveraging a network of real, engaged participants and AI taskers, we deliver high-quality data to support research, train and evaluate AI models, and seamlessly integrate human feedback into client workflows. We provide expert data analysis and AI-driven support in key sectors such as agriculture, health, hospitality, education, and business helping clients make smarter decisions, improve efficiency, and achieve sustainable growth. Our vision is to become the leading Data Consultancy Firm in Kenya and the East Africa region, championing innovation and excellence in Artificial Intelligence. </p>
           <p style="color: azure;" >
             We are committed to helping you unlock the power of data and insights tailored to your unique challenges. By transforming knowledge into practical solutions, we aim to drive real-world impact and sustainable success. At TaiStat, excellence is not just a goal—it is at the core of everything we do as we bridge the gap between data and decision-making.
           </p>
@@ -733,6 +808,43 @@ body, html {
   </div>
 
 </section><!-- /Contact Section -->
+<!-- Testimonials Section -->
+<section id="testimonials">
+  <div class="container">
+   
+    <h2>What Our Clients Say</h2>
+    <div class="testimonial-carousel">
+      <div class="carousel-track">
+        <div class="testimonial-item">
+          <img src="naveen-removebg-preview-removebg-preview.png" alt="Naveen Khambum">
+          <h4>Naveen Khambum</h4>
+          <blockquote>
+            “Working with TaiStat has transformed our data processes—they’re truly expert partners.”
+          </blockquote>
+        </div>
+        <div class="testimonial-item">
+          <img src="vincent.jpeg" alt="Vincent Otis">
+          <h4>Vincent Otis</h4>
+          <blockquote>
+            “Their global reach and accessibility let us collaborate seamlessly across time zones.”
+          </blockquote>
+        </div>
+        <div class="testimonial-item">
+          <img src="empty.jpeg" alt="Betty Muriuki">
+          <h4>Betty Muriuki</h4>
+          <blockquote>
+            “From strategy to support, their team empowered our next generation of analysts.”
+          </blockquote>
+        </div>
+      </div>
+      <div class="carousel-nav">
+        <button class="prev">&#10094;</button>
+        <div class="dots"></div>
+        <button class="next">&#10095;</button>
+      </div>
+    </div>
+  </div>
+</section>
 
 </main>
 
@@ -853,7 +965,67 @@ body, html {
 
 <!-- Main JS File -->
 <script src="assets/js/main.js"></script>
+<script>
+  (function(){
+    const track = document.querySelector('#testimonials .carousel-track');
+    const items = Array.from(track.children);
+    const prevBtn = document.querySelector('#testimonials .prev');
+    const nextBtn = document.querySelector('#testimonials .next');
+    const dotsContainer = document.querySelector('#testimonials .dots');
+    let currentPage = 0, visibleCount, pages, autoSlide;
 
+    function setup() {
+      const w = window.innerWidth;
+      visibleCount = w <= 600 ? 1 : (w <= 900 ? 2 : 3);
+      pages = Math.ceil(items.length / visibleCount);
+      currentPage = 0;
+      track.style.transform = 'translateX(0)';
+      buildDots();
+    }
+
+    function buildDots() {
+      dotsContainer.innerHTML = '';
+      for (let i = 0; i < pages; i++) {
+        const btn = document.createElement('button');
+        if (i === 0) btn.classList.add('active');
+        btn.addEventListener('click', () => goToPage(i));
+        dotsContainer.appendChild(btn);
+      }
+    }
+
+    function updateDots() {
+      Array.from(dotsContainer.children).forEach((d, i) => {
+        d.classList.toggle('active', i === currentPage);
+      });
+    }
+
+    function goToPage(n) {
+      currentPage = (n + pages) % pages;
+      const shift = items[0].getBoundingClientRect().width * visibleCount * currentPage;
+      track.style.transform = `translateX(-${shift}px)`;
+      updateDots();
+    }
+
+    prevBtn.addEventListener('click', () => goToPage(currentPage - 1));
+    nextBtn.addEventListener('click', () => goToPage(currentPage + 1));
+    window.addEventListener('resize', setup);
+
+    function startAuto() {
+      autoSlide = setInterval(() => goToPage(currentPage + 1), 5000);
+    }
+    function stopAuto() {
+      clearInterval(autoSlide);
+    }
+
+    document.querySelector('#testimonials .testimonial-carousel')
+      .addEventListener('mouseenter', stopAuto);
+    document.querySelector('#testimonials .testimonial-carousel')
+      .addEventListener('mouseleave', startAuto);
+
+    setup();
+    startAuto();
+  })();
+</script>
 </body>
 
 </html>
