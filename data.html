@@ -3,365 +3,1036 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>TaiStat</title>
+  <title>TAISTAT DATA</title>
 
   <!-- Inter font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* ——— COLOR VARIABLES ——— */
-    :root {
-      --gradient-from: #FFDEE9;
-      --gradient-to:   #B5FFFC;
-      --nav-bg:        #FFFFFF;
-      --nav-shadow:    rgba(0, 0, 0, 0.05);
-      --logo-bg:       #FFE0E9;
-      --primary:       #FF6B6B;
-      --secondary:     #4ECDC4;
-      --text:          #333333;
-      --text-light:    #555555;
-      --card-bg:       #FFFFFF;
-      --card-shadow:   rgba(0, 0, 0, 0.07);
-      --cta-bg:        #4ECDC4;
-      --cta-text:      #FFFFFF;
-      --price-bg:      #FFFFFF;
-      --price-shadow:  rgba(0, 0, 0, 0.07);
+    /* RESET & BASE */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-
-    /* Reset & base */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Inter', sans-serif;
       line-height: 1.5;
-      background: linear-gradient(90deg, var(--gradient-from) 0%, var(--gradient-to) 100%);
-      color: var(--text);
+      background: #f5f5f5;
     }
     a { text-decoration: none; }
 
-    /* NAVBAR */
+    /* NAVBAR – pill shaped, white bg, shadow */
     .navbar {
-      display: flex; align-items: center; justify-content: space-between;
-      background: var(--nav-bg); border-radius: 30px;
-      padding: 1rem 2rem; margin: 1rem;
-      box-shadow: 0 4px 20px var(--nav-shadow); position: relative;
-      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      position: fixed;
+      top: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 95%;
+      z-index: 1000;
     }
-    .logo-container { display: flex; align-items: center; gap: .5rem; background: var(--logo-bg); padding: .25rem .75rem; border-radius:9999px; }
-    .logo { width:40px;height:40px;border-radius:50%;object-fit:cover; }
-    .brand-name { font-weight:700;color:var(--primary); }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .logo { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; }
+    .brand-name { font-size: 1.125rem; font-weight: 700; color: #4A1DE1; }
 
-    .nav-buttons { display: flex; gap: .75rem; }
+    .nav-buttons {
+      display: flex;
+      gap: 0.75rem;
+    }
     .nav-buttons a {
-      padding:.5rem 1rem;border-radius:20px;
-      font-weight:600;white-space:nowrap;
-      transition: .2s;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      white-space: nowrap;
     }
-    .btn-outline { border:2px solid var(--secondary);color:var(--secondary); }
-    .btn-outline:hover { background:var(--secondary);color:#fff; }
-    .btn-signin { background:var(--primary);color:#fff; }
-    .btn-signin:hover { background:#e65555; }
+    .btn-outline-purple { border: 2px solid #4A1DE1; color: #4A1DE1; }
+    .btn-outline-pink   { border: 2px solid #EA49A0; color: #EA49A0; }
+    .btn-solid-purple   { background: #4A1DE1; color: #FFF; }
 
-    .hamburger { display:none; cursor:pointer; flex-direction:column; justify-content:space-between; width:24px;height:18px; }
-    .hamburger span { height:3px;background:var(--primary);border-radius:3px; }
+    /* Hamburger button – hidden by default */
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #4A1DE1;
+    }
 
-    /* HERO */
+    /* HERO SECTION */
+    .hero-section {
+      position: relative;
+      background: linear-gradient(
+        180deg,
+        #E8D5FB 0%,
+        #A1D0FF 60%,
+        #ffffff 100%
+      );
+      color: #222;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 80vh;
+      padding: 2rem 1rem 4rem;
+      overflow: hidden;
+    }
     .hero {
-      display:flex;align-items:center;justify-content:space-between;
-      max-width:1200px;margin:2rem auto;padding:0 1rem;flex-wrap:wrap;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      width: 100%;
+      flex-wrap: wrap;
+      gap: 2rem;
     }
-    .hero-text { flex:1 1 400px;max-width:500px; }
-    .hero-text h1 { font-size:2.5rem;font-weight:700;margin-bottom:1rem; }
-    .hero-text p { color:var(--text-light);margin-bottom:2rem; }
-    .hero-buttons { display:flex;gap:1rem; }
+    .hero-text {
+      flex: 1 1 400px;
+      max-width: 500px;
+    }
+    .hero-text h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .hero-text p {
+      font-size: 1rem;
+      color: #444;
+      margin-bottom: 2rem;
+    }
+    .hero-buttons {
+      display: flex;
+    }
     .btn-collect {
-      background:var(--primary);color:#fff;
-      padding:.75rem 1.5rem;border-radius:30px;font-weight:600;
-      transition:.2s;
+      background: #3000D2;
+      color: #FFF;
+      padding: 0.75rem 1.5rem;
+      border-radius: 30px;
+      font-weight: 600;
     }
-    .btn-collect:hover { background:#e65555; }
-
-    .hero-image { flex:1 1 600px;max-width:800px; }
-    .hero-image img { width:100%;display:block; }
-
-    /* FEATURES */
-    .features {
-      max-width:1200px;margin:4rem auto;padding:0 1rem;
-      display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;
+    .hero-image {
+      flex: 1 1 600px;
+      max-width: 800px;
     }
-    .feature-card {
-      background:var(--card-bg);border-radius:20px;padding:2rem;
-      box-shadow:0 8px 24px var(--card-shadow);
-    }
-    .feature-card img { width:48px;height:48px;margin-bottom:1rem; }
-    .feature-card h3 { margin-bottom:1rem;color:var(--primary); }
-    .feature-card p { color:var(--text-light); }
-
-    /* INSIGHTS – richer cards */
-    .insights {
-      max-width:1200px;margin:4rem auto;padding:0 1rem;
-    }
-    .insights h2 { text-align:center;font-size:2rem;margin-bottom:2rem; }
-    .insight-grid {
-      display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;
-    }
-    .insight-card {
-      background:var(--card-bg);border-radius:20px;padding:1.5rem;
-      box-shadow:0 6px 20px var(--card-shadow);text-align:center;
-    }
-    .insight-card img { width:100%;height:160px;object-fit:cover;border-radius:12px; }
-    .insight-card h4 { margin:1rem 0 .5rem;color:var(--primary); }
-    .insight-card p { color:var(--text-light);font-size:0.95rem; }
-
-    /* PRICING */
-    .pricing {
-      max-width:1200px;margin:4rem auto;padding:0 1rem;
-    }
-    .pricing h2 { text-align:center;font-size:2rem;margin-bottom:2rem; }
-    .plan-grid {
-      display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;
-    }
-    .plan-card {
-      background:var(--price-bg);border-radius:20px;padding:2rem;
-      box-shadow:0 8px 24px var(--price-shadow);
-      display:flex;flex-direction:column;
-    }
-    .plan-card.best {
-      border:2px solid var(--secondary);
-    }
-    .plan-card h3 { font-size:1.5rem;margin-bottom:.5rem;color:var(--text); }
-    .plan-card .price {
-      font-size:2rem;font-weight:700;margin-bottom:1rem;color:var(--primary);
-    }
-    .plan-card ul {
-      list-style:none;margin-bottom:2rem;
-      flex-grow:1;
-    }
-    .plan-card ul li {
-      margin-bottom:.75rem;color:var(--text-light);
-      position: relative; padding-left:1.5rem;
-    }
-    .plan-card ul li::before {
-      content: '✔'; position:absolute; left:0; top:0; color:var(--secondary);
-    }
-    .plan-card .btn-plan {
-      padding:.75rem 1rem;border-radius:30px;
-      font-weight:600; text-align:center;
-      transition:.2s;
-    }
-    .plan-card .btn-plan.select {
-      background: var(--primary); color:#fff;
-    }
-    .plan-card .btn-plan.select:hover {
-      background: #e65555;
-    }
-    .plan-card .btn-plan.outline {
-      border:2px solid var(--secondary);color:var(--secondary);
-    }
-    .plan-card .btn-plan.outline:hover {
-      background: var(--secondary); color: #fff;
+    .hero-image img {
+      width: 100%;
+      display: block;
     }
 
-    /* CTA */
-    .cta {
-      background: var(--cta-bg);color:var(--cta-text);
-      text-align:center;padding:4rem 1rem;margin-top:4rem;
-    }
-    .cta h2 { font-size:2rem;margin-bottom:1rem; }
-    .cta p { max-width:600px;margin:0 auto 2rem;color:rgba(255,255,255,0.9); }
-    .btn-group { display:inline-flex;gap:1rem;flex-wrap:wrap; }
-    .btn-primary { background:#fff;color:var(--cta-bg);padding:.75rem 1.5rem;border-radius:30px;font-weight:600;transition:.2s; }
-    .btn-primary:hover { opacity:.9; }
-
-    /* FOOTER */
-    footer {
-      background:var(--nav-bg);padding:2rem 1rem;margin-top:4rem;
-      box-shadow:0 -4px 20px var(--nav-shadow);
-    }
-    .footer-container {
-      max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:2rem;
-    }
-    .footer-col { flex:1 1 200px; }
-    .footer-col h4 { margin-bottom:1rem;color:var(--text); }
-    .footer-col a { display:block;margin-bottom:.5rem;color:var(--text-light);font-size:.9rem; }
-    .footer-col a:hover { color:var(--text); }
-
-    /* MOBILE */
-    @media (max-width:768px) {
-      .hamburger { display:flex; }
-      .nav-buttons {
-        position:absolute;top:100%;left:0;right:0;
-        background:var(--nav-bg);flex-direction:column;
-        align-items:center;gap:.5rem;padding:.5rem 0;
-        border-radius:0 0 20px 20px;
-        box-shadow:0 10px 20px var(--nav-shadow);
-        transform:translateY(-20px);opacity:0;pointer-events:none;
-        transition:all .3s;
+    /* MOBILE (≤768px) */
+    @media (max-width: 768px) {
+      .navbar {
+        left: 0;
+        transform: none;
+        margin: 0 1rem;
+        padding: 0.5rem 1rem;
+        max-width: calc(100% - 2rem);
+        border-radius: 16px;
       }
-      .nav-buttons.open { transform:translateY(0);opacity:1;pointer-events:all; }
+      .logo-container {
+        flex: 1;
+      }
+      .hamburger {
+        display: block;
+        flex-shrink: 0;
+        margin-left: auto;
+      }
+      .nav-buttons { display: none; }
+      .navbar.open .nav-buttons {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 1rem;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        padding: 0.5rem;
+        gap: 0.5rem;
+      }
+
+      /* tighten text–image spacing */
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;               /* smaller overall gap */
+      }
+      .hero-image {
+        order: -1;
+        margin: 1rem 0 0;
+      }
+      .hero-text {
+        order: 0;
+        margin-bottom: -0.5rem;    /* pull text up toward image */
+      }
+      .hero-text h1 {
+        font-size: 1.5rem;
+        margin: 0.5rem 0;
+      }
+      .hero-text p {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+      }
+      .btn-collect {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+      }
     }
+
+
+    /* ===== FEATURE SECTION ===== */
+.feature-section {
+  background: #fff;
+  padding: 4rem 1rem;
+}
+.feature-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Section heading */
+.feature-heading {
+  font-family: 'Inter', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 2.5rem;
+}
+
+/* The three icon cards */
+.feature-cards {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 3.5rem;
+}
+.card {
+  background: #F5F8FF;       /* very light blue */
+  padding: 2rem;             /* increased from 1.5rem */
+  border-radius: 16px;       /* slightly rounder */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  flex: 1 1 320px;           /* allow each card to grow */
+  max-width: 380px;          /* up from 330px */
+  text-align: left;
+}
+.card .icon {
+  margin-bottom: 1rem;
+}
+.card .icon svg {
+  width: 28px;
+  height: 28px;
+  stroke: #000;              /* black icons */
+}
+.card p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* Audience block: main text + side card */
+.audience-block {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.audience-main {
+  flex: 1 1 60%;
+  text-align: left;
+}
+.audience-main h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 1rem;
+}
+.audience-main .subtext {
+  color: #444;
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
+}
+.btn-start {
+  display: inline-block;
+  background: #3000D2;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Side card */
+.audience-side {
+  background: #F5F8FF;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  flex: 1 1 35%;
+  max-width: 340px;
+  text-align: left;
+}
+.audience-side h4 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 0.75rem;
+}
+.audience-side p {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+.columbia-logo {
+  max-width: 160px;
+  width: 100%;
+  display: block;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .feature-heading {
+    font-size: 1.5rem;
+  }
+  .feature-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .card {
+    max-width: 100%;
+    text-align: center;
+  }
+  .audience-block {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .audience-main,
+  .audience-side {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+  .audience-side {
+    margin-top: 2rem;
+  }
+}
+
+
+/* ===== TESTIMONIAL SECTION ===== */
+.testimonial-section {
+  background: #fff;
+  padding: 4rem 1rem;
+}
+.testimonial-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* Left blurb */
+.testimonial-blurb {
+  flex: 1 1 250px;
+  text-align: left;
+}
+.blurb-icon {
+  background: #F5F8FF;
+  border-radius: 12px;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.testimonial-blurb p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* Slider container */
+.testimonial-slider {
+  flex: 2 1 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Card */
+.testimonial-slider .card {
+  background: #F5F8FF;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+  width: 100%;
+  max-width: 600px;
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.testimonial-slider blockquote {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #222;
+  margin: 0 0 1.5rem;
+}
+.testimonial-slider .author {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #222;
+  text-align: right;
+}
+
+/* Controls */
+.slider-controls {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+}
+.slider-controls button {
+  background: #4A1DE1;
+  color: #fff;
+  border: none;
+  font-size: 1.25rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.slider-controls button:hover {
+  background: #3000D2;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .testimonial-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .testimonial-blurb {
+    order: 2;
+    margin-top: 2rem;
+  }
+  .testimonial-slider {
+    order: 1;
+  }
+  .slider-controls {
+    order: 2;
+  }
+  .testimonial-slider .card {
+    max-width: 100%;
+  }
+}
+
+/* ===== ADVANTAGES SECTION ===== */
+.advantage-section {
+  background: #fff;
+  padding: 6rem 2rem;               /* generous vertical and side padding */
+}
+.advantage-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
+}
+.advantage-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #222;
+}
+.advantage-subtext {
+  font-size: 1.125rem;
+  color: #444;
+  margin-bottom: 1.5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.advantage-cta {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #EA49A0;
+  margin-bottom: 4rem;
+}
+.advantage-cta:hover {
+  text-decoration: underline;
+}
+
+/* Feature cards grid */
+.advantage-cards {
+  display: flex;
+  gap: 2.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.adv-card {
+  background: #F5F8FF;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  flex: 1 1 320px;
+  max-width: 480px;
+  text-align: left;
+}
+.adv-icon {
+  width: 64px;
+  height: 64px;
+  background: #fff;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.adv-icon svg {
+  width: 36px;
+  height: 36px;
+  stroke: #000;
+}
+.adv-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: #222;
+}
+.adv-card p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+  .advantage-section {
+    padding: 4rem 1.5rem;
+  }
+  .advantage-cta { margin-bottom: 3rem; }
+  .advantage-cards { gap: 1.5rem; }
+}
+@media (max-width: 768px) {
+  .advantage-section {
+    padding: 3rem 1rem;
+  }
+  .advantage-container {
+    text-align: center;
+  }
+  .advantage-heading {
+    font-size: 2rem;
+  }
+  .adv-card {
+    max-width: 100%;
+    text-align: center;
+  }
+  .adv-card h3 {
+    font-size: 1.125rem;
+  }
+  .adv-icon {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* ========== CTA BANNER ========== */
+.cta-banner {
+  background: #4A1DE1;
+  color: #fff;
+  text-align: center;
+  padding: 4rem 1rem;
+}
+.cta-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.cta-banner h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+.cta-banner p {
+  font-size: 1.125rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+.cta-buttons {
+  display: inline-flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.btn-solid,
+.btn-outline {
+  padding: 0.75rem 2rem;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1rem;
+}
+.btn-solid {
+  background: #fff;
+  color: #4A1DE1;
+}
+.btn-outline {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+.btn-outline:hover,
+.btn-solid:hover {
+  opacity: 0.85;
+}
+
+/* ========== FOOTER ========== */
+.site-footer {
+  background: #F5F8FF;
+  color: #222;
+  padding: 4rem 1rem 2rem;
+}
+.footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.footer-brand {
+  flex: 1 1 300px;
+}
+.brand-card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  text-align: left;
+  margin-bottom: 2rem;
+}
+.footer-logo {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 0.5rem;
+}
+.brand-card p {
+  font-size: 1rem;
+  color: #444;
+}
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+.socials img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Footer navigation columns */
+.footer-nav {
+  flex: 3 1 600px;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.footer-nav > div {
+  flex: 1 1 140px;
+}
+.footer-nav h4 {
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
+}
+.footer-nav ul {
+  list-style: none;
+}
+.footer-nav li {
+  margin-bottom: 0.5rem;
+}
+.footer-nav a {
+  color: #222;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+.footer-nav a:hover {
+  opacity: 1;
+}
+
+/* Bottom bar */
+.footer-bottom {
+  text-align: center;
+  padding-top: 1.5rem;
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1024px) {
+  .footer-inner {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-nav {
+    justify-content: center;
+  }
+}
+@media (max-width: 768px) {
+  .cta-banner h2 {
+    font-size: 2rem;
+  }
+  .cta-banner p {
+    font-size: 1rem;
+  }
+  .btn-solid, .btn-outline {
+    width: 100%;
+    max-width: 260px;
+    text-align: center;
+  }
+  .footer-inner {
+    text-align: center;
+  }
+  .footer-nav > div {
+    flex: 1 1 100%;
+    margin-bottom: 1.5rem;
+  }
+  .socials {
+    justify-content: center;
+  }
+}
+
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
+  <!-- FLOATING NAVBAR -->
   <header class="navbar">
     <div class="logo-container">
-      <img src="tailogo.png" class="logo" alt="TaiStat Logo"/>
-      <span class="brand-name">taistat</span>
+      <img src="tailogo.png" class="logo" alt="Prolific Logo"/>
+      <span class="brand-name">TAISTAT</span>
     </div>
-    <div class="hamburger" id="hamburger">
-      <span></span><span></span><span></span>
-    </div>
-    <nav class="nav-buttons" id="nav-menu">
-      <a href="#features" class="btn-outline">Features</a>
-      <a href="#pricing" class="btn-outline">Pricing</a>
-      <a href="#" class="btn-signin">Sign in</a>
+
+    <button class="hamburger" aria-label="Menu">☰</button>
+
+    <nav class="nav-buttons">
+      <a href="#" class="btn-outline-purple">Find participants and AI taskers</a>
+      
+      <a href="#" class="btn-solid-purple">Sign in</a>
     </nav>
   </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Our proprietary pool is thoroughly verified – and 100% human.</h1>
-      <p>Get set up fast on our self-serve platform and collect complete datasets in less than 2 hours.</p>
-      <div class="hero-buttons">
-        <a href="#" class="btn-collect">Start collecting data</a>
+  <!-- HERO BELOW NAVBAR -->
+  <section class="hero-section">
+    <div class="hero">
+      <div class="hero-text">
+        <h1>Our proprietary pool is thoroughly verified – and 100% human.</h1>
+        <p>Get set up fast on our self-serve platform and collect complete datasets in less than 2 hours.</p>
+        <div class="hero-buttons">
+          <a href="#" class="btn-collect">Start collecting data</a>
+        </div>
       </div>
-    </div>
-    <div class="hero-image">
-      <img src="datahome11.png" alt="User working on laptop"/>
-    </div>
-  </section>
-
-  <!-- FEATURES -->
-  <section id="features" class="features">
-    <div class="feature-card">
-      <img src="icon-hotel.png" alt="Hotels & Businesses">
-      <h3>Hotels &amp; Businesses</h3>
-      <p>We analyze data to enhance marketing, boost sales, implement AI solutions &amp; support smart decision-making.</p>
-    </div>
-    <div class="feature-card">
-      <img src="icon-agriculture.png" alt="Agriculture">
-      <h3>Agriculture</h3>
-      <p>Helping Kenyan farmers plan seasons, maximize yields &amp; detect crop diseases early via AI-powered object detection.</p>
-    </div>
-    <div class="feature-card">
-      <img src="icon-climate.png" alt="Climate Change">
-      <h3>Climate Change</h3>
-      <p>Providing sustainable solutions to combat climate change, promote resilience &amp; support ecological well-being.</p>
-    </div>
-  </section>
-
-  <!-- INSIGHTS -->
-  <section class="insights">
-    <h2>Deep Insights &amp; Case Studies</h2>
-    <div class="insight-grid">
-      <div class="insight-card">
-        <img src="insight1.jpg" alt="Case Study: Coastal Lodge">
-        <h4>Coastal Lodge Revamp</h4>
-        <p>By analyzing guest feedback and booking patterns, we helped a Kenyan beachfront lodge increase occupancy by 35% year-over-year.</p>
-      </div>
-      <div class="insight-card">
-        <img src="insight2.jpg" alt="Case Study: Maize Farm">
-        <h4>Maize Yield Optimization</h4>
-        <p>Leveraging satellite imagery and local market data, TaiStat guided farmers to boost maize yields by 20% and secure premium buyers.</p>
-      </div>
-      <div class="insight-card">
-        <img src="insight3.jpg" alt="Case Study: Wetland Project">
-        <h4>Wetland Restoration</h4>
-        <p>We deployed environmental sensors and predictive models to restore degraded wetlands, improving biodiversity and water retention.</p>
-      </div>
-      <div class="insight-card">
-        <img src="insight4.jpg" alt="Case Study: Urban Hotel">
-        <h4>Urban Hotel Expansion</h4>
-        <p>Data-driven marketing strategies doubled repeat bookings at a Nairobi city-center hotel within six months.</p>
+      <div class="hero-image">
+        <img src="datahome11.png" alt="User working on laptop"/>
       </div>
     </div>
   </section>
+<!-- ================= FEATURE HIGHLIGHT ================= -->
+<section class="feature-section">
+  <div class="feature-container">
+    <h2 class="feature-heading">
+      Prolific makes it easy to access the highest-quality data
+    </h2>
 
-  <!-- PRICING -->
-  <section id="pricing" class="pricing">
-    <h2>Choose Your Plan</h2>
-    <div class="plan-grid">
-      <div class="plan-card">
-        <h3>Basic</h3>
-        <div class="price">$499<span>/mo</span></div>
+    <div class="feature-cards">
+      <div class="card">
+        <div class="icon">
+          <svg width="28" height="28" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 11 12 14 22 4"></polyline>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+          </svg>
+        </div>
+        <p>
+          Researchers launch AI training and evaluation tasks, surveys, and more, every 2 minutes.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">
+          <svg width="28" height="28" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M9 21v-2a4 4 0 0 1 3-3.87"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </div>
+        <p>
+          Real people from our global community of 200k+ participants respond within 2 hours.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">
+          <svg width="28" height="28" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+        </div>
+        <p>
+          Participants get paid by researchers to change the world.
+        </p>
+      </div>
+    </div>
+
+    <div class="audience-block">
+      <div class="audience-main">
+        <h3>
+          Easily find your audience from our pool of 200k+ active, verified, and engaged participants.
+        </h3>
+        <p class="subtext">
+          Collect data from the people you need in minutes, not days
+        </p>
+        <a href="#" class="btn-start">Start your task</a>
+      </div>
+      <div class="audience-side">
+        <h4>High-quality</h4>
+        <p>
+          Expect the most detailed, accurate, and honest free-text responses. Every time.
+        </p>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/en/thumb/0/02/Columbia_University_seal.svg/1024px-Columbia_University_seal.svg.png"
+          alt="Columbia University seal"
+          class="columbia-logo"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+<section class="testimonial-section">
+  <div class="testimonial-container">
+
+    <!-- Left-side Icon + Static Blurb -->
+    <div class="testimonial-blurb">
+      <div class="blurb-icon">
+        <!-- simple check-circle icon -->
+        <svg width="36" height="36" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="18" cy="18" r="17"></circle>
+          <path d="M12 18l4 4 8-8"></path>
+        </svg>
+      </div>
+      <p>Trusted for over 5 years by leading data scientists, researchers, and enterprises.</p>
+    </div>
+
+    <!-- Right-side Slider Card -->
+    <div class="testimonial-slider">
+      <div class="card" id="testimonial-card">
+        <blockquote id="testimonial-text">
+          <!-- JS will inject quote here -->
+        </blockquote>
+        <p class="author" id="testimonial-author">
+          <!-- JS will inject author here -->
+        </p>
+      </div>
+
+      <!-- Arrows -->
+      <div class="slider-controls">
+        <button id="prev-btn" aria-label="Previous testimonial">‹</button>
+        <button id="next-btn" aria-label="Next testimonial">›</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= ADVANTAGES SECTION ================= -->
+<section class="advantage-section">
+  <div class="advantage-container">
+    <h2 class="advantage-heading">
+      Invest in Taistat’s premium insights — on your terms
+    </h2>
+    <p class="advantage-subtext">
+      Unlock full access to advanced analytics, custom reporting, and dedicated support—so you can make data-driven decisions faster.
+    </p>
+    <a href="#" class="advantage-cta">Start your subscription →</a>
+
+    <div class="advantage-cards">
+      <div class="adv-card">
+        <div class="adv-icon">
+          <!-- shield-lock icon -->
+          <svg width="36" height="36" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6" y="11" width="24" height="14" rx="2" ry="2"/>
+            <path d="M12 11V7a6 6 0 0 1 12 0v4"/>
+          </svg>
+        </div>
+        <h3>Enterprise-grade Security</h3>
+        <p>All data is encrypted in transit and at rest, with SOC2 and GDPR compliance to keep your insights safe.</p>
+      </div>
+
+      <div class="adv-card">
+        <div class="adv-icon">
+          <!-- bar-chart icon -->
+          <svg width="36" height="36" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="20" x2="12" y2="12"/>
+            <line x1="18" y1="20" x2="18" y2="8"/>
+            <line x1="24" y1="20" x2="24" y2="16"/>
+            <path d="M6 20h24"/>
+          </svg>
+        </div>
+        <h3>Custom Reporting</h3>
+        <p>Create tailored dashboards, export raw data, or automate scheduled reports to suit your workflow.</p>
+      </div>
+
+      <div class="adv-card">
+        <div class="adv-icon">
+          <!-- users icon -->
+          <svg width="36" height="36" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M9 21v-2a4 4 0 0 1 3-3.87"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </div>
+        <h3>Dedicated Support</h3>
+        <p>Priority email and phone support plus a dedicated success manager to help you get the most out of Taistat.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ========== CTA BANNER ========== -->
+<section class="cta-banner">
+  <div class="cta-inner">
+    <h2>Put Taistat to the test. Today.</h2>
+    <p>Start your analytics in just 15 minutes — or book a demo with our team.</p>
+    <div class="cta-buttons">
+      <a href="#" class="btn-solid">Start your project</a>
+      <a href="#" class="btn-outline">Book a demo</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="brand-card">
+        <img src="tailogo.png" alt="Taistat Logo" class="footer-logo"/>
+        <p>Empowering smarter decisions with real-time data.</p>
+      </div>
+      <div class="socials">
+        <span>Follow us on</span>
+        <a href="#" aria-label="X (Twitter)"><img src="icon-x.svg" alt="X"/></a>
+        <a href="#" aria-label="LinkedIn"><img src="icon-linkedin.svg" alt="LinkedIn"/></a>
+      </div>
+    </div>
+
+    <div class="footer-nav">
+      <div>
+        <h4>Platform</h4>
         <ul>
-          <li>Access to standard datasets</li>
-          <li>Email support</li>
-          <li>1 user seat</li>
+          <li><a href="#">Dashboards</a></li>
+          <li><a href="#">APIs</a></li>
+          <li><a href="#">Integrations</a></li>
+          <li><a href="#">Security</a></li>
         </ul>
-        <a href="#" class="btn-plan outline">Get Started</a>
       </div>
-      <div class="plan-card best">
-        <h3>Pro</h3>
-        <div class="price">$999<span>/mo</span></div>
+      <div>
+        <h4>Solutions</h4>
         <ul>
-          <li>All Basic features</li>
-          <li>Custom analytics dashboard</li>
-          <li>Up to 5 user seats</li>
-          <li>Priority support</li>
+          <li><a href="#">Market Research</a></li>
+          <li><a href="#">Product Testing</a></li>
+          <li><a href="#">UX Studies</a></li>
+          <li><a href="#">AI Training</a></li>
         </ul>
-        <a href="#" class="btn-plan select">Start Free Trial</a>
       </div>
-      <div class="plan-card">
-        <h3>Enterprise</h3>
-        <div class="price>Contact</div>
-        <ul>
-          <li>Dedicated data engineer</li>
-          <li>Unlimited seats</li>
-          <li>On-site training</li>
-          <li>SLA &amp; dedicated SLT</li>
-        </ul>
-        <a href="#" class="btn-plan outline">Contact Sales</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CALL TO ACTION -->
-  <section class="cta">
-    <h2>Ready to unlock insights across industries?</h2>
-    <p>Whether you’re in hospitality, agriculture, or driving environmental impact, TaiStat’s platform empowers you to make smarter, faster decisions today.</p>
-    <div class="btn-group">
-      <a href="#" class="btn-primary">Get Started</a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-container">
-      <div class="footer-col">
+      <div>
         <h4>Company</h4>
-        <a href="#">About TaiStat</a>
-        <a href="#">Careers</a>
-        <a href="#">Press</a>
+        <ul>
+          <li><a href="#">About Taistat</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Privacy &amp; Legal</a></li>
+          <li><a href="#">Cookie Preferences</a></li>
+        </ul>
       </div>
-      <div class="footer-col">
-        <h4>Product</h4>
-        <a href="#">Features</a>
-        <a href="#">Pricing</a>
-        <a href="#">Docs</a>
-      </div>
-      <div class="footer-col">
-        <h4>Resources</h4>
-        <a href="#">Blog</a>
-        <a href="#">Help Center</a>
-        <a href="#">Privacy &amp; Terms</a>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <a href="mailto:support@taistat.com">support@taistat.com</a>
-        <a href="tel:+254700000000">+254 700 000 000</a>
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Contact Sales</a></li>
+          <li><a href="#">Developer Docs</a></li>
+          <li><a href="#">Status</a></li>
+        </ul>
       </div>
     </div>
-  </footer>
+  </div>
 
-  <!-- MOBILE MENU TOGGLE SCRIPT -->
+  <div class="footer-bottom">
+    <p>© 2025 Taistat. All rights reserved.</p>
+  </div>
+</footer>
+
+
+<!-- JS: slider logic -->
+<script>
+  (function() {
+    const testimonials = [
+      {
+        text: "“Taistat’s real-time analytics and intuitive dashboards transformed how we make decisions. We used to wait days for reports—now we get insights instantly.”",
+        author: "—Alex Chen, Lead Data Scientist, Insights Co."
+      },
+      {
+        text: "“With Taistat’s flexible API and robust data pipelines, integrating our multiple data sources was a breeze. It’s saved us hundreds of hours.”",
+        author: "—Maria González, CTO, DataWave"
+      },
+      {
+        text: "“The customer service at Taistat is second to none. Anytime we’ve needed help customizing our reports, their team responded within minutes.”",
+        author: "—David O’Leary, Head of Analytics, MarketPulse"
+      }
+    ];
+    let idx = 0;
+
+    const txtEl = document.getElementById('testimonial-text');
+    const authEl = document.getElementById('testimonial-author');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+
+    function render() {
+      txtEl.textContent = testimonials[idx].text;
+      authEl.textContent = testimonials[idx].author;
+    }
+
+    prevBtn.addEventListener('click', () => {
+      idx = (idx - 1 + testimonials.length) % testimonials.length;
+      render();
+    });
+    nextBtn.addEventListener('click', () => {
+      idx = (idx + 1) % testimonials.length;
+      render();
+    });
+
+    // initial render
+    render();
+  })();
+</script>
+
+
   <script>
-    document.getElementById('hamburger')
-      .addEventListener('click', () =>
-        document.getElementById('nav-menu').classList.toggle('open')
-      );
+    // Toggle mobile menu
+    document.querySelector('.hamburger').addEventListener('click', function() {
+      document.querySelector('.navbar').classList.toggle('open');
+    });
   </script>
 
 </body>
