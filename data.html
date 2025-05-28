@@ -9,305 +9,397 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* RESET & BASE */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      line-height: 1.5;
-      background: #f5f5f5;
-    }
-    a { text-decoration: none; }
+    /* ========================================
+   RESET & BASE STYLES
+   - Apply box-sizing and reset default margins/paddings
+   - Set base font, line-height, and background color
+   ======================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+  background: #f5f5f5;
+}
+a {
+  text-decoration: none;
+}
 
-    /* NAVBAR – pill shaped, white bg, shadow */
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: #fff;
-      padding: 0.75rem 1.5rem;
-      border-radius: 50px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-      position: fixed;
-      top: 1rem;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100%;
-      max-width: 95%;
-      z-index: 1000;
-    }
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .logo { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; }
-    .brand-name { font-size: 1.125rem; font-weight: 700; color: #4A1DE1; }
+/* ========================================
+   NAVBAR (pill-shaped, white background, shadow)
+   - Flex layout for logo and navigation buttons
+   - Fixed position centered at top
+   ======================================== */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 95%;
+  z-index: 1000;
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.brand-name {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #4A1DE1;
+}
+.nav-buttons {
+  display: flex;
+  gap: 0.75rem;
+}
+.nav-buttons a {
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.btn-outline-purple {
+  border: 2px solid #4A1DE1;
+  color: #4A1DE1;
+}
+.btn-outline-pink {
+  border: 2px solid #EA49A0;
+  color: #EA49A0;
+}
+.btn-solid-purple {
+  background: #4A1DE1;
+  color: #FFF;
+}
 
-    .nav-buttons {
-      display: flex;
-      gap: 0.75rem;
-    }
-    .nav-buttons a {
-      padding: 0.5rem 1rem;
-      border-radius: 30px;
-      font-size: 0.875rem;
-      font-weight: 600;
-      white-space: nowrap;
-    }
-    .btn-outline-purple { border: 2px solid #4A1DE1; color: #4A1DE1; }
-    .btn-outline-pink   { border: 2px solid #EA49A0; color: #EA49A0; }
-    .btn-solid-purple   { background: #4A1DE1; color: #FFF; }
+/* Hamburger button – hidden by default */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #4A1DE1;
+}
 
-    /* Hamburger button – hidden by default */
-    .hamburger {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: #4A1DE1;
-    }
+/* ========================================
+   HERO SECTION
+   - Gradient background and centered content
+   - Responsive hero text and image
+   ======================================== */
+.hero-section {
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    #E8D5FB 0%,
+    #86ebe6 60%,
+    #ffffff 100%
+  );
+  color: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  padding: 2rem 1rem 4rem;
+  overflow: hidden;
+}
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.hero-text {
+  flex: 1 1 400px;
+  max-width: 500px;
+}
+.hero-text h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.hero-text p {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 2rem;
+}
+.hero-buttons {
+  display: flex;
+}
+.btn-collect {
+  background: #3000D2;
+  color: #FFF;
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 600;
+}
+.hero-image {
+  flex: 1 1 600px;
+  max-width: 800px;
+}
+.hero-image img {
+  width: 100%;
+  display: block;
+}
 
-    /* HERO SECTION */
-    .hero-section {
-      position: relative;
-      background: linear-gradient(
-        180deg,
-        #E8D5FB 0%,
-        #A1D0FF 60%,
-        #ffffff 100%
-      );
-      color: #222;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 80vh;
-      padding: 2rem 1rem 4rem;
-      overflow: hidden;
-    }
-    .hero {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 1200px;
-      width: 100%;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-    .hero-text {
-      flex: 1 1 400px;
-      max-width: 500px;
-    }
-    .hero-text h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-    .hero-text p {
-      font-size: 1rem;
-      color: #444;
-      margin-bottom: 2rem;
-    }
-    .hero-buttons {
-      display: flex;
-    }
-    .btn-collect {
-      background: #3000D2;
-      color: #FFF;
-      padding: 0.75rem 1.5rem;
-      border-radius: 30px;
-      font-weight: 600;
-    }
-    .hero-image {
-      flex: 1 1 600px;
-      max-width: 800px;
-    }
-    .hero-image img {
-      width: 100%;
-      display: block;
-    }
+/* ========================================
+   MOBILE ADAPTATIONS (≤768px)
+   - Tighter spacing and adjusted font sizes
+   - Toggleable nav menu via hamburger
+   ======================================== */
+@media (max-width: 768px) {
+  .navbar {
+    left: 0;
+    transform: none;
+    margin: 0 1rem;
+    padding: 0.5rem 1rem;
+    max-width: calc(100% - 2rem);
+    border-radius: 16px;
+  }
+  .logo-container {
+    flex: 1;
+  }
+  .hamburger {
+    display: block;
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+  .nav-buttons {
+    display: none;
+  }
+  .navbar.open .nav-buttons {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 1rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
 
-    /* MOBILE (≤768px) */
-    @media (max-width: 768px) {
-      .navbar {
-        left: 0;
-        transform: none;
-        margin: 0 1rem;
-        padding: 0.5rem 1rem;
-        max-width: calc(100% - 2rem);
-        border-radius: 16px;
-      }
-      .logo-container {
-        flex: 1;
-      }
-      .hamburger {
-        display: block;
-        flex-shrink: 0;
-        margin-left: auto;
-      }
-      .nav-buttons { display: none; }
-      .navbar.open .nav-buttons {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        right: 1rem;
-        background: #fff;
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        padding: 0.5rem;
-        gap: 0.5rem;
-      }
+  /* tighten text–image spacing */
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  .hero-image {
+    order: -1;
+    margin: 1rem 0 0;
+  }
+  .hero-text {
+    order: 0;
+    margin-bottom: -0.5rem;
+  }
+  .hero-text h1 {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+  }
+  .hero-text p {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+  .btn-collect {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+}
 
-      /* tighten text–image spacing */
-      .hero {
-        flex-direction: column;
-        text-align: center;
-        gap: 0.5rem;               /* smaller overall gap */
-      }
-      .hero-image {
-        order: -1;
-        margin: 1rem 0 0;
-      }
-      .hero-text {
-        order: 0;
-        margin-bottom: -0.5rem;    /* pull text up toward image */
-      }
-      .hero-text h1 {
-        font-size: 1.5rem;
-        margin: 0.5rem 0;
-      }
-      .hero-text p {
-        font-size: 0.85rem;
-        margin-bottom: 1rem;
-      }
-      .btn-collect {
-        padding: 0.5rem 1rem;
-        font-size: 0.85rem;
-      }
-    }
-
-
-    /* ===== FEATURE SECTION ===== */
+/* ========================================
+   FEATURE SECTION
+   - Bigger padding, min-height, larger typography
+   ======================================== */
 .feature-section {
   background: #fff;
-  padding: 4rem 1rem;
+  padding: 6rem 1rem;        /* plenty of breathing room */
+  min-height: 70vh;
 }
 .feature-container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   text-align: center;
 }
-
-/* Section heading */
 .feature-heading {
   font-family: 'Inter', sans-serif;
-  font-size: 2rem;
+  font-size: 2.5rem;         /* was 2rem */
   font-weight: 700;
   color: #222;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;       /* more gap below */
 }
-
-/* The three icon cards */
 .feature-cards {
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 3.5rem;
+  margin-bottom: 4rem;
 }
 .card {
-  background: #F5F8FF;       /* very light blue */
-  padding: 2rem;             /* increased from 1.5rem */
-  border-radius: 16px;       /* slightly rounder */
+  background: #F5F8FF;
+  padding: 3rem;
+  border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  flex: 1 1 320px;           /* allow each card to grow */
-  max-width: 380px;          /* up from 330px */
+  flex: 1 1 400px;
+  max-width: 460px;
+  min-height: 320px;
   text-align: left;
+  display: flex;
+  flex-direction: column;
 }
 .card .icon {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 .card .icon svg {
-  width: 28px;
-  height: 28px;
-  stroke: #000;              /* black icons */
+  width: 32px;               /* slightly larger icon */
+  height: 32px;
+  stroke: #000;
+}
+.card h4 {
+  font-size: 1.25rem;        /* add titles if needed */
+  font-weight: 600;
+  margin-bottom: 0.75rem;
 }
 .card p {
-  font-size: 1rem;
+  font-size: 1.1rem;         /* was 1rem */
   color: #333;
-  line-height: 1.5;
+  line-height: 1.6;
+  flex-grow: 1;
 }
 
-/* Audience block: main text + side card */
+/* ========================================
+   AUDIENCE BLOCK
+   - More padding, bigger card, larger text
+   ======================================== */
 .audience-block {
   display: flex;
-  gap: 2rem;
+  gap: 3rem;
   align-items: flex-start;
   justify-content: space-between;
   flex-wrap: wrap;
+  padding: 5rem 1rem;
+  min-height: 60vh;
 }
 .audience-main {
-  flex: 1 1 60%;
+  flex: 1 1 55%;
   text-align: left;
 }
 .audience-main h3 {
-  font-size: 1.5rem;
+  font-size: 2rem;           /* was 1.5rem */
   font-weight: 600;
   color: #222;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 .audience-main .subtext {
   color: #444;
-  font-size: 1rem;
-  margin-bottom: 1.25rem;
+  font-size: 1.15rem;        /* was 1rem */
+  margin-bottom: 1.75rem;
+  line-height: 1.6;
 }
 .btn-start {
   display: inline-block;
   background: #3000D2;
   color: #fff;
-  padding: 0.75rem 1.5rem;
+  padding: 1rem 2rem;         /* bigger touch target */
   border-radius: 30px;
+  font-size: 1.1rem;
   font-weight: 600;
   text-decoration: none;
 }
 
-/* Side card */
+/* Side card – deliberately larger than feature cards */
 .audience-side {
   background: #F5F8FF;
-  padding: 1.5rem;
+  padding: 3rem;              /* increased padding */
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  flex: 1 1 35%;
-  max-width: 340px;
+  flex: 1 1 40%;              /* was 35% */
+  max-width: 500px;           /* was 340px */
+  min-height: 400px;          /* taller than feature cards */
   text-align: left;
+  display: flex;
+  flex-direction: column;
 }
 .audience-side h4 {
-  font-size: 1.125rem;
+  font-size: 1.5rem;          /* was 1.125rem */
   font-weight: 700;
   color: #222;
-  margin-bottom: 0.75rem;
-}
-.audience-side p {
-  font-size: 0.95rem;
-  color: #444;
-  line-height: 1.4;
   margin-bottom: 1rem;
 }
+.audience-side p {
+  font-size: 1.05rem;         /* was 0.95rem */
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
 .columbia-logo {
-  max-width: 160px;
+  max-width: 180px;
   width: 100%;
   display: block;
+  align-self: center;
 }
 
-/* ===== RESPONSIVE ===== */
+/* ========================================
+   DESKTOP-ONLY OVERRIDES (>768px)
+   - Further upscale for wide screens
+   ======================================== */
+@media (min-width: 769px) {
+  .feature-section {
+    padding: 8rem 1rem;
+  }
+  .feature-heading {
+    font-size: 3rem;
+  }
+  .card {
+    padding: 3.5rem;
+    flex: 1 1 420px;
+    max-width: 500px;
+    min-height: 350px;
+  }
+  .audience-block {
+    padding: 6rem 1rem;
+  }
+  .audience-main h3 {
+    font-size: 2.25rem;
+  }
+  .audience-side {
+    padding: 3.5rem;
+    max-width: 550px;
+    min-height: 450px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE ADJUSTMENTS (≤768px)
+   - Scale back for mobile but keep clean spacing
+   ======================================== */
 @media (max-width: 768px) {
   .feature-heading {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
   }
   .feature-cards {
     flex-direction: column;
@@ -316,11 +408,13 @@
   .card {
     max-width: 100%;
     text-align: center;
+    padding: 2.5rem;
   }
   .audience-block {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    padding: 3rem 1rem;
   }
   .audience-main,
   .audience-side {
@@ -332,8 +426,10 @@
   }
 }
 
-
-/* ===== TESTIMONIAL SECTION ===== */
+/* ========================================
+   TESTIMONIAL SECTION
+   - Slider with quotes and controls
+   ======================================== */
 .testimonial-section {
   background: #fff;
   padding: 4rem 1rem;
@@ -346,7 +442,6 @@
   align-items: flex-start;
   flex-wrap: wrap;
 }
-
 /* Left blurb */
 .testimonial-blurb {
   flex: 1 1 250px;
@@ -367,7 +462,6 @@
   line-height: 1.5;
   color: #333;
 }
-
 /* Slider container */
 .testimonial-slider {
   flex: 2 1 600px;
@@ -375,8 +469,7 @@
   flex-direction: column;
   align-items: center;
 }
-
-/* Card */
+/* Testimonial card */
 .testimonial-slider .card {
   background: #F5F8FF;
   padding: 2rem;
@@ -401,8 +494,7 @@
   color: #222;
   text-align: right;
 }
-
-/* Controls */
+/* Slider controls */
 .slider-controls {
   margin-top: 1.5rem;
   display: flex;
@@ -422,14 +514,15 @@
   background: #3000D2;
 }
 
-/* ===== RESPONSIVE ===== */
+/* ========================================
+   RESPONSIVE TESTIMONIAL ADJUSTMENTS (≤768px)
+   ======================================== */
 @media (max-width: 768px) {
   .testimonial-container {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
-
   .testimonial-blurb {
     order: 2;
     margin-top: 2rem;
@@ -444,37 +537,40 @@
     max-width: 100%;
   }
 }
-
-/* ===== ADVANTAGES SECTION ===== */
+/* ========================================
+   ADVANTAGES SECTION
+   - Bigger padding, min-height, larger typography
+   ======================================== */
 .advantage-section {
   background: #fff;
-  padding: 6rem 2rem;               /* generous vertical and side padding */
+  padding: 8rem 2rem;          /* was 6rem 2rem */
+  min-height: 65vh;            /* new */
 }
 .advantage-container {
-  max-width: 1400px;
+  max-width: 1500px;           /* was 1400px */
   margin: 0 auto;
   text-align: center;
 }
 .advantage-heading {
-  font-size: 2.5rem;
+  font-size: 3rem;             /* was 2.5rem */
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;       /* was 1rem */
   color: #222;
 }
 .advantage-subtext {
-  font-size: 1.125rem;
+  font-size: 1.25rem;          /* was 1.125rem */
   color: #444;
-  margin-bottom: 1.5rem;
-  max-width: 800px;
+  margin-bottom: 2rem;         /* was 1.5rem */
+  max-width: 900px;            /* was 800px */
   margin-left: auto;
   margin-right: auto;
 }
 .advantage-cta {
   display: inline-block;
-  font-size: 1rem;
+  font-size: 1.125rem;         /* was 1rem */
   font-weight: 600;
   color: #EA49A0;
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;         /* was 4rem */
 }
 .advantage-cta:hover {
   text-decoration: underline;
@@ -483,108 +579,185 @@
 /* Feature cards grid */
 .advantage-cards {
   display: flex;
-  gap: 2.5rem;
+  gap: 3rem;                   /* was 2.5rem */
   justify-content: center;
   flex-wrap: wrap;
 }
 .adv-card {
   background: #F5F8FF;
-  padding: 3rem;
+  padding: 4rem;               /* was 3rem */
   border-radius: 20px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.05);
-  flex: 1 1 320px;
-  max-width: 480px;
+  flex: 1 1 360px;             /* was 1 1 320px */
+  max-width: 550px;            /* was 480px */
+  min-height: 360px;           /* new */
   text-align: left;
+  display: flex;
+  flex-direction: column;
 }
 .adv-icon {
-  width: 64px;
-  height: 64px;
+  width: 80px;                 /* was 64px */
+  height: 80px;                /* was 64px */
   background: #fff;
   border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;         /* was 1.5rem */
 }
 .adv-icon svg {
-  width: 36px;
-  height: 36px;
+  width: 44px;                 /* was 36px */
+  height: 44px;
   stroke: #000;
 }
 .adv-card h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.75rem;
+  font-size: 1.5rem;           /* was 1.25rem */
+  margin-bottom: 1rem;         /* was 0.75rem */
   color: #222;
 }
 .adv-card p {
-  font-size: 1rem;
+  font-size: 1.125rem;         /* was 1rem */
   color: #333;
-  line-height: 1.6;
+  line-height: 1.8;            /* a bit looser */
+  flex-grow: 1;
 }
 
-/* ===== RESPONSIVE ===== */
+/* ========================================
+   DESKTOP-ONLY OVERRIDES (>992px)
+   - Extra upscale on wider screens
+   ======================================== */
+@media (min-width: 993px) {
+  .advantage-section {
+    padding: 10rem 2rem;
+  }
+  .advantage-heading {
+    font-size: 3.5rem;
+  }
+  .advantage-subtext {
+    font-size: 1.375rem;
+    max-width: 1000px;
+  }
+  .advantage-cta {
+    font-size: 1.25rem;
+    margin-bottom: 6rem;
+  }
+  .advantage-cards {
+    gap: 4rem;
+  }
+  .adv-card {
+    padding: 5rem;
+    flex: 1 1 400px;
+    max-width: 600px;
+    min-height: 400px;
+  }
+  .adv-icon {
+    width: 96px;
+    height: 96px;
+    margin-bottom: 2.5rem;
+  }
+  .adv-icon svg {
+    width: 52px;
+    height: 52px;
+  }
+  .adv-card h3 {
+    font-size: 1.75rem;
+  }
+  .adv-card p {
+    font-size: 1.25rem;
+    line-height: 1.9;
+  }
+}
+
+/* ========================================
+   RESPONSIVE ADVANTAGES ADJUSTMENTS
+   - Gradual padding reductions at breakpoints
+   ======================================== */
 @media (max-width: 992px) {
   .advantage-section {
-    padding: 4rem 1.5rem;
+    padding: 6rem 1.5rem;      /* slightly reduce */
   }
-  .advantage-cta { margin-bottom: 3rem; }
-  .advantage-cards { gap: 1.5rem; }
+  .advantage-cta {
+    margin-bottom: 4rem;
+  }
+  .advantage-cards {
+    gap: 2rem;
+  }
 }
 @media (max-width: 768px) {
   .advantage-section {
-    padding: 3rem 1rem;
+    padding: 4rem 1rem;
   }
   .advantage-container {
     text-align: center;
   }
   .advantage-heading {
-    font-size: 2rem;
+    font-size: 2.25rem;
+  }
+  .advantage-subtext {
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
   }
   .adv-card {
     max-width: 100%;
     text-align: center;
+    padding: 2.5rem;
+    min-height: auto;
   }
   .adv-card h3 {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
   }
   .adv-icon {
     margin-left: auto;
     margin-right: auto;
+    width: 72px;
+    height: 72px;
+  }
+  .adv-icon svg {
+    width: 40px;
+    height: 40px;
   }
 }
-
-/* ========== CTA BANNER ========== */
+/* ========================================
+   CTA BANNER
+   - Full-width colored banner with larger padding & typography
+   ======================================== */
 .cta-banner {
   background: #4A1DE1;
   color: #fff;
   text-align: center;
-  padding: 4rem 1rem;
+  padding: 6rem 1rem;            /* was 4rem 1rem */
+  min-height: 40vh;              /* new for extra height */
 }
 .cta-inner {
-  max-width: 1200px;
+  max-width: 1400px;             /* was 1200px */
   margin: 0 auto;
 }
 .cta-banner h2 {
-  font-size: 2.5rem;
-  margin-bottom: 0.75rem;
+  font-size: 3rem;               /* was 2.5rem */
+  margin-bottom: 1rem;           /* was 0.75rem */
+  line-height: 1.2;
 }
 .cta-banner p {
-  font-size: 1.125rem;
+  font-size: 1.25rem;            /* was 1.125rem */
   opacity: 0.9;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;         /* was 2rem */
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .cta-buttons {
   display: inline-flex;
-  gap: 1rem;
+  gap: 1.5rem;                   /* was 1rem */
   flex-wrap: wrap;
   justify-content: center;
 }
 .btn-solid,
 .btn-outline {
-  padding: 0.75rem 2rem;
+  padding: 1rem 2.5rem;          /* was 0.75rem 2rem */
   border-radius: 30px;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 1.125rem;           /* was 1rem */
+  min-width: 180px;              /* new for consistency */
 }
 .btn-solid {
   background: #fff;
@@ -600,75 +773,103 @@
   opacity: 0.85;
 }
 
-/* ========== FOOTER ========== */
+/* Desktop-scale override */
+@media (min-width: 769px) {
+  .cta-banner {
+    padding: 8rem 1rem;
+  }
+  .cta-banner h2 {
+    font-size: 3.5rem;
+  }
+  .cta-banner p {
+    font-size: 1.375rem;
+    margin-bottom: 3rem;
+  }
+  .btn-solid,
+  .btn-outline {
+    padding: 1.25rem 3rem;
+    font-size: 1.25rem;
+    min-width: 200px;
+  }
+}
+
+/* ========================================
+   SITE FOOTER
+   - Multi-column footer with larger cards & nav
+   ======================================== */
 .site-footer {
   background: #F5F8FF;
   color: #222;
-  padding: 4rem 1rem 2rem;
+  padding: 6rem 2rem 3rem;       /* was 4rem 1rem 2rem */
 }
 .footer-inner {
-  max-width: 1400px;
+  max-width: 1600px;             /* was 1400px */
   margin: 0 auto;
   display: flex;
-  gap: 2rem;
+  gap: 3rem;                     /* was 2rem */
   flex-wrap: wrap;
   align-items: flex-start;
 }
 .footer-brand {
-  flex: 1 1 300px;
+  flex: 1 1 350px;               /* was 1 1 300px */
 }
 .brand-card {
   background: #fff;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  padding: 2.5rem;               /* was 1.5rem */
+  border-radius: 16px;           /* was 12px */
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
   text-align: left;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;         /* was 2rem */
 }
 .footer-logo {
-  width: 32px;
-  height: 32px;
-  margin-bottom: 0.5rem;
+  width: 48px;                   /* was 32px */
+  height: 48px;
+  margin-bottom: 1rem;           /* was 0.5rem */
 }
 .brand-card p {
-  font-size: 1rem;
+  font-size: 1.125rem;           /* was 1rem */
   color: #444;
+  line-height: 1.6;
 }
 .socials {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 1rem;
+  gap: 1rem;                     /* was 0.5rem */
+  font-size: 1.125rem;           /* was 1rem */
+  margin-top: 1rem;
 }
 .socials img {
-  width: 32px;
-  height: 32px;
+  width: 40px;                   /* was 32px */
+  height: 40px;
 }
 
 /* Footer navigation columns */
 .footer-nav {
-  flex: 3 1 600px;
+  flex: 3 1 650px;               /* was 3 1 600px */
   display: flex;
-  gap: 2rem;
+  gap: 3rem;                     /* was 2rem */
   flex-wrap: wrap;
 }
 .footer-nav > div {
-  flex: 1 1 140px;
+  flex: 1 1 160px;               /* was 1 1 140px */
 }
 .footer-nav h4 {
-  font-size: 1.125rem;
-  margin-bottom: 0.75rem;
+  font-size: 1.375rem;           /* was 1.125rem */
+  margin-bottom: 1rem;           /* was 0.75rem */
 }
 .footer-nav ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 .footer-nav li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;        /* was 0.5rem */
 }
 .footer-nav a {
   color: #222;
-  font-size: 0.95rem;
+  font-size: 1rem;               /* was 0.95rem */
   opacity: 0.9;
+  transition: opacity .2s;
 }
 .footer-nav a:hover {
   opacity: 1;
@@ -677,12 +878,14 @@
 /* Bottom bar */
 .footer-bottom {
   text-align: center;
-  padding-top: 1.5rem;
+  padding-top: 2rem;             /* was 1.5rem */
   opacity: 0.7;
-  font-size: 0.9rem;
+  font-size: 1rem;               /* was 0.9rem */
 }
 
-/* ========== RESPONSIVE ========== */
+/* ========================================
+   RESPONSIVE FOOTER ADJUSTMENTS
+   ======================================== */
 @media (max-width: 1024px) {
   .footer-inner {
     flex-direction: column;
@@ -694,14 +897,15 @@
 }
 @media (max-width: 768px) {
   .cta-banner h2 {
-    font-size: 2rem;
+    font-size: 2.25rem;           /* was 2rem */
   }
   .cta-banner p {
-    font-size: 1rem;
+    font-size: 1.125rem;          /* was 1rem */
   }
-  .btn-solid, .btn-outline {
+  .btn-solid,
+  .btn-outline {
     width: 100%;
-    max-width: 260px;
+    max-width: 300px;             /* was 260px */
     text-align: center;
   }
   .footer-inner {
@@ -709,12 +913,13 @@
   }
   .footer-nav > div {
     flex: 1 1 100%;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;          /* was 1.5rem */
   }
   .socials {
     justify-content: center;
   }
 }
+
 
   </style>
 </head>
@@ -730,7 +935,7 @@
     <button class="hamburger" aria-label="Menu">☰</button>
 
     <nav class="nav-buttons">
-      <a href="#" class="btn-outline-purple">Find participants and AI taskers</a>
+      <a href="paticipants.html" class="btn-outline-purple">Find participants and AI taskers</a>
       
       <a href="#" class="btn-solid-purple">Sign in</a>
     </nav>
@@ -813,11 +1018,7 @@
         <p>
           Expect the most detailed, accurate, and honest free-text responses. Every time.
         </p>
-        <img
-          src="https://upload.wikimedia.org/wikipedia/en/thumb/0/02/Columbia_University_seal.svg/1024px-Columbia_University_seal.svg.png"
-          alt="Columbia University seal"
-          class="columbia-logo"
-        />
+      
       </div>
     </div>
   </div>

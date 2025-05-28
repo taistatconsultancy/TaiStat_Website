@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>taista data</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes delayedFadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 0.6; }
+    }
+    .delayed-fade-in {
+      animation: delayedFadeIn 1s ease-in 1s forwards;
+      opacity: 0;
+    }
+
+/* =====================================================
+   Trusted & Run Research Section (Updated Sizes)
+   ===================================================== */
+
+/* Section wrapper */
+.trusted-run {
+  background-color: #fff;
+  color: #1a202c;        /* gray-900 */
+
+  /* ↑ Doubled the vertical padding for extra “breathing room” */
+  padding: 8rem 1.5rem;  /* was 4rem top/bottom, now 8rem */
+}
+
+/* Centered container with max width */
+.trusted-run .container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem; /* 16px sides */
+}
+
+/* -------- Trusted Logos -------- */
+.trusted-logos {
+  text-align: center;
+  margin-bottom: 4rem; /* slightly more space below logos */
+}
+.trusted-logos p {
+  font-size: 1rem;         /* up from .875rem */
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;   /* 24px */
+}
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem; /* 24px */
+  justify-items: center;
+  align-items: center;
+}
+
+/* -------- Run Research -------- */
+.run-research {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+
+  /* ↑ increase gap between text and image */
+  gap: 4rem; /* was 3rem */
+}
+.run-text {
+  flex: 1 1 100%;
+  text-align: center;
+}
+.run-text h2 {
+  /* ↑ larger base heading */
+  font-size: 2.5rem;    /* was 1.875rem */
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: 1rem;  /* 16px */
+}
+.run-text p {
+  /* ↑ larger base paragraph */
+  font-size: 1.25rem;   /* was 1.125rem */
+  color: #4a5568;       /* gray-700 */
+  margin-bottom: 1rem;  /* 16px */
+  line-height: 1.5;
+}
+.run-text .btn {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem; /* 12px 24px */
+  border-radius: 9999px;
+  transition: background-color 0.2s ease;
+}
+.run-text .btn-primary {
+  background-color: #5a67d8; /* indigo-600 */
+  color: #fff;
+}
+.run-text .btn-primary:hover {
+  background-color: #4c51bf; /* indigo-700 */
+}
+
+.run-image {
+  flex: 1 1 100%;
+  display: flex;
+  justify-content: center;
+}
+.run-image img {
+  width: 100%;
+  /* ↑ raise max-width so image fills more space */
+  max-width: 600px;      /* was 400px */
+  border-radius: 0.5rem; /* 8px */
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+/* -------- Responsive Breakpoints -------- */
+@media (min-width: 640px) {
+  .logo-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 768px) {
+  .logo-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .run-text {
+    text-align: left;
+  }
+  .run-research {
+    flex-direction: row;
+  }
+  .run-text h2 {
+    font-size: 3rem;      /* bump up at md */
+  }
+  .run-text p {
+    font-size: 1.375rem;  /* bump up at md */
+  }
+}
+@media (min-width: 1024px) {
+  .trusted-run {
+    padding: 10rem 1.5rem; /* even more vertical space on lg */
+  }
+  .run-text h2 {
+    font-size: 3.5rem;    /* was 2.25rem */
+  }
+  .run-text p {
+    font-size: 1.5rem;    /* was 1.25rem */
+  }
+  .run-image img {
+    max-width: 800px;     /* give extra room for large screens */
+  }
+}
+
+
+/* =====================================================
+   Build & Integrate Section (Expanded & Styled)
+   ===================================================== */
+
+.build-integrate {
+  background-color: #f9fafb;
+  padding: 6rem 1.5rem;
+}
+
+.build-integrate .container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+/* Blocks */
+.build-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.build-block.reverse {
+  flex-direction: column-reverse;
+}
+
+.build-text {
+  flex: 1;
+  max-width: 600px;
+  text-align: center;
+}
+
+.build-text h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #1a202c;
+}
+
+.build-text p {
+  font-size: 1.25rem;
+  color: #4a5568;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.build-text .btn {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.85rem 1.75rem;
+  border-radius: 9999px;
+  background-color: #5a67d8;
+  color: #fff;
+  transition: background-color 0.2s ease;
+}
+
+.build-text .btn:hover {
+  background-color: #4c51bf;
+}
+
+.build-image {
+  flex: 1;
+  max-width: 650px;
+}
+
+.build-image img {
+  width: 100%;
+  border-radius: 0.75rem;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Layouts */
+@media (min-width: 768px) {
+  .build-block {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+  .build-block.reverse {
+    flex-direction: row-reverse;
+  }
+
+  .build-text {
+    text-align: left;
+  }
+}
+/* -----------------------------
+   Section & Container
+   ----------------------------- */
+.customers-section {
+  background: linear-gradient(180deg, #3944ff 0%, #05d1c8 100%);
+  color: #fff;
+  padding: 6rem 1rem;      /* ↑ taller section */
+}
+
+.customers-section .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;               /* more breathing room */
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* -----------------------------
+   Text Block
+   ----------------------------- */
+.text-block h2 {
+  font-size: 3rem;         /* ↑ bigger heading */
+  margin-bottom: 1rem;
+}
+.text-block p {
+  font-size: 1.25rem;      /* ↑ larger text */
+  margin-bottom: 2rem;
+}
+.text-block .btn {
+  padding: 1rem 2rem;      /* ↑ bigger button */
+  font-size: 1rem;
+}
+
+/* -----------------------------
+   Cards (desktop)
+   ----------------------------- */
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.card {
+  background: #fff;
+  color: #1a202c;
+  padding: 2rem;           /* ↑ more padding */
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;       /* ↑ bigger titles */
+}
+.card p {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  font-size: 1.125rem;     /* ↑ larger body text */
+}
+.card a {
+  color: #3944ff;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+/* -----------------------------
+   Mobile: horizontal scroll
+   ----------------------------- */
+@media (max-width: 767px) {
+  .customers-section .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cards {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+  }
+  .card {
+    flex: 0 0 80%;         /* show ~80% width per card */
+    min-width: 80%;
+  }
+
+  /* optional: add some scroll snap */
+  .cards {
+    scroll-snap-type: x mandatory;
+  }
+  .card {
+    scroll-snap-align: start;
+  }
+}
+
+/* ========== CTA ========== */
+.taistat-cta {
+  background: #3944ff;
+  color: #fff;
+  text-align: center;
+  padding: 5rem 1rem;
+}
+.taistat-cta .inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.taistat-cta h2 {
+  font-size: 2.75rem;
+  margin-bottom: 1rem;
+}
+.taistat-cta p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+.taistat-cta .buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.btn {
+  display: inline-block;
+  border-radius: 9999px;
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  text-decoration: none;
+}
+.btn-primary {
+  background: #fff;
+  color: #3944ff;
+}
+.btn-outline {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
+.btn-outline:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* ========== FOOTER ========== */
+.taistat-footer {
+  background: #f8fafc;
+  color: #1a202c;
+  padding: 4rem 1rem 2rem;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+  gap: 2rem;
+  max-width: 1280px;
+  margin: 0 auto 2rem;
+}
+.branding .logo {
+  max-width: 160px;
+  margin-bottom: 1rem;
+}
+.branding p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #4a5568;
+}
+.badges img {
+  height: 40px;
+  margin-right: 0.5rem;
+}
+.footer-col h4 {
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
+}
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-col li {
+  margin-bottom: 0.5rem;
+}
+.footer-col a {
+  color: #1a202c;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+.footer-col a:hover {
+  text-decoration: underline;
+}
+
+/* Social & Legal */
+.social-legal {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  color: #4a5568;
+}
+.social {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.social img {
+  width: 28px;
+  height: 28px;
+}
+.legal p {
+  margin: 0;
+}
+
+/* ========== Mobile tweaks ========== */
+@media (max-width: 767px) {
+  .taistat-cta h2 { font-size: 2rem; }
+  .taistat-cta p  { font-size: 1rem; }
+  .taistat-cta .buttons { flex-direction: column; }
+  .btn { width: 100%; max-width: 300px; text-align: center; }
+}
+
+
+  </style>
+
+</head>
+<body class="text-white">
+
+  <!-- Floating Navigation Bar -->
+  <nav class="fixed top-4 left-1/2 transform -translate-x-1/2 bg-white text-black shadow-lg rounded-full px-6 py-2 z-50 flex justify-between items-center w-[95%] max-w-7xl">
+    
+    <!-- Logo & Links -->
+    <div class="flex items-center gap-6">
+      <!-- Logo -->
+      <div class="flex items-center gap-2">
+        <img src="tailogo.png" alt="Logo" class="w-8 h-8 rounded-full object-cover" />
+        <span class="font-bold text-xl">Taistat</span>
+      </div>
+
+      <!-- Nav Links (hidden on small screens) -->
+      <div class="hidden md:flex items-center gap-6 ml-4">
+        <button class="font-semibold">Build AI</button>
+        <a href="#" class="font-semibold">Pricing</a>
+      </div>
+    </div>
+
+    <!-- CTA Buttons + Mobile Menu Toggle -->
+    <div class="flex items-center gap-4">
+      <!-- CTA Button -->
+      <a href="#" class="hidden md:inline-block bg-indigo-600 text-white font-semibold px-4 py-2 rounded-full text-sm hover:bg-indigo-700">Get started for free</a>
+      
+      <!-- Hamburger Menu -->
+      <button id="menuToggle" class="md:hidden focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="fixed top-20 right-4 bg-white text-black rounded-lg shadow-md p-4 hidden md:hidden z-50">
+    <a href="#" class="block px-4 py-2 font-semibold hover:bg-gray-100 rounded">Build AI</a>
+    <a href="#" class="block px-4 py-2 font-semibold hover:bg-gray-100 rounded">Pricing</a>
+    <a href="#" class="block px-4 py-2 mt-2 bg-indigo-600 text-white text-center rounded-full hover:bg-indigo-700">Get started for free</a>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="relative h-screen w-full overflow-hidden flex items-center px-6 pt-32 z-10">
+    <!-- Gradient Background -->
+    <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-800 to-blue-400 opacity-80 z-0"></div>
+
+    <!-- Delayed Video Background -->
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      class="absolute top-0 left-0 w-full h-full object-cover delayed-fade-in z-0"
+    >
+      <source src="bgvid.mp4" type="video/mp4" />
+    </video>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 max-w-5xl text-left">
+      <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-8">
+        Real people delivering<br />
+        quality data to drive<br />
+        your next breakthrough
+      </h1>
+      <p class="text-xl md:text-2xl text-white/90 mb-10">
+        Build a better world with better data from 200k+ active and engaged participants.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="#" class="bg-white text-black font-medium px-6 py-3 rounded-full">Talk to an expert</a>
+        <a href="#" class="border border-white text-white font-medium px-6 py-3 rounded-full hover:bg-white hover:text-black transition">Start collecting data</a>
+      </div>
+    </div>
+  </section>
+  <!-- Trusted & Run Research Section -->
+  <section class="trusted-run">
+    <div class="container">
+      <!-- Trusted Logos -->
+      <div class="trusted-logos">
+        <p>Trusted by thousands of researchers and AI model developers</p>
+        <div class="logo-grid">
+          <img src="Google_black_a09c89ccd0.png" alt="Google">
+          <img src="small_Stanford_University_black_3e9700626d.png" alt="Stanford University">
+          <img src="small_Hugging_Face_black_fa306a7ed2.png" alt="Hugging Face">
+          <img src="Yale_black_25860f5a46.png" alt="Yale">
+          <img src="Ni_H_black_381fbfd0d1.png" alt="National Institutes of Health">
+        </div>
+      </div>
+
+      <!-- Run Research Content -->
+      <div class="run-research">
+        <!-- Text Column -->
+        <div class="run-text">
+          <h2>Get insights from your audience in minutes, not days</h2>
+          <p>Find diverse samples and curated expert groups from 200k+ participant profiles.</p>
+          <p>Start fast and seamlessly integrate your favorite survey, interview, or experiment tools.</p>
+          <a href="#" class="btn btn-primary">Learn more →</a>
+        </div>
+        <!-- Image Column -->
+        <div class="run-image">
+          <img src="stat1.jpg"
+               alt="Prolhot">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="build-integrate">
+  <div class="container">
+    <!-- Build AI Section -->
+    <div class="build-block">
+      <div class="build-image">
+        <img src="stat3.jpg" alt="AI Monitoring">
+      </div>
+      <div class="build-text">
+        <h3>Train, evaluate, and monitor AI and ML models</h3>
+        <p>Accelerate AI development cycles by connecting with Domain Experts and AI Taskers.</p>
+        <p>Integrate human feedback directly into your workflows with our API-first infrastructure.</p>
+        <a href="#" class="btn btn-primary">Learn more →</a>
+      </div>
+    </div>
+
+    <!-- Integrate Participants Section -->
+    <div class="build-block reverse">
+      <div class="build-image">
+        <img src="stat1.jpg" alt="Participants">
+      </div>
+      <div class="build-text">
+        <h3>Build an always-on participant pool into your product</h3>
+        <p>Give your customers instant access to 200k+ real, engaged participants.</p>
+        <p>Integrate anywhere in your workflows with our powerful API.</p>
+        <a href="#" class="btn btn-primary">Learn more →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="customers-section">
+  <div class="container">
+    <div class="text-block">
+      <h2>How our customers use Prolific</h2>
+      <p>Trusted by AI/ML developers, researchers, and leading organizations across industry and academia.</p>
+      <a href="#" class="btn">Talk to an expert</a>
+    </div>
+
+    <div class="cards">
+      <div class="card"> 
+        <h3>Sector: Building and construction</h3>
+        <p>Shovels found high‑skilled annotators for data labeling – with Prolific’s specialist participants.</p>
+        <a href="#">Read more →</a>
+      </div>
+      <div class="card"> 
+        <h3>Sector: AI ethics</h3>
+        <p>Prolific helped the Meaning Alignment Institute make AI more democratic.</p>
+        <a href="#">Read more →</a>
+      </div>
+      <div class="card"> 
+        <h3>Sector: Communications and space travel</h3>
+        <p>Braided Communications ran a complex longitudinal study to improve communications for spaceflight missions.</p>
+        <a href="#">Read more →</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ======= Taistat CTA & Footer Section ======= -->
+<section class="taistat-cta">
+  <div class="inner">
+    <h2>Unlock data insights in seconds</h2>
+    <p>Sign up and start transforming raw data into actionable intelligence with Taistat today.</p>
+    <div class="buttons">
+      <a href="#" class="btn btn-primary">Get started with Taistat</a>
+      <a href="#" class="btn btn-outline">Talk to an expert</a>
+    </div>
+  </div>
+</section>
+
+<footer class="taistat-footer">
+  <div class="inner footer-grid">
+    <!-- Logo & Tagline -->
+    <div class="branding">
+      <img src="tailogo.png" alt="Taistat Logo" class="logo">
+      <p>Empowering decisions with smarter analytics.</p>
+     
+    </div>
+
+    <!-- Column 1 -->
+    <div class="footer-col">
+      <h4>Analytics</h4>
+      <ul>
+        <li><a href="#">Real‑time Dashboards</a></li>
+        <li><a href="#">Data Annotation</a></li>
+        <li><a href="#">Predictive Models</a></li>
+        <li><a href="#">API Integrations</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 2 -->
+    <div class="footer-col">
+      <h4>Solutions</h4>
+      <ul>
+        <li><a href="#">Market Research</a></li>
+        <li><a href="#">UX Testing</a></li>
+        <li><a href="#">Behavioral Studies</a></li>
+        <li><a href="#">Enterprise Plans</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 3 -->
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About Taistat</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Privacy &amp; Legal</a></li>
+        <li><a href="#">Cookie Policy</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 4 -->
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="#">Sales Inquiries</a></li>
+        <li><a href="#">Support Center</a></li>
+        <li><a href="#">API Docs</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="social-legal">
+    <div class="social">
+      <span>Follow us on</span>
+      <a href="#" aria-label="Twitter"><img src="path/to/twitter.svg" alt="Twitter"></a>
+      <a href="#" aria-label="LinkedIn"><img src="path/to/linkedin.svg" alt="LinkedIn"></a>
+    </div>
+    <div class="legal">
+      <p>© 2025 Taistat. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Toggle Script -->
+  <script>
+    const toggle = document.getElementById('menuToggle');
+    const menu = document.getElementById('mobileMenu');
+
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
