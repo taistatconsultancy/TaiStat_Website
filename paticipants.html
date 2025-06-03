@@ -15,141 +15,168 @@
       opacity: 0;
     }
 
-/* =====================================================
-   Trusted & Run Research Section (Updated Sizes)
-   ===================================================== */
+ /* =====================================================
+       Trusted & Run Research Section (Full Code)
+       ===================================================== */
 
-/* Section wrapper */
-.trusted-run {
-  background-color: #fff;
-  color: #1a202c;        /* gray-900 */
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #f7fafc;
+      color: #1a202c;
+    }
 
-  /* ↑ Doubled the vertical padding for extra “breathing room” */
-  padding: 8rem 1.5rem;  /* was 4rem top/bottom, now 8rem */
-}
+    /* Section wrapper */
+    .trusted-run {
+      background-color: #fff;
+      padding: 8rem 1.5rem;
+    }
 
-/* Centered container with max width */
-.trusted-run .container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 1rem; /* 16px sides */
-}
+    /* Centered container */
+    .trusted-run .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
 
-/* -------- Trusted Logos -------- */
-.trusted-logos {
-  text-align: center;
-  margin-bottom: 4rem; /* slightly more space below logos */
-}
-.trusted-logos p {
-  font-size: 1rem;         /* up from .875rem */
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;   /* 24px */
-}
-.logo-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem; /* 24px */
-  justify-items: center;
-  align-items: center;
-}
+    /* Trusted Logos Header */
+    .trusted-logos {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .trusted-logos p {
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
 
-/* -------- Run Research -------- */
-.run-research {
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
+    /* Marquee wrapper */
+    .logo-marquee {
+      overflow: hidden;
+      width: 100%;
+    }
+    .logo-track {
+      display: flex;
+      gap: 1.5rem;
+      /* duplicate set width must be ≥ 200% of container */
+      width: max-content;
+    }
+    .logo-track img {
+      width: 80px;
+      height: auto;
+      object-fit: contain;
+    }
 
-  /* ↑ increase gap between text and image */
-  gap: 4rem; /* was 3rem */
-}
-.run-text {
-  flex: 1 1 100%;
-  text-align: center;
-}
-.run-text h2 {
-  /* ↑ larger base heading */
-  font-size: 2.5rem;    /* was 1.875rem */
-  line-height: 1.2;
-  font-weight: 700;
-  margin-bottom: 1rem;  /* 16px */
-}
-.run-text p {
-  /* ↑ larger base paragraph */
-  font-size: 1.25rem;   /* was 1.125rem */
-  color: #4a5568;       /* gray-700 */
-  margin-bottom: 1rem;  /* 16px */
-  line-height: 1.5;
-}
-.run-text .btn {
-  display: inline-block;
-  text-decoration: none;
-  font-weight: 600;
-  padding: 0.75rem 1.5rem; /* 12px 24px */
-  border-radius: 9999px;
-  transition: background-color 0.2s ease;
-}
-.run-text .btn-primary {
-  background-color: #5a67d8; /* indigo-600 */
-  color: #fff;
-}
-.run-text .btn-primary:hover {
-  background-color: #4c51bf; /* indigo-700 */
-}
+    /* Desktop: show in one row, no animation */
+    @media (min-width: 768px) {
+      .logo-track {
+        animation: none;
+      }
+    }
 
-.run-image {
-  flex: 1 1 100%;
-  display: flex;
-  justify-content: center;
-}
-.run-image img {
-  width: 100%;
-  /* ↑ raise max-width so image fills more space */
-  max-width: 600px;      /* was 400px */
-  border-radius: 0.5rem; /* 8px */
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-  object-fit: cover;
-}
+    /* Mobile: continuous scroll */
+    @media (max-width: 767px) {
+      .logo-track {
+        animation: marquee 20s linear infinite;
+      }
+      @keyframes marquee {
+        0%   { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+    }
 
-/* -------- Responsive Breakpoints -------- */
-@media (min-width: 640px) {
-  .logo-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-@media (min-width: 768px) {
-  .logo-grid {
-    grid-template-columns: repeat(5, 1fr);
-  }
-  .run-text {
-    text-align: left;
-  }
-  .run-research {
-    flex-direction: row;
-  }
-  .run-text h2 {
-    font-size: 3rem;      /* bump up at md */
-  }
-  .run-text p {
-    font-size: 1.375rem;  /* bump up at md */
-  }
-}
-@media (min-width: 1024px) {
-  .trusted-run {
-    padding: 10rem 1.5rem; /* even more vertical space on lg */
-  }
-  .run-text h2 {
-    font-size: 3.5rem;    /* was 2.25rem */
-  }
-  .run-text p {
-    font-size: 1.5rem;    /* was 1.25rem */
-  }
-  .run-image img {
-    max-width: 800px;     /* give extra room for large screens */
-  }
-}
+    /* -------- Run Research -------- */
+    .run-research {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      gap: 4rem;
+      margin-top: 4rem;
+    }
+    .run-text {
+      flex: 1 1 100%;
+      text-align: center;
+    }
+    .run-text h2 {
+      font-size: 2.5rem;
+      line-height: 1.2;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .run-text p {
+      font-size: 1.25rem;
+      color: #4a5568;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+    .run-text .btn {
+      display: inline-block;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      transition: background-color 0.2s ease;
+    }
+    .btn-primary {
+      background-color: #5a67d8;
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background-color: #4c51bf;
+    }
 
+    .run-image {
+      flex: 1 1 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .run-image img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 0.5rem;
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+      object-fit: cover;
+    }
+
+    /* Larger breakpoints */
+    @media (min-width: 640px) {
+      .logo-track {
+        gap: 2rem;
+      }
+    }
+    @media (min-width: 768px) {
+      .logo-track {
+        gap: 3rem;
+      }
+      .run-text {
+        text-align: left;
+      }
+      .run-research {
+        flex-direction: row;
+      }
+      .run-text h2 {
+        font-size: 3rem;
+      }
+      .run-text p {
+        font-size: 1.375rem;
+      }
+    }
+    @media (min-width: 1024px) {
+      .trusted-run {
+        padding: 10rem 1.5rem;
+      }
+      .run-text h2 {
+        font-size: 3.5rem;
+      }
+      .run-text p {
+        font-size: 1.5rem;
+      }
+      .run-image img {
+        max-width: 800px;
+      }
+    }
 
 /* =====================================================
    Build & Integrate Section (Expanded & Styled)
@@ -470,28 +497,17 @@
 
   <!-- Floating Navigation Bar -->
   <nav class="fixed top-4 left-1/2 transform -translate-x-1/2 bg-white text-black shadow-lg rounded-full px-6 py-2 z-50 flex justify-between items-center w-[95%] max-w-7xl">
-    
-    <!-- Logo & Links -->
     <div class="flex items-center gap-6">
-      <!-- Logo -->
       <div class="flex items-center gap-2">
         <img src="tailogo.png" alt="Logo" class="w-8 h-8 rounded-full object-cover" />
         <span class="font-bold text-xl">Taistat</span>
       </div>
-
-      <!-- Nav Links (hidden on small screens) -->
       <div class="hidden md:flex items-center gap-6 ml-4">
-       
         <a href="pricing.html" class="font-semibold">Pricing</a>
       </div>
     </div>
-
-    <!-- CTA Buttons + Mobile Menu Toggle -->
     <div class="flex items-center gap-4">
-      <!-- CTA Button -->
       <a href="datasign.html" class="hidden md:inline-block bg-indigo-600 text-white font-semibold px-4 py-2 rounded-full text-sm hover:bg-indigo-700">Get started for free</a>
-      
-      <!-- Hamburger Menu -->
       <button id="menuToggle" class="md:hidden focus:outline-none">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
@@ -502,181 +518,165 @@
 
   <!-- Mobile Menu -->
   <div id="mobileMenu" class="fixed top-20 right-4 bg-white text-black rounded-lg shadow-md p-4 hidden md:hidden z-50">
-    <a href="datasign.html" class="block px-4 py-2 font-semibold hover:bg-gray-100 rounded">Build AI</a>
+    <a href="datasign.html" class="block px-4 py-2 font-semibold hover:bg-gray-100 rounded">Solutions</a>
     <a href="pricing.html" class="block px-4 py-2 font-semibold hover:bg-gray-100 rounded">Pricing</a>
     <a href="datasign.html" class="block px-4 py-2 mt-2 bg-indigo-600 text-white text-center rounded-full hover:bg-indigo-700">Get started for free</a>
   </div>
 
   <!-- Hero Section -->
   <section class="relative h-screen w-full overflow-hidden flex items-center px-6 pt-32 z-10">
-    <!-- Gradient Background -->
     <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-800 to-blue-400 opacity-80 z-0"></div>
-
-    <!-- Delayed Video Background -->
-    <video
-      autoplay
-      muted
-      loop
-      playsinline
-      class="absolute top-0 left-0 w-full h-full object-cover delayed-fade-in z-0"
-    >
+    <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover delayed-fade-in z-0">
       <source src="bgvid.mp4" type="video/mp4" />
     </video>
-
-    <!-- Hero Content -->
     <div class="relative z-10 max-w-5xl text-left">
       <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-8">
-        Real people delivering<br />
-        quality data to drive<br />
+        Real experts delivering<br />
+        quality insights to drive<br />
         your next breakthrough
       </h1>
       <p class="text-xl md:text-2xl text-white/90 mb-10">
-        Build a better world with better data from 200k+ active and engaged participants.
+        Build a better world with strategic data, delivered by our global team of specialists.
       </p>
       <div class="flex flex-col sm:flex-row gap-4">
         <a href="datasign.html" class="bg-white text-black font-medium px-6 py-3 rounded-full">Talk to an expert</a>
-        <a href="datasign.html" class="border border-white text-white font-medium px-6 py-3 rounded-full hover:bg-white hover:text-black transition">Start collecting data</a>
+        <a href="datasign.html" class="border border-white text-white font-medium px-6 py-3 rounded-full hover:bg-white hover:text-black transition">Start your project</a>
       </div>
     </div>
   </section>
-  <!-- Trusted & Run Research Section -->
-  <section class="trusted-run">
+
+  <!-- Trusted & Research Section -->
+ <section class="trusted-run">
     <div class="container">
-      <!-- Trusted Logos -->
       <div class="trusted-logos">
-        <p>Trusted by thousands of researchers and AI model developers</p>
-        <div class="logo-grid">
-          <img src="Google_black_a09c89ccd0.png" alt="Google">
-          <img src="small_Stanford_University_black_3e9700626d.png" alt="Stanford University">
-          <img src="small_Hugging_Face_black_fa306a7ed2.png" alt="Hugging Face">
-          <img src="Yale_black_25860f5a46.png" alt="Yale">
-          <img src="Ni_H_black_381fbfd0d1.png" alt="National Institutes of Health">
+        <p>Trusted by global researchers and AI solution developers</p>
+        <div class="logo-marquee">
+          <div class="logo-track">
+            <!-- Original logos -->
+            <img src="Google_black_a09c89ccd0.png" alt="Google">
+            <img src="small_Stanford_University_black_3e9700626d.png" alt="Stanford University">
+            <img src="small_Hugging_Face_black_fa306a7ed2.png" alt="Hugging Face">
+            <img src="Yale_black_25860f5a46.png" alt="Yale">
+            <img src="Ni_H_black_381fbfd0d1.png" alt="NIH">
+            <!-- Duplicated logos for seamless loop -->
+            <img src="Google_black_a09c89ccd0.png" alt="Google">
+            <img src="small_Stanford_University_black_3e9700626d.png" alt="Stanford University">
+            <img src="small_Hugging_Face_black_fa306a7ed2.png" alt="Hugging Face">
+            <img src="Yale_black_25860f5a46.png" alt="Yale">
+            <img src="Ni_H_black_381fbfd0d1.png" alt="NIH">
+          </div>
         </div>
       </div>
 
-      <!-- Run Research Content -->
       <div class="run-research">
-        <!-- Text Column -->
         <div class="run-text">
-          <h2>Get insights from your audience in minutes, not days</h2>
-          <p>Find diverse samples and curated expert groups from 200k+ participant profiles.</p>
-          <p>Start fast and seamlessly integrate your favorite survey, interview, or experiment tools.</p>
-      
+          <h2>Get insights from our experts in minutes, not days</h2>
+          <p>Leverage Taistat’s global team of experienced professionals across multiple domains.</p>
+          <p>Seamlessly integrate your preferred research tools with tailored support from our firm.</p>
+          <a href="#" class="btn btn-primary">Learn More</a>
         </div>
-        <!-- Image Column -->
         <div class="run-image">
-          <img src="stat1.jpg"
-               alt="Prolhot">
+          <img src="stat1.jpg" alt="Data Insights">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Build & Integrate -->
+  <section class="build-integrate">
+    <div class="container">
+      <div class="build-block">
+        <div class="build-image">
+          <img src="stat3.jpg" alt="AI Monitoring">
+        </div>
+        <div class="build-text">
+          <h3>Train, evaluate, and monitor AI/ML systems with confidence</h3>
+          <p>Accelerate development with support from Taistat's in-house data scientists and engineers.</p>
+          <p>Integrate expert human insights into your systems through our API-first infrastructure.</p>
+        </div>
+      </div>
+
+      <div class="build-block reverse">
+        <div class="build-image">
+          <img src="stat1.jpg" alt="Integration">
+        </div>
+        <div class="build-text">
+          <h3>Embed always-on intelligence into your product</h3>
+          <p>Connect to Taistat’s global expertise through scalable APIs and custom integration support.</p>
+          <p>We help you stay adaptive, intelligent, and insight-driven.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="build-integrate">
-  <div class="container">
-    <!-- Build AI Section -->
-    <div class="build-block">
-      <div class="build-image">
-        <img src="stat3.jpg" alt="AI Monitoring">
+  <!-- Customer Use Cases -->
+  <section class="customers-section">
+    <div class="container">
+      <div class="text-block">
+        <h2>How organizations partner with Taistat</h2>
+        <p>Trusted by researchers, engineers, and institutions to deliver real-world solutions with smart data.</p>
+        <a href="datasign.html" class="btn">Talk to an expert</a>
       </div>
-      <div class="build-text">
-        <h3>Train, evaluate, and monitor AI and ML models</h3>
-        <p>Accelerate AI development cycles by connecting with Domain Experts and AI Taskers.</p>
-        <p>Integrate human feedback directly into your workflows with our API-first infrastructure.</p>
-       
-      </div>
-    </div>
 
-    <!-- Integrate Participants Section -->
-    <div class="build-block reverse">
-      <div class="build-image">
-        <img src="stat1.jpg" alt="Participants">
-      </div>
-      <div class="build-text">
-        <h3>Build an always-on participant pool into your product</h3>
-        <p>Give your customers instant access to 200k+ real, engaged participants.</p>
-        <p>Integrate anywhere in your workflows with our powerful API.</p>
-      
+      <div class="cards">
+        <div class="card"> 
+          <h3>Sector: Building & Construction</h3>
+          <p>Shovels Inc. sourced specialized annotations for their smart city infrastructure project with Taistat's data team.</p>
+        </div>
+        <div class="card"> 
+          <h3>Sector: AI Ethics</h3>
+          <p>The Meaning Alignment Institute partnered with Taistat to build more ethical and transparent AI systems.</p>
+        </div>
+        <div class="card"> 
+          <h3>Sector: Aerospace Communications</h3>
+          <p>Braided Communications worked with Taistat to run long-term studies on improving communications in spaceflight.</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-
-<section class="customers-section">
-  <div class="container">
-    <div class="text-block">
-      <h2>How our customers use Taistat</h2>
-      <p>Trusted by AI/ML developers, researchers, and leading organizations across industry and academia.</p>
-      <a href="datasign.html" class="btn">Talk to an expert</a>
-    </div>
-
-    <div class="cards">
-      <div class="card"> 
-        <h3>Sector: Building and construction</h3>
-        <p>Shovels found high‑skilled annotators for data labeling – with Taistat’s specialist participants.</p>
-     
-      </div>
-      <div class="card"> 
-        <h3>Sector: AI ethics</h3>
-        <p>Taistat helped the Meaning Alignment Institute make AI more democratic.</p>
-       
-      </div>
-      <div class="card"> 
-        <h3>Sector: Communications and space travel</h3>
-        <p>Braided Communications ran a complex longitudinal study to improve communications for spaceflight missions.</p>
-       
+  <!-- CTA -->
+  <section class="taistat-cta">
+    <div class="inner">
+      <h2>Unlock expert-driven insights today</h2>
+      <p>Start transforming your raw data into real-world impact with Taistat’s team of global specialists.</p>
+      <div class="buttons">
+        <a href="datasign.html" class="btn btn-primary">Get started with Taistat</a>
+        <a href="datasign.html" class="btn btn-outline">Talk to an expert</a>
       </div>
     </div>
-  </div>
-</section>
-<!-- ======= Taistat CTA & Footer Section ======= -->
-<section class="taistat-cta">
-  <div class="inner">
-    <h2>Unlock data insights in seconds</h2>
-    <p>Sign up and start transforming raw data into actionable intelligence with Taistat today.</p>
-    <div class="buttons">
-      <a href="datasign.html" class="btn btn-primary">Get started with Taistat</a>
-      <a href="datasign.html" class="btn btn-outline">Talk to an expert</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="taistat-footer">
+    <div class="inner footer-grid">
+      <div class="branding">
+        <img src="tailogo.png" alt="Taistat Logo" class="logo">
+        <p>Empowering decisions with smarter analytics.</p>
+      </div>
+
+      <div class="social-legal">
+        <div class="social">
+          <span>Follow us on</span>
+          <a href="#"><img src="path/to/twitter.svg" alt="Twitter" aria-label="Twitter"></a>
+          <a href="#"><img src="path/to/linkedin.svg" alt="LinkedIn" aria-label="LinkedIn"></a>
+        </div>
+        <div class="legal">
+          <p>© 2025 Taistat. All rights reserved.</p>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
-
-<footer class="taistat-footer">
-  <div class="inner footer-grid">
-    <!-- Logo & Tagline -->
-    <div class="branding">
-      <img src="tailogo.png" alt="Taistat Logo" class="logo">
-      <p>Empowering decisions with smarter analytics.</p>
-     
-    </div>
-
-    <!-- Column 1 -->
- 
-
-
-
-  <div class="social-legal">
-    <div class="social">
-      <span>Follow us on</span>
-      <a href="#" aria-label="Twitter"><img src="path/to/twitter.svg" alt="Twitter"></a>
-      <a href="#" aria-label="LinkedIn"><img src="path/to/linkedin.svg" alt="LinkedIn"></a>
-    </div>
-    <div class="legal">
-      <p>© 2025 Taistat. All rights reserved.</p>
-    </div>
-  </div>
-</footer>
-
+  </footer>
 
   <!-- Toggle Script -->
   <script>
     const toggle = document.getElementById('menuToggle');
     const menu = document.getElementById('mobileMenu');
-
     toggle.addEventListener('click', () => {
       menu.classList.toggle('hidden');
     });
   </script>
 </body>
+
 </html>
