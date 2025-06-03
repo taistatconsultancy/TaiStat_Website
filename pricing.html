@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- SEO Meta Tags -->
+  <title>TAISTAT Pricing Calculator</title>
+  <meta name="description" content="TAISTAT pricing calculator: Estimate your service costs with minimum hourly fees and platform fees for corporate, academic, and non-profit organizations." />
+  <meta name="keywords" content="TAISTAT, pricing calculator, service cost, platform fee, corporate pricing, academic pricing, non-profit pricing" />
+  <meta name="author" content="TAISTAT" />
+
+  <!-- Google Font (Poppins) -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* ===============================
+       GLOBAL RESET + BASE STYLES
+       =============================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background-color: #f9fafd;
+      color: #111827;
+      line-height: 1.6;
+      min-width: 320px;
+      /* Push content down so the fixed navbar does not overlap */
+      padding-top: 4rem;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* =========
+       CSS VARIABLES
+       ========= */
+    :root {
+      --primary-purple: #4A1DE1;     /* Navbar brand color */
+      --primary-purple-hover: #3a16c8;
+      --gradient-start: #ffffff;
+      --gradient-mid1: #e6f0ff;
+      --gradient-mid2: #d0e1ff;
+      --gradient-mid3: #b8d2ff;
+      --gradient-end: #8facff;
+      --card-bg: #ffffff;
+      --card-shadow: rgba(0, 0, 0, 0.05);
+      --text-body: #4b5563;
+      --text-dark: #111827;
+      --text-muted: #6b7280;
+      --border-gray: #d1d5db;
+      --input-focus: var(--primary-purple);
+    }
+
+    /* =====================
+       UTILITY CLASSES
+       ===================== */
+    .container {
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 1rem;
+    }
+    .flex {
+      display: flex;
+    }
+    .flex-center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .text-center {
+      text-align: center;
+    }
+    .mb-2 {
+      margin-bottom: 0.5rem;
+    }
+    .mb-4 {
+      margin-bottom: 1rem;
+    }
+    .mb-6 {
+      margin-bottom: 1.5rem;
+    }
+    .mt-2 {
+      margin-top: 0.5rem;
+    }
+    .mt-4 {
+      margin-top: 1rem;
+    }
+    .mt-6 {
+      margin-top: 1.5rem;
+    }
+    .mt-8 {
+      margin-top: 2rem;
+    }
+    .p-4 {
+      padding: 1rem;
+    }
+    .p-6 {
+      padding: 1.5rem;
+    }
+    .rounded-lg {
+      border-radius: 0.75rem;
+    }
+    .rounded-full {
+      border-radius: 9999px;
+    }
+    .shadow-sm {
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    .shadow-md {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .btn {
+      display: inline-block;
+      background-color: var(--primary-purple);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      transition: background-color 0.2s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .btn:hover {
+      background-color: var(--primary-purple-hover);
+    }
+    .btn-outline {
+      display: inline-block;
+      background-color: transparent;
+      border: 2px solid #fff;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .btn-outline:hover {
+      background-color: #fff;
+      color: var(--primary-purple);
+    }
+    input,
+    select {
+      border: 1px solid var(--border-gray);
+      border-radius: 0.5rem;
+      padding: 0.5rem;
+      font-size: 1rem;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    input:focus,
+    select:focus {
+      border-color: var(--input-focus);
+    }
+    label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    /* ============================
+       FLOATING NAVBAR (Provided)
+       ============================ */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      position: fixed;
+      top: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 95%;
+      z-index: 1000;
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .brand-name {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--primary-purple);
+    }
+    .nav-buttons {
+      display: flex;
+      gap: 0.75rem;
+    }
+    .nav-buttons a {
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .btn-outline-purple {
+      border: 2px solid var(--primary-purple);
+      color: var(--primary-purple);
+      background: transparent;
+    }
+    .btn-outline-purple:hover {
+      background: var(--primary-purple);
+      color: #fff;
+    }
+    .btn-solid-purple {
+      background: var(--primary-purple);
+      color: #fff;
+    }
+    .btn-solid-purple:hover {
+      background: var(--primary-purple-hover);
+    }
+
+    /* Hamburger (hidden by default) */
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--primary-purple);
+    }
+
+    /* ====== MOBILE NAV ====== */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+      .nav-buttons {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 1.5rem;
+        flex-direction: column;
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 0.75rem;
+        gap: 0.5rem;
+        width: calc(100% - 3rem);
+        max-width: 200px;
+      }
+      .navbar.open .nav-buttons {
+        display: flex;
+      }
+    }
+
+    /* ===========================
+       SECTION 1: HEADER & FEATURE CARDS
+       =========================== */
+    .header-section {
+      background: linear-gradient(
+        to bottom right,
+        var(--gradient-start),
+        var(--gradient-mid1),
+        var(--gradient-mid2),
+        var(--gradient-mid3),
+        var(--gradient-end)
+      );
+      padding: 4rem 0 6rem;
+    }
+    .header-section h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--text-dark);
+    }
+    .header-section p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      color: var(--text-body);
+      line-height: 1.5;
+    }
+    .features-grid {
+      margin-top: 3rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .feature-card {
+      background-color: var(--card-bg);
+      border-radius: 1rem;
+      box-shadow: 0 10px 15px var(--card-shadow);
+      padding: 2rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .feature-icon {
+      position: absolute;
+      top: -1rem;
+      left: 1rem;
+      background-color: var(--card-bg);
+      border-radius: 0.75rem;
+      width: 3rem;
+      height: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 3px 6px var(--card-shadow);
+    }
+    .feature-icon svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      color: var(--primary-purple);
+    }
+    .feature-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--text-dark);
+    }
+    .feature-card p {
+      font-size: 0.95rem;
+      color: var(--text-body);
+      line-height: 1.4;
+    }
+
+    /* ======================================
+       SECTION 2: CALCULATOR + SUMMARY (in $)
+       ====================================== */
+    .calculator-section {
+      margin-top: -4rem; /* overlap slightly under header */
+      position: relative;
+      z-index: 10;
+    }
+    .calculator-container {
+      background-color: var(--card-bg);
+      border-radius: 1rem;
+      box-shadow: 0 20px 25px var(--card-shadow);
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+    @media (max-width: 768px) {
+      .calculator-container {
+        grid-template-columns: 1fr;
+      }
+    }
+    .calc-inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .radio-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .radio-button {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--border-gray);
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+      color: #374151;
+    }
+    .radio-button input[type="radio"] {
+      display: none;
+    }
+    .radio-button.checked {
+      background-color: #eef2ff;
+      border-color: var(--primary-purple);
+      color: var(--primary-purple);
+    }
+    .radio-button.checked svg {
+      color: var(--primary-purple);
+    }
+    .radio-button svg {
+      width: 1rem;
+      height: 1rem;
+      color: #9ca3af;
+      transition: color 0.2s ease;
+    }
+    .calc-summary {
+      background-color: #f3f4f6;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+      font-size: 1rem;
+      color: #374151;
+    }
+    .summary-row.total {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-top: 0.5rem;
+      border-top: 1px solid var(--border-gray);
+      padding-top: 0.5rem;
+      color: var(--text-dark);
+    }
+    .currency-toggle {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      align-items: center;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .currency-toggle button {
+      width: 2rem;
+      height: 2rem;
+      border: 1px solid var(--border-gray);
+      border-radius: 0.5rem;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+      font-weight: 600;
+      color: #374151;
+    }
+    .currency-toggle button.active {
+      background-color: var(--primary-purple);
+      color: #fff;
+      border-color: var(--primary-purple);
+    }
+
+    /* ===============================
+       SECTION 3: BOTTOM CTA (Purple)
+       =============================== */
+    .bottom-cta {
+      background-color: var(--primary-purple);
+      color: #fff;
+      padding: 4rem 1rem 4rem;
+      text-align: center;
+    }
+    .bottom-cta h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .bottom-cta p {
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      font-size: 1.05rem;
+      color: #d1d5db;
+      line-height: 1.5;
+    }
+    .bottom-cta .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- =================================
+       FLOATING NAVBAR
+       ================================= -->
+  <header class="navbar">
+    <div class="logo-container">
+      <!-- Replace "tailogo.png" with your actual logo path -->
+      <img src="tailogo.png" class="logo" alt="TAISTAT Logo" />
+      <span class="brand-name">TAISTAT</span>
+    </div>
+
+    <!-- Hamburger (mobile) -->
+    <button class="hamburger" aria-label="Menu">☰</button>
+
+    <nav class="nav-buttons">
+    
+      <a href="datasign.html" class="btn-solid-purple">Sign In</a>
+    </nav>
+  </header>
+
+  <!-- ======================================
+       SECTION 1: HEADER & FEATURE CARDS
+       ====================================== -->
+  <header class="header-section">
+    <div class="container text-center">
+      <h1>TAISTAT Pricing Calculator</h1>
+      <p>
+        Estimate your service costs with TAISTAT. Our pricing is based on a
+        minimum hourly fee for our services plus a platform fee — lower rates
+        for academic and non-profit organizations.
+      </p>
+
+      <div class="features-grid mb-6">
+        <!-- Card 1: Transparent fee -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <!-- Check Mark SVG -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+          </div>
+          <h3 class="mt-6">Transparent platform fee</h3>
+          <p>
+            Our platform fee is added on top — you only pay for our hourly
+            service and the flat platform fee. No hidden costs.
+          </p>
+        </div>
+
+        <!-- Card 2: Minimum hourly rates -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <!-- Check Mark SVG -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+          </div>
+          <h3 class="mt-6">Minimum hourly rates</h3>
+          <p>
+            Fair and ethical pricing: <strong>$4/hour</strong> for Corporate,
+            or <strong>$1/hour</strong> for Academic &amp; Non-profit
+            organizations.
+          </p>
+        </div>
+
+        <!-- Card 3: Flexible add-ons -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <!-- Check Mark SVG -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+          </div>
+          <h3 class="mt-6">Flexible add-ons</h3>
+          <p>
+            You can purchase additional services or custom packages for
+            specific project needs.
+          </p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================
+       SECTION 2: LIVE CALCULATOR + SUMMARY
+       ====================================== -->
+  <section class="calculator-section">
+    <div class="container">
+      <div class="calculator-container">
+        <!-- ==============
+             Left Side: Inputs
+             ============== -->
+        <div class="calc-inputs">
+          <!-- Organization Type -->
+          <div>
+            <label>Organization type</label>
+            <small style="color: var(--text-muted);"
+              >Select your organization category</small
+            >
+            <div class="radio-group mt-2" id="orgTypeGroup">
+              <!-- Corporate -->
+              <label class="radio-button checked" data-value="corporate">
+                <input type="radio" name="orgType" value="corporate" checked />
+                <!-- Building Icon SVG -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 20h18M5 20V10c0-1.104.896-2 2-2h10c1.104 0 2 .896 2 2v10m-4-6h4m-4 4h4m-12 0h4m-4-4h4"
+                  />
+                </svg>
+                Corporate
+              </label>
+              <!-- Academic -->
+              <label class="radio-button" data-value="academic">
+                <input type="radio" name="orgType" value="academic" />
+                <!-- Graduation Cap SVG -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 14l9-5-9-5-9 5 9 5zm0 0v7"
+                  />
+                </svg>
+                Academic
+              </label>
+              <!-- Non-profit -->
+              <label class="radio-button" data-value="nonprofit">
+                <input type="radio" name="orgType" value="nonprofit" />
+                <!-- Heart SVG -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3.172 5.172a4 4 0 015.656 0L12 8.343l3.172-3.171a4 4 0 115.656 5.657L12 20.657l-8.828-8.828a4 4 0 010-5.657z"
+                  />
+                </svg>
+                Non-profit
+              </label>
+            </div>
+          </div>
+
+          <!-- Number of Submissions (Projects) -->
+          <div>
+            <label for="numSubmissions">Number of projects</label>
+            <small style="color: var(--text-muted);"
+              >Total projects or tasks you need TAISTAT to handle</small
+            >
+            <input
+              type="number"
+              id="numSubmissions"
+              min="1"
+              value="20"
+              step="1"
+            />
+          </div>
+
+          <!-- Hourly Rate Input -->
+          <div>
+            <label for="hourlyRate">Hourly rate ($)</label>
+            <small style="color: var(--text-muted);"
+              >Enter your desired hourly rate for TAISTAT services</small
+            >
+            <input
+              type="number"
+              id="hourlyRate"
+              min="0"
+              step="0.01"
+              value="4.00"
+            />
+          </div>
+
+          <!-- Time Per Project -->
+          <div>
+            <label for="timePerSubmission">Time per project (minutes)</label>
+            <small style="color: var(--text-muted);"
+              >Estimated time for TAISTAT to complete each project</small
+            >
+            <input
+              type="number"
+              id="timePerSubmission"
+              min="1"
+              step="1"
+              value="5"
+            />
+          </div>
+        </div>
+
+        <!-- ================
+             Right Side: Summary
+             ================ -->
+        <div class="calc-summary">
+          <div>
+            <div class="summary-row">
+              <span>Service cost</span>
+              <span id="participantCost">$0.00</span>
+            </div>
+            <div class="summary-row">
+              <span>Platform fee</span>
+              <span id="platformFee">$0.00</span>
+            </div>
+            <div class="summary-row total">
+              <span>Total cost</span>
+              <span id="totalCost">$0.00</span>
+            </div>
+          </div>
+
+          <button class="btn mt-4" style="width: 100%;">Get Started</button>
+
+          <div class="currency-toggle text-center">
+            <span>Currency</span>
+            <button class="active" id="usdBtn">$</button>
+            <button id="eurBtn">€</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================
+       SECTION 3: BOTTOM CTA (“Getting started”)
+       ====================================== -->
+  <section class="bottom-cta">
+    <div class="container">
+      <h2>Getting started is simple.</h2>
+      <p>
+        There’s no contract or subscription. Just sign up, explore services,
+        and let TAISTAT handle your data analytics in minutes.
+      </p>
+      <div class="cta-buttons">
+        <button class="btn-outline">Get Started for Free</button>
+        <button class="btn">Speak with Sales</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================
+       JAVASCRIPT: LIVE CALCULATION LOGIC
+       ====================================== -->
+  <script>
+    // ─────────────────────────────────────────────────────────────
+    // 1) Grab DOM Elements
+    // ─────────────────────────────────────────────────────────────
+    const orgTypeButtons = document.querySelectorAll(
+      "#orgTypeGroup .radio-button"
+    );
+    const numSubmissionsInput = document.getElementById("numSubmissions");
+    const hourlyRateInput = document.getElementById("hourlyRate");
+    const timePerSubmissionInput = document.getElementById("timePerSubmission");
+
+    const participantCostEl = document.getElementById("participantCost");
+    const platformFeeEl = document.getElementById("platformFee");
+    const totalCostEl = document.getElementById("totalCost");
+
+    const usdBtn = document.getElementById("usdBtn");
+    const eurBtn = document.getElementById("eurBtn");
+
+    // ─────────────────────────────────────────────────────────────
+    // 2) State + Constants
+    // ─────────────────────────────────────────────────────────────
+    let currency = "USD"; // "USD" or "EUR"
+    let exchangeRate = 0.85; // 1 USD = 0.85 EUR (hardcoded)
+
+    // Platform fee = 30% of service cost
+    const PLATFORM_FEE_PERCENT = 0.3;
+
+    // Minimum hourly rates (in USD)
+    const CORPORATE_MIN_USD = 4.0;
+    const OTHER_MIN_USD = 1.0; // for Academic & Non-profit
+
+    // ─────────────────────────────────────────────────────────────
+    // 3) Format number as currency
+    // ─────────────────────────────────────────────────────────────
+    function formatCurrency(value) {
+      const options = {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      };
+      if (currency === "USD") {
+        return new Intl.NumberFormat("en-US", {
+          style: "currency",
+          currency: "USD",
+          ...options,
+        }).format(value);
+      } else {
+        return new Intl.NumberFormat("en-IE", {
+          style: "currency",
+          currency: "EUR",
+          ...options,
+        }).format(value);
+      }
+    }
+
+    // ─────────────────────────────────────────────────────────────
+    // 4) Convert a USD amount → current currency (USD or EUR)
+    // ─────────────────────────────────────────────────────────────
+    function convertToCurrentCurrency(usdAmount) {
+      return currency === "USD" ? usdAmount : usdAmount * exchangeRate;
+    }
+
+    // ─────────────────────────────────────────────────────────────
+    // 5) MAIN: Re-calculate & Render Summary
+    // ─────────────────────────────────────────────────────────────
+    function recalcAndRender() {
+      // 5.1) Read & sanitize inputs
+      const numSubs = Math.max(1, parseInt(numSubmissionsInput.value) || 1);
+      let hourlyRate = parseFloat(hourlyRateInput.value) || 0;
+      const timePerSub = Math.max(1, parseFloat(timePerSubmissionInput.value) || 1);
+
+      // 5.2) Determine selected org type
+      const selectedOrgType =
+        document.querySelector('input[name="orgType"]:checked').value;
+
+      // 5.3) Pick correct minimum in USD
+      const minRateUSD =
+        selectedOrgType === "corporate" ? CORPORATE_MIN_USD : OTHER_MIN_USD;
+
+      // 5.4) Enforce minimum
+      if (currency === "USD") {
+        if (hourlyRate < minRateUSD) {
+          hourlyRate = minRateUSD;
+          hourlyRateInput.value = minRateUSD.toFixed(2);
+        }
+      } else {
+        // currency === "EUR"
+        const minInEur = minRateUSD * exchangeRate;
+        if (hourlyRate < minInEur) {
+          hourlyRate = minInEur;
+          hourlyRateInput.value = minInEur.toFixed(2);
+        }
+      }
+
+      // 5.5) Convert hourlyRate back to USD if needed
+      let hourlyRateInUSD =
+        currency === "USD" ? hourlyRate : hourlyRate / exchangeRate;
+
+      // 5.6) Compute total service cost (in USD)
+      // cost per project = (hourlyRateInUSD * timePerSub / 60)
+      const costPerProjectUSD = (hourlyRateInUSD * timePerSub) / 60;
+      const totalServiceCostUSD = costPerProjectUSD * numSubs;
+
+      // 5.7) Compute platform fee (30%)
+      const platformFeeUSD = totalServiceCostUSD * PLATFORM_FEE_PERCENT;
+
+      // 5.8) Compute total cost
+      const totalCostUSD = totalServiceCostUSD + platformFeeUSD;
+
+      // 5.9) Convert each to current currency for display
+      const serviceCostDisplay = convertToCurrentCurrency(
+        totalServiceCostUSD
+      );
+      const platformFeeDisplay = convertToCurrentCurrency(platformFeeUSD);
+      const totalCostDisplay = convertToCurrentCurrency(totalCostUSD);
+
+      // 5.10) Render onto the page
+      participantCostEl.textContent = formatCurrency(serviceCostDisplay);
+      platformFeeEl.textContent = formatCurrency(platformFeeDisplay);
+      totalCostEl.textContent = formatCurrency(totalCostDisplay);
+    }
+
+    // ─────────────────────────────────────────────────────────────
+    // 6) EVENT LISTENERS
+    // ─────────────────────────────────────────────────────────────
+    // 6.1) Recalculate whenever any input changes
+    numSubmissionsInput.addEventListener("input", recalcAndRender);
+    hourlyRateInput.addEventListener("input", recalcAndRender);
+    timePerSubmissionInput.addEventListener("input", recalcAndRender);
+
+    // 6.2) Organization-type toggles (visual + recalc)
+    orgTypeButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        // Remove “checked” class from all, then add to clicked
+        orgTypeButtons.forEach((b) => b.classList.remove("checked"));
+        btn.classList.add("checked");
+        btn.querySelector('input[type="radio"]').checked = true;
+        recalcAndRender();
+      });
+    });
+
+    // 6.3) Currency toggle: USD ↔ EUR
+    usdBtn.addEventListener("click", () => {
+      const wasEurActive = eurBtn.classList.contains("active");
+      currency = "USD";
+      usdBtn.classList.add("active");
+      eurBtn.classList.remove("active");
+
+      // If we were in EUR, convert the hourlyRateInput back to USD
+      if (wasEurActive) {
+        let currentVal = parseFloat(hourlyRateInput.value) || 0;
+        if (currentVal > 0) {
+          const convertedBack = currentVal / exchangeRate;
+          hourlyRateInput.value = convertedBack.toFixed(2);
+        }
+      }
+      recalcAndRender();
+    });
+
+    eurBtn.addEventListener("click", () => {
+      const wasUsdActive = usdBtn.classList.contains("active");
+      currency = "EUR";
+      eurBtn.classList.add("active");
+      usdBtn.classList.remove("active");
+
+      // If we were in USD, convert hourlyRateInput → EUR
+      if (wasUsdActive) {
+        let currentVal = parseFloat(hourlyRateInput.value) || 0;
+        if (currentVal > 0) {
+          const inEur = currentVal * exchangeRate;
+          hourlyRateInput.value = inEur.toFixed(2);
+        }
+      }
+      recalcAndRender();
+    });
+
+    // 6.4) Mobile hamburger toggle
+    const hamburgerBtn = document.querySelector(".hamburger");
+    const navbarEl = document.querySelector(".navbar");
+    hamburgerBtn.addEventListener("click", () => {
+      navbarEl.classList.toggle("open");
+    });
+
+    // ─────────────────────────────────────────────────────────────
+    // 7) INITIALIZE ON LOAD
+    // ─────────────────────────────────────────────────────────────
+    recalcAndRender();
+  </script>
+</body>
+</html>

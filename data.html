@@ -35,6 +35,7 @@ a {
    - Flex layout for logo and navigation buttons
    - Fixed position centered at top
    ======================================== */
+/* ====== BASE NAVBAR ====== */
 .navbar {
   display: flex;
   align-items: center;
@@ -82,10 +83,6 @@ a {
   border: 2px solid #4A1DE1;
   color: #4A1DE1;
 }
-.btn-outline-pink {
-  border: 2px solid #EA49A0;
-  color: #EA49A0;
-}
 .btn-solid-purple {
   background: #4A1DE1;
   color: #FFF;
@@ -101,132 +98,123 @@ a {
   color: #4A1DE1;
 }
 
+/* ====== MOBILE NAV ====== */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+  .nav-buttons {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 1.5rem;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 0.75rem;
+    gap: 0.5rem;
+    width: calc(100% - 3rem);
+    max-width: 200px;
+  }
+  /* when navbar has .open, show the menu */
+  .navbar.open .nav-buttons {
+    display: flex;
+  }
+}
+
 /* ========================================
-   HERO SECTION
-   - Gradient background and centered content
-   - Responsive hero text and image
+   HERO SECTION WITH VIDEO BACKGROUND
    ======================================== */
 .hero-section {
   position: relative;
-  background: linear-gradient(
-    180deg,
-    #E8D5FB 0%,
-    #86ebe6 60%,
-    #ffffff 100%
-  );
-  color: #222;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 80vh;
-  padding: 2rem 1rem 4rem;
-  overflow: hidden;
+  padding: 2rem 1rem;
+  color: #fff;
+  text-align: center;
 }
-.hero {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1200px;
-  width: 100%;
-  flex-wrap: wrap;
-  gap: 2rem;
+
+/* Full-cover video */
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 1;
 }
+
+/* Dark overlay for text legibility */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+
+/* Centered text container */
 .hero-text {
-  flex: 1 1 400px;
-  max-width: 500px;
+  position: relative;
+  z-index: 3;
+  max-width: 600px;
+  margin: 0 auto;
 }
+
+/* Heading styles */
 .hero-text h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
+  line-height: 1.2;
   font-weight: 700;
   margin-bottom: 1rem;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
 }
+
+/* Paragraph styles */
 .hero-text p {
-  font-size: 1rem;
-  color: #444;
+  font-size: 1.125rem;
   margin-bottom: 2rem;
+  line-height: 1.5;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.6);
 }
-.hero-buttons {
-  display: flex;
-}
+
+/* Button */
 .btn-collect {
-  background: #3000D2;
-  color: #FFF;
-  padding: 0.75rem 1.5rem;
+  display: inline-block;
+  background: rgba(255,255,255,0.9);
+  color: #3000D2;
+  padding: 0.75rem 1.75rem;
   border-radius: 30px;
   font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
-.hero-image {
-  flex: 1 1 600px;
-  max-width: 800px;
-}
-.hero-image img {
-  width: 100%;
-  display: block;
+.btn-collect:hover,
+.btn-collect:focus {
+  background: #fff;
+  transform: translateY(-2px);
 }
 
 /* ========================================
-   MOBILE ADAPTATIONS (≤768px)
-   - Tighter spacing and adjusted font sizes
-   - Toggleable nav menu via hamburger
+   RESPONSIVE ADJUSTMENTS
    ======================================== */
 @media (max-width: 768px) {
-  .navbar {
-    left: 0;
-    transform: none;
-    margin: 0 1rem;
-    padding: 0.5rem 1rem;
-    max-width: calc(100% - 2rem);
-    border-radius: 16px;
-  }
-  .logo-container {
-    flex: 1;
-  }
-  .hamburger {
-    display: block;
-    flex-shrink: 0;
-    margin-left: auto;
-  }
-  .nav-buttons {
-    display: none;
-  }
-  .navbar.open .nav-buttons {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    right: 1rem;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    padding: 0.5rem;
-    gap: 0.5rem;
-  }
-
-  /* tighten text–image spacing */
-  .hero {
-    flex-direction: column;
-    text-align: center;
-    gap: 0.5rem;
-  }
-  .hero-image {
-    order: -1;
-    margin: 1rem 0 0;
-  }
-  .hero-text {
-    order: 0;
-    margin-bottom: -0.5rem;
-  }
   .hero-text h1 {
-    font-size: 1.5rem;
-    margin: 0.5rem 0;
+    font-size: 2rem;
   }
   .hero-text p {
-    font-size: 0.85rem;
-    margin-bottom: 1rem;
+    font-size: 0.9rem;
   }
   .btn-collect {
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.9rem;
   }
 }
 
@@ -926,263 +914,318 @@ a {
 <body>
 
   <!-- FLOATING NAVBAR -->
-  <header class="navbar">
-    <div class="logo-container">
-      <img src="tailogo.png" class="logo" alt="Prolific Logo"/>
-      <span class="brand-name">TAISTAT</span>
-    </div>
+ <header class="navbar">
+  <div class="logo-container">
+    <img src="tailogo.png" class="logo" alt="Prolific Logo"/>
+    <span class="brand-name">TAISTAT</span>
+  </div>
 
-    <button class="hamburger" aria-label="Menu">☰</button>
+  <!-- hamburger toggle -->
+  <button class="hamburger" aria-label="Menu">☰</button>
 
-    <nav class="nav-buttons">
-      <a href="paticipants.html" class="btn-outline-purple">Find participants and AI taskers</a>
-      
-      <a href="#" class="btn-solid-purple">Sign in</a>
-    </nav>
-  </header>
+  <nav class="nav-buttons">
+    <a href="paticipants.html" class="btn-outline-purple">Find participants</a>
+    <a href="datasign.html" class="btn-solid-purple">Sign in</a>
+  </nav>
+</header>
+
 
   <!-- HERO BELOW NAVBAR -->
-  <section class="hero-section">
-    <div class="hero">
-      <div class="hero-text">
-        <h1>Our proprietary pool is thoroughly verified – and 100% human.</h1>
-        <p>Get set up fast on our self-serve platform and collect complete datasets in less than 2 hours.</p>
-        <div class="hero-buttons">
-          <a href="#" class="btn-collect">Start collecting data</a>
+   <!-- ================= HERO SECTION ================= -->
+  <section class="hero-section reveal fade-in">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="blue1.mp4" type="video/mp4">
+      <!-- Add WebM or Ogg sources here for broader support -->
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-text">
+      <h1>Our proprietary pool is thoroughly verified – and 100% human.</h1>
+      <p>Get set up fast on our self-serve platform and collect complete datasets in less than 2 hours.</p>
+      <a href="#" class="btn-collect">Start collecting data</a>
+    </div>
+  </section>
+
+  <!-- ================= FEATURE HIGHLIGHT ================= -->
+  <section class="feature-section reveal slide-up">
+    <div class="feature-container">
+      <h2 class="feature-heading">
+        Taistat makes it easy to access the highest-quality data
+      </h2>
+
+      <div class="feature-cards">
+        <div class="card">
+          <div class="icon">
+            <svg width="28" height="28" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 11 12 14 22 4"></polyline>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+            </svg>
+          </div>
+          <p>
+            Researchers launch AI training and evaluation tasks, surveys, and more, every 2 minutes.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">
+            <svg width="28" height="28" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M9 21v-2a4 4 0 0 1 3-3.87"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <p>
+            Professionals from our global team respond within 2 hours.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">
+            <svg width="28" height="28" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+          </div>
+          <p>
+            Our experts get compensated to deliver reliable insights.
+          </p>
         </div>
       </div>
-      <div class="hero-image">
-        <img src="datahome11.png" alt="User working on laptop"/>
+
+      <div class="audience-block">
+        <div class="audience-main">
+          <h3>
+            Easily find your audience from our global team of verified professionals.
+          </h3>
+          <p class="subtext">
+            Collect data from the people you need in minutes, not days.
+          </p>
+          <a href="#" class="btn-start">Start for free</a>
+        </div>
+        <div class="audience-side">
+          <h4>High-quality</h4>
+          <p>
+            Expect the most detailed, accurate, and honest free-text responses. Every time.
+          </p>
+        </div>
       </div>
     </div>
   </section>
-<!-- ================= FEATURE HIGHLIGHT ================= -->
-<section class="feature-section">
-  <div class="feature-container">
-    <h2 class="feature-heading">
-    Taistat makes it easy to access the highest-quality data
-    </h2>
 
-    <div class="feature-cards">
-      <div class="card">
-        <div class="icon">
-          <svg width="28" height="28" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="9 11 12 14 22 4"></polyline>
-            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
-          </svg>
-        </div>
-        <p>
-          Researchers launch AI training and evaluation tasks, surveys, and more, every 2 minutes.
-        </p>
-      </div>
+  <!-- ================= TESTIMONIAL SECTION ================= -->
+  <section class="testimonial-section reveal slide-left">
+    <div class="testimonial-container">
 
-      <div class="card">
-        <div class="icon">
-          <svg width="28" height="28" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M17 21v-2a4 4 0 0 0-3-3.87"></path>
-            <path d="M9 21v-2a4 4 0 0 1 3-3.87"></path>
-            <circle cx="12" cy="7" r="4"></circle>
-          </svg>
-        </div>
-        <p>
-          Real people from our global community of 200k+ participants respond within 2 hours.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="icon">
-          <svg width="28" height="28" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <line x1="2" y1="12" x2="22" y2="12"></line>
-            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-          </svg>
-        </div>
-        <p>
-          Participants get paid by researchers to change the world.
-        </p>
-      </div>
-    </div>
-
-    <div class="audience-block">
-      <div class="audience-main">
-        <h3>
-          Easily find your audience from our pool of 200k+ active, verified, and engaged participants.
-        </h3>
-        <p class="subtext">
-          Collect data from the people you need in minutes, not days
-        </p>
-        <a href="#" class="btn-start">Start your task</a>
-      </div>
-      <div class="audience-side">
-        <h4>High-quality</h4>
-        <p>
-          Expect the most detailed, accurate, and honest free-text responses. Every time.
-        </p>
-      
-      </div>
-    </div>
-  </div>
-</section>
-<section class="testimonial-section">
-  <div class="testimonial-container">
-
-    <!-- Left-side Icon + Static Blurb -->
-    <div class="testimonial-blurb">
-      <div class="blurb-icon">
-        <!-- simple check-circle icon -->
-        <svg width="36" height="36" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="18" cy="18" r="17"></circle>
-          <path d="M12 18l4 4 8-8"></path>
-        </svg>
-      </div>
-      <p>Trusted for over 5 years by leading data scientists, researchers, and enterprises.</p>
-    </div>
-
-    <!-- Right-side Slider Card -->
-    <div class="testimonial-slider">
-      <div class="card" id="testimonial-card">
-        <blockquote id="testimonial-text">
-          <!-- JS will inject quote here -->
-        </blockquote>
-        <p class="author" id="testimonial-author">
-          <!-- JS will inject author here -->
-        </p>
-      </div>
-
-      <!-- Arrows -->
-      <div class="slider-controls">
-        <button id="prev-btn" aria-label="Previous testimonial">‹</button>
-        <button id="next-btn" aria-label="Next testimonial">›</button>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ================= ADVANTAGES SECTION ================= -->
-<section class="advantage-section">
-  <div class="advantage-container">
-    <h2 class="advantage-heading">
-      Invest in Taistat’s premium insights — on your terms
-    </h2>
-    <p class="advantage-subtext">
-      Unlock full access to advanced analytics, custom reporting, and dedicated support—so you can make data-driven decisions faster.
-    </p>
-    <a href="#" class="advantage-cta">Start your subscription →</a>
-
-    <div class="advantage-cards">
-      <div class="adv-card">
-        <div class="adv-icon">
-          <!-- shield-lock icon -->
+      <!-- Left-side Icon + Static Blurb -->
+      <div class="testimonial-blurb">
+        <div class="blurb-icon">
+          <!-- simple check-circle icon -->
           <svg width="36" height="36" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="6" y="11" width="24" height="14" rx="2" ry="2"/>
-            <path d="M12 11V7a6 6 0 0 1 12 0v4"/>
+            <circle cx="18" cy="18" r="17"></circle>
+            <path d="M12 18l4 4 8-8"></path>
           </svg>
         </div>
-        <h3>Enterprise-grade Security</h3>
-        <p>All data is encrypted in transit and at rest, with SOC2 and GDPR compliance to keep your insights safe.</p>
+        <p>Trusted for over 5 years by leading data scientists, researchers, and enterprises.</p>
       </div>
 
-      <div class="adv-card">
-        <div class="adv-icon">
-          <!-- bar-chart icon -->
-          <svg width="36" height="36" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="12" y1="20" x2="12" y2="12"/>
-            <line x1="18" y1="20" x2="18" y2="8"/>
-            <line x1="24" y1="20" x2="24" y2="16"/>
-            <path d="M6 20h24"/>
-          </svg>
+      <!-- Right-side Slider Card -->
+      <div class="testimonial-slider">
+        <div class="card" id="testimonial-card">
+          <blockquote id="testimonial-text">
+            <!-- JS will inject quote here -->
+          </blockquote>
+          <p class="author" id="testimonial-author">
+            <!-- JS will inject author here -->
+          </p>
         </div>
-        <h3>Custom Reporting</h3>
-        <p>Create tailored dashboards, export raw data, or automate scheduled reports to suit your workflow.</p>
-      </div>
 
-      <div class="adv-card">
-        <div class="adv-icon">
-          <!-- users icon -->
-          <svg width="36" height="36" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M17 21v-2a4 4 0 0 0-3-3.87"/>
-            <path d="M9 21v-2a4 4 0 0 1 3-3.87"/>
-            <circle cx="12" cy="7" r="4"/>
-          </svg>
+        <!-- Arrows -->
+        <div class="slider-controls">
+          <button id="prev-btn" aria-label="Previous testimonial">‹</button>
+          <button id="next-btn" aria-label="Next testimonial">›</button>
         </div>
-        <h3>Dedicated Support</h3>
-        <p>Priority email and phone support plus a dedicated success manager to help you get the most out of Taistat.</p>
       </div>
-    </div>
-  </div>
-</section>
-<!-- ========== CTA BANNER ========== -->
-<section class="cta-banner">
-  <div class="cta-inner">
-    <h2>Put Taistat to the test. Today.</h2>
-    <p>Start your analytics in just 15 minutes — or book a demo with our team.</p>
-    <div class="cta-buttons">
-      <a href="#" class="btn-solid">Start your project</a>
-      <a href="#" class="btn-outline">Book a demo</a>
-    </div>
-  </div>
-</section>
 
-<!-- ========== FOOTER ========== -->
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <div class="brand-card">
-        <img src="tailogo.png" alt="Taistat Logo" class="footer-logo"/>
-        <p>Empowering smarter decisions with real-time data.</p>
+    </div>
+  </section>
+
+  <!-- ================= ADVANTAGES SECTION ================= -->
+  <section class="advantage-section reveal slide-right">
+    <div class="advantage-container">
+      <h2 class="advantage-heading">
+        Invest in Taistat’s premium insights — on your terms
+      </h2>
+      <p class="advantage-subtext">
+        Unlock full access to advanced analytics, custom reporting, and dedicated support—so you can make data-driven decisions faster.
+      </p>
+      <a href="#" class="advantage-cta">Start your subscription →</a>
+
+      <div class="advantage-cards">
+        <div class="adv-card">
+          <div class="adv-icon">
+            <!-- shield-lock icon -->
+            <svg width="36" height="36" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="6" y="11" width="24" height="14" rx="2" ry="2"/>
+              <path d="M12 11V7a6 6 0 0 1 12 0v4"/>
+            </svg>
+          </div>
+          <h3>Enterprise-grade Security</h3>
+          <p>All data is encrypted in transit and at rest, with SOC2 and GDPR compliance to keep your insights safe.</p>
+        </div>
+
+        <div class="adv-card">
+          <div class="adv-icon">
+            <!-- bar-chart icon -->
+            <svg width="36" height="36" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="20" x2="12" y2="12"/>
+              <line x1="18" y1="20" x2="18" y2="8"/>
+              <line x1="24" y1="20" x2="24" y2="16"/>
+              <path d="M6 20h24"/>
+            </svg>
+          </div>
+          <h3>Custom Reporting</h3>
+          <p>Create tailored dashboards, export raw data, or automate scheduled reports to suit your workflow.</p>
+        </div>
+
+        <div class="adv-card">
+          <div class="adv-icon">
+            <!-- users icon -->
+            <svg width="36" height="36" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M9 21v-2a4 4 0 0 1 3-3.87"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <h3>Dedicated Support</h3>
+          <p>Priority email and phone support plus a dedicated success manager to help you get the most out of Taistat.</p>
+        </div>
       </div>
-      <div class="socials">
-        <span>Follow us on</span>
-        <a href="#" aria-label="X (Twitter)"><img src="icon-x.svg" alt="X"/></a>
-        <a href="#" aria-label="LinkedIn"><img src="icon-linkedin.svg" alt="LinkedIn"/></a>
+    </div>
+  </section>
+
+  <!-- ========== CTA BANNER ========== -->
+  <section class="cta-banner reveal zoom-in">
+    <div class="cta-inner">
+      <h2>Put Taistat to the test. Today.</h2>
+      <p>Start your analytics in just 15 minutes — or book a demo with our team.</p>
+      <div class="cta-buttons">
+        <a href="#" class="btn-solid">Start your project</a>
+        <a href="#" class="btn-outline">Book a demo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer reveal flip-in">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="brand-card">
+          <img src="tailogo.png" alt="Taistat Logo" class="footer-logo"/>
+          <p>Empowering smarter decisions with real-time data.</p>
+        </div>
+        <div class="socials">
+          <span>Follow us on</span>
+          <a href="#" aria-label="X (Twitter)"><img src="icon-x.svg" alt="X"/></a>
+          <a href="#" aria-label="LinkedIn"><img src="icon-linkedin.svg" alt="LinkedIn"/></a>
+        </div>
+      </div>
+
+      <div class="footer-nav">
+        <div>
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="#">Dashboards</a></li>
+            <li><a href="#">APIs</a></li>
+            <li><a href="#">Integrations</a></li>
+            <li><a href="#">Security</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Solutions</h4>
+          <ul>
+            <li><a href="#">Market Research</a></li>
+            <li><a href="#">Product Testing</a></li>
+            <li><a href="#">UX Studies</a></li>
+            <li><a href="#">AI Training</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About Taistat</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Privacy &amp; Legal</a></li>
+            <li><a href="#">Cookie Preferences</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Contact Sales</a></li>
+            <li><a href="#">Developer Docs</a></li>
+            <li><a href="#">Status</a></li>
+          </ul>
+        </div>
       </div>
     </div>
 
-    <div class="footer-nav">
-      <div>
-        <h4>Platform</h4>
-        <ul>
-          <li><a href="#">Dashboards</a></li>
-          <li><a href="#">APIs</a></li>
-          <li><a href="#">Integrations</a></li>
-          <li><a href="#">Security</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Solutions</h4>
-        <ul>
-          <li><a href="#">Market Research</a></li>
-          <li><a href="#">Product Testing</a></li>
-          <li><a href="#">UX Studies</a></li>
-          <li><a href="#">AI Training</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Company</h4>
-        <ul>
-          <li><a href="#">About Taistat</a></li>
-          <li><a href="#">Careers</a></li>
-          <li><a href="#">Privacy &amp; Legal</a></li>
-          <li><a href="#">Cookie Preferences</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Support</h4>
-        <ul>
-          <li><a href="#">Help Center</a></li>
-          <li><a href="#">Contact Sales</a></li>
-          <li><a href="#">Developer Docs</a></li>
-          <li><a href="#">Status</a></li>
-        </ul>
-      </div>
+    <div class="footer-bottom">
+      <p>© 2025 Taistat. All rights reserved.</p>
     </div>
-  </div>
+  </footer>
 
-  <div class="footer-bottom">
-    <p>© 2025 Taistat. All rights reserved.</p>
-  </div>
-</footer>
+  <!-- ================= INTERSECTION OBSERVER SCRIPT ================= -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const reveals = document.querySelectorAll(".reveal");
+      const options = {
+        threshold: 0.2
+      };
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            obs.unobserve(entry.target);
+          }
+        });
+      }, options);
+
+      reveals.forEach(element => {
+        observer.observe(element);
+      });
+    });
+
+    // ================= OPTIONAL: TESTIMONIAL SLIDER LOGIC =================
+    const testimonials = [
+      { text: "Taistat’s data quality is unmatched. We saw a 30% increase in conversion.", author: "Alex T., Product Manager" },
+      { text: "Fast turnaround and excellent support. Our go-to partner for market research.", author: "Maya R., Research Lead" },
+      { text: "The insights we receive have been transformative for our AI models.", author: "David K., Machine Learning Engineer" }
+    ];
+    let currentIndex = 0;
+    const testimonialTextEl = document.getElementById("testimonial-text");
+    const testimonialAuthorEl = document.getElementById("testimonial-author");
+    const prevBtn = document.getElementById("prev-btn");
+    const nextBtn = document.getElementById("next-btn");
+
+    function updateTestimonial(index) {
+      testimonialTextEl.textContent = `"${testimonials[index].text}"`;
+      testimonialAuthorEl.textContent = `— ${testimonials[index].author}`;
+    }
+
+    prevBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+      updateTestimonial(currentIndex);
+    });
+
+    nextBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % testimonials.length;
+      updateTestimonial(currentIndex);
+    });
+
+    // Initialize first testimonial after DOM loads
+    updateTestimonial(currentIndex);
+  </script>
 
 
 <!-- JS: slider logic -->
