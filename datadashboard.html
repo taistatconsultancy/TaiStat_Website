@@ -34,9 +34,21 @@
       background-color: #2b3aef;
       display: flex;
       align-items: center;
+      justify-content: space-between;
       padding: 0 1rem;
       z-index: 1000;
     }
+    .navbar .logo {
+      height: 40px;
+      object-fit: contain;
+    }
+    .navbar .logo {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
     .hamburger {
       font-size: 1.5rem;
       color: #fff;
@@ -47,7 +59,7 @@
     .nav-dropdown {
       position: absolute;
       top: 60px;
-      left: 1rem;
+      right: 1rem;
       background: #fff;
       border-radius: 8px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -184,6 +196,7 @@
 <body>
   <!-- ===== NAVIGATION BAR ===== -->
   <nav class="navbar">
+    <img src="tailogo.png" alt="Taistat Logo" class="logo" />
     <div class="hamburger" id="hamburgerBtn">&#9776;</div>
     <div class="nav-dropdown" id="navDropdown">
       <div class="user-info">
@@ -240,7 +253,6 @@
           <option value="chinese">Chinese</option>
           <option value="japanese">Japanese</option>
           <option value="arabic">Arabic</option>
-          <!-- Add more as needed -->
         </select>
       </div>
 
@@ -269,18 +281,10 @@
   <!-- ===== FIREBASE + APP LOGIC ===== -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
-    import {
-      getAuth,
-      onAuthStateChanged,
-      signOut
-    } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
-    import {
-      getFirestore,
-      doc,
-      getDoc
-    } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
 
-    // ── 1) FIREBASE CONFIGURATION ────────────────────────────────────────────────
+    // ── FIREBASE CONFIG ─────────────────────────────────────────────────────────
     const firebaseConfig = {
       apiKey: "AIzaSyD6xgrttBIm9vw07xRltKsqHZNpS1jJ8xw",
       authDomain: "taistat-f0e1d.firebaseapp.com",
@@ -293,7 +297,7 @@
     const auth = getAuth(app);
     const db = getFirestore(app);
 
-    // ── 2) UI ELEMENT REFERENCES ───────────────────────────────────────────────────
+    // ── UI ELEMENTS ─────────────────────────────────────────────────────────────
     const hamburgerBtn     = document.getElementById("hamburgerBtn");
     const navDropdown      = document.getElementById("navDropdown");
     const navFullName      = document.getElementById("navFullName");
@@ -312,116 +316,86 @@
 
     let currentUserUid = null;
 
-    // ── 3) HAMBURGER MENU TOGGLE ──────────────────────────────────────────────────
+    // ── HAMBURGER TOGGLE ─────────────────────────────────────────────────────────
     hamburgerBtn.addEventListener("click", () => {
       navDropdown.classList.toggle("active");
     });
-    // Close dropdown if clicked outside
-    window.addEventListener("click", (e) => {
+    window.addEventListener("click", e => {
       if (!navDropdown.contains(e.target) && e.target !== hamburgerBtn) {
         navDropdown.classList.remove("active");
       }
     });
 
-    // ── 4) AUTH STATE CHECK ───────────────────────────────────────────────────────
-    onAuthStateChanged(auth, async (user) => {
-      if (!user) {
-        // Not signed in → redirect to login
-        window.location.href = "datasign.html";
-        return;
-      }
+    // ── AUTH STATE ───────────────────────────────────────────────────────────────
+    onAuthStateChanged(auth, async user => {
+      if (!user) return void(window.location.href = "datasign.html");
       currentUserUid = user.uid;
-
-      // Fetch user’s profile document from Firestore
       try {
-        const userDocRef = doc(db, "users", user.uid);
-        const userSnap = await getDoc(userDocRef);
-        if (userSnap.exists()) {
-          const data = userSnap.data();
-          const firstName = data.firstName || "";
-          const lastName  = data.lastName  || "";
-          const email     = data.email     || "";
-
-          // Populate navbar dropdown & welcome banner
-          navFullName.textContent = `${firstName} ${lastName}`;
-          navEmail.textContent    = email;
-          welcomeName.textContent = `${firstName} ${lastName}`;
-        } else {
-          // If no Firestore document, fallback to using user.email
-          navFullName.textContent = user.email;
-          navEmail.textContent    = user.email;
-          welcomeName.textContent = user.email;
-        }
-      } catch (err) {
-        console.error("Error fetching user profile:", err);
+        const snap = await getDoc(doc(db, "users", user.uid));
+        const data = snap.exists() ? snap.data() : { email: user.email };
+        const name = [data.firstName, data.lastName].filter(Boolean).join(" ") || data.email;
+        navFullName.textContent = name;
+        navEmail.textContent    = data.email || user.email;
+        welcomeName.textContent = name;
+      } catch {
         navFullName.textContent = user.email;
         navEmail.textContent    = user.email;
         welcomeName.textContent = user.email;
       }
     });
 
-    // ── 5) LOGOUT HANDLER ─────────────────────────────────────────────────────────
+    // ── LOGOUT ─────────────────────────────────────────────────────────────────
     logoutBtn.addEventListener("click", async () => {
-      try {
-        await signOut(auth);
-        window.location.href = "datasign.html";
-      } catch (err) {
-        console.error("Logout failed:", err);
-      }
+      await signOut(auth);
+      window.location.href = "datasign.html";
     });
 
-    // ── 6) POPULATE COUNTRY DROPDOWN VIA RestCountries API ───────────────────────
+    // ── LOAD COUNTRIES ─────────────────────────────────────────────────────────
     async function loadCountries() {
       countrySelect.innerHTML = `<option value="">Loading countries...</option>`;
       try {
-        const response = await fetch("https://restcountries.com/v3.1/all");
-        if (!response.ok) throw new Error(`Status: ${response.status}`);
-        const countries = await response.json();
-        // Sort countries alphabetically by name.common
-        countries.sort((a, b) => a.name.common.localeCompare(b.name.common));
+        const res = await fetch("https://restcountries.com/v3.1/all");
+        const list = await res.json();
+        list.sort((a,b) => a.name.common.localeCompare(b.name.common));
         countrySelect.innerHTML = `<option value="">Select a country</option>`;
-        countries.forEach(country => {
+        for (const c of list) {
           const opt = document.createElement("option");
-          opt.value = country.cca2 || country.name.common;       // use ISO2 code if available
-          opt.textContent = country.name.common;                 // e.g. "Kenya"
-          countrySelect.appendChild(opt);
-        });
-      } catch (err) {
-        console.error("Failed to load countries:", err);
+          opt.value = c.cca2 || c.name.common;
+          opt.textContent = c.name.common;
+          countrySelect.append(opt);
+        }
+      } catch {
         countrySelect.innerHTML = `<option value="">Unable to load countries</option>`;
       }
     }
-
-    // Call once on page load
     loadCountries();
 
-    // ── 7) REQUEST FORM SUBMISSION ────────────────────────────────────────────────
-    requestForm.addEventListener("submit", async (e) => {
+    // ── FORM SUBMIT (redirect to Google Form) ─────────────────────────────────
+    requestForm.addEventListener("submit", e => {
       e.preventDefault();
       submitRequestBtn.disabled = true;
 
-      // Collect form data
-      const payload = {
-        uid: currentUserUid,
-        fullName: navFullName.textContent,
-        email: requestEmail.value.trim(),
-        phone: requestPhone.value.trim(),
-        serviceType: serviceType.value,
-        country: countrySelect.value,
-        language: languageSelect.value,
-        description: description.value.trim(),
-        timestamp: new Date().toISOString()
-      };
+      const service  = encodeURIComponent(serviceType.value);
+      const country  = encodeURIComponent(countrySelect.value);
+      const language = encodeURIComponent(languageSelect.value);
+      const desc     = encodeURIComponent(description.value);
+      const email    = encodeURIComponent(requestEmail.value);
+      const phone    = encodeURIComponent(requestPhone.value);
 
-      // TODO: Replace with your own logic to send this data to Firestore or an email endpoint
-      console.log("Form payload:", payload);
+      const url = `https://docs.google.com/forms/d/e/1FAIpQLSdaj7uISCNoZCz3GzjxHq68kWRE4D1G27BdKtgihFcXY9BJQg/formResponse` +
+                  `?entry.33085555=${service}` +
+                  `&entry.2058193724=${country}` +
+                  `&entry.422892873=${language}` +
+                  `&entry.1795175534=${desc}` +
+                  `&entry.1121782085=${email}` +
+                  `&entry.969825703=${phone}`;
 
-      // Simulate success
-      setTimeout(() => {
-        alert("Your request has been submitted! We will get back to you soon.");
-        requestForm.reset();
-        submitRequestBtn.disabled = false;
-      }, 800);
+      // open in new tab:
+      window.open(url, "_blank");
+
+      // reset form and re-enable button
+      requestForm.reset();
+      submitRequestBtn.disabled = false;
     });
   </script>
 </body>
