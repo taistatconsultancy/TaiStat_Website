@@ -39,23 +39,17 @@
       z-index: 1000;
     }
     .navbar .logo {
+      width: 40px;
       height: 40px;
-      object-fit: contain;
+      object-fit: cover;
+      border-radius: 50%;
     }
-    .navbar .logo {
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
     .hamburger {
       font-size: 1.5rem;
       color: #fff;
       cursor: pointer;
       user-select: none;
     }
-    /* Dropdown container (hidden by default) */
     .nav-dropdown {
       position: absolute;
       top: 60px;
@@ -98,7 +92,7 @@
 
     /* ==== MAIN CONTENT AREA ==== */
     .main-container {
-      margin-top: 60px; /* make room for fixed navbar */
+      margin-top: 60px;
       padding: 1.5rem;
       max-width: 900px;
       margin-left: auto;
@@ -174,7 +168,6 @@
       cursor: not-allowed;
     }
 
-    /* ==== RESPONSIVE MEDIA QUERIES ==== */
     @media (max-width: 600px) {
       .welcome-banner {
         font-size: 1.5rem;
@@ -194,9 +187,9 @@
   </style>
 </head>
 <body>
-  <!-- ===== NAVIGATION BAR ===== -->
+  <!-- NAVBAR -->
   <nav class="navbar">
-    <img src="tailogo.png" alt="Taistat Logo" class="logo" />
+    <img src="path/to/taistat-logo.png" alt="Taistat Logo" class="logo" />
     <div class="hamburger" id="hamburgerBtn">&#9776;</div>
     <div class="nav-dropdown" id="navDropdown">
       <div class="user-info">
@@ -207,18 +200,15 @@
     </div>
   </nav>
 
-  <!-- ===== MAIN CONTENT ===== -->
+  <!-- MAIN CONTENT -->
   <div class="main-container">
-    <!-- Welcome Banner -->
     <div class="welcome-banner" id="welcomeBanner">
       Welcome, <span id="welcomeName">User</span>!
     </div>
 
-    <!-- Request Form -->
     <form class="request-form" id="requestForm">
       <h2>Request Data / AI Services</h2>
 
-      <!-- Service Type -->
       <div class="form-group">
         <label for="serviceType">Service Type</label>
         <select id="serviceType" required>
@@ -233,7 +223,6 @@
         </select>
       </div>
 
-      <!-- Country (populated via RestCountries API) -->
       <div class="form-group">
         <label for="countrySelect">Country</label>
         <select id="countrySelect" required>
@@ -241,7 +230,6 @@
         </select>
       </div>
 
-      <!-- Language (static list) -->
       <div class="form-group">
         <label for="languageSelect">Preferred Language</label>
         <select id="languageSelect" required>
@@ -256,19 +244,16 @@
         </select>
       </div>
 
-      <!-- Description -->
       <div class="form-group">
         <label for="description">Description / Requirements</label>
         <textarea id="description" placeholder="Describe your request..." required></textarea>
       </div>
 
-      <!-- Email -->
       <div class="form-group">
         <label for="requestEmail">Email</label>
         <input type="email" id="requestEmail" placeholder="you@example.com" required/>
       </div>
 
-      <!-- Phone -->
       <div class="form-group">
         <label for="requestPhone">Phone</label>
         <input type="tel" id="requestPhone" placeholder="+1234567890" required/>
@@ -278,13 +263,11 @@
     </form>
   </div>
 
-  <!-- ===== FIREBASE + APP LOGIC ===== -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
     import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
     import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
 
-    // ── FIREBASE CONFIG ─────────────────────────────────────────────────────────
     const firebaseConfig = {
       apiKey: "AIzaSyD6xgrttBIm9vw07xRltKsqHZNpS1jJ8xw",
       authDomain: "taistat-f0e1d.firebaseapp.com",
@@ -297,7 +280,6 @@
     const auth = getAuth(app);
     const db = getFirestore(app);
 
-    // ── UI ELEMENTS ─────────────────────────────────────────────────────────────
     const hamburgerBtn     = document.getElementById("hamburgerBtn");
     const navDropdown      = document.getElementById("navDropdown");
     const navFullName      = document.getElementById("navFullName");
@@ -314,9 +296,7 @@
     const requestForm      = document.getElementById("requestForm");
     const submitRequestBtn = document.getElementById("submitRequestBtn");
 
-    let currentUserUid = null;
-
-    // ── HAMBURGER TOGGLE ─────────────────────────────────────────────────────────
+    // Toggle dropdown
     hamburgerBtn.addEventListener("click", () => {
       navDropdown.classList.toggle("active");
     });
@@ -326,10 +306,9 @@
       }
     });
 
-    // ── AUTH STATE ───────────────────────────────────────────────────────────────
+    // Auth & user info
     onAuthStateChanged(auth, async user => {
-      if (!user) return void(window.location.href = "datasign.html");
-      currentUserUid = user.uid;
+      if (!user) return void window.location.href = "datasign.html";
       try {
         const snap = await getDoc(doc(db, "users", user.uid));
         const data = snap.exists() ? snap.data() : { email: user.email };
@@ -344,13 +323,12 @@
       }
     });
 
-    // ── LOGOUT ─────────────────────────────────────────────────────────────────
     logoutBtn.addEventListener("click", async () => {
       await signOut(auth);
       window.location.href = "datasign.html";
     });
 
-    // ── LOAD COUNTRIES ─────────────────────────────────────────────────────────
+    // Load country list
     async function loadCountries() {
       countrySelect.innerHTML = `<option value="">Loading countries...</option>`;
       try {
@@ -370,32 +348,38 @@
     }
     loadCountries();
 
-    // ── FORM SUBMIT (redirect to Google Form) ─────────────────────────────────
+    // Submit directly via POST to Google Forms
     requestForm.addEventListener("submit", e => {
       e.preventDefault();
       submitRequestBtn.disabled = true;
 
-      const service  = encodeURIComponent(serviceType.value);
-      const country  = encodeURIComponent(countrySelect.value);
-      const language = encodeURIComponent(languageSelect.value);
-      const desc     = encodeURIComponent(description.value);
-      const email    = encodeURIComponent(requestEmail.value);
-      const phone    = encodeURIComponent(requestPhone.value);
+      const params = new URLSearchParams();
+      params.append('entry.33085555', serviceType.value);
+      params.append('entry.2058193724', countrySelect.value);
+      params.append('entry.422892873', languageSelect.value);
+      params.append('entry.1795175534', description.value);
+      params.append('entry.1121782085', requestEmail.value);
+      params.append('entry.969825703', requestPhone.value);
 
-      const url = `https://docs.google.com/forms/d/e/1FAIpQLSdaj7uISCNoZCz3GzjxHq68kWRE4D1G27BdKtgihFcXY9BJQg/formResponse` +
-                  `?entry.33085555=${service}` +
-                  `&entry.2058193724=${country}` +
-                  `&entry.422892873=${language}` +
-                  `&entry.1795175534=${desc}` +
-                  `&entry.1121782085=${email}` +
-                  `&entry.969825703=${phone}`;
-
-      // open in new tab:
-      window.open(url, "_blank");
-
-      // reset form and re-enable button
-      requestForm.reset();
-      submitRequestBtn.disabled = false;
+      fetch(
+        'https://docs.google.com/forms/d/e/1FAIpQLSdaj7uISCNoZCz3GzjxHq68kWRE4D1G27BdKtgihFcXY9BJQg/formResponse',
+        {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          body: params.toString()
+        }
+      ).then(() => {
+        alert('Your response has been sent!');
+        requestForm.reset();
+        submitRequestBtn.disabled = false;
+      }).catch(err => {
+        console.error(err);
+        alert('There was an error sending your response.');
+        submitRequestBtn.disabled = false;
+      });
     });
   </script>
 </body>
