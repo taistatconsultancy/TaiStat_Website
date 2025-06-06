@@ -489,6 +489,136 @@
       justify-content: center;
       flex-wrap: wrap;
     }
+
+    
+/* ========================================
+   SITE FOOTER
+   - Multi-column footer with larger cards & nav
+   ======================================== */
+.site-footer {
+  background: #F5F8FF;
+  color: #222;
+  padding: 6rem 2rem 3rem;       /* was 4rem 1rem 2rem */
+}
+.footer-inner {
+  max-width: 1600px;             /* was 1400px */
+  margin: 0 auto;
+  display: flex;
+  gap: 3rem;                     /* was 2rem */
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.footer-brand {
+  flex: 1 1 350px;               /* was 1 1 300px */
+}
+.brand-card {
+  background: #fff;
+  padding: 2.5rem;               /* was 1.5rem */
+  border-radius: 16px;           /* was 12px */
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  text-align: left;
+  margin-bottom: 2.5rem;         /* was 2rem */
+}
+.footer-logo {
+  width: 48px;                   /* was 32px */
+  height: 48px;
+  margin-bottom: 1rem;           /* was 0.5rem */
+}
+.brand-card p {
+  font-size: 1.125rem;           /* was 1rem */
+  color: #444;
+  line-height: 1.6;
+}
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 1rem;                     /* was 0.5rem */
+  font-size: 1.125rem;           /* was 1rem */
+  margin-top: 1rem;
+}
+.socials img {
+  width: 40px;                   /* was 32px */
+  height: 40px;
+}
+
+/* Footer navigation columns */
+.footer-nav {
+  flex: 3 1 650px;               /* was 3 1 600px */
+  display: flex;
+  gap: 3rem;                     /* was 2rem */
+  flex-wrap: wrap;
+}
+.footer-nav > div {
+  flex: 1 1 160px;               /* was 1 1 140px */
+}
+.footer-nav h4 {
+  font-size: 1.375rem;           /* was 1.125rem */
+  margin-bottom: 1rem;           /* was 0.75rem */
+}
+.footer-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-nav li {
+  margin-bottom: 0.75rem;        /* was 0.5rem */
+}
+.footer-nav a {
+  color: #222;
+  font-size: 1rem;               /* was 0.95rem */
+  opacity: 0.9;
+  transition: opacity .2s;
+}
+.footer-nav a:hover {
+  opacity: 1;
+}
+
+/* Bottom bar */
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;             /* was 1.5rem */
+  opacity: 0.7;
+  font-size: 1rem;               /* was 0.9rem */
+}
+
+/* ========================================
+   RESPONSIVE FOOTER ADJUSTMENTS
+   ======================================== */
+@media (max-width: 1024px) {
+  .footer-inner {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-nav {
+    justify-content: center;
+  }
+}
+@media (max-width: 768px) {
+  .cta-banner h2 {
+    font-size: 2.25rem;           /* was 2rem */
+  }
+  .cta-banner p {
+    font-size: 1.125rem;          /* was 1rem */
+  }
+  .btn-solid,
+  .btn-outline {
+    width: 100%;
+    max-width: 300px;             /* was 260px */
+    text-align: center;
+  }
+  .footer-inner {
+    text-align: center;
+  }
+  .footer-nav > div {
+    flex: 1 1 100%;
+    margin-bottom: 2rem;          /* was 1.5rem */
+  }
+  .socials {
+    justify-content: center;
+  }
+}
+
+
   </style>
 </head>
 
@@ -774,6 +904,74 @@
       </div>
     </div>
   </section>
+  <!-- ========== FOOTER ========== -->
+<footer class="site-footer reveal flip-in">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="brand-card">
+        <img src="tailogo.png" alt="Taistat Logo" class="footer-logo" />
+        <p>Empowering smarter decisions with real-time data.</p>
+      </div>
+      <div class="socials">
+        <span>Follow us on</span>
+        <a href="https://x.com/TaistatFirm" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+          <img src="twiter.png" alt="X" style="width:24px; height:24px;" />
+        </a>
+        <a href="https://www.linkedin.com/company/taistat-consultancy-firm/" target="_blank" rel="noopener noreferrer"
+          aria-label="LinkedIn">
+          <img src="linkedin.png" alt="LinkedIn" style="width:24px; height:24px;" />
+        </a>
+        <a href="https://www.facebook.com/TaiStatFirm" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <img src="facebook.jpeg" alt="Facebook" style="width:24px; height:24px;" />
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-nav">
+      <div>
+        <h4>Platform</h4>
+        <ul>
+          <li>Analytics Dashboards</li>
+          <li>Secure APIs</li>
+          <li>System Integrations</li>
+          <li>Data Security</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Solutions</h4>
+        <ul>
+          <li>Market Insights</li>
+          <li>Product Testing</li>
+          <li>UX Research</li>
+          <li>AI Training</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li>Our Mission</li>
+          <li>Careers</li>
+          <li>Privacy</li>
+          <li>Cookie Policy</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li>FAQ</li>
+          <li>Sales Enquiries</li>
+          <li>Developer Docs</li>
+          <li>System Status</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Taistat. All rights reserved.</p>
+  </div>
+</footer>
+
 
   <!-- ======================================
        JAVASCRIPT: LIVE CALCULATION LOGIC

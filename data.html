@@ -217,135 +217,134 @@ a {
     font-size: 0.9rem;
   }
 }
-
 /* ========================================
    FEATURE SECTION
-   - Bigger padding, min-height, larger typography
+   - Reduced padding, smaller min-height, normal typography
    ======================================== */
 .feature-section {
   background: #fff;
-  padding: 6rem 1rem;        /* plenty of breathing room */
-  min-height: 70vh;
+  padding: 4rem 1rem;        /* reduced from 6rem */
+  min-height: 50vh;          /* reduced from 70vh */
 }
 .feature-container {
-  max-width: 1400px;
+  max-width: 1200px;         /* slightly narrower */
   margin: 0 auto;
   text-align: center;
 }
 .feature-heading {
   font-family: 'Inter', sans-serif;
-  font-size: 2.5rem;         /* was 2rem */
+  font-size: 2rem;           /* reduced from 2.5rem */
   font-weight: 700;
   color: #222;
-  margin-bottom: 3rem;       /* more gap below */
+  margin-bottom: 2rem;       /* reduced gap below */
 }
 .feature-cards {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;               /* reduced gap */
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 4rem;
+  margin-bottom: 2.5rem;     /* reduced bottom margin */
 }
 .card {
   background: #F5F8FF;
-  padding: 3rem;
+  padding: 2rem;             /* reduced from 3rem */
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  flex: 1 1 400px;
-  max-width: 460px;
-  min-height: 320px;
+  flex: 1 1 300px;           /* smaller base width */
+  max-width: 380px;          /* reduced from 460px */
+  min-height: 240px;         /* reduced from 320px */
   text-align: left;
   display: flex;
   flex-direction: column;
 }
 .card .icon {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;       /* reduced spacing */
 }
 .card .icon svg {
-  width: 32px;               /* slightly larger icon */
-  height: 32px;
+  width: 28px;               /* reduced from 32px */
+  height: 28px;
   stroke: #000;
 }
 .card h4 {
-  font-size: 1.25rem;        /* add titles if needed */
+  font-size: 1.125rem;       /* reduced from 1.25rem */
   font-weight: 600;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;     /* reduced margin */
 }
 .card p {
-  font-size: 1.1rem;         /* was 1rem */
+  font-size: 0.95rem;        /* reduced from 1.1rem */
   color: #333;
-  line-height: 1.6;
+  line-height: 1.5;          /* slightly tighter */
   flex-grow: 1;
 }
 
 /* ========================================
    AUDIENCE BLOCK
-   - More padding, bigger card, larger text
+   - Reduced padding, smaller heading, shorter min-height
    ======================================== */
 .audience-block {
   display: flex;
-  gap: 3rem;
+  gap: 2rem;                 /* reduced gap */
   align-items: flex-start;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 5rem 1rem;
-  min-height: 60vh;
+  padding: 3rem 1rem;        /* reduced from 5rem */
+  min-height: 40vh;          /* reduced from 60vh */
 }
 .audience-main {
   flex: 1 1 55%;
   text-align: left;
 }
 .audience-main h3 {
-  font-size: 2rem;           /* was 1.5rem */
+  font-size: 1.5rem;         /* reduced from 2rem */
   font-weight: 600;
   color: #222;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;       /* reduced margin */
 }
 .audience-main .subtext {
   color: #444;
-  font-size: 1.15rem;        /* was 1rem */
-  margin-bottom: 1.75rem;
-  line-height: 1.6;
+  font-size: 1rem;           /* reduced from 1.15rem */
+  margin-bottom: 1.25rem;    /* reduced margin */
+  line-height: 1.5;
 }
 .btn-start {
   display: inline-block;
   background: #3000D2;
   color: #fff;
-  padding: 1rem 2rem;         /* bigger touch target */
+  padding: 0.75rem 1.5rem;    /* reduced padding */
   border-radius: 30px;
-  font-size: 1.1rem;
+  font-size: 1rem;           /* reduced from 1.1rem */
   font-weight: 600;
   text-decoration: none;
 }
 
-/* Side card – deliberately larger than feature cards */
+/* Side card – smaller */
 .audience-side {
   background: #F5F8FF;
-  padding: 3rem;              /* increased padding */
+  padding: 2rem;             /* reduced from 3rem */
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  flex: 1 1 40%;              /* was 35% */
-  max-width: 500px;           /* was 340px */
-  min-height: 400px;          /* taller than feature cards */
+  flex: 1 1 40%;             /* unchanged relative width */
+  max-width: 400px;          /* reduced from 500px */
+  min-height: 300px;         /* reduced from 400px */
   text-align: left;
   display: flex;
   flex-direction: column;
 }
 .audience-side h4 {
-  font-size: 1.5rem;          /* was 1.125rem */
+  font-size: 1.25rem;        /* reduced from 1.5rem */
   font-weight: 700;
   color: #222;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;    /* reduced margin */
 }
 .audience-side p {
-  font-size: 1.05rem;         /* was 0.95rem */
+  font-size: 0.95rem;        /* reduced from 1.05rem */
   color: #444;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;       /* reduced margin */
   flex-grow: 1;
 }
 .columbia-logo {
-  max-width: 180px;
+  max-width: 140px;          /* reduced from 180px */
   width: 100%;
   display: block;
   align-self: center;
@@ -353,41 +352,41 @@ a {
 
 /* ========================================
    DESKTOP-ONLY OVERRIDES (>768px)
-   - Further upscale for wide screens
+   - Adjusted sizes for larger screens
    ======================================== */
 @media (min-width: 769px) {
   .feature-section {
-    padding: 8rem 1rem;
+    padding: 5rem 1rem;      /* moderately increased */
   }
   .feature-heading {
-    font-size: 3rem;
+    font-size: 2.25rem;      /* slight upscale */
   }
   .card {
-    padding: 3.5rem;
-    flex: 1 1 420px;
-    max-width: 500px;
-    min-height: 350px;
+    padding: 2.5rem;
+    flex: 1 1 350px;
+    max-width: 420px;
+    min-height: 280px;
   }
   .audience-block {
-    padding: 6rem 1rem;
+    padding: 4rem 1rem;
   }
   .audience-main h3 {
-    font-size: 2.25rem;
+    font-size: 1.75rem;
   }
   .audience-side {
-    padding: 3.5rem;
-    max-width: 550px;
-    min-height: 450px;
+    padding: 2.5rem;
+    max-width: 450px;
+    min-height: 350px;
   }
 }
 
 /* ========================================
    RESPONSIVE ADJUSTMENTS (≤768px)
-   - Scale back for mobile but keep clean spacing
+   - Scale back for mobile but keep spacing neat
    ======================================== */
 @media (max-width: 768px) {
   .feature-heading {
-    font-size: 1.75rem;
+    font-size: 1.5rem;       /* further reduce */
   }
   .feature-cards {
     flex-direction: column;
@@ -396,13 +395,14 @@ a {
   .card {
     max-width: 100%;
     text-align: center;
-    padding: 2.5rem;
+    padding: 2rem;
+    min-height: auto;
   }
   .audience-block {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 3rem 1rem;
+    padding: 2rem 1rem;
   }
   .audience-main,
   .audience-side {
@@ -410,91 +410,99 @@ a {
     max-width: 100%;
   }
   .audience-side {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
+  }
+  .audience-main h3 {
+    font-size: 1.25rem;
+  }
+  .audience-main .subtext {
+    font-size: 0.9rem;
+  }
+  .audience-side h4 {
+    font-size: 1.125rem;
+  }
+  .audience-side p {
+    font-size: 0.9rem;
   }
 }
 
 /* ========================================
    TESTIMONIAL SECTION
-   - Slider with quotes and controls
+   - Reduced padding, smaller card, normal text
    ======================================== */
 .testimonial-section {
   background: #fff;
-  padding: 4rem 1rem;
+  padding: 2rem 1rem;        /* reduced from 4rem */
 }
 .testimonial-container {
-  max-width: 1100px;
+  max-width: 1000px;         /* slightly narrower */
   margin: 0 auto;
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   align-items: flex-start;
   flex-wrap: wrap;
 }
-/* Left blurb */
 .testimonial-blurb {
-  flex: 1 1 250px;
+  flex: 1 1 200px;           /* smaller width */
   text-align: left;
 }
 .blurb-icon {
   background: #F5F8FF;
   border-radius: 12px;
-  width: 56px;
-  height: 56px;
+  width: 48px;               /* reduced from 56px */
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;    /* reduced margin */
 }
 .testimonial-blurb p {
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: 0.95rem;        /* reduced from 1rem */
+  line-height: 1.4;
   color: #333;
 }
-/* Slider container */
 .testimonial-slider {
-  flex: 2 1 600px;
+  flex: 2 1 500px;           /* narrower */
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-/* Testimonial card */
 .testimonial-slider .card {
   background: #F5F8FF;
-  padding: 2rem;
+  padding: 1.5rem;           /* reduced from 2rem */
   border-radius: 16px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.05);
   width: 100%;
-  max-width: 600px;
-  min-height: 240px;
+  max-width: 500px;          /* reduced from 600px */
+  min-height: 200px;         /* reduced from 240px */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 .testimonial-slider blockquote {
-  font-size: 1.125rem;
-  line-height: 1.6;
+  font-size: 1rem;           /* reduced from 1.125rem */
+  line-height: 1.4;
   color: #222;
-  margin: 0 0 1.5rem;
+  margin: 0 0 1rem;
 }
 .testimonial-slider .author {
-  font-size: 0.95rem;
+  font-size: 0.9rem;         /* reduced from 0.95rem */
   font-weight: 600;
   color: #222;
   text-align: right;
 }
-/* Slider controls */
 .slider-controls {
-  margin-top: 1.5rem;
+  margin-top: 1rem;          /* reduced from 1.5rem */
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;              /* reduced gap */
 }
 .slider-controls button {
   background: #4A1DE1;
   color: #fff;
   border: none;
-  font-size: 1.25rem;
-  width: 48px;
-  height: 48px;
+  font-size: 1rem;           /* reduced from 1.25rem */
+  width: 40px;               /* reduced from 48px */
+  height: 40px;
   border-radius: 12px;
   cursor: pointer;
 }
@@ -513,7 +521,7 @@ a {
   }
   .testimonial-blurb {
     order: 2;
-    margin-top: 2rem;
+    margin-top: 1.5rem;       /* reduced */
   }
   .testimonial-slider {
     order: 1;
@@ -525,134 +533,134 @@ a {
     max-width: 100%;
   }
 }
+
 /* ========================================
    ADVANTAGES SECTION
-   - Bigger padding, min-height, larger typography
+   - Reduced padding, smaller typography, normal sizes
    ======================================== */
 .advantage-section {
   background: #fff;
-  padding: 8rem 2rem;          /* was 6rem 2rem */
-  min-height: 65vh;            /* new */
+  padding: 6rem 1.5rem;      /* reduced from 8rem */
+  min-height: 50vh;          /* reduced from 65vh */
 }
 .advantage-container {
-  max-width: 1500px;           /* was 1400px */
+  max-width: 1300px;         /* reduced from 1500px */
   margin: 0 auto;
   text-align: center;
 }
 .advantage-heading {
-  font-size: 3rem;             /* was 2.5rem */
+  font-size: 2rem;           /* reduced from 3rem */
   font-weight: 700;
-  margin-bottom: 1.5rem;       /* was 1rem */
+  margin-bottom: 1rem;       /* reduced margin */
   color: #222;
 }
 .advantage-subtext {
-  font-size: 1.25rem;          /* was 1.125rem */
+  font-size: 1rem;           /* reduced from 1.25rem */
   color: #444;
-  margin-bottom: 2rem;         /* was 1.5rem */
-  max-width: 900px;            /* was 800px */
+  margin-bottom: 1.5rem;     /* reduced margin */
+  max-width: 800px;          /* reduced from 900px */
   margin-left: auto;
   margin-right: auto;
 }
 .advantage-cta {
   display: inline-block;
-  font-size: 1.125rem;         /* was 1rem */
+  font-size: 1rem;           /* reduced from 1.125rem */
   font-weight: 600;
   color: #EA49A0;
-  margin-bottom: 5rem;         /* was 4rem */
+  margin-bottom: 3rem;       /* reduced from 5rem */
 }
 .advantage-cta:hover {
   text-decoration: underline;
 }
 
-/* Feature cards grid */
 .advantage-cards {
   display: flex;
-  gap: 3rem;                   /* was 2.5rem */
+  gap: 2rem;                 /* reduced from 3rem */
   justify-content: center;
   flex-wrap: wrap;
 }
 .adv-card {
   background: #F5F8FF;
-  padding: 4rem;               /* was 3rem */
+  padding: 2.5rem;           /* reduced from 4rem */
   border-radius: 20px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.05);
-  flex: 1 1 360px;             /* was 1 1 320px */
-  max-width: 550px;            /* was 480px */
-  min-height: 360px;           /* new */
+  flex: 1 1 300px;           /* reduced base width */
+  max-width: 450px;          /* reduced from 550px */
+  min-height: 280px;         /* reduced from 360px */
   text-align: left;
   display: flex;
   flex-direction: column;
 }
 .adv-icon {
-  width: 80px;                 /* was 64px */
-  height: 80px;                /* was 64px */
+  width: 64px;               /* reduced from 80px */
+  height: 64px;
   background: #fff;
   border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 2rem;         /* was 1.5rem */
+  margin-bottom: 1.5rem;     /* reduced from 2rem */
 }
 .adv-icon svg {
-  width: 44px;                 /* was 36px */
-  height: 44px;
+  width: 36px;               /* reduced from 44px */
+  height: 36px;
   stroke: #000;
 }
 .adv-card h3 {
-  font-size: 1.5rem;           /* was 1.25rem */
-  margin-bottom: 1rem;         /* was 0.75rem */
+  font-size: 1.25rem;        /* reduced from 1.5rem */
+  margin-bottom: 0.75rem;    /* reduced from 1rem */
   color: #222;
 }
 .adv-card p {
-  font-size: 1.125rem;         /* was 1rem */
+  font-size: 1rem;           /* reduced from 1.125rem */
   color: #333;
-  line-height: 1.8;            /* a bit looser */
+  line-height: 1.6;          /* tighter than 1.8 */
   flex-grow: 1;
 }
 
 /* ========================================
    DESKTOP-ONLY OVERRIDES (>992px)
-   - Extra upscale on wider screens
+   - Moderately adjusted for wide screens
    ======================================== */
 @media (min-width: 993px) {
   .advantage-section {
-    padding: 10rem 2rem;
+    padding: 8rem 1.5rem;    /* moderate increase */
   }
   .advantage-heading {
-    font-size: 3.5rem;
+    font-size: 2.5rem;       /* moderate upscale */
   }
   .advantage-subtext {
-    font-size: 1.375rem;
-    max-width: 1000px;
+    font-size: 1.125rem;     /* moderate upscale */
+    max-width: 900px;
   }
   .advantage-cta {
-    font-size: 1.25rem;
-    margin-bottom: 6rem;
+    font-size: 1.125rem;
+    margin-bottom: 4rem;
   }
   .advantage-cards {
-    gap: 4rem;
+    gap: 3rem;               /* moderate gap */
   }
   .adv-card {
-    padding: 5rem;
-    flex: 1 1 400px;
-    max-width: 600px;
-    min-height: 400px;
+    padding: 3rem;
+    flex: 1 1 340px;         /* moderate base width */
+    max-width: 500px;
+    min-height: 320px;
   }
   .adv-icon {
-    width: 96px;
-    height: 96px;
-    margin-bottom: 2.5rem;
+    width: 80px;             /* moderate increase */
+    height: 80px;
+    margin-bottom: 2rem;
   }
   .adv-icon svg {
-    width: 52px;
-    height: 52px;
+    width: 40px;
+    height: 40px;
   }
   .adv-card h3 {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
   }
   .adv-card p {
-    font-size: 1.25rem;
-    line-height: 1.9;
+    font-size: 1.125rem;
+    line-height: 1.7;
   }
 }
 
@@ -662,50 +670,50 @@ a {
    ======================================== */
 @media (max-width: 992px) {
   .advantage-section {
-    padding: 6rem 1.5rem;      /* slightly reduce */
+    padding: 5rem 1rem;      /* reduced */
   }
   .advantage-cta {
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
   }
   .advantage-cards {
-    gap: 2rem;
+    gap: 1.5rem;
   }
 }
 @media (max-width: 768px) {
   .advantage-section {
-    padding: 4rem 1rem;
+    padding: 3rem 1rem;      /* further reduced */
   }
   .advantage-container {
     text-align: center;
   }
   .advantage-heading {
-    font-size: 2.25rem;
+    font-size: 1.75rem;      /* reduced */
   }
   .advantage-subtext {
-    font-size: 1.125rem;
-    margin-bottom: 1.5rem;
+    font-size: 1rem;         /* reduced */
+    margin-bottom: 1rem;
   }
   .adv-card {
     max-width: 100%;
     text-align: center;
-    padding: 2.5rem;
+    padding: 2rem;           /* reduced */
     min-height: auto;
   }
   .adv-card h3 {
-    font-size: 1.25rem;
+    font-size: 1.125rem;     /* reduced */
   }
   .adv-icon {
     margin-left: auto;
     margin-right: auto;
-    width: 72px;
-    height: 72px;
+    width: 56px;             /* reduced */
+    height: 56px;
   }
   .adv-icon svg {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
   }
 }
-/* ========================================
+/*=================================
    CTA BANNER
    - Full-width colored banner with larger padding & typography
    ======================================== */
@@ -941,7 +949,7 @@ a {
     <div class="hero-text">
       <h1>Our proprietary pool is thoroughly verified – and 100% human.</h1>
       <p>Get set up fast on our self-serve platform and collect complete datasets in less than 2 hours.</p>
-      <a href="#" class="btn-collect">Start collecting data</a>
+      <a href="datasign.html" class="btn-collect">Start collecting data</a>
     </div>
   </section>
 
@@ -1000,7 +1008,7 @@ a {
           <p class="subtext">
             Collect data from the people you need in minutes, not days.
           </p>
-          <a href="#" class="btn-start">Start for free</a>
+          <a href="datasign.html" class="btn-start">Start for free</a>
         </div>
         <div class="audience-side">
           <h4>High-quality</h4>
@@ -1058,7 +1066,7 @@ a {
       <p class="advantage-subtext">
         Unlock full access to advanced analytics, custom reporting, and dedicated support—so you can make data-driven decisions faster.
       </p>
-      <a href="#" class="advantage-cta">Start your subscription →</a>
+    
 
       <div class="advantage-cards">
         <div class="adv-card">
@@ -1109,71 +1117,80 @@ a {
       <h2>Put Taistat to the test. Today.</h2>
       <p>Start your analytics in just 15 minutes — or book a demo with our team.</p>
       <div class="cta-buttons">
-        <a href="#" class="btn-solid">Start your project</a>
-        <a href="#" class="btn-outline">Book a demo</a>
+        <a href="datasign.html" class="btn-solid">Start your project</a>
+        <a href="datasign.html" class="btn-outline">Book a demo</a>
       </div>
     </div>
   </section>
 
-  <!-- ========== FOOTER ========== -->
-  <footer class="site-footer reveal flip-in">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="brand-card">
-          <img src="tailogo.png" alt="Taistat Logo" class="footer-logo"/>
-          <p>Empowering smarter decisions with real-time data.</p>
-        </div>
-        <div class="socials">
-          <span>Follow us on</span>
-          <a href="#" aria-label="X (Twitter)"><img src="icon-x.svg" alt="X"/></a>
-          <a href="#" aria-label="LinkedIn"><img src="icon-linkedin.svg" alt="LinkedIn"/></a>
-        </div>
+<!-- ========== FOOTER ========== -->
+<footer class="site-footer reveal flip-in">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="brand-card">
+        <img src="tailogo.png" alt="Taistat Logo" class="footer-logo" />
+        <p>Empowering smarter decisions with real-time data.</p>
       </div>
-
-      <div class="footer-nav">
-        <div>
-          <h4>Platform</h4>
-          <ul>
-            <li><a href="#">Dashboards</a></li>
-            <li><a href="#">APIs</a></li>
-            <li><a href="#">Integrations</a></li>
-            <li><a href="#">Security</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Solutions</h4>
-          <ul>
-            <li><a href="#">Market Research</a></li>
-            <li><a href="#">Product Testing</a></li>
-            <li><a href="#">UX Studies</a></li>
-            <li><a href="#">AI Training</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Company</h4>
-          <ul>
-            <li><a href="#">About Taistat</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Privacy &amp; Legal</a></li>
-            <li><a href="#">Cookie Preferences</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Support</h4>
-          <ul>
-            <li><a href="#">Help Center</a></li>
-            <li><a href="#">Contact Sales</a></li>
-            <li><a href="#">Developer Docs</a></li>
-            <li><a href="#">Status</a></li>
-          </ul>
-        </div>
+      <div class="socials">
+        <span>Follow us on</span>
+        <a href="https://x.com/TaistatFirm" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+          <img src="twiter.png" alt="X" style="width:24px; height:24px;" />
+        </a>
+        <a href="https://www.linkedin.com/company/taistat-consultancy-firm/" target="_blank" rel="noopener noreferrer"
+          aria-label="LinkedIn">
+          <img src="linkedin.png" alt="LinkedIn" style="width:24px; height:24px;" />
+        </a>
+        <a href="https://www.facebook.com/TaiStatFirm" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <img src="facebook.jpeg" alt="Facebook" style="width:24px; height:24px;" />
+        </a>
       </div>
     </div>
 
-    <div class="footer-bottom">
-      <p>© 2025 Taistat. All rights reserved.</p>
+    <div class="footer-nav">
+      <div>
+        <h4>Platform</h4>
+        <ul>
+          <li>Analytics Dashboards</li>
+          <li>Secure APIs</li>
+          <li>System Integrations</li>
+          <li>Data Security</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Solutions</h4>
+        <ul>
+          <li>Market Insights</li>
+          <li>Product Testing</li>
+          <li>UX Research</li>
+          <li>AI Training</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li>Our Mission</li>
+          <li>Careers</li>
+          <li>Privacy</li>
+          <li>Cookie Policy</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li>FAQ</li>
+          <li>Sales Enquiries</li>
+          <li>Developer Docs</li>
+          <li>System Status</li>
+        </ul>
+      </div>
     </div>
-  </footer>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Taistat. All rights reserved.</p>
+  </div>
+</footer>
+
 
   <!-- ================= INTERSECTION OBSERVER SCRIPT ================= -->
   <script>
