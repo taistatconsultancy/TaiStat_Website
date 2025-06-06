@@ -2,48 +2,51 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Contact Us</title>
-  <meta name="description" content="taistat consultancy firm">
-  <meta name="keywords" content="taistat consultancy firm">
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Contact Us | TaiStat Consultancy</title>
+  <meta name="description" content="TaiStat Consultancy Firm - Contact us for expert data science, machine learning, and business intelligence solutions." />
+  <meta name="keywords" content="TaiStat, Contact, Data Consultancy, Machine Learning, AI, Business Intelligence" />
 
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="tailogo.png" />
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
 
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
 
   <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
-<style>
+  <link href="assets/css/main.css" rel="stylesheet" />
+
+  <!-- Custom Styles for Contact Page -->
+  <style>
+    /* Ensure header does not overlap content */
+    body {
+      padding-top: 80px; /* space for fixed header */
+    }
+
+    /* Social Links */
     .social-links {
       display: flex;
       gap: 1rem;
       align-items: center;
       padding: 1rem;
     }
+
     .social-links a img {
       display: block;
       width: 30px;
       height: auto;
-    }
-  </style>
-  <style>
-    /* General Reset */
-    body, html {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
     }
 
     /* Hero Section Overrides */
@@ -51,33 +54,35 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 60vh;
-      min-height: 300px;
+      height: 40vh;             /* reduced from 60vh */
+      min-height: 250px;
       background: none !important;
-      padding: 2rem;
+      padding: 1.5rem 2rem;
       box-sizing: border-box;
+      margin-bottom: 2rem;      /* spacing after hero */
     }
 
     .unique-hero__content {
       flex: 1;
-      max-width: 40%;
+      max-width: 45%;
     }
 
     .unique-hero__tagline {
-      font-size: 1.5rem;
+      font-size: 1.8rem;        /* increased size */
       margin-bottom: 1rem;
       color: #43ff3d;
+      font-weight: 600;
     }
 
     .unique-hero__title {
-      font-size: 1.6rem;
-      line-height: 1.8;
+      font-size: 2rem;          /* larger and more concise */
+      line-height: 1.4;
       color: rgb(12, 7, 56);
     }
 
     .unique-hero__image {
       flex: 1;
-      max-width: 60%;  /* increased from 45% */
+      max-width: 50%;
       display: flex;
       justify-content: flex-end;
     }
@@ -85,18 +90,17 @@
     .unique-hero__image img {
       width: 100%;
       height: auto;
-      /* removed max-height constraint so it can scale */
       border-radius: 10px;
     }
 
-    /* Mobile styles */
+    /* Mobile adjustments */
     @media screen and (max-width: 768px) {
       #unique-hero-section.unique-hero {
         flex-direction: column;
         justify-content: center;
         align-items: center;
         height: auto;
-        padding: 1.5rem;
+        padding: 1rem;
       }
 
       .unique-hero__content,
@@ -106,12 +110,12 @@
       }
 
       .unique-hero__title {
-        font-size: 1.1rem;
+        font-size: 1.5rem;
         line-height: 1.5;
       }
 
       .unique-hero__tagline {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
       }
 
       .unique-hero__image {
@@ -123,12 +127,11 @@
 </head>
 
 <body class="index-page">
-
+  <!-- ======= Header ======= -->
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
-
       <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <img src="tailogo.png" alt="" style="border-radius: 50%;">
+        <img src="tailogo.png" alt="TaiStat Logo" style="border-radius: 50%;" />
       </a>
 
       <nav id="navmenu" class="navmenu">
@@ -147,18 +150,20 @@
       <a class="btn-getstarted flex-md-shrink-0" href="courses.html">Get Started</a>
     </div>
   </header>
-
+  <!-- End Header -->
+<br>
   <main class="main">
     <!-- Hero Section -->
     <section id="unique-hero-section" class="unique-hero">
       <div class="unique-hero__content">
         <h2 class="unique-hero__tagline">Let's Connect and Collaborate</h2>
         <h1 class="unique-hero__title">
-          Have questions or looking to partner with TaiStat Consultancy Firm? We're here to help. Reach out to us today to discuss your data needs, explore our services, or start your journey toward data-driven success. Let’s make great things happen together!
+          Have questions or want to partner with TaiStat? Reach out to explore data-driven solutions that fuel growth,
+          efficiency, and innovation.
         </h1>
       </div>
       <div class="unique-hero__image">
-        <img src="assets/global.jpg" alt="TaiStat Consultancy">
+        <img src="mancontact.png" alt="Contact TaiStat Consultancy" />
       </div>
     </section>
     <!-- /Hero Section -->
@@ -167,7 +172,7 @@
     <section id="contact" class="contact section">
       <div class="container section-title" data-aos="zoom-in">
         <h2>Contact</h2>
-        <p>Contact Us</p>
+        <p>Get in Touch</p>
       </div>
 
       <div class="container" data-aos="zoom-out" data-aos-delay="100">
@@ -178,8 +183,7 @@
                 <div class="info-item" data-aos="zoom-in" data-aos-delay="200">
                   <i class="bi bi-geo-alt"></i>
                   <h3>Address</h3>
-                  <p>5th Floor, Elite Towers</p>
-                  <p>Nairobi, Kenya</p>
+                  <p>5th Floor, Elite Towers<br />Nairobi, Kenya</p>
                 </div>
               </div>
               <div class="col-md-6">
@@ -200,8 +204,7 @@
                 <div class="info-item" data-aos="zoom-in" data-aos-delay="500">
                   <i class="bi bi-clock"></i>
                   <h3>Open Hours</h3>
-                  <p>Monday - Friday</p>
-                  <p>9:00AM - 05:00PM</p>
+                  <p>Monday – Friday<br />9:00AM – 5:00PM</p>
                 </div>
               </div>
             </div>
@@ -210,13 +213,13 @@
             <form action="forms/contact.php" method="post" class="php-email-form" data-aos="zoom-out" data-aos-delay="200">
               <div class="row gy-4">
                 <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                  <input type="text" name="name" class="form-control" placeholder="Your Name" required />
                 </div>
                 <div class="col-md-6">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+                  <input type="email" class="form-control" name="email" placeholder="Your Email" required />
                 </div>
                 <div class="col-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required>
+                  <input type="text" class="form-control" name="subject" placeholder="Subject" required />
                 </div>
                 <div class="col-12">
                   <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
@@ -233,17 +236,19 @@
     <!-- /Contact Section -->
   </main>
 
-  <footer style="background-color: rgb(10, 9, 9); color: beige;" id="footer" class="footer">
+  <!-- Footer -->
+  <footer id="footer" class="footer" style="background-color: rgb(10, 9, 9); color: beige;">
+    <!-- Newsletter -->
     <div class="footer-newsletter">
       <div class="container">
         <div class="row justify-content-center text-center">
           <div class="col-lg-6">
             <h4 style="color: aquamarine;">Join Our Newsletter</h4>
-            <p>Subscribe to our newsletter and stay updated on the latest in Data Science, Machine Learning, and Business Intelligence solutions!</p>
+            <p>Stay updated on the latest in Data Science, Machine Learning, and Business Intelligence solutions!</p>
             <form action="forms/newsletter.php" method="post" class="php-email-form">
               <div class="newsletter-form">
-                <input type="email" name="email">
-                <input type="submit" value="Subscribe">
+                <input type="email" name="email" placeholder="Your Email" required />
+                <input type="submit" value="Subscribe" />
               </div>
               <div class="loading">Loading</div>
               <div class="error-message"></div>
@@ -253,6 +258,7 @@
         </div>
       </div>
     </div>
+    <!-- End Newsletter -->
 
     <div class="container footer-top">
       <div class="row gy-4">
@@ -293,37 +299,17 @@
         <div class="col-lg-4 col-md-12">
           <h4 style="color: aquamarine;">Follow Us</h4>
           <p>Join our community and explore the transformative power of data-driven insights.</p>
-      <div class="social-links">
-    <!-- X icon from local storage -->
-    <a
-      href="https://x.com/TaistatFirm"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="X"
-    >
-      <img src="twiter.png" alt="X logo">
-    </a>
-
-    <!-- LinkedIn icon from local storage -->
-    <a
-      href="https://www.linkedin.com/company/taistat-consultancy-firm/"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="LinkedIn"
-    >
-      <img src="linkedin.png" alt="LinkedIn logo">
-    </a>
-
-    <!-- Facebook icon from local storage -->
-    <a
-      href="https://www.facebook.com/TaiStatFirm"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Facebook"
-    >
-      <img src="facebook.jpeg" alt="Facebook logo">
-    </a>
-  </div>
+          <div class="social-links">
+            <a href="https://x.com/TaistatFirm" target="_blank" rel="noopener noreferrer" aria-label="X">
+              <img src="twiter.png" alt="X logo" />
+            </a>
+            <a href="https://www.linkedin.com/company/taistat-consultancy-firm/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <img src="linkedin.png" alt="LinkedIn logo" />
+            </a>
+            <a href="https://www.facebook.com/TaiStatFirm" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <img src="facebook.jpeg" alt="Facebook logo" />
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -332,24 +318,28 @@
       <p>&copy; <span>Copyright</span> <strong class="px-1 sitename" style="color: aquamarine;">TaiStat Firm</strong> <span>All Rights Reserved</span></p>
     </div>
   </footer>
+  <!-- End Footer -->
 
+  <!-- WhatsApp Floating Button -->
   <div id="whatsapp-container" class="whatsapp-container">
     <a href="https://wa.me/254111224952" target="_blank" class="whatsapp-float">
-      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='64' height='64'%3E%3Cpath fill='%23fff' d='M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.5 2.1 8L0 32l8.2-2.1c2.5 1.3 5.2 2 7.8 2 8.6 0 15.5-6.9 15.5-15.5S24.6.5 16 .5zm0 27.9c-2.4 0-4.7-.6-6.8-1.7l-.5-.3-4.9 1.2 1.3-4.7-.3-.5c-1.3-2.1-1.9-4.3-1.9-6.6C2.9 8.1 8.1 2.9 16 2.9s13.1 5.2 13.1 13.1-5.2 13.1-13.1 13.1zm7.1-9.9c-.4-.2-2.4-1.2-2.8-1.3-.4-.1-.7-.2-1 .2s-.9 1.3-1.1 1.6c-.2.3-.4.3-.8.1s-1.6-.6-3.1-1.9c-1.1-1-1.9-2.2-2.2-2.6s0-.6.2-.8.4-.4.6-.6.3-.4.5-.6.2-.2.3-.4.4-.6.4-.6.1-.2.1-.4 0-.6-.1-.2-.9-2.1-1.2-2.8-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6 0-.9.4-.3.4-1.2 1.1-1.2 2.7s1.3 3.2 1.5 3.5c.2.3 2.6 4.3 6.3 6 .9.4 1.6.6 2.1.8.9.3 1.7.3 2.3.2.7-.1 2.4-1 2.8-2 .4-1.1.4-2 .3-2.2-.1-.2-.4-.2-.8-.4z'/%3E%3C/svg%3E" alt="WhatsApp">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='64' height='64'%3E%3Cpath fill='%23fff' d='M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.5 2.1 8L0 32l8.2-2.1c2.5 1.3 5.2 2 7.8 2 8.6 0 15.5-6.9 15.5-15.5S24.6.5 16 .5zm0 27.9c-2.4 0-4.7-.6-6.8-1.7l-.5-.3-4.9 1.2 1.3-4.7-.3-.5c-1.3-2.1-1.9-4.3-1.9-6.6C2.9 8.1 8.1 2.9 16 2.9s13.1 5.2 13.1 13.1-5.2 13.1-13.1 13.1zm7.1-9.9c-.4-.2-2.4-1.2-2.8-1.3-.4-.1-.7-.2-1 .2s-.9 1.3-1.1 1.6c-.2.3-.4.3-.8.1s-1.6-.6-3.1-1.9c-1.1-1-1.9-2.2-2.2-2.6s0-.6.2-.8.4-.4.6-.6.3-.4.5-.6.2-.2.3-.4.4-.6.4-.6.1-.2.1-.4 0-.6-.1-.2-.9-2.1-1.2-2.8-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6 0-.9.4-.3.4-1.2 1.1-1.2 2.7s1.3 3.2 1.5 3.5c.2.3 2.6 4.3 6.3 6 .9.4 1.6.6 2.1.8.9.3 1.7.3 2.3.2.7-.1 2.4-1 2.8-2 .4-1.1.4-2 .3-2.2-.1-.2-.4-.2-.8-.4z'/%3E%3C/svg%3E"
+        alt="WhatsApp" />
     </a>
     <button class="close-btn" onclick="closeWhatsApp()">X</button>
   </div>
+  <!-- End WhatsApp Button -->
 
   <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
-    <i class="bi bi-arrow-up-short"></i>
-  </a>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
+  <!-- Close WhatsApp container script -->
   <script>
     function closeWhatsApp() {
       document.getElementById('whatsapp-container').style.display = 'none';
     }
-    document.querySelector('.php-email-form').addEventListener('submit', function(e) {
+    document.querySelector('.php-email-form').addEventListener('submit', function (e) {
       e.preventDefault();
       var form = this;
       var formData = new FormData(form);
@@ -359,20 +349,20 @@
       var message = formData.get("message");
       var googleFormURL = "https://docs.google.com/forms/d/e/1FAIpQLScM3V1JfhP7NK2hvU5E8GssgeQWamCndDe7YNNj8ZUbeBhMqA/formResponse";
       var queryString = "?entry.318758003=" + encodeURIComponent(name) +
-                        "&entry.897678316=" + encodeURIComponent(email) +
-                        "&entry.2110515807=" + encodeURIComponent(subject) +
-                        "&entry.1680519114=" + encodeURIComponent(message);
+        "&entry.897678316=" + encodeURIComponent(email) +
+        "&entry.2110515807=" + encodeURIComponent(subject) +
+        "&entry.1680519114=" + encodeURIComponent(message);
       fetch(googleFormURL + queryString, {
         method: 'POST',
         mode: 'no-cors'
       })
-      .then(function() {
-        form.reset();
-        alert("Success!");
-      })
-      .catch(function(error) {
-        console.error('Submission error:', error);
-      });
+        .then(function () {
+          form.reset();
+          alert("Success!");
+        })
+        .catch(function (error) {
+          console.error('Submission error:', error);
+        });
     });
   </script>
 
