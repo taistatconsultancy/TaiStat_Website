@@ -218,291 +218,199 @@ a {
   }
 }
 /* ========================================
+   GLOBAL TYPOGRAPHY RESET (if you need it)
+   ======================================== */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: #222;
+  line-height: 1.5;
+}
+
+/* ========================================
    FEATURE SECTION
-   - Reduced padding, smaller min-height, normal typography
    ======================================== */
 .feature-section {
   background: #fff;
-  padding: 4rem 1rem;        /* reduced from 6rem */
-  min-height: 50vh;          /* reduced from 70vh */
+  padding: 3rem 1rem;        /* tighter than before */
+  min-height: 45vh;
 }
 .feature-container {
-  max-width: 1200px;         /* slightly narrower */
+  max-width: 1100px;
   margin: 0 auto;
   text-align: center;
 }
 .feature-heading {
-  font-family: 'Inter', sans-serif;
-  font-size: 2rem;           /* reduced from 2.5rem */
+  font-size: 1.75rem;
   font-weight: 700;
-  color: #222;
-  margin-bottom: 2rem;       /* reduced gap below */
+  margin-bottom: 1.5rem;
 }
 .feature-cards {
   display: flex;
-  gap: 1.5rem;               /* reduced gap */
-  justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 2.5rem;     /* reduced bottom margin */
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 .card {
   background: #F5F8FF;
-  padding: 2rem;             /* reduced from 3rem */
+  padding: 1.5rem;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  flex: 1 1 300px;           /* smaller base width */
-  max-width: 380px;          /* reduced from 460px */
-  min-height: 240px;         /* reduced from 320px */
-  text-align: left;
+  flex: 1 1 280px;
+  max-width: 360px;
+  min-height: 220px;
   display: flex;
   flex-direction: column;
 }
 .card .icon {
-  margin-bottom: 1rem;       /* reduced spacing */
+  margin-bottom: 0.75rem;
 }
 .card .icon svg {
-  width: 28px;               /* reduced from 32px */
-  height: 28px;
-  stroke: #000;
+  width: 24px;
+  height: 24px;
 }
 .card h4 {
-  font-size: 1.125rem;       /* reduced from 1.25rem */
+  font-size: 1.125rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;     /* reduced margin */
+  margin-bottom: 0.5rem;
 }
 .card p {
-  font-size: 0.95rem;        /* reduced from 1.1rem */
+  font-size: 0.9rem;
   color: #333;
-  line-height: 1.5;          /* slightly tighter */
   flex-grow: 1;
 }
 
 /* ========================================
    AUDIENCE BLOCK
-   - Reduced padding, smaller heading, shorter min-height
    ======================================== */
 .audience-block {
   display: flex;
-  gap: 2rem;                 /* reduced gap */
+  flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
-  flex-wrap: wrap;
-  padding: 3rem 1rem;        /* reduced from 5rem */
-  min-height: 40vh;          /* reduced from 60vh */
+  gap: 1.5rem;
+  padding: 2.5rem 1rem;
+  min-height: 35vh;
 }
 .audience-main {
   flex: 1 1 55%;
-  text-align: left;
 }
 .audience-main h3 {
-  font-size: 1.5rem;         /* reduced from 2rem */
+  font-size: 1.5rem;
   font-weight: 600;
-  color: #222;
-  margin-bottom: 1rem;       /* reduced margin */
+  margin-bottom: 1rem;
 }
 .audience-main .subtext {
+  font-size: 0.95rem;
   color: #444;
-  font-size: 1rem;           /* reduced from 1.15rem */
-  margin-bottom: 1.25rem;    /* reduced margin */
-  line-height: 1.5;
+  margin-bottom: 1rem;
 }
 .btn-start {
   display: inline-block;
   background: #3000D2;
   color: #fff;
-  padding: 0.75rem 1.5rem;    /* reduced padding */
+  padding: 0.65rem 1.25rem;
   border-radius: 30px;
-  font-size: 1rem;           /* reduced from 1.1rem */
+  font-size: 0.95rem;
   font-weight: 600;
   text-decoration: none;
 }
 
-/* Side card – smaller */
 .audience-side {
   background: #F5F8FF;
-  padding: 2rem;             /* reduced from 3rem */
+  padding: 1.5rem;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  flex: 1 1 40%;             /* unchanged relative width */
-  max-width: 400px;          /* reduced from 500px */
-  min-height: 300px;         /* reduced from 400px */
-  text-align: left;
+  flex: 1 1 40%;
+  max-width: 380px;
+  min-height: 280px;
   display: flex;
   flex-direction: column;
 }
 .audience-side h4 {
-  font-size: 1.25rem;        /* reduced from 1.5rem */
+  font-size: 1.25rem;
   font-weight: 700;
-  color: #222;
-  margin-bottom: 0.75rem;    /* reduced margin */
+  margin-bottom: 0.75rem;
 }
 .audience-side p {
-  font-size: 0.95rem;        /* reduced from 1.05rem */
+  font-size: 0.9rem;
   color: #444;
-  line-height: 1.5;
-  margin-bottom: 1rem;       /* reduced margin */
+  margin-bottom: 1rem;
   flex-grow: 1;
 }
 .columbia-logo {
-  max-width: 140px;          /* reduced from 180px */
-  width: 100%;
-  display: block;
-  align-self: center;
-}
-
-/* ========================================
-   DESKTOP-ONLY OVERRIDES (>768px)
-   - Adjusted sizes for larger screens
-   ======================================== */
-@media (min-width: 769px) {
-  .feature-section {
-    padding: 5rem 1rem;      /* moderately increased */
-  }
-  .feature-heading {
-    font-size: 2.25rem;      /* slight upscale */
-  }
-  .card {
-    padding: 2.5rem;
-    flex: 1 1 350px;
-    max-width: 420px;
-    min-height: 280px;
-  }
-  .audience-block {
-    padding: 4rem 1rem;
-  }
-  .audience-main h3 {
-    font-size: 1.75rem;
-  }
-  .audience-side {
-    padding: 2.5rem;
-    max-width: 450px;
-    min-height: 350px;
-  }
-}
-
-/* ========================================
-   RESPONSIVE ADJUSTMENTS (≤768px)
-   - Scale back for mobile but keep spacing neat
-   ======================================== */
-@media (max-width: 768px) {
-  .feature-heading {
-    font-size: 1.5rem;       /* further reduce */
-  }
-  .feature-cards {
-    flex-direction: column;
-    align-items: center;
-  }
-  .card {
-    max-width: 100%;
-    text-align: center;
-    padding: 2rem;
-    min-height: auto;
-  }
-  .audience-block {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 2rem 1rem;
-  }
-  .audience-main,
-  .audience-side {
-    flex: 1 1 100%;
-    max-width: 100%;
-  }
-  .audience-side {
-    margin-top: 1.5rem;
-  }
-  .audience-main h3 {
-    font-size: 1.25rem;
-  }
-  .audience-main .subtext {
-    font-size: 0.9rem;
-  }
-  .audience-side h4 {
-    font-size: 1.125rem;
-  }
-  .audience-side p {
-    font-size: 0.9rem;
-  }
+  max-width: 140px;
+  margin: 0 auto;
 }
 
 /* ========================================
    TESTIMONIAL SECTION
-   - Reduced padding, smaller card, normal text
    ======================================== */
 .testimonial-section {
   background: #fff;
-  padding: 2rem 1rem;        /* reduced from 4rem */
+  padding: 1.5rem 1rem;
 }
 .testimonial-container {
-  max-width: 1000px;         /* slightly narrower */
+  max-width: 900px;
   margin: 0 auto;
   display: flex;
-  gap: 1.5rem;
-  align-items: flex-start;
   flex-wrap: wrap;
+  gap: 1rem;
 }
 .testimonial-blurb {
-  flex: 1 1 200px;           /* smaller width */
-  text-align: left;
+  flex: 1 1 200px;
 }
 .blurb-icon {
   background: #F5F8FF;
   border-radius: 12px;
-  width: 48px;               /* reduced from 56px */
+  width: 48px;
   height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 0.75rem;    /* reduced margin */
+  margin-bottom: 0.75rem;
 }
 .testimonial-blurb p {
-  font-size: 0.95rem;        /* reduced from 1rem */
-  line-height: 1.4;
-  color: #333;
+  font-size: 0.9rem;
 }
 .testimonial-slider {
-  flex: 2 1 500px;           /* narrower */
+  flex: 2 1 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .testimonial-slider .card {
   background: #F5F8FF;
-  padding: 1.5rem;           /* reduced from 2rem */
+  padding: 1rem;
   border-radius: 16px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.05);
-  width: 100%;
-  max-width: 500px;          /* reduced from 600px */
-  min-height: 200px;         /* reduced from 240px */
+  max-width: 480px;
+  min-height: 180px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 .testimonial-slider blockquote {
-  font-size: 1rem;           /* reduced from 1.125rem */
-  line-height: 1.4;
-  color: #222;
-  margin: 0 0 1rem;
+  font-size: 0.95rem;
+  margin: 0 0 0.75rem;
 }
 .testimonial-slider .author {
-  font-size: 0.9rem;         /* reduced from 0.95rem */
+  font-size: 0.85rem;
   font-weight: 600;
-  color: #222;
   text-align: right;
 }
 .slider-controls {
-  margin-top: 1rem;          /* reduced from 1.5rem */
+  margin-top: 0.75rem;
   display: flex;
-  gap: 0.75rem;              /* reduced gap */
+  gap: 0.5rem;
 }
 .slider-controls button {
   background: #4A1DE1;
   color: #fff;
   border: none;
-  font-size: 1rem;           /* reduced from 1.25rem */
-  width: 40px;               /* reduced from 48px */
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border-radius: 12px;
   cursor: pointer;
 }
@@ -511,208 +419,116 @@ a {
 }
 
 /* ========================================
-   RESPONSIVE TESTIMONIAL ADJUSTMENTS (≤768px)
-   ======================================== */
-@media (max-width: 768px) {
-  .testimonial-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  .testimonial-blurb {
-    order: 2;
-    margin-top: 1.5rem;       /* reduced */
-  }
-  .testimonial-slider {
-    order: 1;
-  }
-  .slider-controls {
-    order: 2;
-  }
-  .testimonial-slider .card {
-    max-width: 100%;
-  }
-}
-
-/* ========================================
    ADVANTAGES SECTION
-   - Reduced padding, smaller typography, normal sizes
    ======================================== */
 .advantage-section {
   background: #fff;
-  padding: 6rem 1.5rem;      /* reduced from 8rem */
-  min-height: 50vh;          /* reduced from 65vh */
+  padding: 4rem 1.5rem;
+  min-height: 45vh;
 }
 .advantage-container {
-  max-width: 1300px;         /* reduced from 1500px */
+  max-width: 1200px;
   margin: 0 auto;
   text-align: center;
 }
 .advantage-heading {
-  font-size: 2rem;           /* reduced from 3rem */
+  font-size: 1.75rem;
   font-weight: 700;
-  margin-bottom: 1rem;       /* reduced margin */
-  color: #222;
+  margin-bottom: 1rem;
 }
 .advantage-subtext {
-  font-size: 1rem;           /* reduced from 1.25rem */
+  font-size: 0.95rem;
   color: #444;
-  margin-bottom: 1.5rem;     /* reduced margin */
-  max-width: 800px;          /* reduced from 900px */
+  margin-bottom: 1.25rem;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 }
 .advantage-cta {
   display: inline-block;
-  font-size: 1rem;           /* reduced from 1.125rem */
+  font-size: 0.95rem;
   font-weight: 600;
   color: #EA49A0;
-  margin-bottom: 3rem;       /* reduced from 5rem */
+  margin-bottom: 2rem;
 }
 .advantage-cta:hover {
   text-decoration: underline;
 }
-
 .advantage-cards {
   display: flex;
-  gap: 2rem;                 /* reduced from 3rem */
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
 }
 .adv-card {
   background: #F5F8FF;
-  padding: 2.5rem;           /* reduced from 4rem */
+  padding: 2rem;
   border-radius: 20px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.05);
-  flex: 1 1 300px;           /* reduced base width */
-  max-width: 450px;          /* reduced from 550px */
-  min-height: 280px;         /* reduced from 360px */
-  text-align: left;
+  flex: 1 1 280px;
+  max-width: 400px;
+  min-height: 260px;
   display: flex;
   flex-direction: column;
 }
 .adv-icon {
-  width: 64px;               /* reduced from 80px */
+  width: 64px;
   height: 64px;
   background: #fff;
   border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.5rem;     /* reduced from 2rem */
+  margin-bottom: 1.5rem;
 }
 .adv-icon svg {
-  width: 36px;               /* reduced from 44px */
+  width: 36px;
   height: 36px;
-  stroke: #000;
 }
 .adv-card h3 {
-  font-size: 1.25rem;        /* reduced from 1.5rem */
-  margin-bottom: 0.75rem;    /* reduced from 1rem */
-  color: #222;
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
 }
 .adv-card p {
-  font-size: 1rem;           /* reduced from 1.125rem */
-  color: #333;
-  line-height: 1.6;          /* tighter than 1.8 */
+  font-size: 0.95rem;
   flex-grow: 1;
 }
 
 /* ========================================
-   DESKTOP-ONLY OVERRIDES (>992px)
-   - Moderately adjusted for wide screens
+   DESKTOP & RESPONSIVE TUNE‑UPS
    ======================================== */
-@media (min-width: 993px) {
-  .advantage-section {
-    padding: 8rem 1.5rem;    /* moderate increase */
-  }
-  .advantage-heading {
-    font-size: 2.5rem;       /* moderate upscale */
-  }
-  .advantage-subtext {
-    font-size: 1.125rem;     /* moderate upscale */
-    max-width: 900px;
-  }
-  .advantage-cta {
-    font-size: 1.125rem;
-    margin-bottom: 4rem;
-  }
+@media (min-width: 769px) {
+  .feature-heading { font-size: 2rem; }
+  .card { padding: 1.75rem; }
+  .audience-block { padding: 3rem 1rem; }
+  .testimonial-slider .card { padding: 1.25rem; }
+  .advantage-heading { font-size: 2rem; }
+  .adv-card { padding: 2.5rem; }
+}
+
+@media (max-width: 768px) {
+  .feature-cards,
+  .testimonial-container,
+  .audience-block,
   .advantage-cards {
-    gap: 3rem;               /* moderate gap */
+    flex-direction: column;
+    align-items: center;
   }
-  .adv-card {
-    padding: 3rem;
-    flex: 1 1 340px;         /* moderate base width */
-    max-width: 500px;
-    min-height: 320px;
+  .card,
+  .adv-card,
+  .audience-side,
+  .testimonial-slider .card {
+    max-width: 100%;
+    text-align: center;
+    padding: 1.5rem;
   }
-  .adv-icon {
-    width: 80px;             /* moderate increase */
-    height: 80px;
-    margin-bottom: 2rem;
-  }
-  .adv-icon svg {
-    width: 40px;
-    height: 40px;
-  }
-  .adv-card h3 {
-    font-size: 1.5rem;
-  }
-  .adv-card p {
-    font-size: 1.125rem;
-    line-height: 1.7;
+  .audience-block,
+  .testimonial-section,
+  .advantage-section {
+    padding: 2rem 1rem;
   }
 }
 
-/* ========================================
-   RESPONSIVE ADVANTAGES ADJUSTMENTS
-   - Gradual padding reductions at breakpoints
-   ======================================== */
-@media (max-width: 992px) {
-  .advantage-section {
-    padding: 5rem 1rem;      /* reduced */
-  }
-  .advantage-cta {
-    margin-bottom: 3rem;
-  }
-  .advantage-cards {
-    gap: 1.5rem;
-  }
-}
-@media (max-width: 768px) {
-  .advantage-section {
-    padding: 3rem 1rem;      /* further reduced */
-  }
-  .advantage-container {
-    text-align: center;
-  }
-  .advantage-heading {
-    font-size: 1.75rem;      /* reduced */
-  }
-  .advantage-subtext {
-    font-size: 1rem;         /* reduced */
-    margin-bottom: 1rem;
-  }
-  .adv-card {
-    max-width: 100%;
-    text-align: center;
-    padding: 2rem;           /* reduced */
-    min-height: auto;
-  }
-  .adv-card h3 {
-    font-size: 1.125rem;     /* reduced */
-  }
-  .adv-icon {
-    margin-left: auto;
-    margin-right: auto;
-    width: 56px;             /* reduced */
-    height: 56px;
-  }
-  .adv-icon svg {
-    width: 32px;
-    height: 32px;
-  }
-}
 /*=================================
    CTA BANNER
    - Full-width colored banner with larger padding & typography

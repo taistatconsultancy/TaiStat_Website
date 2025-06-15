@@ -271,6 +271,32 @@
 /* -----------------------------
    Section & Container
    ----------------------------- */
+   /* 1) Make the section a positioning context */
+.customers-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* 2) Style the video to cover the full section */
+.customers-section .bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: 100%;
+  min-width: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none; /* so it never blocks clicks */
+}
+
+/* 3) Push existing content above the video */
+.customers-section .container {
+  position: relative;
+  z-index: 1;
+}
+
 .customers-section {
   background: linear-gradient(180deg, #3944ff 0%, #05d1c8 100%);
   color: #fff;
@@ -600,22 +626,7 @@
     <div class="container">
       <div class="trusted-logos">
         <p>Trusted by global researchers and AI solution developers</p>
-        <div class="logo-marquee">
-          <div class="logo-track">
-            <!-- Original logos -->
-            <img src="Google_black_a09c89ccd0.png" alt="Google">
-            <img src="small_Stanford_University_black_3e9700626d.png" alt="Stanford University">
-            <img src="small_Hugging_Face_black_fa306a7ed2.png" alt="Hugging Face">
-            <img src="Yale_black_25860f5a46.png" alt="Yale">
-            <img src="Ni_H_black_381fbfd0d1.png" alt="NIH">
-            <!-- Duplicated logos for seamless loop -->
-            <img src="Google_black_a09c89ccd0.png" alt="Google">
-            <img src="small_Stanford_University_black_3e9700626d.png" alt="Stanford University">
-            <img src="small_Hugging_Face_black_fa306a7ed2.png" alt="Hugging Face">
-            <img src="Yale_black_25860f5a46.png" alt="Yale">
-            <img src="Ni_H_black_381fbfd0d1.png" alt="NIH">
-          </div>
-        </div>
+      
       </div>
 
       <div class="run-research">
@@ -662,29 +673,37 @@
 
   <!-- Customer Use Cases -->
   <section class="customers-section">
-    <div class="container">
-      <div class="text-block">
-        <h2>How organizations partner with Taistat</h2>
-        <p>Trusted by researchers, engineers, and institutions to deliver real-world solutions with smart data.</p>
-        <a href="datasign.html" class="btn">Talk to an expert</a>
-      </div>
+  <!-- Background video -->
+  <video class="bg-video" autoplay muted loop playsinline>
+    <source src="participantserve.mp4" type="video/mp4">
+    <!-- Optional fallback image for non‑video browsers -->
+    <img src="fallback.jpg" alt="Background">
+  </video>
 
-      <div class="cards">
-        <div class="card"> 
-          <h3>Sector: Building & Construction</h3>
-          <p>Shovels Inc. sourced specialized annotations for their smart city infrastructure project with Taistat's data team.</p>
-        </div>
-        <div class="card"> 
-          <h3>Sector: AI Ethics</h3>
-          <p>The Meaning Alignment Institute partnered with Taistat to build more ethical and transparent AI systems.</p>
-        </div>
-        <div class="card"> 
-          <h3>Sector: Aerospace Communications</h3>
-          <p>Braided Communications worked with Taistat to run long-term studies on improving communications in spaceflight.</p>
-        </div>
+  <div class="container">
+    <div class="text-block">
+      <h2>How organizations partner with Taistat</h2>
+      <p>Trusted by researchers, engineers, and institutions to deliver real-world solutions with smart data.</p>
+      <a href="datasign.html" class="btn">Talk to an expert</a>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Sector: Building &amp; Construction</h3>
+        <p>Shovels Inc. sourced specialized annotations for their smart city infrastructure project with Taistat's data team.</p>
+      </div>
+      <div class="card">
+        <h3>Sector: AI Ethics</h3>
+        <p>The Meaning Alignment Institute partnered with Taistat to build more ethical and transparent AI systems.</p>
+      </div>
+      <div class="card">
+        <h3>Sector: Aerospace Communications</h3>
+        <p>Braided Communications worked with Taistat to run long-term studies on improving communications in spaceflight.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- CTA -->
   <section class="taistat-cta">
