@@ -239,26 +239,58 @@
   <!-- Footer -->
   <footer id="footer" class="footer" style="background-color: rgb(10, 9, 9); color: beige;">
     <!-- Newsletter -->
-    <div class="footer-newsletter">
-      <div class="container">
-        <div class="row justify-content-center text-center">
-          <div class="col-lg-6">
-            <h4 style="color: aquamarine;">Join Our Newsletter</h4>
-            <p>Stay updated on the latest in Data Science, Machine Learning, and Business Intelligence solutions!</p>
-            <form action="forms/newsletter.php" method="post" class="php-email-form">
-              <div class="newsletter-form">
-                <input type="email" name="email" placeholder="Your Email" required />
-                <input type="submit" value="Subscribe" />
-              </div>
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your subscription request has been sent. Thank you!</div>
-            </form>
+   <div class="footer-newsletter">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-6">
+        <h4 style="color: aquamarine;">Join Our Newsletter</h4>
+        <p>Subscribe to our newsletter and stay updated on the latest in Data Science, Machine Learning, and Business Intelligence solutions!</p>
+        <!-- Replace your old form with this: -->
+        <form id="newsletter-form">
+          <div class="newsletter-form">
+            <input type="email" name="email" placeholder="Your email" required>
+            <input type="submit" value="Subscribe">
           </div>
-        </div>
+        </form>
       </div>
     </div>
-    <!-- End Newsletter -->
+  </div>
+</div>
+
+<script>
+  (function() {
+    const form = document.getElementById('newsletter-form');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = this.elements['email'].value.trim();
+      if (!email) return alert('Please enter a valid email.');
+
+      // Google Form "formResponse" endpoint:
+      const url = 'https://docs.google.com/forms/d/e/1FAIpQLSfBxKteHJY_BR5PG8D1RiNH8zNohQ4MseFXf75Qcipiu8iLkA/formResponse';
+
+      // Map your input to the correct entry ID:
+      const data = new URLSearchParams();
+      data.append('entry.975547394', email);
+
+      // Send as POST, no-cors so it won’t redirect
+      fetch(url, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: data.toString()
+      })
+      .then(() => {
+        alert('Your subscription request has been sent. Thank you!');
+        form.reset();
+      })
+      .catch((err) => {
+        console.error(err);
+        alert('Oops—something went wrong. Please try again later.');
+      });
+    });
+  })();
+</script>
+
 
     <div class="container footer-top">
       <div class="row gy-4">

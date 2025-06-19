@@ -295,6 +295,62 @@ body, html {
     font-size: clamp(2.5rem, 12vw, 5rem);
   }
 }
+
+
+
+
+/* ==============================
+   About Us Section Styles
+   ============================== */
+#about-us {
+  background-color: #1b1a1a;
+  color: #eee;
+  padding: 4rem 0;
+}
+
+#about-us .container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+#about-us .content {
+  text-align: center;
+}
+
+#about-us h2 {
+  font-size: 2.5rem;
+  color: aquamarine;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+#about-us p {
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+
+/* Bold last tagline */
+#about-us p:last-of-type {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  #about-us {
+    padding: 3rem 1rem;
+  }
+  #about-us h2 {
+    font-size: 2rem;
+  }
+  #about-us p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+}
+
 </style>
 <body class="index-page">
 
@@ -310,7 +366,7 @@ body, html {
 
     <nav id="navmenu" class="navmenu">
   <ul>
-    <li><a href="index.html#unique-hero-section" class="active">Home<br></a></li>
+    <li><a href="index.html" class="active">Home<br></a></li>
     <li><a href="data.html">Data</a></li> <!-- Added "Data" menu item -->
     <li><a href="services.html">Services</a></li>
     <li><a href="portfolio.html">Portfolio</a></li>
@@ -340,48 +396,100 @@ body, html {
 
 
 <!-- /Hero Section -->
+
+<!-- About Us Section -->
+<section id="about-us" class="about-us section" style="background-color: #1b1a1a; color: #eee; padding: 4rem 0;">
+  <div class="container" data-aos="fade-up">
+    <div class="row gy-4 align-items-center">
+      
+      <!-- Text Column -->
+      <div class="col-lg-12">
+        <div class="content text-center">
+          <h2 style="color: aquamarine; font-size: 2rem; margin-bottom: 1rem;">About Us</h2>
+          <p style="font-size: 1rem; line-height: 1.6;">
+            TaiStat Firm is a technology‑driven company located in the beautiful suburbs of Nairobi City, Kenya, built to serve the needs of today’s data‑focused and AI‑powered world. We specialize in providing smart, scalable solutions in artificial intelligence, data collection and analysis, machine learning support, automation, survey execution, user research, web development, and digital development.
+          </p>
+          <p style="font-size: 1rem; line-height: 1.6;">
+            Our team is made up of highly skilled professionals who have worked extensively in the fields of AI, data science, automation, and digital transformation. Whether it’s annotating datasets for machine learning, developing WhatsApp chatbots, running large‑scale surveys, or creating dynamic, responsive websites, we deliver work that is precise, timely, and aligned with global standards.
+          </p>
+          <p style="font-size: 1rem; line-height: 1.6;">
+            TaiStat supports a wide range of industries, including Education, Artificial Intelligence, Research, Hotels, E‑commerce, Agriculture, and Technology. Our services are trusted by clients looking to scale their projects, automate operations, or gain accurate insights from data in emerging markets.
+          </p>
+          <p style="font-size: 1rem; line-height: 1.6;">
+            Choosing TaiStat as your partner, you're not just outsourcing a task—you’re gaining a committed team that collaborates with you every step of the way. We take the time to understand your objectives and tailor our approach to ensure your goals are met with excellence.
+          </p>
+          <p style="font-size: 1rem; font-weight: bold; margin-top: 1.5rem;">
+            Smart solutions. Real impact. TaiStat delivers.
+          </p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- Your existing About (Founder / Data Engineer) Section follows here -->
+<section id="about" class="about section" style="background-color: rgb(27, 26, 26);">
+  <!-- … -->
+</section>
+
 <!-- About Section -->
 <section id="about" class="about section" style="background-color: rgb(27, 26, 26);">
   <div class="container" data-aos="zoom-out">
     <div class="row gx-0">
+      
+      <!-- Stephen Mulingwa – Founder & AI Strategist -->
       <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="zoom-in-up" data-aos-delay="200">
         <div class="content">
           <h3 style="color: aquamarine;">Meet the Founder</h3>
           <h2 style="color: rgb(61, 61, 252);">Stephen Mulingwa</h2>
-          <img style="border-radius: 50%; height: 150px;" src="assets/img/mulingwa.jpg" class="img-fluid" alt="Big Data Insights">
-          
+          <img
+            style="border-radius: 50%; height: 150px;"
+            src="assets/img/mulingwa.jpg"
+            class="img-fluid"
+            alt="Stephen Mulingwa – AI Strategist"
+          />
+
           <p style="color: azure;">
-            Stephen Mulingwa is a visionary Data Scientist, Machine Learning expert, and AI strategist, dedicated to unlocking the transformative power of data. As the Founder of TaiStat Consultancy, he leads a firm committed to delivering AI, data science, data consultancy, training and tutoring, and analytics solutions that drive innovation, efficiency, and growth across industries worldwide.
+            Stephen Mulingwa leads TaiStat’s strategic direction and AI innovation. As the visionary behind the firm, he plays a central role in guiding the company’s mission to provide intelligent, scalable, and ethical data solutions. His expertise lies in AI training for research, where he helps institutions build smart, data-driven systems for academic studies, social impact research, and market intelligence.
           </p>
           <p style="color: azure;">
-            With deep expertise in machine learning, predictive analytics, and AI-driven decision-making, Stephen has successfully designed and deployed advanced models that solve complex business challenges ranging from customer behavior prediction and operational forecasting to healthcare analytics and risk assessment. His data-driven solutions empower organizations to make informed, strategic decisions, enhancing productivity and long-term sustainability.
+            Stephen has led numerous projects involving predictive modeling, decision support systems, and healthcare analytics, making AI both accessible and impactful for real-world applications. At TaiStat, his leadership extends beyond technical work—he cultivates partnerships, mentors talent, and ensures each engagement delivers measurable value.
           </p>
           <p style="color: azure;">
-            Beyond consulting, Stephen is deeply committed to education, mentorship, and knowledge sharing. He has trained and guided professionals, businesses, and aspiring data practitioners in mastering data analytics, machine learning, and AI applications, fostering a new generation of data-driven leaders.
+            His commitment to empowering teams and clients through AI-driven research tools sets TaiStat apart as a forward-thinking, trusted partner in the global data ecosystem. Stephen has trained and guided professionals, businesses, and aspiring data practitioners in mastering data analytics, machine learning, and AI applications, fostering a new generation of data-driven leaders.
           </p>
         </div>
       </div>
 
+      <!-- Nanyaemuny Savins – Data Engineer & Deployment Lead -->
       <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="zoom-in-up" data-aos-delay="400">
         <div class="content">
-          <h3 style="color: aquamarine;"> Data Engineer</h3>
+          <h3 style="color: aquamarine;">Data Engineer</h3>
           <h2 style="color: rgb(61, 61, 252);">Nanyaemuny Savins</h2>
-          <img style="border-radius: 50%; height: 150px;" src="savoo1.jpg" class="img-fluid" alt="Data Analytics Expert">
-          
+          <img
+            style="border-radius: 50%; height: 150px;"
+            src="savoo1.jpg"
+            class="img-fluid"
+            alt="Nanyaemuny Savins – Data Engineer"
+          />
+
           <p style="color: azure;">
-            Nanyaemuny Savins is a skilled Data Analyst specializing in data visualization, predictive modeling, and hypothesis testing. Previously, he worked at Laikipia Government’s Department of Tourism and Trade, where he analyzed economic trends, monitored trade activities, and provided strategic insights to enhance decision-making.
+            Nanyaemuny Savins brings technical depth and a results-driven mindset to TaiStat’s operations. He specializes in model deployment, ensuring that the AI solutions designed by the team move seamlessly from development to production, ready to serve real business needs.
           </p>
           <p style="color: azure;">
-            With expertise in R and statistical modeling, Savins has applied GARCH models for time series forecasting and built AI-powered solutions for business intelligence. He develops end-to-end analytics systems using tools like Shiny, Streamlit, and TensorFlow, creating interactive dashboards and deploying machine learning models.
+            Savins also leads the firm’s efforts in automating services through custom-built chatbots, particularly WhatsApp-based solutions that enhance client engagement and operational efficiency. His work in web development supports entrepreneurs, SMEs, and larger organizations in building clean, functional, and responsive digital platforms that strengthen their online presence.
           </p>
           <p style="color: azure;">
-            Passionate about education and mentorship, Savins has trained businesses and aspiring data practitioners in data analytics, machine learning, and AI applications. His commitment to innovation and strategic data adoption empowers organizations to leverage analytics for competitive advantage.
+            With a strong background in statistical modeling and applied machine learning, Savins delivers end-to-end solutions that are reliable, scalable, and user-friendly. His role at TaiStat is essential to translating data science into practical tools that help clients achieve their goals and operate more intelligently in today’s digital world.
           </p>
         </div>
       </div>
+
     </div>
   </div>
 </section>
+
 
 
 <!-- /About Section -->
@@ -391,22 +499,58 @@ body, html {
 
 <footer style="background-color: rgb(10, 9, 9); color: beige;" id="footer" class="footer">
 
-  <div class="footer-newsletter">
-    <div class="container">
-      <div class="row justify-content-center text-center">
-        <div class="col-lg-6">
-          <h4 style="color: aquamarine;">Join Our Newsletter</h4>
-          <p>Subscribe to our newsletter and stay updated on the latest in Data Science, Machine Learning, and Business Intelligence solutions!</p>
-          <form action="forms/newsletter.php" method="post" class="php-email-form">
-            <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your subscription request has been sent. Thank you!</div>
-          </form>
-        </div>
+<div class="footer-newsletter">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-6">
+        <h4 style="color: aquamarine;">Join Our Newsletter</h4>
+        <p>Subscribe to our newsletter and stay updated on the latest in Data Science, Machine Learning, and Business Intelligence solutions!</p>
+        <!-- Replace your old form with this: -->
+        <form id="newsletter-form">
+          <div class="newsletter-form">
+            <input type="email" name="email" placeholder="Your email" required>
+            <input type="submit" value="Subscribe">
+          </div>
+        </form>
       </div>
     </div>
   </div>
+</div>
+
+<script>
+  (function() {
+    const form = document.getElementById('newsletter-form');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = this.elements['email'].value.trim();
+      if (!email) return alert('Please enter a valid email.');
+
+      // Google Form "formResponse" endpoint:
+      const url = 'https://docs.google.com/forms/d/e/1FAIpQLSfBxKteHJY_BR5PG8D1RiNH8zNohQ4MseFXf75Qcipiu8iLkA/formResponse';
+
+      // Map your input to the correct entry ID:
+      const data = new URLSearchParams();
+      data.append('entry.975547394', email);
+
+      // Send as POST, no-cors so it won’t redirect
+      fetch(url, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: data.toString()
+      })
+      .then(() => {
+        alert('Your subscription request has been sent. Thank you!');
+        form.reset();
+      })
+      .catch((err) => {
+        console.error(err);
+        alert('Oops—something went wrong. Please try again later.');
+      });
+    });
+  })();
+</script>
+
 
   <div class="container footer-top">
     <div class="row gy-4">
