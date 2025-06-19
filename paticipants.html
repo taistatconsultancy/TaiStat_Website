@@ -563,6 +563,100 @@
   }
 }
 
+/* ========================================
+   INTEGRATION SERVICES SECTION
+   ======================================== */
+.integration-services-section {
+  background: #fff;
+  padding: 4rem 1rem;
+}
+.integration-services-title h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 2rem;
+}
+
+/* Grid: 3 cards per row, falls to 2 → 1 */
+.integration-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+@media (max-width: 992px) {
+  .integration-services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .integration-services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card styling */
+.integration-card {
+  background: #F5F8FF;
+  border-radius: 7px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+}
+
+/* Fixed-size image at top of each card */
+.integration-card-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+/* Heading inside card */
+.integration-card-heading {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Body text inside card */
+.integration-card-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #4b5563;
+  margin: 0 1rem 1.5rem;
+  flex-grow: 1;
+}
+/* Data Quality Call‑Out */
+.data-quality-callout {
+  max-width: 700px;               /* control line length */
+  margin: 3rem auto;              /* vertical spacing + center block */
+  padding: 1.5rem 2rem;           /* inner breathing room */
+  background: #FAFAFF;            /* very light background */
+  border-left: 4px solid #4A1DE1; /* accent bar on the left */
+  border-radius: 8px;             /* gentle rounding */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  text-align: center;             /* center text */
+}
+
+.data-quality-callout h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #111827;
+}
+
+.data-quality-callout p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #4B5563;
+  margin: 0;
+}
 
 
 
@@ -620,6 +714,48 @@
       </div>
     </div>
   </section>
+
+  <section class="integration-services-section">
+  <div class="integration-services-title">
+    <h2>Get Started with TaiStat</h2>
+  </div>
+  <div class="integration-services-grid">
+    <!-- Card 1 -->
+    <div class="integration-card">
+      <img src="getstarted.jpg" alt="Research Participants Pool" class="integration-card-img">
+      <h3 class="integration-card-heading">Get Started with Your Research Today</h3>
+      <p class="integration-card-text">
+        Launch your research faster with TaiStat’s ready pool of verified participants and expert-led data collection teams. Whether you're conducting academic studies, product research, or behavioral experiments, we help you reach diverse and targeted audiences in minutes not weeks. With flexible setup options, survey support, and analytics-ready data delivery, TaiStat makes high-quality research effortless from start to finish.
+      </p>
+    </div>
+    <!-- Card 2 -->
+    <div class="integration-card">
+      <img src="today.jpg" alt="AI Training Data" class="integration-card-img">
+      <h3 class="integration-card-heading">Train AI with TaiStat Today</h3>
+      <p class="integration-card-text">
+        Fuel your machine learning and AI models with high-quality, human-verified data collected, cleaned, and annotated by our expert teams. Whether you're building LLMs, voice assistants, or computer vision systems, TaiStat supports training at any scale with precision and speed. Get started instantly, integrate your preferred tools, and receive production-ready datasets in hours, not weeks.
+      </p>
+    </div>
+    <!-- Card 3 -->
+    <div class="integration-card">
+      <img src="intergrate.jpg" alt="API Integration" class="integration-card-img">
+      <h3 class="integration-card-heading">Integrate with TaiStat</h3>
+      <p class="integration-card-text">
+        Seamlessly connect your platform to TaiStat’s always-on participant pool and expert data teams through powerful API integrations. Enhance your customers’ AI and research workflows by giving them instant access to high-quality human data, rapid task execution, and verified feedback from diverse audiences. With flexible integration options and fast onboarding, TaiStat helps you scale smarter, serve better, and stand out from the competition.
+      </p>
+    </div>
+  </div>
+
+  <!-- Data Quality Call-Out -->
+<div class="data-quality-callout">
+  <h3>Data Quality with TaiStat</h3>
+  <p>
+    At TaiStat, we prioritize uncompromising data quality through rigorous validation, expert oversight, and continuous monitoring. Our systems are built to detect inconsistencies, low‑effort responses, and anomalies across all data types, ensuring every dataset is clean, accurate, and analysis‑ready. We use a multi‑layered quality assurance process, including pre‑task screening, identity verification, and real‑time audits, to maintain the highest standards. With TaiStat, you gain data you can trust delivered securely, ethically, and tailored to your AI or research needs.
+  </p>
+</div>
+
+</section>
+
 
   <!-- Trusted & Research Section -->
  <section class="trusted-run">

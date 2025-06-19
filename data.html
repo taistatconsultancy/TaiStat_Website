@@ -732,6 +732,150 @@ body {
   }
 }
 
+/* ========================================
+   AI CONSULTING SERVICES SECTION
+   ======================================== */
+.ai-services-section {
+  background: #fff;
+  padding: 4rem 1rem;
+}
+
+.section-heading {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #222;
+}
+
+.ai-services {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Left column */
+.ai-services-text {
+  flex: 1 1 400px;
+}
+
+.service-item + .service-item {
+  margin-top: 2rem;
+}
+
+.service-item h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #111827;
+}
+
+.service-item p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #4b5563;
+}
+
+/* Right column */
+.ai-services-image {
+  flex: 1 1 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ai-services-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ai-services {
+    flex-direction: column;
+    align-items: center;
+  }
+  .ai-services-text,
+  .ai-services-image {
+    flex: 1 1 100%;
+  }
+  .ai-services-image {
+    margin-top: 2rem;
+  }
+}
+
+
+/* AI Development Services Section */
+.ai-dev-services {
+  background: #fff;
+  padding: 4rem 1rem;
+}
+.ai-dev-title h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #222;
+}
+
+/* Grid: three cards per row, wrapping */
+.ai-dev-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+@media (max-width: 992px) {
+  .ai-dev-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .ai-dev-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card base */
+.ai-dev-card {
+  background: #F5F8FF;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Fixed-size image at top of each card */
+.ai-card-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+/* Title and text */
+.ai-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 1rem;
+  color: #111827;
+}
+.ai-card-text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #4b5563;
+  margin: 0 1rem 1.5rem;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
 
   </style>
 </head>
@@ -768,6 +912,93 @@ body {
       <a href="datasign.html" class="btn-collect">Start collecting data</a>
     </div>
   </section>
+  <section class="ai-services-section">
+  <div class="container">
+    <h2 class="section-heading">AI Consulting Services</h2>
+    <div class="ai-services">
+      <!-- Left column: text blocks -->
+      <div class="ai-services-text">
+        <div class="service-item">
+          <h3>AI Strategy Development</h3>
+          <p>
+            TaiStat Data assists businesses in formulating a comprehensive AI strategy
+            aligned with their specific goals and objectives. Our consultants analyze
+            the organization’s needs, capabilities, and market trends to design a
+            roadmap for AI integration that maximizes business value.
+          </p>
+        </div>
+        <div class="service-item">
+          <h3>AI Opportunity Assessment</h3>
+          <p>
+            We conduct rigorous assessments to identify areas where AI can deliver the
+            most significant impact, prioritizing initiatives to maximize returns on
+            investment.
+          </p>
+        </div>
+        <div class="service-item">
+          <h3>Data Strategy &amp; Management</h3>
+          <p>
+            AI’s success relies heavily on quality data. Our services help businesses
+            develop data strategies, ensure data privacy compliance, and establish
+            effective data management practices to support AI initiatives.
+          </p>
+        </div>
+        <div class="service-item">
+          <h3>Risk Management &amp; Ethical Considerations</h3>
+          <p>
+            Addressing risks and ethical concerns, we ensure your AI technologies
+            adhere to guidelines and legal requirements.
+          </p>
+        </div>
+      </div>
+
+      <!-- Right column: diagram/image -->
+      <div class="ai-services-image">
+        <img src="imagefservices.png" alt="AI Consulting diagram">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- AI Development Services Section -->
+<section class="ai-dev-services">
+  <div class="ai-dev-title">
+    <h2>AI Development Services</h2>
+  </div>
+  <div class="ai-dev-grid">
+    <div class="ai-dev-card">
+      <img src="buildai.jpg" alt="Build AI" class="ai-card-img">
+      <h3 class="ai-card-title">Build AI</h3>
+      <p class="ai-card-text">
+        Accelerate your AI development with high‑quality data collection, annotation, and model deployment supported by expert teams ready to handle tasks at any scale. From training to testing, TaiStat ensures fast, ethical, and accurate human data pipelines for AI and ML projects.
+      </p>
+    </div>
+    <div class="ai-dev-card">
+      <img src="data annotation.jpg" alt="Data Annotation" class="ai-card-img">
+      <h3 class="ai-card-title">Data Annotation</h3>
+      <p class="ai-card-text">
+        Power your AI models with high‑quality annotated data across text, image, audio, and video delivered by our skilled, professional teams. Whether you're building language models, voice AI, or computer vision systems, TaiStat ensures accurate, scalable, and reliable data labeling for every project.
+      </p>
+    </div>
+    <div class="ai-dev-card">
+      <img src="training and alighnment.jpg" alt="Training & Alignment" class="ai-card-img">
+      <h3 class="ai-card-title">Training &amp; Alignment</h3>
+      <p class="ai-card-text">
+        Align your AI models with diverse, real‑world human feedback to ensure they reflect the values, preferences, and behaviors of your target users. TaiStat provides scalable, high‑quality training and fine‑tuning support, gathering structured insights to help you build safer, smarter, and more human‑centric AI systems.
+      </p>
+    </div>
+    <div class="ai-dev-card">
+      <img src="evaluation and safety.jpg" alt="Evaluation & Safety" class="ai-card-img">
+      <h3 class="ai-card-title">Evaluation &amp; Safety</h3>
+      <p class="ai-card-text">
+        Ensure your AI systems are accurate, fair, and reliable with human‑in‑the‑loop evaluation from trained experts and taskers. TaiStat helps you rigorously test and monitor model outputs, identify edge cases, reduce bias, and support safe AI deployment at scale.
+      </p>
+    </div>
+  </div>
+</section>
+
+
 
   <!-- ================= FEATURE HIGHLIGHT ================= -->
   <section class="feature-section reveal slide-up">
