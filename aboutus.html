@@ -298,7 +298,6 @@ body, html {
 
 
 
-
 /* ==============================
    About Us Section Styles
    ============================== */
@@ -309,19 +308,15 @@ body, html {
 }
 
 #about-us .container {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-#about-us .content {
-  text-align: center;
-}
-
-#about-us h2 {
+#about-us .section-title {
   font-size: 2.5rem;
   color: aquamarine;
-  margin-bottom: 1rem;
   font-weight: 700;
+  text-align: center;
 }
 
 #about-us p {
@@ -331,25 +326,52 @@ body, html {
 }
 
 /* Bold last tagline */
-#about-us p:last-of-type {
-  font-size: 1rem;
+#about-us .tagline {
   font-weight: 700;
   margin-top: 1.5rem;
 }
 
-/* Responsive tweaks */
+/* Make image fill its column */
+#about-us .object-fit-cover {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* Flex helpers */
+#about-us .d-flex {
+  display: flex !important;
+}
+#about-us .flex-fill {
+  flex: 1 1 auto;
+}
+
+/* Responsive stacking */
+@media (max-width: 992px) {
+  /* Stack: heading first, then image, then text */
+  #about-us .order-lg-2 { order: 0 !important; }
+  #about-us .order-lg-1 { order: 1 !important; }
+  #about-us .order-lg-3 { order: 2 !important; }
+
+  /* Center everything on mobile */
+  #about-us .section-title,
+  #about-us p,
+  #about-us .tagline {
+    text-align: center !important;
+  }
+
+  /* Give space below heading */
+  #about-us .section-title {
+    margin-bottom: 2rem;
+  }
+}
+
 @media (max-width: 768px) {
   #about-us {
     padding: 3rem 1rem;
   }
-  #about-us h2 {
-    font-size: 2rem;
-  }
-  #about-us p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
 }
+
 
 </style>
 <body class="index-page">
@@ -398,32 +420,41 @@ body, html {
 <!-- /Hero Section -->
 
 <!-- About Us Section -->
-<section id="about-us" class="about-us section" style="background-color: #1b1a1a; color: #eee; padding: 4rem 0;">
+<section id="about-us" class="about-us section">
   <div class="container" data-aos="fade-up">
     <div class="row gy-4 align-items-center">
       
-      <!-- Text Column -->
-      <div class="col-lg-12">
-        <div class="content text-center">
-          <h2 style="color: aquamarine; font-size: 2rem; margin-bottom: 1rem;">About Us</h2>
-          <p style="font-size: 1rem; line-height: 1.6;">
+      <!-- Text Column (on large screens, left) -->
+      <div class="col-12 col-lg-6 d-flex order-lg-1">
+        <div class="content flex-fill">
+          <h2 class="section-title text-center">About Us</h2>
+          <p class="text-start">
             TaiStat Firm is a technology‑driven company located in the beautiful suburbs of Nairobi City, Kenya, built to serve the needs of today’s data‑focused and AI‑powered world. We specialize in providing smart, scalable solutions in artificial intelligence, data collection and analysis, machine learning support, automation, survey execution, user research, web development, and digital development.
           </p>
-          <p style="font-size: 1rem; line-height: 1.6;">
+          <p class="text-start">
             Our team is made up of highly skilled professionals who have worked extensively in the fields of AI, data science, automation, and digital transformation. Whether it’s annotating datasets for machine learning, developing WhatsApp chatbots, running large‑scale surveys, or creating dynamic, responsive websites, we deliver work that is precise, timely, and aligned with global standards.
           </p>
-          <p style="font-size: 1rem; line-height: 1.6;">
+          <p class="text-start">
             TaiStat supports a wide range of industries, including Education, Artificial Intelligence, Research, Hotels, E‑commerce, Agriculture, and Technology. Our services are trusted by clients looking to scale their projects, automate operations, or gain accurate insights from data in emerging markets.
           </p>
-          <p style="font-size: 1rem; line-height: 1.6;">
+          <p class="text-start">
             Choosing TaiStat as your partner, you're not just outsourcing a task—you’re gaining a committed team that collaborates with you every step of the way. We take the time to understand your objectives and tailor our approach to ensure your goals are met with excellence.
           </p>
-          <p style="font-size: 1rem; font-weight: bold; margin-top: 1.5rem;">
+          <p class="tagline text-start">
             Smart solutions. Real impact. TaiStat delivers.
           </p>
         </div>
       </div>
-      
+
+      <!-- Image Column (on large screens, right) -->
+      <div class="col-12 col-lg-6 d-flex order-lg-2">
+        <img 
+          src="taiabout.jpg" 
+          alt="About TaiStat" 
+          class="img-fluid rounded-lg object-fit-cover flex-fill"
+        >
+      </div>
+
     </div>
   </div>
 </section>
