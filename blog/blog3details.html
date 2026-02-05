@@ -10,7 +10,7 @@
     <meta name="keywords" content="taistat consultancy firm">
   
     <!-- Favicons -->
-     <link rel="icon" type="image/svg+xml" href="tailogo.png" />
+    <link rel="icon" type="image/svg+xml" href="../assets/img/tailogo.png" />
     
   
     <!-- Fonts -->
@@ -31,9 +31,6 @@
  
 </head>
 <style>
-  
-    </style>
-    <style>
     .social-links {
       display: flex;
       gap: 1rem;
@@ -46,15 +43,76 @@
       height: auto;
     }
   </style>
+<style>
+  
+  .whatsapp-container {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .whatsapp-float {
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+        
+        .whatsapp-float img {
+            width: 35px;
+            height: 35px;
+        }
+        
+        .close-btn {
+            background: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 50%;
+        }
+        @media screen and (max-width: 600px) {
+            .whatsapp-container {
+                bottom: 5px;
+                left: 5px;
+                gap: 3px;
+            }
+            .whatsapp-float {
+                width: 40px;
+                height: 40px;
+            }
+            .whatsapp-float img {
+                width: 20px;
+                height: 20px;
+            }
+            .close-btn {
+                font-size: 10px;
+                padding: 4px 8px;
+            }
+        }
+    </style>
 <body>
-
 
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
       <a href="index.html" class="logo d-flex align-items-center me-auto">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="tailogo.png" alt="" style="border-radius: 50%; ">
+        <img src="../assets/img/tailogo.png" alt="" style="border-radius: 50%; ">
        
       </a>
 
@@ -109,91 +167,101 @@
                
         <div class="col-lg-8">
 
-            <!-- Blog Posts Section -->
-            <section id="blog-posts" class="blog-posts section">
-          
-              <div class="container">
-          
-                <div class="row gy-4">
-                  <div class="col-12">
-                    <article>
-                      <div class="post-img">
-                        <img style="width: 200%; height: 100%;" src="blogdetails/blog4.jpg" alt="" class="img-fluid">
-                      </div>
-          
-                      <h2 class="title">
-                        <a href="">The Innovation Framework: Driving Success Through Tailored Strategies</a>
-                      </h2>
-          
-                      <div class="meta-top">
-                        <ul>
-                          <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="">Stephen Mulingwa</a></li>
-                          <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href=""><time datetime="2024-12-01">Dec 1, 2024</time></a></li>
-                          <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="">12 Comments</a></li>
-                        </ul>
-                      </div>
-          
-                      <div class="content">
-                        <h3>The Innovation Framework</h3>
-                        <p>
-                          In today’s fast-paced and competitive landscape, businesses need more than conventional methods to thrive; they need innovative strategies tailored 
-                          to their unique challenges and opportunities. At TaiStat Consultancy Firm, our Innovation Framework is designed to deliver precisely that: 
-                          customized solutions that drive measurable success for businesses of all sizes and industries.
-                        </p>
-          
-                        <h3>Understanding Business Needs</h3>
-                        <p>
-                          The Innovation Framework begins with understanding the core needs of your business. Whether you're a local enterprise or a global corporation, we 
-                          prioritize collaboration to assess your goals, challenges, and market dynamics. By leveraging cutting-edge technologies such as artificial 
-                          intelligence (AI), machine learning, and data analytics, we craft solutions tailored to address your specific requirements.
-                        </p>
-          
-                        <h3>Solving Problems and Anticipating Trends</h3>
-                        <p>
-                          This tailored approach enables businesses to solve existing problems and anticipate future trends. For example, our predictive analytics tools help 
-                          healthcare providers enhance patient care, while our AI-driven models empower financial institutions to detect fraud and manage risks efficiently. 
-                          In the manufacturing sector, we streamline operations, optimize resources, and minimize waste while ensuring sustainability and compliance with 
-                          environmental goals.
-                        </p>
-          
-                        <h3>Seamless Technology Integration</h3>
-                        <p>
-                          Our commitment extends to delivering seamless integrations with existing systems. From utilizing APIs like Safaricom's Daraja for efficient mobile 
-                          payments to harnessing OpenAI’s API for personalized, real-time business insights, the Innovation Framework ensures that technology works for you, 
-                          not the other way around.
-                        </p>
-          
-                        <h3>Fostering Knowledge and Culture</h3>
-                        <p>
-                          Beyond tools and technologies, the framework emphasizes knowledge transfer. Through workshops and training programs, we equip teams with the skills 
-                          to interpret complex data and make informed decisions, fostering a culture of innovation within your organization.
-                        </p>
-          
-                        <h3>A Partnership for Success</h3>
-                        <p>
-                          At TaiStat, success stems from a partnership rooted in understanding, creativity, and adaptability. With our Innovation Framework, we are dedicated 
-                          to guiding your business toward a future defined by growth, efficiency, and resilience.
-                        </p>
-          
-                        <p>
-                          <strong>CEO,</strong><br>
-                          <strong>Stephen Mulingwa</strong><br>
-                          TaiStat Consultancy Firm
-                        </p>
-                      </div>
-                    </article>
-                  </div><!-- End post list item -->
-                </div>
+          <!-- Blog Posts Section -->
+          <section id="blog-posts" class="blog-posts section">
+        
+            <div class="container">
+        
+              <div class="row gy-4">
+                <div class="col-12">
+                  <article>
+                    <div class="post-img">
+                      <img style="width: 200%; height: 100%;" src="blogdetails/blog2.jpg" alt="" class="img-fluid">
+                    </div>
+        
+                    <h2 class="title">
+                      <a href="">Artificial Intelligence: The Non-Biological Species</a>
+                    </h2>
+        
+                    <div class="meta-top">
+                      <ul>
+                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="">Stephen Mulingwa</a></li>
+                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href=""><time datetime="2024-12-01">Dec 1, 2024</time></a></li>
+                        <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="">8 Comments</a></li>
+                      </ul>
+                    </div>
+        
+                    <div class="content">
+                      <h3>What is Artificial Intelligence?</h3>
+                      <p>
+                        Artificial intelligence is a field of science concerned with building computers and machines that can reason, learn, and act in ways that would 
+                        normally require human intelligence or that involve data on scales humans cannot effectively analyze. These tasks include recognizing speech, 
+                        making decisions, understanding language, and perceiving visual information. Machine learning, a subset of AI, plays a pivotal role, enabling systems 
+                        to improve through data-driven learning without explicit programming. As AI evolves, it’s increasingly capable of handling complex, decision-driven 
+                        tasks, transforming industries across the board.
+                      </p>
+        
+                      <h3>Key AI Techniques</h3>
+                      <ul>
+                        <li>
+                          <strong>Machine Learning:</strong> Machine learning enables systems to learn from data. For instance, customer purchase data trains models to predict preferences, making product recommendations more accurate.
+                        </li>
+                        <li>
+                          <strong>Natural Language Processing (NLP):</strong> NLP allows machines to understand and respond to human language, forming the basis for chatbots and virtual assistants that provide intelligent customer support.
+                        </li>
+                        <li>
+                          <strong>Computer Vision:</strong> Computer vision analyzes images and videos, making it invaluable in fields like healthcare for diagnostic imaging and treatment planning.
+                        </li>
+                        <li>
+                          <strong>Reinforcement Learning:</strong> By trial and error, AI systems optimize decision-making with real-time feedback, commonly used in robotics and gaming.
+                        </li>
+                      </ul>
+        
+                      <h3>Real-World AI Applications</h3>
+                      <p>
+                        Businesses worldwide are leveraging AI to enhance productivity and improve customer experience:
+                      </p>
+                      <ul>
+                        <li><strong>Healthcare:</strong> AI analyzes medical images for early disease diagnosis, enhancing patient care and reducing costs.</li>
+                        <li><strong>Finance:</strong> AI-powered tools detect fraud, manage risks, and optimize investment strategies.</li>
+                        <li><strong>Retail and E-commerce:</strong> AI tailors product recommendations based on customer data, driving satisfaction and loyalty.</li>
+                      </ul>
+        
+                      <h3>Benefits of AI for Your Business</h3>
+                      <ul>
+                        <li><strong>Increased Efficiency:</strong> Automate repetitive tasks, allowing teams to focus on strategic goals.</li>
+                        <li><strong>Data-Driven Decision Making:</strong> Analyze large datasets to uncover insights and inform decisions.</li>
+                        <li><strong>Personalization:</strong> AI creates tailored interactions and offerings, boosting engagement and loyalty.</li>
+                      </ul>
+        
+                      <h3>Embracing AI Responsibly</h3>
+                      <p>
+                        Responsible AI usage ensures fairness, transparency, and ethical practices. By addressing privacy and bias concerns, businesses can build trust while 
+                        benefiting from AI-driven innovation.
+                      </p>
+        
+                      <h3>Taistat Consultancy Firm</h3>
+                      <p>
+                        Taistat Company is dedicated to harnessing the transformative power of Artificial Intelligence (AI) to drive innovation and efficiency for its clients. 
+                        By integrating AI-driven solutions, Taistat enhances data analytics, automates routine processes, and optimizes decision-making across industries. This approach 
+                        streamlines operations while uncovering insights that help businesses make strategic choices. Our focus on ethical AI ensures transparency and trust, empowering 
+                        clients with cutting-edge solutions that respect accountability.
+                      </p>
+        
+                      <p>
+                        <strong>CEO,</strong><br>
+                        <strong>Stephen Mulingwa</strong><br>
+                        TaiStat Consultancy Firm
+                      </p>
+                    </div>
+                  </article>
+                </div><!-- End post list item -->
               </div>
-            </section>
-          </div>
-          
-
-
-
-
-
-
+            </div>
+          </section>
+        </div>
+        
+                
 
 
                 
@@ -289,7 +357,6 @@
     </div>
 
   </main>
-
  <footer style="background-color: rgb(10, 9, 9); color: beige;" id="footer" class="footer">
 
 <div class="footer-newsletter">
@@ -402,7 +469,7 @@
       rel="noopener noreferrer"
       aria-label="X"
     >
-      <img src="twiter.png" alt="X logo">
+      <img src="../assets/img/twiter.png" alt="X logo">
     </a>
 
     <!-- LinkedIn icon from local storage -->
@@ -412,7 +479,7 @@
       rel="noopener noreferrer"
       aria-label="LinkedIn"
     >
-      <img src="linkedin.png" alt="LinkedIn logo">
+      <img src="../assets/img/linkedin.png" alt="LinkedIn logo">
     </a>
 
     <!-- Facebook icon from local storage -->
@@ -422,7 +489,7 @@
       rel="noopener noreferrer"
       aria-label="Facebook"
     >
-      <img src="facebook.jpeg" alt="Facebook logo">
+      <img src="../assets/img/facebook.jpeg" alt="Facebook logo">
     </a>
   </div>
 
@@ -450,6 +517,7 @@
         }
     </script>
 <!-- Vendor JS Files -->
+  
   
   
   <!-- Scroll Top -->

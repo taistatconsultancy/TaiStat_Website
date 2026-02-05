@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>TaiStat Firm</title>
-  <meta name="description" content="taistat consultancy firm">
-  <meta name="keywords" content="taistat consultancy firm">
+  <title>About Us | TaiStat Consultancy</title>
+  <meta name="description" content="Learn about TaiStat Consultancy - Our mission, vision, values, and expertise in AI, data analytics, and digital transformation solutions.">
+  <meta name="keywords" content="TaiStat, About Us, Data Consultancy, AI Solutions, Mission, Vision, Values, Innovation, Empowerment, Collaboration">
 
   <!-- Favicons -->
-   <link rel="icon" type="image/svg+xml" href="tailogo.png" />
+   <link rel="icon" type="image/svg+xml" href="assets/img/tailogo.png" />
   
 
   <!-- Fonts -->
@@ -372,6 +372,82 @@ body, html {
   }
 }
 
+/* Value Cards Hover Effect */
+.value-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Feature Box Hover Effect */
+.feature-box {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-box:hover {
+  transform: translateX(10px);
+  box-shadow: 0 15px 35px rgba(97, 97, 252, 0.2);
+}
+
+/* Expertise Items Hover Effect */
+.expertise-item {
+  transition: transform 0.3s ease;
+}
+
+.expertise-item:hover {
+  transform: translateY(-5px);
+}
+
+/* Mission & Vision Cards Hover Effect */
+.mission-card:hover,
+.vision-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6) !important;
+}
+
+.mission-card:hover {
+  border-color: rgba(67, 255, 61, 0.4) !important;
+}
+
+.vision-card:hover {
+  border-color: rgba(127, 255, 212, 0.4) !important;
+}
+
+/* Responsive adjustments for new sections */
+@media (max-width: 992px) {
+  .mission-card,
+  .vision-card {
+    margin-bottom: 2rem;
+  }
+  
+  #mission-vision {
+    padding: 3rem 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.75rem !important;
+  }
+  
+  .mission-card,
+  .vision-card {
+    padding: 2rem !important;
+  }
+  
+  .mission-card p,
+  .vision-card p {
+    font-size: 0.95rem !important;
+  }
+  
+  #mission-vision {
+    padding: 2.5rem 0 !important;
+    min-height: auto !important;
+  }
+  
+  .section-subtitle {
+    font-size: 0.8rem !important;
+  }
+}
 
 </style>
 <body class="index-page">
@@ -382,7 +458,7 @@ body, html {
 
       <a href="index.html" class="logo d-flex align-items-center me-auto">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="tailogo.png" alt="" style="border-radius: 50%; ">
+        <img src="assets/img/tailogo.png" alt="" style="border-radius: 50%; ">
        
       </a>
 
@@ -408,115 +484,204 @@ body, html {
 
   <main class="main">
 
-<!-- Hero Section -->
-<!-- Hero Section -->
-<section id="unique-hero-section" class="hero-section">
-  <div class="unique-hero-content">
-    <h1>Taistat</h1>
-  </div>
-</section>
-
-
-<!-- /Hero Section -->
-
-<!-- About Us Section -->
-<section id="about-us" class="about-us section">
+<!-- Mission & Vision Section - Side by Side -->
+<section id="mission-vision" class="mission-vision section" style="background: #001f3f; padding: 5rem 0; min-height: auto; display: flex; align-items: center;">
   <div class="container" data-aos="fade-up">
-    <div class="row gy-4 align-items-center">
+    <div class="row gy-4 gx-4 justify-content-center align-items-stretch">
       
-      <!-- Text Column (on large screens, left) -->
-      <div class="col-12 col-lg-6 d-flex order-lg-1">
-        <div class="content flex-fill">
-          <h2 class="section-title text-center">About Us</h2>
-          <p class="text-start">
-            TaiStat Firm is a technology‑driven company located in the beautiful suburbs of Nairobi City, Kenya, built to serve the needs of today’s data‑focused and AI‑powered world. We specialize in providing smart, scalable solutions in artificial intelligence, data collection and analysis, machine learning support, automation, survey execution, user research, web development, and digital development.
-          </p>
-          <p class="text-start">
-            Our team is made up of highly skilled professionals who have worked extensively in the fields of AI, data science, automation, and digital transformation. Whether it’s annotating datasets for machine learning, developing WhatsApp chatbots, running large‑scale surveys, or creating dynamic, responsive websites, we deliver work that is precise, timely, and aligned with global standards.
-          </p>
-          <p class="text-start">
-            TaiStat supports a wide range of industries, including Education, Artificial Intelligence, Research, Hotels, E‑commerce, Agriculture, and Technology. Our services are trusted by clients looking to scale their projects, automate operations, or gain accurate insights from data in emerging markets.
-          </p>
-          <p class="text-start">
-            Choosing TaiStat as your partner, you're not just outsourcing a task—you’re gaining a committed team that collaborates with you every step of the way. We take the time to understand your objectives and tailor our approach to ensure your goals are met with excellence.
-          </p>
-          <p class="tagline text-start">
-            Smart solutions. Real impact. TaiStat delivers.
-          </p>
+      <!-- Mission - Left Side -->
+      <div class="col-lg-5 col-md-6" data-aos="fade-right" data-aos-delay="100">
+        <div class="mission-card" style="background: #1a1a1a; padding: 2.5rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; overflow: hidden; border: 1px solid rgba(67, 255, 61, 0.2);">
+          <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: #43ff3d;"></div>
+          <div class="mb-3">
+            <h3 class="section-subtitle" style="color: #43ff3d; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.75rem; font-weight: 600;">Our Purpose</h3>
+            <h2 class="section-title" style="color: #ffffff; font-size: 2rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2;">Mission</h2>
+          </div>
+          <div class="mission-content">
+            <p style="font-size: 1rem; line-height: 1.8; color: #e0e0e0; margin: 0; text-align: left;">
+              To deliver scalable, data-driven and AI-powered solutions that empower organizations and communities across sectors — from agriculture to education — by transforming raw data into actionable insights, automating operations, and building smart digital platforms.
+            </p>
+          </div>
+          <div class="mt-3" style="display: flex; align-items: center; gap: 0.75rem; padding-top: 1rem;">
+            <i class="bi bi-bullseye" style="font-size: 1.5rem; color: #43ff3d;"></i>
+            <div style="flex: 1; height: 2px; background: linear-gradient(90deg, #43ff3d 0%, rgba(67, 255, 61, 0.3) 100%); border-radius: 2px;"></div>
+          </div>
         </div>
       </div>
 
-      <!-- Image Column (on large screens, right) -->
-      <div class="col-12 col-lg-6 d-flex order-lg-2">
-        <img 
-          src="taiabout.jpg" 
-          alt="About TaiStat" 
-          class="img-fluid rounded-lg object-fit-cover flex-fill"
-        >
+      <!-- Vision - Right Side -->
+      <div class="col-lg-5 col-md-6" data-aos="fade-left" data-aos-delay="200">
+        <div class="vision-card" style="background: #1a1a1a; padding: 2.5rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; overflow: hidden; border: 1px solid rgba(127, 255, 212, 0.2);">
+          <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, aquamarine 0%, rgba(127, 255, 212, 0.8) 100%);"></div>
+          <div class="mb-3">
+            <h3 class="section-subtitle" style="color: aquamarine; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.75rem; font-weight: 600;">Our Aspiration</h3>
+            <h2 class="section-title" style="color: #ffffff; font-size: 2rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2;">Vision</h2>
+          </div>
+          <div class="vision-content">
+            <p style="font-size: 1rem; line-height: 1.8; color: #e0e0e0; margin: 0; text-align: left;">
+              To be a leading African technology firm driving inclusive digital transformation, where every sector benefits from intelligent systems, transparent data, and automation that accelerates growth, innovation, and social impact.
+            </p>
+          </div>
+          <div class="mt-3" style="display: flex; align-items: center; gap: 0.75rem; padding-top: 1rem;">
+            <i class="bi bi-eye-fill" style="font-size: 1.5rem; color: aquamarine;"></i>
+            <div style="flex: 1; height: 2px; background: linear-gradient(90deg, aquamarine 0%, rgba(127, 255, 212, 0.3) 100%); border-radius: 2px;"></div>
+          </div>
+        </div>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- Your existing About (Founder / Data Engineer) Section follows here -->
-<section id="about" class="about section" style="background-color: rgb(27, 26, 26);">
-  <!-- … -->
+<!-- Values Section -->
+<section id="values" class="values section" style="background-color: #f9f9f9; padding: 5rem 0;">
+  <div class="container" data-aos="zoom-out">
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-8 text-center">
+        <h3 class="section-subtitle" style="color: #667eea; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem;">What Drives Us</h3>
+        <h2 class="section-title" style="color: #012970; font-size: 3rem; font-weight: 700; margin-bottom: 1rem;">Our Core Values</h2>
+        <p style="font-size: 1.1rem; color: #666; margin-bottom: 0;">The principles that guide everything we do at TaiStat</p>
+      </div>
+    </div>
+    <div class="row gy-4">
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="value-card" style="background: #fff; padding: 2.5rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); height: 100%; transition: transform 0.3s ease, box-shadow 0.3s ease; text-align: center;">
+          <div class="value-icon" style="font-size: 4rem; color: #43ff3d; margin-bottom: 1.5rem;">
+            <i class="bi bi-rocket-takeoff-fill"></i>
+          </div>
+          <h3 style="color: #012970; font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem;">Empowerment</h3>
+          <p style="color: #666; font-size: 1.1rem; line-height: 1.7; margin: 0;">
+            We believe in empowering organizations and communities through accessible technology, knowledge transfer, and tools that enable independent growth and innovation.
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="value-card" style="background: #fff; padding: 2.5rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); height: 100%; transition: transform 0.3s ease, box-shadow 0.3s ease; text-align: center;">
+          <div class="value-icon" style="font-size: 4rem; color: #667eea; margin-bottom: 1.5rem;">
+            <i class="bi bi-lightbulb-fill"></i>
+          </div>
+          <h3 style="color: #012970; font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem;">Innovation</h3>
+          <p style="color: #666; font-size: 1.1rem; line-height: 1.7; margin: 0;">
+            We continuously push boundaries, exploring cutting-edge technologies and creative solutions to solve complex challenges and stay ahead of industry trends.
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="value-card" style="background: #fff; padding: 2.5rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); height: 100%; transition: transform 0.3s ease, box-shadow 0.3s ease; text-align: center;">
+          <div class="value-icon" style="font-size: 4rem; color: #764ba2; margin-bottom: 1.5rem;">
+            <i class="bi bi-people-fill"></i>
+          </div>
+          <h3 style="color: #012970; font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem;">Collaboration</h3>
+          <p style="color: #666; font-size: 1.1rem; line-height: 1.7; margin: 0;">
+            We work closely with clients, partners, and communities, fostering open communication and shared success to achieve transformative outcomes together.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- About Section -->
-<section id="about" class="about section" style="background-color: rgb(27, 26, 26);">
+<!-- Why Choose Us Section -->
+<section id="why-choose-us" class="why-choose-us section" style="background-color: #1b1a1a; color: #eee; padding: 5rem 0;">
+  <div class="container" data-aos="fade-up">
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-8 text-center">
+        <h3 class="section-subtitle" style="color: aquamarine; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem;">Why Partner With Us</h3>
+        <h2 class="section-title" style="color: rgb(61, 61, 252); font-size: 3rem; font-weight: 700; margin-bottom: 2rem;">What Sets TaiStat Apart</h2>
+      </div>
+    </div>
+    <div class="row gy-4">
+      <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
+        <div class="feature-box" style="padding: 2rem; background: rgba(97, 97, 252, 0.1); border-radius: 10px; border-left: 4px solid aquamarine; height: 100%;">
+          <h4 style="color: aquamarine; font-size: 1.5rem; margin-bottom: 1rem;">
+            <i class="bi bi-check-circle-fill me-2"></i>Expert Team
+          </h4>
+          <p style="color: #eee; font-size: 1.1rem; line-height: 1.7; margin: 0;">
+            Our team consists of highly skilled professionals with extensive experience in AI, data science, automation, and digital transformation, ensuring world-class delivery.
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="200">
+        <div class="feature-box" style="padding: 2rem; background: rgba(97, 97, 252, 0.1); border-radius: 10px; border-left: 4px solid aquamarine; height: 100%;">
+          <h4 style="color: aquamarine; font-size: 1.5rem; margin-bottom: 1rem;">
+            <i class="bi bi-globe me-2"></i>Global Standards
+          </h4>
+          <p style="color: #eee; font-size: 1.1rem; line-height: 1.7; margin: 0;">
+            We deliver work that is precise, timely, and aligned with international best practices, meeting the highest quality benchmarks in every project.
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="300">
+        <div class="feature-box" style="padding: 2rem; background: rgba(97, 97, 252, 0.1); border-radius: 10px; border-left: 4px solid aquamarine; height: 100%;">
+          <h4 style="color: aquamarine; font-size: 1.5rem; margin-bottom: 1rem;">
+            <i class="bi bi-shield-check me-2"></i>Trusted by Many
+          </h4>
+          <p style="color: #eee; font-size: 1.1rem; line-height: 1.7; margin: 0;">
+            Our services are trusted by clients across Education, AI Research, Hospitality, E-commerce, Agriculture, and Technology sectors looking to scale and innovate.
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="400">
+        <div class="feature-box" style="padding: 2rem; background: rgba(97, 97, 252, 0.1); border-radius: 10px; border-left: 4px solid aquamarine; height: 100%;">
+          <h4 style="color: aquamarine; font-size: 1.5rem; margin-bottom: 1rem;">
+            <i class="bi bi-graph-up-arrow me-2"></i>Scalable Solutions
+          </h4>
+          <p style="color: #eee; font-size: 1.1rem; line-height: 1.7; margin: 0;">
+            Whether it's annotating datasets, developing chatbots, running surveys, or creating websites, we provide solutions that grow with your business needs.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Expertise Section -->
+<section id="expertise" class="expertise section" style="background-color: #f9f9f9; padding: 5rem 0;">
   <div class="container" data-aos="zoom-out">
-    <div class="row gx-0">
-      
-      <!-- Stephen Mulingwa – Founder & AI Strategist -->
-      <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="zoom-in-up" data-aos-delay="200">
-        <div class="content">
-          <h3 style="color: aquamarine;">Meet the Founder</h3>
-          <h2 style="color: rgb(61, 61, 252);">Stephen Mulingwa</h2>
-          <img
-            style="border-radius: 50%; height: 150px;"
-            src="assets/img/mulingwa.jpg"
-            class="img-fluid"
-            alt="Stephen Mulingwa – AI Strategist"
-          />
-
-          <p style="color: azure;">
-            Stephen Mulingwa leads TaiStat’s strategic direction and AI innovation. As the visionary behind the firm, he plays a central role in guiding the company’s mission to provide intelligent, scalable, and ethical data solutions. His expertise lies in AI training for research, where he helps institutions build smart, data-driven systems for academic studies, social impact research, and market intelligence.
-          </p>
-          <p style="color: azure;">
-            Stephen has led numerous projects involving predictive modeling, decision support systems, and healthcare analytics, making AI both accessible and impactful for real-world applications. At TaiStat, his leadership extends beyond technical work—he cultivates partnerships, mentors talent, and ensures each engagement delivers measurable value.
-          </p>
-          <p style="color: azure;">
-            His commitment to empowering teams and clients through AI-driven research tools sets TaiStat apart as a forward-thinking, trusted partner in the global data ecosystem. Stephen has trained and guided professionals, businesses, and aspiring data practitioners in mastering data analytics, machine learning, and AI applications, fostering a new generation of data-driven leaders.
-          </p>
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-8 text-center">
+        <h3 class="section-subtitle" style="color: #667eea; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem;">Our Expertise</h3>
+        <h2 class="section-title" style="color: #012970; font-size: 3rem; font-weight: 700; margin-bottom: 1rem;">What We Do Best</h2>
+        <p style="font-size: 1.1rem; color: #666; margin-bottom: 0;">Comprehensive technology solutions across multiple domains</p>
+      </div>
+    </div>
+    <div class="row gy-4">
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="expertise-item text-center" style="padding: 2rem;">
+          <div style="font-size: 3rem; color: #667eea; margin-bottom: 1rem;">
+            <i class="bi bi-cpu-fill"></i>
+          </div>
+          <h4 style="color: #012970; font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem;">Artificial Intelligence</h4>
+          <p style="color: #666; font-size: 0.95rem; margin: 0;">AI training, machine learning, and intelligent automation</p>
         </div>
       </div>
-
-      <!-- Nanyaemuny Savins – Data Engineer & Deployment Lead -->
-      <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="zoom-in-up" data-aos-delay="400">
-        <div class="content">
-          <h3 style="color: aquamarine;">Data Engineer</h3>
-          <h2 style="color: rgb(61, 61, 252);">Nanyaemuny Savins</h2>
-          <img
-            style="border-radius: 50%; height: 150px;"
-            src="savoo1.jpg"
-            class="img-fluid"
-            alt="Nanyaemuny Savins – Data Engineer"
-          />
-
-          <p style="color: azure;">
-            Nanyaemuny Savins brings technical depth and a results-driven mindset to TaiStat’s operations. He specializes in model deployment, ensuring that the AI solutions designed by the team move seamlessly from development to production, ready to serve real business needs.
-          </p>
-          <p style="color: azure;">
-            Savins also leads the firm’s efforts in automating services through custom-built chatbots, particularly WhatsApp-based solutions that enhance client engagement and operational efficiency. His work in web development supports entrepreneurs, SMEs, and larger organizations in building clean, functional, and responsive digital platforms that strengthen their online presence.
-          </p>
-          <p style="color: azure;">
-            With a strong background in statistical modeling and applied machine learning, Savins delivers end-to-end solutions that are reliable, scalable, and user-friendly. His role at TaiStat is essential to translating data science into practical tools that help clients achieve their goals and operate more intelligently in today’s digital world.
-          </p>
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="expertise-item text-center" style="padding: 2rem;">
+          <div style="font-size: 3rem; color: #43ff3d; margin-bottom: 1rem;">
+            <i class="bi bi-database-fill"></i>
+          </div>
+          <h4 style="color: #012970; font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem;">Data Analytics</h4>
+          <p style="color: #666; font-size: 0.95rem; margin: 0;">Data collection, analysis, and actionable insights</p>
         </div>
       </div>
-
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="expertise-item text-center" style="padding: 2rem;">
+          <div style="font-size: 3rem; color: #764ba2; margin-bottom: 1rem;">
+            <i class="bi bi-code-slash"></i>
+          </div>
+          <h4 style="color: #012970; font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem;">Web Development</h4>
+          <p style="color: #666; font-size: 0.95rem; margin: 0;">Dynamic, responsive websites and digital platforms</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+        <div class="expertise-item text-center" style="padding: 2rem;">
+          <div style="font-size: 3rem; color: #f093fb; margin-bottom: 1rem;">
+            <i class="bi bi-chat-dots-fill"></i>
+          </div>
+          <h4 style="color: #012970; font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem;">Automation</h4>
+          <p style="color: #666; font-size: 0.95rem; margin: 0;">Chatbots, workflow automation, and process optimization</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -641,7 +806,7 @@ body, html {
       rel="noopener noreferrer"
       aria-label="X"
     >
-      <img src="twiter.png" alt="X logo">
+      <img src="assets/img/twiter.png" alt="X logo">
     </a>
 
     <!-- LinkedIn icon from local storage -->
@@ -651,7 +816,7 @@ body, html {
       rel="noopener noreferrer"
       aria-label="LinkedIn"
     >
-      <img src="linkedin.png" alt="LinkedIn logo">
+      <img src="assets/img/linkedin.png" alt="LinkedIn logo">
     </a>
 
     <!-- Facebook icon from local storage -->
@@ -661,7 +826,7 @@ body, html {
       rel="noopener noreferrer"
       aria-label="Facebook"
     >
-      <img src="facebook.jpeg" alt="Facebook logo">
+      <img src="assets/img/facebook.jpeg" alt="Facebook logo">
     </a>
   </div>
 

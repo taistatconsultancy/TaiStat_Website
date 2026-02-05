@@ -201,4 +201,36 @@
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
+  /**
+   * Set nav active state based on current page (cross-page navigation)
+   */
+  window.addEventListener('load', function () {
+    const currentFile = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    const links = document.querySelectorAll('.navmenu a');
+    if (!links.length) return;
+    // Clear any pre-set active states first
+    document.querySelectorAll('.navmenu a.active').forEach(link => link.classList.remove('active'));
+
+    // Try exact file match; also handle anchors like services.html#section
+    let matched = false;
+    links.forEach(a => {
+      const href = (a.getAttribute('href') || '').toLowerCase();
+      const hrefFile = href.split('#')[0].split('/').pop();
+      if (hrefFile && hrefFile === currentFile) {
+        a.classList.add('active');
+        matched = true;
+      }
+    });
+
+    // If no direct match and we're on the root ("" or "/"), set Home active
+    if (!matched && (currentFile === '' || currentFile === '/')) {
+      links.forEach(a => {
+        const href = (a.getAttribute('href') || '').toLowerCase();
+        if (href.endsWith('index.html')) {
+          a.classList.add('active');
+        }
+      });
+    }
+  });
+
 })();

@@ -5,7 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>taistat data</title>
   <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" type="image/svg+xml" href="tailogo.png" />
+  <link rel="icon" type="image/svg+xml" href="assets/img/tailogo.png" />
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
   <style>
     @keyframes delayedFadeIn {
       0% { opacity: 0; }
@@ -666,30 +674,41 @@
 </head>
 <body class="text-white">
 
+  <!-- Global Site Header -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <img src="assets/img/tailogo.png" alt="" style="border-radius: 50%; ">
+      </a>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="AI.html">AI</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="aboutus.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+      <a class="btn-getstarted flex-md-shrink-0" href="courses.html">Get Started</a>
+    </div>
+  </header>
+
   <!-- Floating Navigation Bar -->
-  <nav class="fixed top-4 left-1/2 transform -translate-x-1/2 bg-white text-black shadow-lg rounded-full px-6 py-2 z-50 flex justify-between items-center w-[95%] max-w-7xl">
-    <div class="flex items-center gap-6">
-      <div class="flex items-center gap-2">
-        <img src="tailogo.png" alt="Logo" class="w-8 h-8 rounded-full object-cover" />
-        <span class="font-bold text-xl">Taistat</span>
-      </div>
-      <div class="hidden md:flex items-center gap-6 ml-4">
-        <a href="pricing.html" class="font-semibold">Pricing</a>
-      </div>
-    </div>
-    <div class="flex items-center gap-4">
-      <a href="datasign.html" class="hidden md:inline-block bg-indigo-600 text-white font-semibold px-4 py-2 rounded-full text-sm hover:bg-indigo-700">Get started for free</a>
-      <button id="menuToggle" class="md:hidden focus:outline-none">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
-    </div>
+  <nav class="fixed top-28 right-4 bg-white text-black shadow-lg rounded-full px-4 py-2 z-50 flex items-center gap-3 w-auto">
+    <a href="pricing.html" class="hidden md:inline-block font-semibold px-3 py-1.5 rounded-full text-sm hover:bg-gray-100">Pricing</a>
+    <a href="datasign.html" class="hidden md:inline-block bg-indigo-600 text-white font-semibold px-4 py-2 rounded-full text-sm hover:bg-indigo-700">Get started for free</a>
+    <button id="menuToggle" class="md:hidden focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
   </nav>
 
   <!-- Mobile Menu -->
-  <div id="mobileMenu" class="fixed top-20 right-4 bg-white text-black rounded-lg shadow-md p-4 hidden md:hidden z-50">
-    <a href="datasign.html" class="block px-4 py-2 font-semibold hover:bg-gray-100 rounded">Solutions</a>
+  <div id="mobileMenu" class="fixed top-32 right-4 bg-white text-black rounded-lg shadow-md p-4 hidden md:hidden z-50">
     <a href="pricing.html" class="block px-4 py-2 font-semibold hover:bg-gray-100 rounded">Pricing</a>
     <a href="datasign.html" class="block px-4 py-2 mt-2 bg-indigo-600 text-white text-center rounded-full hover:bg-indigo-700">Get started for free</a>
   </div>
@@ -698,7 +717,7 @@
   <section class="relative h-screen w-full overflow-hidden flex items-center px-6 pt-32 z-10">
     <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-800 to-blue-400 opacity-80 z-0"></div>
     <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover delayed-fade-in z-0">
-      <source src="bgvid.mp4" type="video/mp4" />
+      <source src="assets/media/bgvid.mp4" type="video/mp4" />
     </video>
     <div class="relative z-10 max-w-5xl text-left">
       <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-8">
@@ -723,7 +742,7 @@
   <div class="integration-services-grid">
     <!-- Card 1 -->
     <div class="integration-card">
-      <img src="getstarted.jpg" alt="Research Participants Pool" class="integration-card-img">
+      <img src="assets/img/getstarted.jpg" alt="Research Participants Pool" class="integration-card-img">
       <h3 class="integration-card-heading">Get Started with Your Research Today</h3>
       <p class="integration-card-text">
         Launch your research faster with TaiStat’s ready pool of verified participants and expert-led data collection teams. Whether you're conducting academic studies, product research, or behavioral experiments, we help you reach diverse and targeted audiences in minutes not weeks. With flexible setup options, survey support, and analytics-ready data delivery, TaiStat makes high-quality research effortless from start to finish.
@@ -731,7 +750,7 @@
     </div>
     <!-- Card 2 -->
     <div class="integration-card">
-      <img src="today.jpg" alt="AI Training Data" class="integration-card-img">
+      <img src="assets/img/today.jpg" alt="AI Training Data" class="integration-card-img">
       <h3 class="integration-card-heading">Train AI with TaiStat Today</h3>
       <p class="integration-card-text">
         Fuel your machine learning and AI models with high-quality, human-verified data collected, cleaned, and annotated by our expert teams. Whether you're building LLMs, voice assistants, or computer vision systems, TaiStat supports training at any scale with precision and speed. Get started instantly, integrate your preferred tools, and receive production-ready datasets in hours, not weeks.
@@ -739,7 +758,7 @@
     </div>
     <!-- Card 3 -->
     <div class="integration-card">
-      <img src="intergrate.jpg" alt="API Integration" class="integration-card-img">
+      <img src="assets/img/intergrate.jpg" alt="API Integration" class="integration-card-img">
       <h3 class="integration-card-heading">Integrate with TaiStat</h3>
       <p class="integration-card-text">
         Seamlessly connect your platform to TaiStat’s always-on participant pool and expert data teams through powerful API integrations. Enhance your customers’ AI and research workflows by giving them instant access to high-quality human data, rapid task execution, and verified feedback from diverse audiences. With flexible integration options and fast onboarding, TaiStat helps you scale smarter, serve better, and stand out from the competition.
@@ -757,7 +776,6 @@
 
 </section>
 
-
   <!-- Trusted & Research Section -->
  
 
@@ -765,9 +783,9 @@
   <section class="customers-section">
   <!-- Background video -->
   <video class="bg-video" autoplay muted loop playsinline>
-    <source src="participantserve.mp4" type="video/mp4">
+    <source src="assets/media/participantserve.mp4" type="video/mp4">
     <!-- Optional fallback image for non‑video browsers -->
-    <img src="fallback.jpg" alt="Background">
+    <img src="assets/img/getstarted.jpg" alt="Background">
   </video>
 
   <div class="container">
@@ -813,20 +831,20 @@
   <div class="footer-inner">
     <div class="footer-brand">
       <div class="brand-card">
-        <img src="tailogo.png" alt="Taistat Logo" class="footer-logo" />
+        <img src="assets/img/tailogo.png" alt="Taistat Logo" class="footer-logo" />
         <p>Empowering smarter decisions with real-time data.</p>
       </div>
       <div class="socials">
         <span>Follow us on</span>
         <a href="https://x.com/TaistatFirm" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
-          <img src="twiter.png" alt="X" style="width:24px; height:24px;" />
+          <img src="assets/img/twiter.png" alt="X" style="width:24px; height:24px;" />
         </a>
         <a href="https://www.linkedin.com/company/taistat-consultancy-firm/" target="_blank" rel="noopener noreferrer"
           aria-label="LinkedIn">
-          <img src="linkedin.png" alt="LinkedIn" style="width:24px; height:24px;" />
+          <img src="assets/img/linkedin.png" alt="LinkedIn" style="width:24px; height:24px;" />
         </a>
         <a href="https://www.facebook.com/TaiStatFirm" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-          <img src="facebook.jpeg" alt="Facebook" style="width:24px; height:24px;" />
+          <img src="assets/img/facebook.jpeg" alt="Facebook" style="width:24px; height:24px;" />
         </a>
       </div>
     </div>
@@ -876,6 +894,18 @@
       menu.classList.toggle('hidden');
     });
   </script>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
 </body>
 
 </html>
